@@ -1,0 +1,5 @@
+- added using CVS keywords in %%changelog (for automating them).
+
+* Thu Jun 17 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [1.0-1]
+- FHS 2.0
