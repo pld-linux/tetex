@@ -55,6 +55,7 @@ Patch18:	teTeX-trie_size_max.patch
 Patch19:	teTeX-kpathsea.patch
 Patch20:        teTeX-locale.patch
 Patch21:	teTeX-libXpm.patch
+Patch22:	%{name}-no_info_files.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	bison
 BuildRequires:	ed
@@ -2954,6 +2955,7 @@ tar xzf %{SOURCE1} -C texmf
 %patch19 -p1
 %patch20 -p1
 %patch21 -p1
+%patch22
 
 # This is a workaround till the sources get fixed... (the same hack is used in
 # debian so you can bite me :) -- mmazur
