@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	15
+Release:	16
 License:	distributable
 Group:		Applications/Publishing/TeX
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_stable_ver}.tar.gz
@@ -45,6 +45,7 @@ Patch14:	teTeX-protos.patch
 Patch15:	teTeX-tektronix.patch
 Patch16:	teTeX-cx.patch
 Patch17:	teTeX-cpp_macros.patch
+Patch18:	teTeX-src-beta-20020207-security.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -540,6 +541,7 @@ tar xzf %{SOURCE2} -C texmf
 %patch15 -p1
 %patch16 -p1
 %patch17 -p1
+%patch18 -p1
 
 %build
 #sh ./reautoconf
