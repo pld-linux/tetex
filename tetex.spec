@@ -589,7 +589,7 @@ install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 #find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
 
 %post
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 /usr/bin/fmtutil --all >/dev/null 2>&1 
 
@@ -598,28 +598,28 @@ exit 0
 
 %postun
 /sbin/ldconfig
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post latex
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun latex
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvips
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvips
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
