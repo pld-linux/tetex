@@ -784,20 +784,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/weave.1*
 
+%dir %{_datadir}/texmf
+
 %doc %{_datadir}/texmf/ChangeLog
 %config %{_datadir}/texmf/aliases
 
+%dir %{_datadir}/texmf/context
+%dir %{_datadir}/texmf/context/config
+%dir %{_datadir}/texmf/context/data
 %config %{_datadir}/texmf/context/config/texexec.ini
 %lang(de) %{_datadir}/texmf/context/data/cont-de.tws
 %lang(en) %{_datadir}/texmf/context/data/cont-en.tws
 %lang(nl) %{_datadir}/texmf/context/data/cont-nl.tws
 
-%{_datadir}/texmf/etex/plain/base/*
-%{_datadir}/texmf/etex/plain/config/*
-%{_datadir}/texmf/fontname/*
+%dir %{_datadir}/texmf/etex
+%dir %{_datadir}/texmf/etex/plain
+%{_datadir}/texmf/etex/plain/base
+%{_datadir}/texmf/etex/plain/config
+%{_datadir}/texmf/fontname
 
+%dir %{_datadir}/texmf/fonts
+%dir %{_datadir}/texmf/fonts/source
 %{_datadir}/texmf/fonts/source/jknappen
-%{_datadir}/texmf/fonts/source/lh/base/*
+%dir %{_datadir}/texmf/fonts/source/lh
+%{_datadir}/texmf/fonts/source/lh/base
 %{_datadir}/texmf/fonts/source/lh/lh-lcy
 %{_datadir}/texmf/fonts/source/lh/lh-ot2
 %{_datadir}/texmf/fonts/source/lh/lh-t2a
@@ -805,10 +815,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/source/lh/lh-t2c
 %{_datadir}/texmf/fonts/source/lh/lh-x2
 %{_datadir}/texmf/fonts/source/lh/nont2
+%dir %{_datadir}/texmf/fonts/source/public
 %{_datadir}/texmf/fonts/source/public/bbm
 %{_datadir}/texmf/fonts/source/public/bbold
 %{_datadir}/texmf/fonts/source/public/cbgreek
 %{_datadir}/texmf/fonts/source/public/cc-pl
+%dir %{_datadir}/texmf/fonts/source/public/cm
 %{_datadir}/texmf/fonts/source/public/cm/*.mf
 %{_datadir}/texmf/fonts/source/public/cmbright
 %{_datadir}/texmf/fonts/source/public/cmextra
@@ -826,19 +838,21 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/source/public/rsfs/*.mf
 %dir %{_datadir}/texmf/fonts/source/public/stmaryrd
 %{_datadir}/texmf/fonts/source/public/stmaryrd/*.mf
-%dir %{_datadir}/texmf/fonts/source/public/wasy/
+%dir %{_datadir}/texmf/fonts/source/public/wasy
 %{_datadir}/texmf/fonts/source/public/wasy/*.mf
 %dir %{_datadir}/texmf/fonts/source/public/xypic
 %{_datadir}/texmf/fonts/source/public/xypic/*.mf
-%dir %{_datadir}/texmf/fonts/source/yandy/mathtime
-%{_datadir}/texmf/fonts/source/yandy/mathtime/*
+%dir %{_datadir}/texmf/fonts/source/yandy
+%{_datadir}/texmf/fonts/source/yandy/mathtime
 
+%dir {_datadir}/texmf/fonts/tfm
 %{_datadir}/texmf/fonts/tfm/adobe
 %{_datadir}/texmf/fonts/tfm/bh
 %{_datadir}/texmf/fonts/tfm/bitstrea
 %{_datadir}/texmf/fonts/tfm/cg
 %{_datadir}/texmf/fonts/tfm/hoekwater
 %{_datadir}/texmf/fonts/tfm/monotype
+%dir %{_datadir}/texmf/fonts/tfm/public
 %{_datadir}/texmf/fonts/tfm/public/ae
 %{_datadir}/texmf/fonts/tfm/public/bbm
 %{_datadir}/texmf/fonts/tfm/public/bbold
@@ -861,6 +875,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/tfm/public/stmaryrd
 %{_datadir}/texmf/fonts/tfm/public/wasy
 %{_datadir}/texmf/fonts/tfm/public/xypic
+%dir %{_datadir}/texmf/fonts/tfm/public/yandy
 %{_datadir}/texmf/fonts/tfm/yandy/courier
 %{_datadir}/texmf/fonts/tfm/yandy/lubright
 %{_datadir}/texmf/fonts/tfm/yandy/lucida
@@ -877,10 +892,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex
 
+%dir %{_datadir}/texmf/metafont
 %{_datadir}/texmf/metafont/base
 %{_datadir}/texmf/metafont/config
 %{_datadir}/texmf/metafont/misc
 
+%dir %{_datadir}/texmf/metapost
 %{_datadir}/texmf/metapost/base
 %{_datadir}/texmf/metapost/config
 %{_datadir}/texmf/metapost/context
@@ -888,21 +905,29 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/texmf/mft
 
+%dir %{_datadir}/texmf/tex
+%dir %{_datadir}/texmf/tex/context
 %{_datadir}/texmf/tex/context/base
 %{_datadir}/texmf/tex/context/config
 
+%dir %{_datadir}/texmf/tex/fontinst
 %{_datadir}/texmf/tex/fontinst/base
 
 %attr(-,root,root) %{_datadir}/texmf/tex/generic
 
+%dir %{_datadir}/texmf/tex/plain
 %{_datadir}/texmf/tex/plain/base
 %{_datadir}/texmf/tex/plain/config
 %{_datadir}/texmf/tex/plain/mathtime
 %{_datadir}/texmf/tex/plain/misc
 
+%dir %{_datadir}/texmf/tex/cyrplain
 %{_datadir}/texmf/tex/cyrplain/base
+%dir %{_datadir}/texmf/tex/cyrplain/config
 %config %{_datadir}/texmf/tex/cyrplain/config/*.ini
+%dir %{_datadir}/texmf/tex/mex
 %{_datadir}/texmf/tex/mex/base
+%dir %{_datadir}/texmf/tex/mex/config
 %config %{_datadir}/texmf/tex/mex/config/mex.ini
 %config %{_datadir}/texmf/tex/mex/config/mexconf.tex
 
@@ -910,6 +935,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %doc %{_datadir}/texmf/texconfig/README
 
+%dir %{_datadir}/texmf/texconfig
 %{_datadir}/texmf/texconfig/g*
 %{_datadir}/texmf/texconfig/v*
 %{_datadir}/texmf/texconfig/x*
@@ -945,6 +971,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
 
+%docdir %{_datadir}/texmf/doc
+%dir %{_datadir}/texmf/doc
 %doc %{_datadir}/texmf/doc/Makefile
 %doc %{_datadir}/texmf/doc/README
 %doc %{_datadir}/texmf/doc/context
@@ -953,6 +981,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/tetex.gif
 %doc %{_datadir}/texmf/doc/mex
 
+%dir %{_datadir}/texmf/doc/fonts
 %doc %{_datadir}/texmf/doc/fonts/c*
 %doc %{_datadir}/texmf/doc/fonts/ec*
 %doc %{_datadir}/texmf/doc/fonts/pl
@@ -975,11 +1004,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/tetex
 
 %doc %{_datadir}/texmf/source/README
+%dir %{_datadir}/texmf/source
 %{_datadir}/texmf/source/generic
 
 %files latex 
 %defattr(644,root,root,755)
 
+%dir %{_datadir}/texmf/etex/latex
+%dir %{_datadir}/texmf/etex/latex/misc
 %{_datadir}/texmf/etex/latex/misc/etex.sty
 %{_datadir}/texmf/fonts/source/public/latex
 %{_datadir}/texmf/fonts/tfm/public/latex
@@ -999,17 +1031,20 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/bibtex
 %{_mandir}/man1/bibtex.1*
 
+%dir %{_datadir}/texmf/bibtex
 %{_datadir}/texmf/bibtex/bib
+%dir %{_datadir}/texmf/bibtex/bst
 %{_datadir}/texmf/bibtex/bst/base
 %{_datadir}/texmf/bibtex/bst/germbib
 %{_datadir}/texmf/bibtex/bst/koma-script
 %{_datadir}/texmf/bibtex/bst/misc
 %{_datadir}/texmf/bibtex/bst/natbib
 
-%doc %{_datadir}/texmf/doc/bibtex/
+%doc %{_datadir}/texmf/doc/bibtex
 
 %{_datadir}/texmf/source/latex
 
+%dir %{_datadir}/texmf/tex/platex
 %{_datadir}/texmf/tex/platex/base
 %config %{_datadir}/texmf/tex/platex/config
 
@@ -1031,6 +1066,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/texmf/tex/eplain
 
+%dir %{_datadir}/texmf/etex/latex/config
 %config %{_datadir}/texmf/etex/latex/config/elatex.ini
 
 %files omega 
@@ -1048,15 +1084,25 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
 
 %{_datadir}/texmf/fonts/tfm/public/omega
+%dir %{_datadir}/texmf/fonts/ofm
+%dir %{_datadir}/texmf/fonts/ofm/public
 %{_datadir}/texmf/fonts/ofm/public/omega
+%dir %{_datadir}/texmf/fonts/ovf
+%dir %{_datadir}/texmf/fonts/ovf/public
 %{_datadir}/texmf/fonts/ovf/public/omega
+%dir %{_datadir}/texmf/fonts/ovp
+%dir %{_datadir}/texmf/fonts/ovp/public
 %{_datadir}/texmf/fonts/ovp/public/omega
 %{_datadir}/texmf/fonts/type1/public/omega
 
+%dir %{_datadir}/texmf/omega
+%dir %{_datadir}/texmf/omega/otp
 %{_datadir}/texmf/omega/otp/omega
+%dir %{_datadir}/texmf/omega/plain
 %{_datadir}/texmf/omega/plain/config
 %{_datadir}/texmf/omega/plain/base
 %{_datadir}/texmf/omega/lambda
+%dir %{_datadir}/texmf/omega/ocp
 %{_datadir}/texmf/omega/ocp/char2uni
 %{_datadir}/texmf/omega/ocp/misc
 %{_datadir}/texmf/omega/ocp/omega
@@ -1095,15 +1141,27 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pdftex.1*
 %{_mandir}/man1/pdfvirtex.1*
 
+%dir %{_datadir}/texmf/pdftex
 %{_datadir}/texmf/pdftex/config
+%dir %{_datadir}/texmf/pdftex/plain
 %{_datadir}/texmf/pdftex/plain/misc
 %{_datadir}/texmf/pdftex/texinfo
 
+%dir %{_datadir}/texmf/pdftex/latex
+%dir %{_datadir}/texmf/pdftex/latex/config
 %config %{_datadir}/texmf/pdftex/latex/config/pdflatex.ini
+%dir %{_datadir}/texmf/pdftex/mex
+%dir %{_datadir}/texmf/pdftex/mex/config
 %config %{_datadir}/texmf/pdftex/mex/config/pdfmex.ini
+%dir %{_datadir}/texmf/pdftex/plain/config
 %config %{_datadir}/texmf/pdftex/plain/config/pdftex.ini
 
+%dir %{_datadir}/texmf/pdfetex
+%dir %{_datadir}/texmf/pdfetex/latex
+%dir %{_datadir}/texmf/pdfetex/latex/config
 %config %{_datadir}/texmf/pdfetex/latex/config/pdfelatex.ini
+%dir %{_datadir}/texmf/pdfetex/tex
+%dir %{_datadir}/texmf/pdfetex/tex/config
 %config %{_datadir}/texmf/pdfetex/tex/config/pdfetex.ini
 
 %attr(755,root,root) %{_bindir}/pdflatex 
@@ -1150,12 +1208,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amstex
 %{_mandir}/man1/amstex.1*
 
+%dir %{_datadir}/texmf/fonts/source/ams
 %{_datadir}/texmf/fonts/source/ams/cmextra
 %{_datadir}/texmf/fonts/source/ams/cyrillic
 %{_datadir}/texmf/fonts/source/ams/euler
 %{_datadir}/texmf/fonts/source/ams/symbols
 %{_datadir}/texmf/fonts/tfm/ams
 
+%dir %{_datadir}/texmf/tex/amstex
 %{_datadir}/texmf/tex/amstex/base
 %{_datadir}/texmf/tex/amstex/config
 %{_datadir}/texmf/tex/plain/amsfonts
@@ -1167,25 +1227,34 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts
 %defattr(644,root,root,755)
-%{_datadir}/texmf/fonts/pfm/public/xypic/*
+%dir %{_datadir}/texmf/fonts/pfm
+%dir %{_datadir}/texmf/fonts/pfm/public
+%{_datadir}/texmf/fonts/pfm/public/xypic
 
+%dir %{_datadir}/texmf/fonts/type1
+%dir %{_datadir}/texmf/fonts/type1/adobe
 %{_datadir}/texmf/fonts/type1/adobe/utopia
+%dir %{_datadir}/texmf/fonts/type1/bitstrea
 %{_datadir}/texmf/fonts/type1/bitstrea/charter
+%dir %{_datadir}/texmf/fonts/type1/bluesky
 %{_datadir}/texmf/fonts/type1/bluesky/cm
 %{_datadir}/texmf/fonts/type1/bluesky/cmextra
 %{_datadir}/texmf/fonts/type1/bluesky/cyrillic
 %{_datadir}/texmf/fonts/type1/bluesky/euler
 %{_datadir}/texmf/fonts/type1/bluesky/symbols
+%dir %{_datadir}/texmf/fonts/type1/hoekwater
 %{_datadir}/texmf/fonts/type1/hoekwater/context
 %{_datadir}/texmf/fonts/type1/hoekwater/mflogo
 %{_datadir}/texmf/fonts/type1/hoekwater/misc
 %{_datadir}/texmf/fonts/type1/hoekwater/rsfs
 %{_datadir}/texmf/fonts/type1/hoekwater/stmaryrd
 %{_datadir}/texmf/fonts/type1/hoekwater/wasy
+%dir %{_datadir}/texmf/fonts/type1/public
 %{_datadir}/texmf/fonts/type1/public/cmcyr
 %{_datadir}/texmf/fonts/type1/public/marvosym
 %{_datadir}/texmf/fonts/type1/public/pl
 %{_datadir}/texmf/fonts/type1/public/xypic
+%dir %{_datadir}/texmf/fonts/type1/urw
 %{_datadir}/texmf/fonts/type1/urw/avantgar
 %{_datadir}/texmf/fonts/type1/urw/bookman
 %{_datadir}/texmf/fonts/type1/urw/courier
@@ -1197,6 +1266,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/type1/urw/zapfchan
 %{_datadir}/texmf/fonts/type1/urw/zapfding
 
+%dir %{_datadir}/texmf/fonts/vf
+%dir %{_datadir}/texmf/fonts/vf/adobe
 %{_datadir}/texmf/fonts/vf/adobe/avantgar
 %{_datadir}/texmf/fonts/vf/adobe/bookman
 %{_datadir}/texmf/fonts/vf/adobe/courier
@@ -1210,11 +1281,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/vf/adobe/times
 %{_datadir}/texmf/fonts/vf/adobe/utopia
 %{_datadir}/texmf/fonts/vf/adobe/zapfchan
+%dir %{_datadir}/texmf/fonts/vf/bitstrea
 %{_datadir}/texmf/fonts/vf/bitstrea/charter
+%dir %{_datadir}/texmf/fonts/vf/bh
 %{_datadir}/texmf/fonts/vf/bh/lubright
 %{_datadir}/texmf/fonts/vf/bh/lucida
 %{_datadir}/texmf/fonts/vf/bh/lucidfax
 %{_datadir}/texmf/fonts/vf/bh/lucsans
+%dir %{_datadir}/texmf/fonts/vf/cg
 %{_datadir}/texmf/fonts/vf/cg/albertus
 %{_datadir}/texmf/fonts/vf/cg/atqolive
 %{_datadir}/texmf/fonts/vf/cg/clarendo
@@ -1226,11 +1300,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/vf/cg/optima
 %{_datadir}/texmf/fonts/vf/cg/times
 %{_datadir}/texmf/fonts/vf/cg/univers
+%dir %{_datadir}/texmf/fonts/vf/monotype
 %{_datadir}/texmf/fonts/vf/monotype/helvetic
 %{_datadir}/texmf/fonts/vf/monotype/timesnew
+%dir %{_datadir}/texmf/fonts/vf/public
 %{_datadir}/texmf/fonts/vf/public/ae
 %{_datadir}/texmf/fonts/vf/public/cmcyr
 %{_datadir}/texmf/fonts/vf/public/mathpple
+%dir %{_datadir}/texmf/fonts/vf/yandy
 %{_datadir}/texmf/fonts/vf/yandy/mathplus
 %{_datadir}/texmf/fonts/vf/yandy/mathtime
 %{_datadir}/texmf/fonts/vf/yandy/times
@@ -1243,6 +1320,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/xdvi.1.*
 %{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
+%dir %{_datadir}/texmf/xdvi
 %{_datadir}/texmf/xdvi/XDvi
 
 %files -n kpathsea-devel
