@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	0.1
+Release:	0.2
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -4062,7 +4062,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pooltype
 %attr(755,root,root) %{_bindir}/ps2frag
 %attr(755,root,root) %{_bindir}/ps2pk
-%attr(755,root,root) %{_bindir}/readlink
 %attr(755,root,root) %{_bindir}/t1mapper
 %attr(755,root,root) %{_bindir}/tangle
 %attr(755,root,root) %{_bindir}/tetex-updmap
@@ -4166,7 +4165,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_mandir}/fr/man1/access.1*
 %lang(hu) %{_mandir}/hu/man1/access.1*
 %lang(hu) %{_mandir}/hu/man1/newer.1*
-%lang(hu) %{_mandir}/hu/man1/readlink.1*
 %lang(pl) %{_mandir}/pl/man1/access.1*
 %lang(pl) %{_mandir}/pl/man1/newer.1*
 #%%{_mandir}/man1/MakeTeXPK.1*
@@ -4199,7 +4197,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pooltype.1*
 %{_mandir}/man1/ps2frag.1*
 %{_mandir}/man1/ps2pk.1*
-%{_mandir}/man1/readlink.1*
 %{_mandir}/man1/t1mapper.1*
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
