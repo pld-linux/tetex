@@ -2,7 +2,7 @@
 # error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
 # what with texinfo ?
 
-%define		_ver	beta-20020208
+%define		_ver	beta-20020402
 %define		texmf_ver	beta-20020207
 
 Summary:	TeX typesetting system and MetaFont font formatter
