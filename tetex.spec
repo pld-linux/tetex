@@ -34,14 +34,12 @@ Source5:	xdvi.desktop
 Source6:	xdvi.png
 Source7:	%{name}-updmap
 # to be removed when next tetex version arrives
-Source8:	%{name}-listings.sty
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
 Patch4:		teTeX-info.patch
 Patch5:		teTeX-klibtool.patch
 Patch6:		teTeX-texi2html.patch
-Patch7:		teTeX-texmfcnf.patch
 Patch9:		teTeX-texmf-dvipsgeneric.patch
 Patch10:	teTeX-fmtutil.patch
 Patch11:	teTeX-grep.patch
@@ -49,8 +47,6 @@ Patch12:	teTeX-all-languages.patch
 Patch13:	teTeX-bug19278.patch
 Patch14:	teTeX-protos.patch
 Patch15:	teTeX-tektronix.patch
-Patch16:	teTeX-cx.patch
-Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
 Patch19:	teTeX-kpathsea.patch
 Patch20:	teTeX-locale.patch
@@ -2937,26 +2933,22 @@ install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
 %patch0  -p1
-%patch1  -p1
-%patch2  -p1
-%patch4  -p1
-%patch5  -p1
+#fixme:%patch1  -p1
+%patch2  -p0
+#fixme:%patch4  -p1
+#%patch5  -p0 # there is no klibtool
 %patch6  -p1
-# default values are OK
-#patch7  -p1
 %patch9  -p1
-%patch10 -p1
+#fixme:%patch10 -p1
 %patch11 -p1
-%patch12 -p1
-%patch14 -p1
-%patch15 -p1
-#%patch16 -p1
-#%patch17 -p1
+%patch12 -p0
+#fixme:%patch14 -p1
+#fixme:%patch15 -p1
 %patch18 -p1
-%patch19 -p1
+#fixme:%patch19 -p1
 %patch20 -p1
-%patch21 -p1
-%patch22
+#fixme:%patch21 -p1
+#fixme:%patch22 -p0
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
@@ -3053,9 +3045,6 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
-
-# only for tetex 2.0.2, I hope
-install %{SOURCE8} $RPM_BUILD_ROOT%{texmf}/tex/latex/listings/listings.sty
 
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
