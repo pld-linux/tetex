@@ -8,8 +8,8 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define		_ver	beta-20021225
-%define		texmf_ver	beta-20021225
+%define		_ver	beta-20030112
+%define		texmf_ver	beta-20030112
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -21,7 +21,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	1.2
+Release:	1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
