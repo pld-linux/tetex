@@ -1,17 +1,92 @@
---- teTeX-1.0/texk/web2c/fmtutil.in.orig	Thu May 27 10:48:59 1999
-+++ teTeX-1.0/texk/web2c/fmtutil.in	Fri Jun 25 22:40:20 1999
-@@ -40,11 +40,11 @@
- @OMEGA@lambda		omega		language.dat	lambda.ini
+--- teTeX-src-beta-20021025/texk/web2c/fmtutil.in	Thu Oct 24 14:10:18 2002
++++ teTeX-src-beta-20021025/texk/web2c/fmtutil.in.new	Sat Oct 26 18:07:43 2002
+@@ -39,13 +39,13 @@
  
- # The amstex format:
--# amstex	@TEXBIN@		-		amstex.ini
-+amstex		@TEXBIN@		-		amstex.ini
+ # Change "tex.ini -> bplain.ini" and "- -> language.dat"
+ # if you want babel support in tex:
+-tex		@TEXBIN@		-		tex.ini
++tex		@TEXBIN@		language.dat		bplain.ini
+ latex		@TEXBIN@		language.dat	latex.ini
+ @ETEX@etex		etex		language.def	*etex.ini
+ @ETEX@elatex		etex		language.dat	*elatex.ini
+ # Change "pdftex.ini -> pdfbplain.ini" and "- -> language.dat"
+ # if you want babel support in pdftex:
+-@PTEX@pdftex		pdftex		-	pdftex.ini
++@PTEX@pdftex		pdftex		language.dat	pdfbplain.ini
+ @PTEX@pdflatex	pdftex		language.dat	pdflatex.ini
+ @PETEX@pdfetex		pdfetex		language.def	*pdfetex.ini
+ @PETEX@pdfelatex	pdfetex		language.dat	*pdfelatex.ini
+@@ -56,50 +56,50 @@
  
- # Variants of plain and amstex which allow to customize hyphenation:
--# bplain	@TEXBIN@		language.dat	bplain.ini
--# bamstex	@TEXBIN@		language.dat	bamstex.ini
-+bplain		@TEXBIN@		language.dat	bplain.ini
-+bamstex		@TEXBIN@		language.dat	bamstex.ini
+ # Change "amstex.ini -> bamstex.ini" and "- -> language.dat"
+ # if you want babel support in amstex:
+-#! amstex	@TEXBIN@		-		amstex.ini
++amstex	@TEXBIN@		language.dat		bamstex.ini
+ 
+ # Change "pdfamstex.ini -> pdfbamstex.ini" and "- -> language.dat"
+ # if you want babel support in pdfamstex:
+-#! pdfamstex	pdftex			-	pdfamstex.ini
++pdfamstex	pdftex			language.dat	pdfbamstex.ini
  
  # Context formats:
- # cont-de	pdfetex		cont-usr.tex	*cont-de.ini
+-#! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
+-#! cont-de	pdfetex		cont-usr.tex	*cont-de.ini
++#! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
++cont-de	pdfetex		cont-usr.tex	*cont-de.ini
+ @PETEX@cont-en	pdfetex		cont-usr.tex	*cont-en.ini
+-#! cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
+-#! cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
++cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
++cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
+ 
+ # language-specific things:
+ 
+ # - Cyrillic:
+-#! cyrtex	tex		language.dat	cyrtex.ini
+-#! cyrtexinfo	tex		language.dat	cyrtxinf.ini
+-#! cyramstex	tex		language.dat	cyramstx.ini
++cyrtex	tex		language.dat	cyrtex.ini
++cyrtexinfo	tex		language.dat	cyrtxinf.ini
++cyramstex	tex		language.dat	cyramstx.ini
+ 
+ # - Polish:
+-#! platex		tex		language.dat	platex.ini
+-#! pdfplatex		pdftex		language.dat	pdfplatex.ini
+-#! mex		tex		mexconf.tex	mex.ini
+-#! pdfmex		pdftex		mexconf.tex	pdfmex.ini
+-#! pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
++platex		tex		language.dat	platex.ini
++pdfplatex		pdftex		language.dat	pdfplatex.ini
++mex		tex		mexconf.tex	mex.ini
++pdfmex		pdftex		mexconf.tex	pdfmex.ini
++pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
+ 
+ # - Polish with translated messages (experimental):
+-#! platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
+-#! mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
+-#! pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
+-#! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
++platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
++mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
++pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
++pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
+ 
+ # - Czech / Slovak:
+-#! csplain	tex		-		csplain.ini
+-#! cslatex	tex		-	cslatex.ini
+-#! pdfcsplain	pdftex		-		csplain.ini
+-#! pdfcslatex	pdftex		-    cslatex.ini
++csplain	tex		-		csplain.ini
++cslatex	tex		-	cslatex.ini
++pdfcsplain	pdftex		-		csplain.ini
++pdfcslatex	pdftex		-    cslatex.ini
+ 
+ # Other formats:
+ 
+ # Change "eplain.ini -> ebplain.ini" and "- -> language.dat"
+ # if you want babel support in eplain:
+-#! eplain	tex		-	eplain.ini
++eplain	tex		language.dat	ebplain.ini
+ 
+ 
+ # mptopdf utility

@@ -1,7 +1,6 @@
-diff -Nru teTeX-0.9.orig/texk/tetex/Makefile.in teTeX-0.9/texk/tetex/Makefile.in
---- teTeX-0.9.orig/texk/tetex/Makefile.in	Thu Jul  2 01:27:10 1998
-+++ teTeX-0.9/texk/tetex/Makefile.in	Thu Dec 10 11:20:29 1998
-@@ -30,27 +30,27 @@
+--- teTeX-src-beta-20020530/texk/tetex/Makefile.in.orig	Wed May 15 06:57:24 2002
++++ teTeX-src-beta-20020530/texk/tetex/Makefile.in	Wed Jun 26 21:55:35 2002
+@@ -38,27 +38,27 @@
  	  viromega.$(manext) virtex.$(manext) pdflatex.$(manext) \
  	  MakeTeXPK.$(manext) \
  	  cont-de.$(manext) cont-nl.$(manext) cont-en.$(manext)
@@ -50,19 +49,17 @@ diff -Nru teTeX-0.9.orig/texk/tetex/Makefile.in teTeX-0.9/texk/tetex/Makefile.in
  	test -r latex.info || cd $(srcdir) && for i in latex.info*; do \
  	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
  	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
-@@ -74,7 +74,14 @@
+@@ -83,7 +83,12 @@
  	  ln -s allcm allec; \
  	  ln -s kpsetool kpsepath; \
  	  ln -s kpsetool kpsexpand; \
 -	  ln -s mktexlsr texhash
-+	  ln -s mktexlsr texhash; \
-+	  ln -s -f  tex amstex; \
-+	  ln -s -f  tex eplain; \
-+	  ln -s -f  kpsetool kpsepath; \
-+	  ln -s -f  kpsetool kpsexpand; \
-+	  ln -s -f  pdftex cont-en; \
-+	  ln -s -f  pdftex cont-nl; \
-+	  ln -s -f  pdftex cont-de; \
- 
- ac_include ../make/clean.mk
- 
++ 	  ln -s -f  mktexlsr texhash; \
++  	  ln -s -f  tex amstex; \
++  	  ln -s -f  tex eplain; \
++  	  ln -s -f  pdftex cont-en; \
++  	  ln -s -f  pdftex cont-nl; \
++  	  ln -s -f  pdftex cont-de 
+ 	cd $(scriptdir); rm -f fdf2tan makempy texfind texfont texshow texutil; \
+ 	  for f in fdf2tan makempy texfind texfont texshow texutil; do \
+   	    ln -s texexec $$f; \
