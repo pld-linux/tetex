@@ -1,10 +1,5 @@
 #
 # TODO:
-#
-# beta-20021025, rel. 1:
-# - testing
-#
-# later:
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
@@ -25,7 +20,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.1
+Release:	1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -3997,7 +3992,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/cont-nl.1*
 
 # does not build with beta 20021025
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
+#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
