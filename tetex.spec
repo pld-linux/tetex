@@ -29,6 +29,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	ed
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	/tmp/%{name}-%{version}-root
