@@ -1,5 +1,6 @@
 #
 # TODO:
+# - fix file lists
 # - context: review package splitting
 # - omega: consider more splitting, check dependencies
 # - create new packages if there is a need: more latex splitting... others?
@@ -7,6 +8,8 @@
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
 #
+
+%define tversion 2.96.5.20040711
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -17,16 +20,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.96.3.20040511
+Version:	2.96.7.20040721
 Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
 Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-beta-%{version}.tar.gz
-# Source0-md5:	72a9c73c819f8bd066a61a9a20361426
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-beta-2.96.2.20040510.tar.gz
-# Source1-md5:	df969e252569057570ad4a88f17b7ffe
+# Source0-md5:	16bc502d5270d79cab73a5f3f3ff1b63
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-beta-%{tversion}.tar.gz
+# Source1-md5:	a02189f0cb478272de17f24fbc6401ac
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
@@ -37,21 +40,15 @@ Source7:	%{name}-updmap
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
-Patch4:		teTeX-info.patch
-Patch5:		teTeX-klibtool.patch
-Patch6:		teTeX-texi2html.patch
-Patch9:		teTeX-texmf-dvipsgeneric.patch
-Patch10:	teTeX-fmtutil.patch
-Patch11:	teTeX-grep.patch
-Patch12:	teTeX-all-languages.patch
-Patch13:	teTeX-bug19278.patch
-Patch14:	teTeX-protos.patch
-Patch15:	teTeX-tektronix.patch
-Patch18:	teTeX-trie_size_max.patch
-Patch19:	teTeX-kpathsea.patch
-Patch20:	teTeX-locale.patch
-Patch21:	teTeX-libXpm.patch
-Patch22:	%{name}-no_info_files.patch
+Patch3:		teTeX-info.patch
+Patch4:		teTeX-klibtool.patch
+Patch5:		teTeX-texmf-dvipsgeneric.patch
+Patch6:	teTeX-fmtutil.patch
+Patch7:	teTeX-grep.patch
+Patch8:	teTeX-tektronix.patch
+Patch9:	teTeX-trie_size_max.patch
+Patch10:	teTeX-kpathsea.patch
+Patch11:	teTeX-locale.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -64,7 +61,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-perlprov
-BuildRequires:	t1lib-devel
+BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
 BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
@@ -2933,22 +2930,17 @@ install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
 %patch0  -p1
-#fixme:%patch1  -p1
-%patch2  -p0
-#fixme:%patch4  -p1
-#%patch5  -p0 # there is no klibtool
-%patch6  -p1
-%patch9  -p1
-#fixme:%patch10 -p1
+%patch1  -p1
+%patch2  -p1
+#fixme:%patch3  -p1
+#%patch4  -p0 # there is no klibtool
+%patch5  -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
 %patch11 -p1
-%patch12 -p0
-#fixme:%patch14 -p1
-#fixme:%patch15 -p1
-%patch18 -p1
-#fixme:%patch19 -p1
-%patch20 -p1
-#fixme:%patch21 -p1
-#fixme:%patch22 -p0
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
@@ -4388,44 +4380,43 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/scale
 %{texmf}/doc/latex/showlabels
 %{texmf}/doc/latex/sidecap
-%{texmf}/doc/latex/styles/a4.dvi
-%{texmf}/doc/latex/styles/adrguide.dvi
-%{texmf}/doc/latex/styles/beton.dvi
-%{texmf}/doc/latex/styles/blkarray.dvi
-%{texmf}/doc/latex/styles/chappg.txt
-%{texmf}/doc/latex/styles/comm_test_l.tex
-%{texmf}/doc/latex/styles/concmath.dvi
-%{texmf}/doc/latex/styles/crop.dvi
-%{texmf}/doc/latex/styles/curves.dvi
-%{texmf}/doc/latex/styles/endfloat.dvi
-%{texmf}/doc/latex/styles/euler.dvi
-%{texmf}/doc/latex/styles/examdoc.dvi
-%{texmf}/doc/latex/styles/fancybox.dvi
-%{texmf}/doc/latex/styles/float.dvi
-%{texmf}/doc/latex/styles/footnpag-user.dvi
-%{texmf}/doc/latex/styles/hyphenat.dvi
-%{texmf}/doc/latex/styles/index.dvi
-%{texmf}/doc/latex/styles/labels.dvi
-%{texmf}/doc/latex/styles/lastpage.dvi
-%{texmf}/doc/latex/styles/layman.dvi
-#%%{texmf}/doc/latex/styles/lucidabr.txt
-%{texmf}/doc/latex/styles/mathcomp.dvi
-%{texmf}/doc/latex/styles/moreverb.dvi
-%{texmf}/doc/latex/styles/paralist.dvi
-%{texmf}/doc/latex/styles/picinpar.dvi
-%{texmf}/doc/latex/styles/picins.txt
-%{texmf}/doc/latex/styles/placeins.txt
-%{texmf}/doc/latex/styles/readme.fp
-%{texmf}/doc/latex/styles/sectsty.dvi
-%{texmf}/doc/latex/styles/slashbox.tex
-%{texmf}/doc/latex/styles/soul.dvi
-%{texmf}/doc/latex/styles/stdclsdv.dvi
-%{texmf}/doc/latex/styles/subfigure.dvi
-%{texmf}/doc/latex/styles/textfit.dvi
-%{texmf}/doc/latex/styles/titlesec.dvi
-%{texmf}/doc/latex/styles/tocloft.dvi
-%{texmf}/doc/latex/styles/type1cm.txt
-%{texmf}/doc/latex/styles/vmargin.dvi
+%{texmf}/doc/latex/ntgclass/
+%{texmf}/doc/latex/adrconv/
+%{texmf}/doc/latex/beton/
+%{texmf}/doc/latex/carlisle/
+%{texmf}/doc/latex/chappg
+%{texmf}/doc/latex/comment
+%{texmf}/doc/latex/concmath
+%{texmf}/doc/latex/crop
+%{texmf}/doc/latex/curves
+%{texmf}/doc/latex/endfloat
+%{texmf}/doc/latex/euler
+%{texmf}/doc/latex/examdoc
+%{texmf}/doc/latex/fancybox
+%{texmf}/doc/latex/float
+%{texmf}/doc/latex/footnpag-user
+%{texmf}/doc/latex/hyphenat
+%{texmf}/doc/latex/index
+%{texmf}/doc/latex/labels
+%{texmf}/doc/latex/lastpage
+%{texmf}/doc/latex/layman
+%{texmf}/doc/latex/mathcomp
+%{texmf}/doc/latex/moreverb
+%{texmf}/doc/latex/paralist
+%{texmf}/doc/latex/picinpar
+%{texmf}/doc/latex/picins
+%{texmf}/doc/latex/placeins
+%{texmf}/doc/latex/readme.fp
+%{texmf}/doc/latex/sectsty
+%{texmf}/doc/latex/slashbox.tex
+%{texmf}/doc/latex/soul
+%{texmf}/doc/latex/stdclsdv
+%{texmf}/doc/latex/subfigure
+%{texmf}/doc/latex/textfit
+%{texmf}/doc/latex/titlesec
+%{texmf}/doc/latex/tocloft
+%{texmf}/doc/latex/type1cm
+%{texmf}/doc/latex/vmargin
 %{texmf}/doc/latex/seminar
 %{texmf}/doc/latex/supertab
 %{texmf}/doc/latex/textmerg
