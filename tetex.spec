@@ -8,7 +8,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	2
+Release:	3
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
