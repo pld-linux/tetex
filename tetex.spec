@@ -431,13 +431,13 @@ rm -f texk/{tetex,dvipsk}/*.info*
 find -name language.dat -exec perl -pi -e 's/^%polish/polish/g' {} \;
 
 
-make
+%{__make}
 cd texk 
-make
+%{__make}
 cd ..
 
 cd texk/tetex
-make
+%{__make}
 cd ../..
 
 cd texk/dvipsk
