@@ -1576,30 +1576,39 @@ VNR fonts for LaTeX.
 %description latex-vnr -l pl
 Fonty VNR dla LaTeXa.
 
-# XXX --q
 %package latex-wasysym
 Summary:	Extra characters from the Waldis symbol fonts
+Summary(pl):	Dodatkowe znaki z fontów Waldis symbol
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-wasy = %{version}
 
 %description latex-wasysym
-Makes some additional characters available that come from the wasy fonts
-(Waldis symbol fonts). These fonts are not automatically included in
-NFSS2/LaTeX2e since they take up important space and often aren't necessary
-if one makes use of the packages amsfonts or amssymb. Symbols include: join
-box, diamond, leadsto, sqsubset, lhd, rhd, apple, ocircle invneg, logof,
-varint, male, female, phone, clock lightning, pointer, sun, bell, permil,
-smiley, various electrical symbols, shapes, music notes, circles, signs,
-astronomy, etc.
+Makes some additional characters available that come from the wasy
+fonts (Waldis symbol fonts). These fonts are not automatically
+included in NFSS2/LaTeX2e since they take up important space and often
+aren't necessary if one makes use of the packages amsfonts or amssymb.
+Symbols include: join box, diamond, leadsto, sqsubset, lhd, rhd,
+apple, ocircle invneg, logof, varint, male, female, phone, clock,
+lightning, pointer, sun, bell, permil, smiley, various electrical
+symbols, shapes, music notes, circles, signs, astronomy, etc.
+
+%description latex-wasysym -l pl
+Pakiet udostêpniaj±cy dodatkowe symbole pochodz±ce z fontów wasy
+(Waldis symbol). Te fonty nie s± automatycznie do³±czane w
+NFSS2/LaTeX2e, poniewa¿ zajmuj± miejsce i zazwyczaj nie s± potrzebne
+je¶li u¿ywa siê pakietów amsfonts lub amssymb. Zestaw symboli zawiera
+m.in.: symbole join box, diamond, leadsto, sqsubset, lhd, rhd, apple,
+ocircle invneg, logof, varint, male, female, phone, clock, lightning,
+pointer, sun, bell, permil, smiley oraz ró¿ne symbole elektryczne,
+kszta³ty, nuty, okrêgi, znaki, symbole astronomiczne itp.
 
 %package format-latex
 Summary:	LaTeX macro package
+Summary(pl):	Pakiet makr LaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description format-latex
@@ -1609,21 +1618,31 @@ convenient, predefined document formats for users.
 
 This package contains LaTeX format.
 
+%description format-latex -l pl
+LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
+³atwiejszy w u¿yciu ni¿ TeX. Jest w³a¶ciwie zestawem makr TeXowych,
+daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
+
+Ten pakiet zawiera format LaTeX.
+
 %package format-elatex
 Summary:	ELaTeX macro package
+Summary(pl):	Pakiet makr ELaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description format-elatex
 ELaTeX macro package.
 
+%description format-elatex -l pl
+Pakiet makr ELaTeX.
+
 %package format-pdflatex
 Summary:	PDF LaTeX macro package
+Summary(pl):	Pakiet makr PDF LaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-latex-psnfss = %{version}
@@ -1635,11 +1654,18 @@ convenient, predefined document formats for users.
 
 This package contains PDF LaTeX format.
 
+%description format-pdflatex -l pl
+LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
+³atwiejszy w u¿yciu ni¿ TeX. Jest w³a¶ciwie zestawem makr TeXowych,
+daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
+
+Ten pakiet zawiera format PDF LaTeX.
+
 %package format-pdfelatex
 Summary:	PDF ELaTeX macro package
+Summary(pl):	Pakiet makr PDF ELaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-pdftex = %{version}
 
@@ -1650,34 +1676,47 @@ convenient, predefined document formats for users.
 
 This package contains PDF ELaTeX format.
 
+%description format-pdfelatex -l pl
+LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
+³atwiejszy w u¿yciu ni¿ TeX. Jest w³a¶ciwie zestawem makr TeXowych,
+daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
+
+Ten pakiet zawiera format PDF ELaTeX.
+
 # PLaTeX format
 
 %package platex
 Summary:	PLaTeX format basic files
+Summary(pl):	Podstawowe pliki dla formatu PLaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-pl = %{version}
 
 %description platex
 PLaTeX format basic files.
 
+%description platex -l pl
+Podstawowe pliki dla formatu PLaTeX.
+
 %package format-platex
 Summary:	PLaTeX format
+Summary(pl):	Format PLaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-platex = %{version}
 
 %description format-platex
 PLaTeX format.
 
+%description format-platex -l pl
+Format PLaTeX.
+
 %package format-pdfplatex
 Summary:	PDF PLaTeX format
+Summary(pl):	Format PDF PLaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-platex = %{version}
 Requires:	%{name}-fonts-type1-pl = %{version}
@@ -1685,180 +1724,242 @@ Requires:	%{name}-fonts-type1-pl = %{version}
 %description format-pdfplatex
 PDF PLaTeX format.
 
+%description format-pdfplatex -l pl
+Format PDF PLaTeX.
+
 #
 # TeX generic macros
 #
 
 %package tex-babel
 Summary:	Multilingual support for TeX
+Summary(pl):	Obs³uga wielu jêzyków dla TeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-babel
 Multilingual support for TeX.
 
+%description tex-babel -l pl
+Obs³uga wielu jêzyków dla TeXa.
+
 %package tex-german
 Summary:	Supports the new German orthography (neue deutsche Rechtschreibung)
+Summary(pl):	Obs³uga nowej ortografii niemieckiej (neue deutsche Rechtschreibung)
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-german
 Supports the new German orthography (neue deutsche Rechtschreibung).
 
+%description tex-german -l pl
+Obs³uga nowej ortografii niemieckiej (neue deutsche Rechtschreibung).
+
 %package tex-mfpic
 Summary:	Macros which generate Metafont or Metapost for drawing pictures
+Summary(pl):	Makra generuj±ce Metafont lub Metapost do rysowania obrazków
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-mfpic
 Macros which generate Metafont or Metapost for drawing pictures.
 
+%description tex-mfpic -l pl
+Makra generuj±ce Metafont lub Metapost do rysowania obrazków.
+
 %package tex-misc
 Summary:	Miscellaneous TeX macros
+Summary(pl):	Ró¿ne makra TeXowe
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-tex-eijkhout
 
 %description tex-misc
 Miscellaneous TeX macros.
 
+%description tex-misc -l pl
+Ró¿ne makra TeXowe.
+
 %package tex-pictex
 Summary:	Picture drawing macros for TeX and LaTeX
+Summary(pl):	Makra do rysowania obrazków dla TeXa i LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-pictex
 Picture drawing macros for TeX and LaTeX.
 
+%description tex-pictex -l pl
+Makra do rysowania obrazków dla TeXa i LaTeXa.
+
 %package tex-pstricks
 Summary:	PostScript macros for TeX
+Summary(pl):	Makra postscriptowe dla TeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-pstricks
-An extensive collection of PostScript macros that is compatible with most
-TeX macro packages, including Plain TeX, LaTeX, AMS-TeX, and AMS-LaTeX.
-Included are macros for color, graphics, pie charts, rotation, trees and
-overlays. It has many special features, including: a wide variety of
-graphics (picture drawing) macros, with a flexible interface and with color
-support. There are macros for coloring or shading the cells of tables.
+An extensive collection of PostScript macros that is compatible with
+most TeX macro packages, including Plain TeX, LaTeX, AMS-TeX, and
+AMS-LaTeX. Included are macros for color, graphics, pie charts,
+rotation, trees and overlays. It has many special features, including:
+a wide variety of graphics (picture drawing) macros, with a flexible
+interface and with color support. There are macros for coloring or
+shading the cells of tables.
+
+%description tex-pstricks -l pl
+Du¿y zestaw makr postscriptowych kompatybilny z wiêkszo¶ci± pakietów
+makr TeXowych, w tym: Plain TeX, LaTeX, AMS-TeX i AMS-LaTeX. Za³±czono
+makra obs³uguj±ce kolory, grafikê, wykresy ko³owe, obroty, drzewa i
+nak³adanie. Maj± wiele mo¿liwo¶ci, w tym du¿o makr graficznych (do
+rysowania obrazków) z elastycznym interfejsem i obs³ug± koloru. S± te¿
+makra do kolorowania lub cieniowania komórek tabel.
 
 %package tex-qpx
 Summary:	QuasiPalatino and PX fonts typesetting support
+Summary(pl);	Wsparcie dla sk³adu fontami QuasiPalatino i PX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-qpx = %{version}
 
 %description tex-qpx
 QuasiPalatino and PX fonts typesetting support.
 
+%description tex-qpx -l pl
+Wsparcie dla sk³adu fontami QuasiPalatino i PX.
+
 %package tex-qtx
 Summary:	QuasiTimes and TX fonts typesetting support
+Summary(pl):	Wsparcie dla sk³adu fontami QuasiTimes i TX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-qtx = %{version}
 
 %description tex-qtx
 QuasiTimes and TX fonts typesetting support.
 
+%description tex-qtx -l pl
+Wsparcie dla sk³adu fontami QuasiTimes i TX.
+
 %package tex-ruhyphen
 Summary:	Russian hyphenation
+Summary(pl):	Rosyjskie regu³y przenoszenia wyrazów
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-ruhyphen
 A collection of Russian hyphenation patterns supporting a number of
-Cyrillic font encodings, including T2, UCY (Omega Unicode Cyrillic), LCY,
-LWN (OT2), and koi8-r.
+Cyrillic font encodings, including T2, UCY (Omega Unicode Cyrillic),
+LCY, LWN (OT2), and koi8-r.
 
 %package tex-spanish
 Summary:	Various TeX related files for typesetting documents written in Spanish
+Summary(pl):	Ró¿ne pliki TeXowe s³u¿±ce do sk³adu dokumentów w jêzyku hiszpañskim
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-tex-spanishb
 
 %description tex-spanish
-Various TeX related files for typesetting documents written in Spanish,
-including hyphenation and dictionaries.
+Various TeX related files for typesetting documents written in
+Spanish, including hyphenation and dictionaries.
+
+%description tex-spanish -l pl
+Ró¿ne pliki TeXowe s³u¿±ce do sk³adu dokumentów napisanych w jêzyku
+hiszpañskim - w tym regu³y przenoszenia wyrazów i s³owniki.
 
 %package tex-texdraw
 Summary:	Graphical macros, using embedded PostScript
+Summary(pl):	Makra graficzne u¿ywaj±ce osadzanego PostScriptu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-texdraw
 Graphical macros, using embedded PostScript.
 
+%description tex-texdraw -l pl
+Makra graficzne u¿ywaj±ce osadzanego PostScriptu.
+
 %package tex-thumbpdf
-Summary:	Thumbnails for PDFTeX and dvips/ps2pdf.
+Summary:	Thumbnails for PDFTeX and dvips/ps2pdf
+Summary(pl):	Ikonki dla PDFTeXa i dvips/ps2pdf
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-thumbpdf
-Provides support, using Perl, for thumbnails in pdfTeX and dvips/ps2pdf,
-using ghostscript to generate the thumbnails which get represented in a TeX
-readable file that is read by the package thumbpdf.sty to automatically
-include the thumbnails.  Works with both plain TeX and LaTeX.
+Provides support, using Perl, for thumbnails in pdfTeX and
+dvips/ps2pdf, using ghostscript to generate the thumbnails which
+get represented in a TeX readable file that is read by the package
+thumbpdf.sty to automatically include the thumbnails. Works with both
+plain TeX and LaTeX.
+
+%description tex-thumbpdf -l pl
+Pakiet przy pomocy Perla dodaje ikonki w pdfTeXu i dvips/ps2pdf przy
+u¿yciu ghostscripta. Ikonki s± reprezentowane w pliku czytanym przez
+TeXa, który jest wywo³ywany z thumbpdf.sty, aby automatycznie do³±czyæ
+ikonki. Dzia³a z formatami plain TeX i LaTeX.
 
 %package tex-ukrhyph
 Summary:	Ukranian hyphenation
+Summary(pl):	Ukraiñskie zasady przenoszenia wyrazów
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-ukrhyph
 This package allows the use of different hyphenation patterns for the
-Ukrainian language for various Cyrillic font encodings. Contains packages
-implementing traditional rules, modern rules, and combined
+Ukrainian language for various Cyrillic font encodings. Contains
+packages implementing traditional rules, modern rules, and combined
 English-Ukrainian hyphenation.
+
+%description tex-ukrhyph -l pl
+Ten pakiet pozwala na u¿ywanie ró¿nych wzorców przenoszenia wyrazów
+dla jêzyka ukraiñskiego z ró¿nymi kodowaniami fontów z cyrylic±.
+Zawiera pakiety z implementacj± regu³ tradycyjnych, wspó³czesnych i
+³±czonych angielsko-ukraiñskich.
 
 %package tex-vietnam
 Summary:	Vietnamese language support
+Summary(pl):	Wsparcie dla jêzyka wietnamskiego
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-vietnam
 Vietnamese language support.
 
+%description tex-vietnam -l pl
+Wsparcie dla jêzyka wietnamskiego.
+
 %package tex-xypic
 Summary:	Package for typesetting a variety of graphs and diagrams with TeX
+Summary(pl):	Pakiet do sk³adania w TeXu ró¿nych wykresów i diagramów
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-xypic = %{version}
 
 %description tex-xypic
-A package for typesetting a variety of graphs and diagrams with TeX. Xy-pic
-works with most formats (including LaTeX, AMS-LaTeX, AMS-TeX, and plain
-TeX), in particular Xy-pic is provided as a LaTeX2e `supported package'.
+A package for typesetting a variety of graphs and diagrams with TeX.
+Xy-pic works with most formats (including LaTeX, AMS-LaTeX, AMS-TeX,
+and plain TeX), in particular Xy-pic is provided as a LaTeX2e
+`supported package'.
+
+%description tex-xypic -l pl
+Pakiet do sk³adania w TeXu ró¿nych wykresów i diagramów. Xy-pic dzia³a
+z wiêkszo¶ci± formatów (w tym LaTeX, AMS-LaTeX, AMS-TeX i plain TeX),
+w szczególno¶ci jest do³±czany jako "wspierany pakiet" LaTeX2e.
 
 #
 # Fonts packages
@@ -1866,524 +1967,715 @@ TeX), in particular Xy-pic is provided as a LaTeX2e `supported package'.
 
 %package fonts-adobe
 Summary:	Adobe fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Adobe
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-adobe
 Adobe fonts.
 
+%description fonts-adobe -l pl
+Fonty Adobe.
+
 %package fonts-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl);	Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ae
 Virtual fonts for PDF-files with T1 encoded CMR-fonts.
 
+%description fonts-ae -l pl
+Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1.
+
 %package fonts-ams
 Summary:	AMS fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty AMS
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ams
 AMS fonts.
 
+%description fonts-ams -l pl
+Fonty AMS.
+
 %package fonts-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
+%description fonts-antp -l pl
+Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako
+Type 1.
+
 %package fonts-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
+%description fonts-antt -l pl
+Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
+
 %package fonts-bbm
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
 
+%description fonts-bbm -l pl
+Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa.
+
 %package fonts-bbold
 Summary:	Sans serif blackboard bold for LaTeX
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Tablicowy t³usty font sans serif dla LaTeXa
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bbold
 Sans serif blackboard bold for LaTeX.
 
+%description fonts-bbold -l pl
+Tablicowy t³usty font sans serif dla LaTeXa.
+
 %package fonts-bh
 Summary:	Bold & Heavy Fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Bold i Heavy
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bh
 Bold & Heavy Fonts.
 
+%description fonts-bh -l pl
+Fonty Bold i Heavy.
+
 %package fonts-bitstrea
 Summary:	Bitstream fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Bitstream
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bitstrea
 Bitstream fonts.
 
+%description fonts-bitstrea -l pl
+Fonty Bitstream.
+
 %package fonts-cbgreek
 Summary:	Complete set of Greek fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Pe³ny zestaw fontów greckich
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cbgreek
 Complete set of Greek fonts.
 
+%description fonts-cbgreek -l pl
+Pe³ny zestaw fontów greckich.
+
 %package fonts-cc-pl
 Summary:	Polish version of Computer Concrete fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Polska wersja fontów Computer Concrete
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cc-pl
 Polish version of Computer Concrete fonts.
 
+%description fonts-cc-pl -l pl
+Polska wersja fontów Computer Concrete.
+
 %package fonts-cg
 Summary:	Compugraphic fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Compugraphic
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cg
 Compugraphic fonts.
 
+%description fonts-cg -l pl
+Fonty Compugraphic.
+
 %package fonts-cm
 Summary:	Computer Modern fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Computer Modern
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cm
 Computer Modern fonts.
 
+%description fonts-cm -l pl
+Fonty Computer Modern.
+
 %package fonts-cmbright
 Summary:	CM Bright fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty CM Bright
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmbright
 CM Bright fonts.
 
+%description fonts-cmbright -l pl
+Fonty CM Bright.
+
 %package fonts-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmcyr
 Computer Modern fonts extended with Russian letters.
 
+%description fonts-cmcyr -l pl
+Fonty Computer Modern rozszerzone o litery rosyjskie.
+
 %package fonts-cmextra
 Summary:	Extra Computer Modern fonts, from the American Mathematical Society
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Dodatkowe fonty Computer Modern z AMS
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmextra
 Extra Computer Modern fonts, from the American Mathematical Society.
 
+%description fonts-cmextra -l pl
+Dodatkowe fonty Computer Modern z AMS (American Mathematical Society).
+
 %package fonts-concmath
 Summary:	Concrete Math fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty matematyczne Concrete Math
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-concmath
 Concrete Math fonts.
 
+%description fonts-concmath -l pl
+Fonty matematyczne Concrete Math.
+
 %package fonts-concrete
 Summary:	Concrete Roman fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Concrete Roman
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-concrete
-Concrete Roman fonts, designed by Donald E. Knuth, originally for use with
-Euler math fonts.
+Concrete Roman fonts, designed by Donald E. Knuth, originally for use
+with Euler math fonts.
+
+%description fonts-concrete -l pl
+Fonty Concrete Roman, opracowane przez Donalda E. Knutha, oryginalnie
+przeznaczone do u¿ywania z fontami matematycznymi Euler.
 
 %package fonts-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
+%description fonts-cs -l pl
+Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
+czeskiego i s³owackiego.
+
 %package fonts-dstroke
 Summary:	Doublestroke font for typesetting the mathematical symbols
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Podwójnie kre¶lony font do sk³adania symboli matematycznych
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-dstroke
 Doublestroke font for typesetting the mathematical symbols.
 
+%description fonts-dstroke -l pl
+Podwójnie kre¶lony font do sk³adania symboli matematycznych.
+
 %package fonts-ecc
 Summary:	Sources for the European Concrete fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	¬ród³a dla fontów European Concrete
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ecc
-The MetaFont sources and tfm files of the European Concrete Fonts. This is
-the EC implementation of Knuth's Concrete fonts, including also the
-corresponding text companion fonts.
+The MetaFont sources and tfm files of the European Concrete Fonts.
+This is the EC implementation of Knuth's Concrete fonts, including
+also the corresponding text companion fonts.
+
+%description fonts-ecc -l pl
+¬ród³a MetaFonta i pliki tfm dla fontów European Concrete. Jest to
+implementacja EC fontów Concrete Knutha, w³±cznie z odpowiadaj±cymi
+tekstowymi fontami towarzysz±cymi.
 
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-euxm
 Fonts like EUSM but with two more characters needed for Concrete Math
-Included in TeXLive distribution in fonts3.
+included in TeXLive distribution in fonts3.
+
+%description fonts-euxm -l pl
+Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami, potrzebnymi
+dla Concrete Math do³±czonego w fonts3 dystrybucji TeXLive.
 
 %package fonts-gothic
 Summary:	Gothic and ornamental initial fonts by Yannis Haralambous
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-gothic
 Gothic and ornamental initial fonts by Yannis Haralambous.
 
+%description fonts-gothic -l pl
+Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa.
+
 %package fonts-hoekwater
 Summary:	Converted mflogo font
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Przekonwertowany font mflogo
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-hoekwater
-Fonts originally created in MetaFont, transformed to PostScript by Taco
-Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
+Fonts originally created in MetaFont, transformed to PostScript by
+Taco Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2,
+xipa.
+
+%description fonts-hoekwater -l pl
+Fonty oryginalnie stworzone w MetaFoncie, przekszta³cone do
+PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
+stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-jknappen
 Summary:	Miscellaneous packages by Joerg Knappen
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Ró¿ne pakiety autorstwa Joerga Knappena
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-jknappen
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
 Knappen, including sgmlcmpt.
 
+%description fonts-jknappen -l pl
+Ró¿ne makra, g³ównie do u¿ywania dodatkowych fontów autorstwa Joerga
+Knappena. Zawiera sgmlcmpt.
+
 %package fonts-latex
 Summary:	Basic LaTeX fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Podstawowe fonty dla LaTeXa
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-latex
 Basic LaTeX fonts.
 
+%description fonts-latex -l pl
+Podstawowe fonty dla LaTeXa.
+
 %package fonts-lh
 Summary:	Olga Lapko's LH fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty LH Olgi Lapko
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-lh
 The lh fonts for the `T2'/X2 encodings (for cyrillic languages).
 
+%description fonts-lh -l pl
+Fonty lh dla kodowañ `T2'/X2 (dla jêzyków zapisywanych cyrylic±).
+
 %package fonts-marvosym
-Summary:	Martin Vogels Symbole (marvosym) font
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary:	Martin Vogel's Symbol (marvosym) font
+Summary(pl):	Font Symbol Martina Vogela (marvosym)
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-marvosym
 Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
 currency symbol as defined by the European commission; Euro currency
-symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
-engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
-planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
+symbols in typefaces Times, Helvetica and Courier; Symbols for
+structural engineering; Symbols for steel cross-sections; Astronomy
+signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
+symbols; CE sign and others.
+
+%description fonts-marvosym -l pl
+Font Symbol Martina Vogela (marvosym) to font zawieraj±cy: symbol
+waluty Euro zdefiniowany przez Komisjê Europejsk±; symbole waluty
+Euro dla krojów Times, Helvetica i Courier; symbole dla in¿ynierii
+strukturalnej; symbole dla przekroi poprzecznych; symbole
+astronomiczne (S³oñce, Ksiê¿yc, planety); 12 znaków Zodiaku; symbole
+krawieckie; znak CE i inne.
 
 %package fonts-mflogo
 Summary:	Logo fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty logo
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-mflogo
 Logo fonts.
 
+%description fonts-mflogo -l pl
+Fonty logo.
+
 %package fonts-misc
 Summary:	Miscellaneous fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Ró¿ne fonty
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-misc
 Miscellaneous fonts.
 
+%description fonts-misc -l pl
+Ró¿ne fonty.
+
 %package fonts-monotype
 Summary:	Monotype fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Monotype
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-monotype
 Monotype fonts.
 
+%description fonts-monotype -l pl
+Fonty Monotype.
+
 %package fonts-pandora
 Summary:	The Pandora font family
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Rodzina fontów Pandora
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pandora
 The Pandora font family.
 
+%description fonts-pandora -l pl
+Rodzina fontów Pandora.
+
 %package fonts-pazo
 Summary:	Pazo fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Pazo
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pazo
 Pazo fonts.
 
+%description fonts-pazo -l pl
+Fonty Pazo.
+
 %package fonts-pl
 Summary:	Polish fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Polskie fonty
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pl
 Polish fonts.
 
+%description fonts-pl -l pl
+Polskie fonty.
+
 %package fonts-px
 Summary:	PX fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty PX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-px
 PX fonts.
 
+%description fonts-px -l pl
+Fonty PX.
+
 %package fonts-qfonts
 Summary:	Quasi fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Quasi
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-qfonts
 Quasi fonts.
 
+%description fonts-qfonts -l pl
+Fonty Quasi.
+
 %package fonts-qpx
 Summary:	Additional fonts for QPX package
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Dodatkowe fonty dla pakietu QPX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-qfonts = %{version}
 Requires:	%{name}-fonts-px = %{version}
 
 %description fonts-qpx
 Additional fonts for QPX package.
 
+%description fonts-qpx -l pl
+Dodatkowe fonty dla pakietu QPX.
+
 %package fonts-qtx
 Summary:	Additional fonts for QTX package
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Dodatkowe fonty dla pakietu QTX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-qfonts = %{version}
 Requires:	%{name}-fonts-tx = %{version}
 
 %description fonts-qtx
 Additional fonts for QTX package.
 
+%description fonts-qtx -l pl
+Dodatkowe fonty dla pakietu QTX.
+
 %package fonts-rsfs
-Summary:	Fonts of uppercase script letters for use as symbols in scientific and mathematical typesetting
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary:	Fonts of uppercase script letters for scientific and mathematical typesetting
+Summary(pl):	Fonty wielkich liter pisanych do sk³adania dokumentów naukowych i matematycznych
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-rsfs
 Fonts of uppercase script letters for use as symbols in scientific and
-mathematical typesetting, in contrast to the informal script fonts such as
-that used for the `calligraphic' symbols in the TeX math symbol font.
+mathematical typesetting, in contrast to the informal script fonts
+such as that used for the `calligraphic' symbols in the TeX math
+symbol font.
+
+%description fonts-rsfs -l pl
+Fonty wielkich liter pisanych do u¿ywania jako symbole przy sk³adaniu
+dokumentów naukowych i matematycznych, w odró¿nieniu od nieformalnych
+fontów pisanych takich jak u¿ywane do symboli "kaligraficznych" w
+matematycznym foncie TeXowym symbol.
 
 %package fonts-stmaryrd
 Summary:	St Mary Road symbols for functional programming
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Symbole St Mary Road do programowania funkcyjnego
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-stmaryrd
 St Mary Road symbols for functional programming.
 
+%description fonts-stmaryrd -l pl
+Symbole St Mary Road do programowania funkcyjnego.
+
 %package fonts-tx
 Summary:	TX fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty TX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-tx
 TX fonts.
 
+%description fonts-tx -l pl
+Fonty TX.
+
 %package fonts-urw
 Summary:	URW fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty URW
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-urw
 URW fonts.
 
+%description fonts-urw -l pl
+Fonty URW.
+
 %package fonts-vcm
 Summary:	VCM fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty VCM
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-vcm
-VCM fonts
+VCM fonts.
+
+%description fonts-vcm -l pl
+Fonty VCM.
 
 %package fonts-vnr
 Summary:	VNR fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty VNR
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-vnr
 VNR fonts.
 
+%description fonts-vnr -l pl
+Fonty VNR.
+
 %package fonts-wasy
 Summary:	Waldis symbol fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Waldis symbol
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-wasy
 Waldis symbol fonts.
 
+%description fonts-wasy -l pl
+Fonty Waldis symbol.
+
 %package fonts-xypic
 Summary:	Xy-pic fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Xy-pic
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-xypic
 Xy-pic fonts.
 
+%description fonts-xypic -l pl
+Fonty Xy-pic.
+
 %package fonts-yandy
 Summary:	European Modern fonts from Y&Y
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty European Modern od Y&Y
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-yandy
 European Modern fonts from Y&Y.
 
+%description fonts-yandy -l pl
+Fonty European Modern od Y&Y.
+
 %package fonts-type1-adobe
 Summary:	Adobe Type1 fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Type1 Adobe
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-adobe
 Adobe Type1 fonts.
 
+%description fonts-type1-adobe -l pl
+Fonty Type1 Adobe.
+
 %package fonts-type1-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
+%description fonts-type1-antp -l pl
+Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako
+Type 1.
+
 %package fonts-type1-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
+%description fonts-type1-antt -l pl
+Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
+
 %package fonts-type1-belleek
 Summary:	Free replacement for basic MathTime fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Wolnodostêpny zamiennik podstawowych fontów MathTime
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-belleek
 Free replacement for basic MathTime fonts.
 
+%description fonts-type1-belleek
+Wolnodostêpny zamiennik podstawowych fontów MathTime.
+
 %package fonts-type1-bitstrea
 Summary:	Bitstream fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Bitstream
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-bitstrea
 Bitstream fonts.
 
+%description fonts-type1-bitstrea -l pl
+Fonty Bitstream.
+
 %package fonts-type1-bluesky
 Summary:	Computer Modern family fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty z rodziny Computer Modern
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-bluesky
 Computer Modern family fonts.
 
+%description fonts-type1-bluesky -l pl
+Fonty z rodzony Computer Modern.
+
 %package fonts-type1-cc-pl
 Summary:	Polish version of Computer Concrete fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Polska wersja fontów Computer Concrete
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cc-pl
 Polish version of Computer Concrete fonts.
 
+%description fonts-type1-cc-pl -l pl
+Polska wersja fontów Computer Concrete.
+
 %package fonts-type1-cmcyr
-Summary:	 Computer Modern fonts extended with Russian letters
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary:	Computer Modern fonts extended with Russian letters
+Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cmcyr
 Computer Modern fonts extended with Russian letters.
 
+%description fonts-type1-cmcyr -l pl
+Fonty Computer Modern rozszerzone o litery rosyjskie.
+
 %package fonts-type1-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
+%description fonts-type1-cs -l pl
+Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
+czeskiego i s³owackiego.
+
+# XXX --q
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
 Group:	Applications/Publishing/TeX
