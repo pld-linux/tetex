@@ -80,7 +80,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ; 
 %define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ; 
 
-#define 	_noautoreqdep perl(path_tre)
+%define 	_noautoreqdep perl(path_tre)
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -4227,6 +4227,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/language.dat
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/preload.cfg
 
+%{texmf}/tex/texinfo
+
 #new files from snapshot 20020530
 %{texmf}/doc/fonts/cmbright
 %{texmf}/doc/fonts/ec
@@ -4240,7 +4242,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/generic/styles
 %{texmf}/doc/help/csname.txt
 %{texmf}/doc/help/ctan
-%doc %{texmf}/doc/help/faq
+%dir %{texmf}/doc/help/faq
 %{texmf}/doc/help/faq/TeX-FAQ
 %{texmf}/doc/help/faq/UserGroups.html
 %{texmf}/doc/help/faq/dante-faq.html
@@ -4251,7 +4253,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/helpindex.html
 %{texmf}/doc/images
 %{texmf}/doc/index.html
-%doc %{texmf}/doc/latex
+%dir %{texmf}/doc/latex
 %{texmf}/doc/latex/amsfonts
 %{texmf}/doc/latex/currvita
 %{texmf}/doc/latex/images
@@ -4269,7 +4271,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/mkhtml
 %{texmf}/doc/mkhtml.nawk
 %{texmf}/doc/newhelpindex.html
-%doc %{texmf}/doc/polish
+%dir %{texmf}/doc/polish
 %{texmf}/doc/polish/context
 %{texmf}/doc/polish/index.html
 %{texmf}/doc/polish/web2c.html
@@ -4279,7 +4281,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/tetex/FEATURES
 %{texmf}/doc/tetex/NEWS
 %{texmf}/doc/tetex/README
-%{texmf}/doc/tetex/TETEXDOC.{dvi,pdf}
+%{texmf}/doc/tetex/TETEXDOC.dvi
+%{texmf}/doc/tetex/TETEXDOC.pdf
 %{texmf}/doc/tetex/body.tmp
 %{texmf}/doc/tetex/head.tmp
 %{texmf}/doc/tetex/eurotex98-te.pdf
@@ -4501,7 +4504,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/dvips/config/pxfonts.map
 %{_datadir}/texmf/dvips/config/txfonts.map
 %{_datadir}/texmf/dvips/config/wolfram.map
-%{_datadir}/texmf/dvips/config/config.gstopk
+%{_datadir}/texmf/dvips/config/config.gsftopk
 %{_datadir}/texmf/dvips/config/config.outline
 %{_datadir}/texmf/dvips/config/config.pk
 #%{_datadir}/texmf/dvips/config/raw-ar-ext-adobe-bi.map
