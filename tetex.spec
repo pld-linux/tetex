@@ -2875,7 +2875,7 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
-	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
+	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/
 
 # commented out because of following (non-fatal) error:
 # Can't open texmf/web2c/texmf.cnf: No such file or directory.
@@ -2900,7 +2900,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	texmf=$RPM_BUILD_ROOT%{texmf}
 
 install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
-touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
+touch $RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/maps.lst
 
 %{__make} init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
@@ -4033,8 +4033,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_sysconfdir}/cron.daily/tetex
 
-%dir %{_sysconfdir}/sysconfig/tetex-updmap
-%verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
+%dir /etc/sysconfig/tetex-updmap
+%verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
 
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/ls-R
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
