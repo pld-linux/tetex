@@ -8,8 +8,8 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define		_ver	beta-20021116
-%define		texmf_ver	beta-20021116
+%define		_ver	beta-20021216
+%define		texmf_ver	beta-20021216
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -4246,7 +4246,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/styles/labels.dvi
 %{texmf}/doc/latex/styles/lastpage.dvi
 %{texmf}/doc/latex/styles/layman.dvi
-%{texmf}/doc/latex/styles/listings.dvi
+# removed due to license problems
+#%{texmf}/doc/latex/styles/listings.dvi
 %{texmf}/doc/latex/styles/lucidabr.txt
 %{texmf}/doc/latex/styles/mathcomp.dvi
 %{texmf}/doc/latex/styles/moreverb.dvi
@@ -4540,23 +4541,23 @@ rm -rf $RPM_BUILD_ROOT
 %files format-mex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mex
-%attr(755,root,root) %{_bindir}/mex-pl
+#%attr(755,root,root) %{_bindir}/mex-pl
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex-pl.fmt
+#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex-pl.fmt
 
 %files format-pdfmex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfmex
-%attr(755,root,root) %{_bindir}/pdfmex-pl
+#%attr(755,root,root) %{_bindir}/pdfmex-pl
 %dir %{texmf}/pdftex/mex
 %{texmf}/pdftex/mex/config
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
+#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
 
 %files format-pdfemex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfemex
-%attr(755,root,root) %{_bindir}/pdfemex-pl
+#%attr(755,root,root) %{_bindir}/pdfemex-pl
 %dir %{texmf}/pdfetex/mex
 %{texmf}/pdfetex/mex/config
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfemex.efmt
@@ -4771,7 +4772,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/hyperref
 %{texmf}/tex/latex/koma-script
 %{texmf}/tex/latex/labels
-%{texmf}/tex/latex/listings
+# removed due to license problems
+#%{texmf}/tex/latex/listings
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/misc
 %{texmf}/tex/latex/ms
@@ -5017,9 +5019,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-platex
 %attr(755,root,root) %{_bindir}/platex
-%attr(755,root,root) %{_bindir}/platex-pl
+#%attr(755,root,root) %{_bindir}/platex-pl
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex-pl.fmt
+#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex-pl.fmt
 
 %files format-pdfplatex
 %defattr(644,root,root,755)
