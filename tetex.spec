@@ -349,7 +349,7 @@ perl -pi \
 
 cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
-make install prefix=$RPM_BUILD_ROOT/usr \
+make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -360,7 +360,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd texk/tetex
-make install prefix=$RPM_BUILD_ROOT/usr \
+make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -371,7 +371,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../ps2pkm 
-make install prefix=$RPM_BUILD_ROOT/usr \
+make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -384,7 +384,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 cd ../..
 install $RPM_BUILD_DIR/teTeX-%{version}/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
-make init prefix=$RPM_BUILD_ROOT/usr \
+make init prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -416,10 +416,7 @@ EOF
 
 strip --strip-unneeded $RPM_BUILD_ROOT/%{_bindir}/* || :
 
-gzip $RPM_BUILD_ROOT/usr/share/{info/*info*,man/man1/*}
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+gzip $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %pre
 %{_sbindir}/groupadd -g 70 fonts
@@ -498,6 +495,9 @@ fi
 if [ "$1" = "0" ]; then
 	/sbin/install-info --delete %{_infodir}/latex.info.gz /etc/info-dir
 fi
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
@@ -604,69 +604,67 @@ fi
 
 %{_libdir}/libkpathsea.a
 
-%attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
+%{_mandir}/man1/MakeTeXPK.1*
+%{_mandir}/man1/access.1*
+%{_mandir}/man1/allcm.1*
+%{_mandir}/man1/allec.1*
+%{_mandir}/man1/allneeded.1*
 
-%{_mandir}/man1/MakeTeXPK.1.*
-%{_mandir}/man1/access.1.*
-%{_mandir}/man1/allcm.1.*
-%{_mandir}/man1/allec.1.*
-%{_mandir}/man1/allneeded.1.*
+%lang(de) %{_mandir}/man1/cont-de.1*
+%lang(en) %{_mandir}/man1/cont-en.1*
+%lang(nl) %{_mandir}/man1/cont-nl.1*
 
-%lang(de) %{_mandir}/man1/cont-de.1.*
-%lang(en) %{_mandir}/man1/cont-en.1.*
-%lang(nl) %{_mandir}/man1/cont-nl.1.*
-
-%{_mandir}/man1/dmp.1.*
-%{_mandir}/man1/dvicopy.1.*
-%{_mandir}/man1/dvired.1.*
-%{_mandir}/man1/dvitype.1.*
-%{_mandir}/man1/fontexport.1.*
-%{_mandir}/man1/fontimport.1.*
-%{_mandir}/man1/gftodvi.1.*
-%{_mandir}/man1/gftopk.1.*
-%{_mandir}/man1/gftype.1.*
-%{_mandir}/man1/gsftopk.1.*
-%{_mandir}/man1/inimf.1.*
-%{_mandir}/man1/inimpost.1.*
-%{_mandir}/man1/initex.1.*
-%{_mandir}/man1/kpsestat.1.*
-%{_mandir}/man1/kpsewhich.1.*
-%{_mandir}/man1/lambda.1.*
-%{_mandir}/man1/mag.1.*
-%{_mandir}/man1/makeindex.1.*
-%{_mandir}/man1/makempx.1.*
-%{_mandir}/man1/mf.1.*
-%{_mandir}/man1/mft.1.*
-%{_mandir}/man1/mktexlsr.1.*
-%{_mandir}/man1/mktexmf.1.*
-%{_mandir}/man1/mktexpk.1.*
-%{_mandir}/man1/mktextfm.1.*
-%{_mandir}/man1/mpost.1.*
-%{_mandir}/man1/mpto.1.*
-%{_mandir}/man1/newer.1.*
-%{_mandir}/man1/patgen.1.*
-%{_mandir}/man1/pfb2pfa.1.*
-%{_mandir}/man1/pk2bm.1.*
-%{_mandir}/man1/pktogf.1.*
-%{_mandir}/man1/pktype.1.*
-%{_mandir}/man1/pltotf.1.*
-%{_mandir}/man1/pooltype.1.*
-%{_mandir}/man1/ps2frag.1.*
-%{_mandir}/man1/ps2pk.1.*
-%{_mandir}/man1/readlink.1.*
-%{_mandir}/man1/tangle.1.*
-%{_mandir}/man1/tex.1.*
-%{_mandir}/man1/texconfig.1.*
-%{_mandir}/man1/texhash.1.*
-%{_mandir}/man1/texi2html.1.*
-%{_mandir}/man1/tftopl.1.*
-%{_mandir}/man1/tie.1.*
-%{_mandir}/man1/vftovp.1.*
-%{_mandir}/man1/virmf.1.*
-%{_mandir}/man1/virmpost.1.*
-%{_mandir}/man1/virtex.1.*
-%{_mandir}/man1/vptovf.1.*
-%{_mandir}/man1/weave.1.*
+%{_mandir}/man1/dmp.1*
+%{_mandir}/man1/dvicopy.1*
+%{_mandir}/man1/dvired.1*
+%{_mandir}/man1/dvitype.1*
+%{_mandir}/man1/fontexport.1*
+%{_mandir}/man1/fontimport.1*
+%{_mandir}/man1/gftodvi.1*
+%{_mandir}/man1/gftopk.1*
+%{_mandir}/man1/gftype.1*
+%{_mandir}/man1/gsftopk.1*
+%{_mandir}/man1/inimf.1*
+%{_mandir}/man1/inimpost.1*
+%{_mandir}/man1/initex.1*
+%{_mandir}/man1/kpsestat.1*
+%{_mandir}/man1/kpsewhich.1*
+%{_mandir}/man1/lambda.1*
+%{_mandir}/man1/mag.1*
+%{_mandir}/man1/makeindex.1*
+%{_mandir}/man1/makempx.1*
+%{_mandir}/man1/mf.1*
+%{_mandir}/man1/mft.1*
+%{_mandir}/man1/mktexlsr.1*
+%{_mandir}/man1/mktexmf.1*
+%{_mandir}/man1/mktexpk.1*
+%{_mandir}/man1/mktextfm.1*
+%{_mandir}/man1/mpost.1*
+%{_mandir}/man1/mpto.1*
+%{_mandir}/man1/newer.1*
+%{_mandir}/man1/patgen.1*
+%{_mandir}/man1/pfb2pfa.1*
+%{_mandir}/man1/pk2bm.1*
+%{_mandir}/man1/pktogf.1*
+%{_mandir}/man1/pktype.1*
+%{_mandir}/man1/pltotf.1*
+%{_mandir}/man1/pooltype.1*
+%{_mandir}/man1/ps2frag.1*
+%{_mandir}/man1/ps2pk.1*
+%{_mandir}/man1/readlink.1*
+%{_mandir}/man1/tangle.1*
+%{_mandir}/man1/tex.1*
+%{_mandir}/man1/texconfig.1*
+%{_mandir}/man1/texhash.1*
+%{_mandir}/man1/texi2html.1*
+%{_mandir}/man1/tftopl.1*
+%{_mandir}/man1/tie.1*
+%{_mandir}/man1/vftovp.1*
+%{_mandir}/man1/virmf.1*
+%{_mandir}/man1/virmpost.1*
+%{_mandir}/man1/virtex.1*
+%{_mandir}/man1/vptovf.1*
+%{_mandir}/man1/weave.1*
 
 %doc %{_datadir}/texmf/ChangeLog
 %config %{_datadir}/texmf/aliases
@@ -944,14 +942,14 @@ fi
 %attr(755,root,root) %{_bindir}/latex
 %attr(755,root,root) %{_bindir}/pslatex
 
-%{_mandir}/man1/latex.1.*
-%{_mandir}/man1/pdflatex.1.*
+%{_mandir}/man1/latex.1*
+%{_mandir}/man1/pdflatex.1*
 
 %{_infodir}/latex.info*
 
 %doc %{_datadir}/texmf/doc/latex
 %attr(2755,root,fonts) %{_bindir}/bibtex
-%{_mandir}/man1/bibtex.1.*
+%{_mandir}/man1/bibtex.1*
 
 %{_datadir}/texmf/bibtex/bib/*
 %{_datadir}/texmf/bibtex/bst/base/*
@@ -971,17 +969,17 @@ fi
 %defattr(644,root,root,755)
 
 %attr(755,root,root) %{_bindir}/elatex
-%{_mandir}/man1/elatex.1.*
+%{_mandir}/man1/elatex.1*
 
 %attr(755,root,root) %{_bindir}/einitex
 %attr(755,root,root) %{_bindir}/eplain
 %attr(2755,root,fonts) %{_bindir}/etex
 %attr(755,root,root) %{_bindir}/evirtex
 
-%{_mandir}/man1/einitex.1.*
-%{_mandir}/man1/eplain.1.*
-%{_mandir}/man1/etex.1.*
-%{_mandir}/man1/evirtex.1.*
+%{_mandir}/man1/einitex.1*
+%{_mandir}/man1/eplain.1*
+%{_mandir}/man1/etex.1*
+%{_mandir}/man1/evirtex.1*
 
 %{_datadir}/texmf/tex/eplain/*
 
@@ -993,9 +991,9 @@ fi
 %attr(755,root,root) %{_bindir}/iniomega
 %attr(2755,root,fonts) %{_bindir}/omega
 %attr(755,root,root) %{_bindir}/viromega
-%{_mandir}/man1/iniomega.1.*
-%{_mandir}/man1/omega.1.*
-%{_mandir}/man1/viromega.1.*
+%{_mandir}/man1/iniomega.1*
+%{_mandir}/man1/omega.1*
+%{_mandir}/man1/viromega.1*
 
 %{_datadir}/texmf/fonts/ofm/public/omega/*
 %{_datadir}/texmf/fonts/tfm/public/omega/*.tfm
@@ -1035,9 +1033,9 @@ fi
 %attr(755,root,root) %{_bindir}/e2pall
 %attr(755,root,root) %{_bindir}/epstopdf
 
-%{_mandir}/man1/pdfinitex.1.*
-%{_mandir}/man1/pdftex.1.*
-%{_mandir}/man1/pdfvirtex.1.*
+%{_mandir}/man1/pdfinitex.1*
+%{_mandir}/man1/pdftex.1*
+%{_mandir}/man1/pdfvirtex.1*
 
 %{_datadir}/texmf/pdftex/config/*
 %{_datadir}/texmf/pdftex/plain/misc/*
@@ -1064,13 +1062,12 @@ fi
 %attr(2755,root,fonts) %{_bindir}/xdvi.bin
 %attr(755,root,root) %{_bindir}/xdvi
 
-%{_mandir}/man1/xdvi.1.*
+%{_mandir}/man1/xdvi.1*
 %{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
 %{_datadir}/texmf/xdvi/XDvi
 
 %files dvips 
 %defattr(644,root,root,755)
-
 %attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
 
 %attr(-,root,root) %{_datadir}/texmf/dvips
@@ -1082,7 +1079,7 @@ fi
 %{_datadir}/texmf/tex/latex/hyperref/*.def
 
 %attr(2755,root,fonts) %{_bindir}/dvips
-%{_mandir}/man1/dvips.1.*
+%{_mandir}/man1/dvips.1*
 
 %{_infodir}/dvips.info*
 
@@ -1095,21 +1092,20 @@ fi
 %attr(2755,root,fonts) %{_bindir}/dvilj4
 %attr(2755,root,fonts) %{_bindir}/dvilj4l
 %attr(755,root,root) %{_bindir}/dvilj6
-%{_mandir}/man1/dvilj.1.*
+%{_mandir}/man1/dvilj.1*
 
 %files afm 
 %defattr(644,root,root,755)
-
 %{_datadir}/texmf/fonts/afm/*
 
 %attr(2755,root,fonts) %{_bindir}/afm2tfm
-%{_mandir}/man1/afm2tfm.1.*
+%{_mandir}/man1/afm2tfm.1*
 
 %files ams 
 %defattr(644,root,root,755)
 
 %attr(755,root,root) %{_bindir}/amstex
-%{_mandir}/man1/amstex.1.*
+%{_mandir}/man1/amstex.1*
 
 %{_datadir}/texmf/fonts/source/ams/cmextra/*
 %{_datadir}/texmf/fonts/source/ams/cyrillic/*
