@@ -898,7 +898,36 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/texmf/updates.dat
 
-%attr(-,root,root) %{_datadir}/texmf/web2c
+%dir %{_datadir}/texmf/web2c
+%{_datadir}/texmf/web2c/*.tcx
+
+# nie wiem do czego te pliki
+%{_datadir}/texmf/web2c/*.pool 
+%{_datadir}/texmf/web2c/*.opt
+%{_datadir}/texmf/web2c/mpost.mem
+
+%attr(2755,root,fonts) %{_datadir}/texmf/web2c/mktexdir
+%attr(2755,root,fonts) %{_datadir}/texmf/web2c/mktexnam
+%attr(2755,root,fonts) %{_datadir}/texmf/web2c/mktexupd
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/fmutil.cnf
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mktex.cnf
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/tex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/texmf.cnf
+%{_datadir}/texmf/web2c/mf.base
+%{_datadir}/texmf/web2c/mfw.base
+%{_datadir}/texmf/web2c/plain.*
+
+# do rozrzucenia po pakietach
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/elatex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/etex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/tex.fmt
 
 %doc %{_datadir}/texmf/doc/Makefile
 %doc %{_datadir}/texmf/doc/README
