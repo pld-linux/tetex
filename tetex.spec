@@ -2837,6 +2837,7 @@ tar xzf %{SOURCE1} -C texmf
 #%patch17 -p1
 %patch18 -p1
 %patch19 -p1
+%patch20 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
