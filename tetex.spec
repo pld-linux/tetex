@@ -4982,7 +4982,10 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/labels
 %{texmf}/tex/latex/listings
 %{texmf}/tex/latex/mdwtools
-#%{texmf}/tex/latex/misc
+%{texmf}/tex/latex/memoir
+%{texmf}/tex/latex/mparhack
+%{texmf}/tex/latex/moreverb
+%{texmf}/tex/latex/mparhack
 %{texmf}/tex/latex/ms
 %{texmf}/tex/latex/multirow
 %{texmf}/tex/latex/mwcls
