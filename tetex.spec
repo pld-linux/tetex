@@ -20,12 +20,19 @@ Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_stable_ver}.tar.gz
-Source0:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-src-%{tetex_ver}.tar.gz
+# ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-src-%{tetex_ver}.tar.gz
+Source0:	teTeX-src-%{tetex_ver}.tar.gz
+# Source0-md5:	5e1e5f53ba09919ecfbc2468b3b86e09
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_stable_ver}.tar.gz
-Source1:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmf-%{texmf_ver}.tar.gz
+# ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmf-%{texmf_ver}.tar.gz
+Source1:	teTeX-texmf-%{texmf_ver}.tar.gz
+# Source1-md5:	1ab17c0333e3ccd86fe2965717a15b38
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_stable_ver}.tar.gz
-Source2:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
-Source3:	%{name}-non-english-man-pages.tar.bz2
+# ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
+Source2:	teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
+# Source0-md5:	7085c881f87f25defba732bdbfa377b5
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+# Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
