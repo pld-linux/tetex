@@ -1102,23 +1102,26 @@ Blackboard variant fonts for Computer Modern, with LaTeX support.
 %description latex-bbm -l pl
 Tablicowy wariant fontów Computer Modern z obs³ug± LaTeXa.
 
-# XXX --q
 %package latex-bbold
 Summary:	Sans serif blackboard bold for LaTeX
+Summary(pl):	Tablicowy t³usty font sans serif dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-bbold = %{version}
 
 %description latex-bbold
 A geometric sans serif blackboard bold font, for use in mathematics.
 
+%description latex-bbold -l pl
+Geometryczny tablicowy t³usty font sans serif, do u¿ywania w
+matematyce.
+
 %package latex-bibtex
 Summary:	Bibliography management for LaTeX
+Summary(pl):	Zarz±dzenie bibliografi± dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Obsoletes:	tetex-bibtex
 Obsoletes:	tetex-rubibtex
@@ -1127,11 +1130,14 @@ Obsoletes:	tetex-natbib
 %description latex-bibtex
 Bibliography management for LaTeX.
 
+%description latex-bibtex -l pl
+Zarz±dzanie bibliografi± dla LaTeXa.
+
 %package latex-bibtex-ams
 Summary:	BibTeX style files for American Meteorological Society publications
+Summary(pl):	Pliki stylów BibTeXa do publikacji American Meteorological Society
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-ams = %{version}
 Requires:	%{name}-latex-bibtex = %{version}
 Obsoletes:	tetex-bibtex-ams
@@ -1139,138 +1145,187 @@ Obsoletes:	tetex-bibtex-ams
 %description latex-bibtex-ams
 BibTeX style files for American Meteorological Society publications.
 
+%description latex-bibtex-ams -l pl
+Pliki stylów BibTeXa do publikacji American Meteorological Society.
+
 %package latex-bibtex-pl
 Summary:	Polish bibliography management for LaTeX
+Summary(pl):	Polska wersja zarz±dzania bibliografi± dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
 Obsoletes:	tetex-bibtex-plbib
 
 %description latex-bibtex-pl
 Polish bibliography management for LaTeX.
 
+%description latex-bibtex-pl -l pl
+Polska wersja zarz±dzania bibliografi± dla LaTeXa.
+
 %package latex-bibtex-german
 Summary:	German variants of standard BibTeX styles
+Summary(pl):	Niemieckie wersje standardowych stylów BibTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
 Obsoletes:	tetex-bibtex-germbib
 
 %description latex-bibtex-german
 German variants of standard BibTeX styles.
 
+%description latex-bibtex-german -l pl
+Niemieckie wersje standardowych stylów BibTeXa.
+
 %package latex-bibtex-revtex4
 Summary:	BibTeX styles for REVTeX4
+Summary(pl):	Style BibTeXa dla REVTeX4
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-bibtex-revtex4
 
 %description latex-bibtex-revtex4
 BibTeX styles for REVTeX4.
 
+%description latex-bibtex-revtex4 -l pl
+Style BibTeXa dla REVTeX4.
+
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
+Summary(pl):	Ró¿ne ma³e pakiety autorstwa Davida Carlisle
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-carlisle
 Miscellaneous small packages by David Carlisle.
 
+%description latex-carlisle -l pl
+Ró¿ne ma³e pakiety autorstwa Davida Carlisle.
+
 %package latex-ccfonts
 Summary:	Support for Concrete text and math fonts in LaTeX
+Summary(pl):	Obs³uga fontów tekstowych i matematycznych Concrete w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-ccfonts
-LaTeX font definition files for the Concrete fonts and a LaTeX package for
-typesetting documents using Concrete as the default font family.  The files
-support OT1, T1, TS1, and Concrete math including AMS fonts (Ulrik Vieth's
-concmath).
+LaTeX font definition files for the Concrete fonts and a LaTeX package
+for typesetting documents using Concrete as the default font family.
+The files support OT1, T1, TS1, and Concrete math including AMS fonts
+(Ulrik Vieth's concmath).
+
+%description latex-ccfonts -l pl
+Pliki definicji fontów LaTeXowych dla fontów Concrete oraz pakiet
+LaTeXa do sk³adania dokumentów przy u¿yciu Concrete jako domy¶lnej
+rodziny fontów. Pliki obs³uguj± fonty OT1, T1, TS1 oraz matematyczny
+Concrete wraz z AMS (concmath Ulrika Vietha).
 
 %package latex-cite
 Summary:	Supports compressed, sorted lists of numerical citations
+Summary(pl):	Obs³uga kompresowanych, sortowanych list numerowanych cytatów
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-cite
 Supports compressed, sorted lists of numerical citations.
 
+%description latex-cite -l pl
+Obs³uga kompresowanych, sortowanych list numerowanych cytatów.
+
 %package latex-cmbright
 Summary:	Support for CM Bright fonts in LaTeX
+Summary(pl):	Obs³uga fontów CM Bright w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-cmbright = %{version}
 
 %description latex-cmbright
-A family of sans serif fonts for TeX and LaTeX, based on Donald Knuth's CM
-fonts. It comprises OT1, T1 and TS1 encoded text fonts of various shapes as
-well as all the fonts necessary for mathematical typesetting, incl. AMS
-symbols. This collection provides all the necessary files for using the
-fonts with LaTeX.
+A family of sans serif fonts for TeX and LaTeX, based on Donald
+Knuth's CM fonts. It comprises OT1, T1 and TS1 encoded text fonts of
+various shapes as well as all the fonts necessary for mathematical
+typesetting, incl. AMS symbols. This collection provides all the
+necessary files for using the fonts with LaTeX.
+
+%description latex-cmbright -l pl
+Rodzina fontów sans serif dla TeXa i LaTeXa, oparta na fontach CM
+Donalda Knutha. Obejmuje fonty dla kodowañ OT1, T1 i TS1 ró¿nych
+kszta³tów oraz fonty niezbêdne do sk³adu matematycznego, w³±cznie z
+symbolami AMS. Ten zestaw dostarcza wszystkie niezbêdne pliki do
+u¿ywania fontów w LaTeXu.
 
 %package latex-concmath
 Summary:	LaTeX package and font definition files to access the Concrete math fonts
+Summary(pl):	Pakiet LaTeXa i pliki definicji fontów udostêpniaj±ce fonty matematyczne Concrete
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-concmath = %{version}
 
 %description latex-concmath
-LaTeX package and font definition files to access the Concrete math fonts,
-which were derived from Computer Modern math fonts using parameters from
-Concrete Roman text fonts.
+LaTeX package and font definition files to access the Concrete math
+fonts, which were derived from Computer Modern math fonts using
+parameters from Concrete Roman text fonts.
+
+%description latex-concmath -l pl
+Pakiet LaTeXa i pliki definicji fontów udostêpniaj±ce fonty
+matematyczne Concrete wywodz±ce siê z fontów matematycznych Computer
+Modern poprzez zastosowanie parametrów fontów tekstowych Concrete
+Roman.
 
 %package latex-custom-bib
-Summary:	Customised BibTeX styles for LaTeX
+Summary:	Customized BibTeX styles for LaTeX
+Summary(pl):	Dostosowywanie stylów BibTeXa dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-custom-bib
-Package generating customized BibTeX bibliography styles from a generic
-file using docstrip. Includes support for the Harvard style.
+Package generating customized BibTeX bibliography styles from a
+generic file using docstrip. Includes support for the Harvard style.
+
+%description latex-custom-bib -l pl
+Pakiet generuj±cy dostosowane style bibliografii BibTeXa z ogólnego
+pliki przy u¿yciu docstrip. Zawiera obs³ugê stylu Harvard.
 
 %package latex-cyrillic
 Summary:	LaTeX Cyrillic support
+Summary(pl):	Obs³uga cyrylicy dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-cyrillic
 LaTeX Cyrillic support.
 
+%description latex-cyrillic -l pl
+Obs³uga cyrylicy dla LaTeXa.
+
 %package latex-dstroke
 Summary:	LaTeX doublestroke font
+Summary(pl):	Podwójnie kre¶lony font dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-dstroke = %{version}
 
 %description latex-dstroke
-Doublestroke font for typesetting the mathematical symbols for the natural
-numbers, whole numbers, rational numbers, real numbers and complex numbers.
+Doublestroke font for typesetting the mathematical symbols for the
+natural numbers, whole numbers, rational numbers, real numbers and
+complex numbers.
+
+%description latex-dstroke -l pl
+Podwójnie kre¶lony font do sk³adania symboli matematycznych liczb
+naturalnych, ca³kowitych, wymiernych, rzeczywistych i zespolonych.
 
 %package latex-jknappen
 Summary:	Miscellaneous packages by Joerg Knappen
+Summary(pl):	Ró¿ne pakiety autorstwa Joerga Knappena
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-jknappen = %{version}
 
@@ -1278,181 +1333,250 @@ Requires:	%{name}-fonts-jknappen = %{version}
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
 Knappen, including sgmlcmpt.
 
+%description latex-jknappen -l pl
+Ró¿ne makra, g³ównie do u¿ywania dodatkowych fontów autorstwa Joerga
+Knappena. Zawiera sgmlcmpt.
+
 %package latex-lucidabr
 Summary:	Package to make Lucida Bright fonts usable with LaTeX
+Summary(pl):	Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-lucidabr
 Package to make Lucida Bright fonts usable with LaTeX.
 
+%description latex-lucidabr -l pl
+Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu.
+
 %package latex-mathpple
 Summary:	Use PostScript Palatino for typesetting maths
+Summary(pl):	U¿ywanie postscriptowych fontów Palatino do sk³adania wzorów matematycznych
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-adobe = %{version}
 
 %description latex-mathpple
 The package defines the PostScript font family `Palatino' (ppl) as the
-default roman font and then uses the `mathpple' fonts for typesetting math.
-These virtual fonts have been created for typesetting math in a style that
-suits the Palatino text fonts.  The AMS fonts, when used additionally, will
-be scaled to fit Palatino.
+default roman font and then uses the `mathpple' fonts for typesetting
+math. These virtual fonts have been created for typesetting math in a
+style that suits the Palatino text fonts. The AMS fonts, when used
+additionally, will be scaled to fit Palatino.
+
+%description latex-mathpple -l pl
+Pakiet definiuje rodzinê fontów postscriptowych Palatino (ppl) jako
+domy¶lny font roman i u¿ywa fontów mathpple do sk³adania wzorów
+matematycznych. Te wirtualne fonty zosta³y stworzone do sk³adania
+wzorów matematycznych w stylu pasuj±cym do fontów tekstowych Palatino.
+Fonty AMS, je¶li s± dodatkowo u¿ywane, zostan± przeskalowane tak, by
+pasowaæ do Palatino.
 
 %package latex-mathtime
 Summary:	Mathtime fonts for LaTeX
+Summary(pl):	Fonty Mathtime dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-mathtime
 The Mathtime fonts have a number of characters remapped to positions
-different from the ones normally used by the corresponding TeX CM-fonts.
-For the symbol font ``operators'' the corresponding mathtime style files
-use the Times Roman font (often called something like: ptmr or ptmr7t or
+different from the ones normally used by the corresponding TeX
+CM-fonts. For the symbol font ``operators'' the corresponding mathtime
+style files use the Times Roman font (often called something like:
+ptmr or ptmr7t or ptmrq).
+
+%description latex-mathtime -l pl
+Fonty Mathtime zawieraj± wiele znaków przemapowanych na pozycje
+ró¿ni±ce siê od tych normalnie u¿ywanych w odpowiadaj±cych im TeXowych
+fontach CM. Dla fontu symboli "operators" odpowiadaj±cy styl mathtime
+u¿ywa fontu Times Roman (zazwyczaj nazywanego w stylu ptmr, ptmr7t lub
 ptmrq).
 
 %package latex-mflogo
 Summary:	LaTeX support for MetaFont and logo fonts
+Summary(pl):	Obs³uga LaTeXa dla MetaFonta i fontów logo
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-mflogo = %{version}
 
 %description latex-mflogo
-LaTeX package and font definition file to access the Knuthian `logo' fonts
-described in `The MetaFontbook' and the MetaFont and logos in LaTeX
-documents.
+LaTeX package and font definition file to access the Knuthian `logo'
+fonts described in `The MetaFontbook' and the MetaFont and logos in
+LaTeX documents.
+
+%description latex-mflogo -l pl
+Pakiet LaTeXa i plik definicji fontów udostêpniaj±cy fonty logo Knutha
+opisane w "The MetaFontbook" oraz MetaFont i loga w dokumentach
+LaTeXa.
 
 %package latex-mfnfss
 Summary:	Font description files to use extra fonts like yinit and ygoth
+Summary(pl):	Pliki opisów fontów udostêpniaj±ce dodatkowe fonty, jak yinit i ygoth
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-mfnfss
 Font description files to use extra fonts like yinit and ygoth.
 
+%description latex-mfnfss -l pl
+Pliki opisów fontów udostêpniaj±ce dodatkowe fonty, jak yinit i ygoth.
+
 %package latex-minitoc
 Summary:	Produce a table of contents for each chapter
+Summary(pl):	Tworzenie spisów tre¶ci dla ka¿dego rozdzia³u
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-minitoc
 Produce a table of contents for each chapter.
 
+%description latex-minitoc -l pl
+Tworzenie spisów tre¶ci dla ka¿dego rozdzia³u.
+
 %package latex-mltex
 Summary:	Support for MLTeX
+Summary(pl):	Wsparcie dla MLTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-mltex
-Support for MLTeX, the multilingual TeX extension from Michael J. Ferguson.
+Support for MLTeX, the multilingual TeX extension from Michael J.
+Ferguson.
+
+%description latex-mltex -l pl
+Wsparcie dla MLTeXa - rozszerzenia TeXa z obs³ug± wielu jêzyków,
+autorstwa Michaela J. Fergusona.
 
 %package latex-palatcm
 Summary:	Palatino + Computer Modern math fonts for LaTeX
+Summary(pl):	Fonty matematyczne Palatino i Computer Modern dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-palatcm
 Palatino + Computer Modern math fonts for LaTeX.
 
+%description latex-palatcm -l pl
+Fonty matematyczne Palatino i Computer Modern dla LaTeXa.
+
 %package latex-psnfss
-Summary:	LaTeX font support for common PostScript fonts. 
+Summary:	LaTeX font support for common PostScript fonts
+Summary(pl):	Obs³uga popularnych fontów postscriptowych w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-adobe = %{version}
 Obsoletes:	tetex-latex-mathptm
 Obsoletes:	tetex-latex-mathptmx
 
 %description latex-psnfss
-LaTeX font definition files, macros and font metrics for common PostScript
-fonts.
+LaTeX font definition files, macros and font metrics for common
+PostScript fonts.
+
+%description latex-psnfss
+LaTeXowe pliki definicji fontów, makra i metryki fontów dla
+popularnych fontów postscriptowych.
 
 %package latex-pxfonts
 Summary:	PX fonts LaTeX support
+Summary(pl):	Obs³uga fontów PX w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-px = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-pxfonts
 PX fonts LaTeX support.
 
+%description latex-pxfonts -l pl
+Obs³uga fontów PX w LaTeXu.
+
 %package latex-qfonts
 Summary:	A collection of PostScript (Adobe Type 1) fonts in QX layout
+Summary(pl):	Zestaw fontów postscriptowych (Adobe Type 1) w uk³adzie QX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-qfonts = %{version}
 
 %description latex-qfonts
 A collection of Type 1 fonts; include QuasiBookman, QuasiChancery,
 QuasiCourier, QuasiPalatino, QuasiSwiss, QuasiSwissCondensed, and
-QuasiTimes (regular, italic, bold and bold italic), based on URW++ fonts
-distributed with Ghostscript. The fonts are encoded according to QX layout
-which facilitates multilingual and technical typesetting using TeX,
-preserving usability in Windows applications.
+QuasiTimes (regular, italic, bold and bold italic), based on URW++
+fonts distributed with Ghostscript. The fonts are encoded according to
+QX layout which facilitates multilingual and technical typesetting
+using TeX, preserving usability in Windows applications.
+
+%description latex-qfonts -l pl
+Zestaw fontów Type 1; zawiera QuasiBookman, QuasiChancery,
+QuasiCourier, QuasiPalatino, QuasiSwiss, QuasiSwissCondensed oraz
+QuasiTimes (zwyk³e, pochy³e, t³uste i t³uste pochy³e), oparte na
+fontach URW++ rozpowszechnianych z Ghostscriptem. Fonty s± kodowane
+zgodnie z uk³adem QX, który u³atwia sk³ad wielojêzyczny i techniczny w
+TeXu, zachowuj±c przydatno¶æ dla aplikacji windowsowych.
 
 %package latex-txfonts
 Summary:	TX fonts LaTeX support
+Summary(pl):	Obs³uga fontów TX w LaTeXu
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-tx = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-txfonts
 TX fonts LaTeX support.
 
+%description latex-txfonts -l pl
+Obs³uga fontów TX w LaTeXu.
+
 %package latex-umlaute
 Summary:	An interface to inputenc for using alternate input encodings
+Summary(pl):	Interfejs inputenc do u¿ywania alternatywnych kodowañ wej¶ciowych
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-umlaute
 An interface to inputenc for using alternate input encodings.
 
+%description latex-umlaute -l pl
+Interfejs inputenc do u¿ywania alternatywnych kodowañ wej¶ciowych.
+
 %package latex-vnps
 Summary:	VNPS fonts for LaTeX
+Summary(pl):	Fonty VNPS dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-vnps
 VNPS fonts for LaTeX.
 
+%description latex-vnps -l pl
+Fonty VNPS dla LaTeXa.
+
 %package latex-vnr
 Summary:	VNR fonts for LaTeX
+Summary(pl):	Fonty VNR dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-vnr = %{version}
 
 %description latex-vnr
 VNR fonts for LaTeX.
 
+%description latex-vnr -l pl
+Fonty VNR dla LaTeXa.
+
+# XXX --q
 %package latex-wasysym
 Summary:	Extra characters from the Waldis symbol fonts
 Group:		Applications/Publishing/TeX
