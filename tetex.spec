@@ -21,7 +21,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	1
+Release:	1.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
