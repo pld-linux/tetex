@@ -6,8 +6,8 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	4
-Copyright:	distributable
+Release:	5
+License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
@@ -291,14 +291,14 @@ Prereq:		%{_bindir}/texhash
 e-TeX: a 100%-compatible successor to TeX.
 
 %description -l pl etex
-e-TeX -- Pierwsza przymiarka do New Typesetting System...
+e-TeX -- Pierwsza przymiarka do New Typesetting System.
 
 %package omega
 Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -312,8 +312,8 @@ Omega -- TeX ze wsprciem dla Unicode.
 Summary:	PDFtex 
 Summary(pl):	PDFtex 
 Group:		Applications/Publishing/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description pdftex
@@ -427,8 +427,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %build
 sh ./reautoconf
-LDFLAGS="-s"
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -fno-rtti -fno-exceptions"
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
@@ -448,7 +447,6 @@ rm -f texk/{tetex,dvipsk}/*.info*
 
 # enable polish hyphenation by default
 find -name language.dat -exec perl -pi -e 's/^%polish/polish/g' {} \;
-
 
 %{__make}
 cd texk 
@@ -547,8 +545,6 @@ perl -pi \
 # I don't know how to make it better now :( /klakier
 cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
-
-
 # install the new magic print filter for converting dvi to ps
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
@@ -556,14 +552,9 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 # temporary fix
 ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
-
-
-
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
-gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
