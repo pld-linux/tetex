@@ -6,7 +6,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.6
-Release:	5
+Release:	6
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
@@ -32,6 +32,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ed
+BuildRequires:	texinfo
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -693,7 +694,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/fonts/source/yandy/mathtime
 %{_datadir}/texmf/fonts/source/yandy/mathtime/*
 
+%{_datadir}/texmf/fonts/tfm/adobe
 %{_datadir}/texmf/fonts/tfm/bh
+%{_datadir}/texmf/fonts/tfm/bitstrea
 %{_datadir}/texmf/fonts/tfm/cg
 %{_datadir}/texmf/fonts/tfm/hoekwater
 %{_datadir}/texmf/fonts/tfm/monotype
