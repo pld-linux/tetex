@@ -759,9 +759,6 @@ fi
 
 %{_datadir}/texmf/tex/fontinst/base/*
 
-%{_datadir}/texmf/tex/french/base/*
-%{_datadir}/texmf/tex/french/config/*
-
 %attr(-,root,root) %{_datadir}/texmf/tex/generic
 
 %{_datadir}/texmf/tex/plain/base/*
@@ -789,7 +786,6 @@ fi
 %doc %{_datadir}/texmf/doc/fonts/ec*
 %doc %{_datadir}/texmf/doc/fonts/fontname
 %doc %{_datadir}/texmf/doc/fonts/oldgerman
-%doc %lang(fr) %{_datadir}/texmf/doc/french
 %doc %{_datadir}/texmf/doc/generic
 %doc %{_datadir}/texmf/doc/help*
 %doc %{_datadir}/texmf/doc/images
@@ -865,7 +861,7 @@ fi
 
 %{_datadir}/texmf/omega/otp/omega/*
 %{_datadir}/texmf/omega/plain/config/*
-%{_datadir}/texmf/omega/latex/*
+%{_datadir}/texmf/omega/lambda/*
 %{_datadir}/texmf/omega/ocp/char2uni/*
 %{_datadir}/texmf/omega/ocp/misc/*
 %{_datadir}/texmf/omega/otp/char2uni/*
@@ -887,7 +883,6 @@ fi
 %{_mandir}/man1/pdftex.1.*
 %{_mandir}/man1/pdfvirtex.1.*
 
-%{_datadir}/texmf/pdftex/base/*
 %{_datadir}/texmf/pdftex/config/*
 %{_datadir}/texmf/pdftex/plain/misc/*
 %{_datadir}/texmf/pdftex/texinfo/*
@@ -962,14 +957,12 @@ fi
 %{_datadir}/texmf/fonts/tfm/ams/cyrillic/*.tfm
 %{_datadir}/texmf/fonts/tfm/ams/euler/*.tfm
 %{_datadir}/texmf/fonts/tfm/ams/symbols/*.tfm
-%{_datadir}/texmf/fonts/type1/bluesky/ams/*
 
 %{_datadir}/texmf/tex/amstex/base/*
 %{_datadir}/texmf/tex/amstex/config/*
-%{_datadir}/texmf/bibtex/bst/ams/*
+%{_datadir}/texmf/bibtex/bst/amslatex/*
 
-%doc %{_datadir}/texmf/doc/ams
-%doc %{_datadir}/texmf/doc/latex/amsfonts
+%doc %{_datadir}/texmf/doc/amstex
 %doc %{_datadir}/texmf/doc/latex/amslatex
 %doc %{_datadir}/texmf/doc/fonts/amsfonts
 
