@@ -5,8 +5,8 @@
 # _noautoreqdep perl(path_tre) ?
 
 
-%define		_ver	beta-20020402
-%define		texmf_ver	beta-20020207
+%define		_ver	beta-20020530
+%define		texmf_ver	beta-20020530
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -44,7 +44,6 @@ Patch15:	teTeX-tektronix.patch
 Patch16:	teTeX-cx.patch
 Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
-Patch19:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-src-beta-20020402-expdvips.patch.gz
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -2410,7 +2409,6 @@ tar xzf %{SOURCE1} -C texmf
 #%patch16 -p1 -b .wiget
 #%patch17 -p1
 %patch18 -p1
-%patch19 -p1
 
 %build
 #sh ./reautoconf
