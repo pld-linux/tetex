@@ -490,7 +490,7 @@ fi
 %files 
 %defattr(644,root,root,755)
 
-%attr(1777,root,root) %dir /var/cache/fonts
+%attr(775,root,fonts) %dir /var/cache/fonts
 
 %attr(750,root,root) %config /etc/cron.daily/tetex.cron
 #%config %{_datadir}/texmf/web2c/mktex.cnf
@@ -574,6 +574,16 @@ fi
 %attr(755,root,root) %{_bindir}/virtex
 %attr(755,root,root) %{_bindir}/vptovf
 %attr(755,root,root) %{_bindir}/weave
+%attr(755,root,root) %{_bindir}/fmtutil
+%attr(755,root,root) %{_bindir}/mfw
+%attr(755,root,root) %{_bindir}/rubibtex
+%attr(755,root,root) %{_bindir}/rumakeindex
+%attr(755,root,root) %{_bindir}/texdoc
+%attr(755,root,root) %{_bindir}/texexec
+%attr(755,root,root) %{_bindir}/texlinks
+%attr(755,root,root) %{_bindir}/texshow
+%attr(755,root,root) %{_bindir}/texutil
+%attr(755,root,root) %{_bindir}/ttf2afm
 
 %{_includedir}/kpathsea/*
 
@@ -649,6 +659,12 @@ fi
 %doc %{_datadir}/texmf/ChangeLog
 %config %{_datadir}/texmf/aliases
 
+%config %{_datadir}/texmf/context/config/texexec.ini
+%lang(de) %{_datadir}/texmf/context/data/cont-de.tws
+%lang(en) %{_datadir}/texmf/context/data/cont-en.tws
+%lang(nl) %{_datadir}/texmf/context/data/cont-nl.tws
+
+
 %{_datadir}/texmf/etex/plain/base/*
 %{_datadir}/texmf/etex/plain/config/*
 %{_datadir}/texmf/fontname/*
@@ -657,23 +673,36 @@ fi
 %{_datadir}/texmf/fonts/source/jknappen/ec/*
 %{_datadir}/texmf/fonts/source/jknappen/sauter/*
 %{_datadir}/texmf/fonts/source/jknappen/tc/*
+%{_datadir}/texmf/fonts/source/lh/base/*
+%{_datadir}/texmf/fonts/source/lh/lh-lcy/*
+%{_datadir}/texmf/fonts/source/lh/lh-ot2/*
+%{_datadir}/texmf/fonts/source/lh/lh-t2a/*
+%{_datadir}/texmf/fonts/source/lh/lh-t2b/*
+%{_datadir}/texmf/fonts/source/lh/lh-t2c/*
+%{_datadir}/texmf/fonts/source/lh/lh-x2/*
+%{_datadir}/texmf/fonts/source/lh/nont2/*
 %{_datadir}/texmf/fonts/source/public/bbm/*
 %{_datadir}/texmf/fonts/source/public/bbold/*
+%{_datadir}/texmf/fonts/source/public/cbgreek/*
+%{_datadir}/texmf/fonts/source/public/cc-pl/*
 %{_datadir}/texmf/fonts/source/public/cm/*.mf
 %{_datadir}/texmf/fonts/source/public/cmbright/*
 %{_datadir}/texmf/fonts/source/public/cmextra/*
 %{_datadir}/texmf/fonts/source/public/concmath/*
 %{_datadir}/texmf/fonts/source/public/concrete/*
+%{_datadir}/texmf/fonts/source/public/dstroke/*
 %{_datadir}/texmf/fonts/source/public/ecc/*
 %{_datadir}/texmf/fonts/source/public/euxm/*
 %{_datadir}/texmf/fonts/source/public/gothic/*
 %{_datadir}/texmf/fonts/source/public/mflogo/*
 %{_datadir}/texmf/fonts/source/public/misc/*
 %{_datadir}/texmf/fonts/source/public/pandora/*
+%{_datadir}/texmf/fonts/source/public/pl/*
 %{_datadir}/texmf/fonts/source/public/rsfs/*.mf
 %{_datadir}/texmf/fonts/source/public/stmaryrd/*.mf
 %{_datadir}/texmf/fonts/source/public/wasy/*.mf
 %{_datadir}/texmf/fonts/source/public/xypic/*.mf
+%{_datadir}/texmf/fonts/source/yandy/mathtime/*
 
 %{_datadir}/texmf/fonts/tfm/adobe/avantgar/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/bookman/*.tfm
@@ -684,41 +713,97 @@ fi
 %{_datadir}/texmf/fonts/tfm/adobe/mathptmx/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/ncntrsbk/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/palatino/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/pslatex/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/symbol/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/times/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/utopia/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/zapfding/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/zapfchan/*.tfm
 %{_datadir}/texmf/fonts/tfm/bitstrea/charter/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/helvetic/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/lubright/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/lucida/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/lucidfax/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/lucsans/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/lumath/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh/wingding/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/albertus/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/atqolive/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/clarendo/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/coronet/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/courier/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/garamond/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/lettrgth/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/marigold/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/optima/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/times/*.tfm
+%{_datadir}/texmf/fonts/tfm/cg/univers/*.tfm
+%{_datadir}/texmf/fonts/tfm/hoekwater/context/*.tfm
+%{_datadir}/texmf/fonts/tfm/monotype/helvetic/*.tfm
+%{_datadir}/texmf/fonts/tfm/monotype/symbol/*.tfm
+%{_datadir}/texmf/fonts/tfm/monotype/timesnew/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/ae/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/bbm/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/bbold/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/cc-pl/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/cm/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/cmcyr/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/cmbright/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/cmextra/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/concmath/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/concrete/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/euxm/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/gothic/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/marvosym/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/mathpple/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/mflogo/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/misc/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/pandora/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/pl/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/rsfs/*
 %{_datadir}/texmf/fonts/tfm/public/stmaryrd/*
 %{_datadir}/texmf/fonts/tfm/public/wasy/*
 %{_datadir}/texmf/fonts/tfm/public/xypic/*
+%{_datadir}/texmf/fonts/tfm/yandy/courier/*
+%{_datadir}/texmf/fonts/tfm/yandy/lubright/*
+%{_datadir}/texmf/fonts/tfm/yandy/lucida/*
+%{_datadir}/texmf/fonts/tfm/yandy/lucidfax/*
+%{_datadir}/texmf/fonts/tfm/yandy/lucsans/*
+%{_datadir}/texmf/fonts/tfm/yandy/lumath/*
+%{_datadir}/texmf/fonts/tfm/yandy/mathpi/*
+%{_datadir}/texmf/fonts/tfm/yandy/mathplus/*
+%{_datadir}/texmf/fonts/tfm/yandy/mathtime/*
+%{_datadir}/texmf/fonts/tfm/yandy/symbol/*
+%{_datadir}/texmf/fonts/tfm/yandy/times/*
+%{_datadir}/texmf/fonts/tfm/yandy/zapfding/*
 
 %{_datadir}/texmf/fonts/type1/adobe/utopia/*
 %{_datadir}/texmf/fonts/type1/bitstrea/charter/*
 %{_datadir}/texmf/fonts/type1/bluesky/cm/*
+%{_datadir}/texmf/fonts/type1/bluesky/cmextra/*
+%{_datadir}/texmf/fonts/type1/bluesky/cyrillic/*
+%{_datadir}/texmf/fonts/type1/bluesky/euler/*
+%{_datadir}/texmf/fonts/type1/bluesky/symbols/*
+%{_datadir}/texmf/fonts/type1/hoekwater/context/*
 %{_datadir}/texmf/fonts/type1/hoekwater/mflogo/*
 %{_datadir}/texmf/fonts/type1/hoekwater/misc/*
 %{_datadir}/texmf/fonts/type1/hoekwater/rsfs/*
 %{_datadir}/texmf/fonts/type1/hoekwater/stmaryrd/*
 %{_datadir}/texmf/fonts/type1/hoekwater/wasy/*
+%{_datadir}/texmf/fonts/type1/public/cmcyr/*
+%{_datadir}/texmf/fonts/type1/public/marvosym/*
+%{_datadir}/texmf/fonts/type1/public/pl/*
 %{_datadir}/texmf/fonts/type1/public/xypic/*
 %{_datadir}/texmf/fonts/type1/urw/avantgar/*
 %{_datadir}/texmf/fonts/type1/urw/bookman/*
 %{_datadir}/texmf/fonts/type1/urw/courier/*
 %{_datadir}/texmf/fonts/type1/urw/helvetic/*
+%{_datadir}/texmf/fonts/type1/urw/ncntrsbk/*
+%{_datadir}/texmf/fonts/type1/urw/palatino/*
+%{_datadir}/texmf/fonts/type1/urw/symbol/*
+%{_datadir}/texmf/fonts/type1/urw/times/*
+%{_datadir}/texmf/fonts/type1/urw/zapfchan/*
+%{_datadir}/texmf/fonts/type1/urw/zapfding/*
 
 %{_datadir}/texmf/fonts/vf/adobe/avantgar/*
 %{_datadir}/texmf/fonts/vf/adobe/bookman/*
@@ -729,10 +814,34 @@ fi
 %{_datadir}/texmf/fonts/vf/adobe/mathptmx/*
 %{_datadir}/texmf/fonts/vf/adobe/ncntrsbk/*
 %{_datadir}/texmf/fonts/vf/adobe/palatino/*
+%{_datadir}/texmf/fonts/vf/adobe/pslatex/*
 %{_datadir}/texmf/fonts/vf/adobe/times/*
 %{_datadir}/texmf/fonts/vf/adobe/utopia/*
 %{_datadir}/texmf/fonts/vf/adobe/zapfchan/*
 %{_datadir}/texmf/fonts/vf/bitstrea/charter/*
+%{_datadir}/texmf/fonts/vf/bh/lubright/*
+%{_datadir}/texmf/fonts/vf/bh/lucida/*
+%{_datadir}/texmf/fonts/vf/bh/lucidfax/*
+%{_datadir}/texmf/fonts/vf/bh/lucsans/*
+%{_datadir}/texmf/fonts/vf/cg/albertus/*
+%{_datadir}/texmf/fonts/vf/cg/atqolive/*
+%{_datadir}/texmf/fonts/vf/cg/clarendo/*
+%{_datadir}/texmf/fonts/vf/cg/coronet/*
+%{_datadir}/texmf/fonts/vf/cg/courier/*
+%{_datadir}/texmf/fonts/vf/cg/garamond/*
+%{_datadir}/texmf/fonts/vf/cg/lettrgth/*
+%{_datadir}/texmf/fonts/vf/cg/marigold/*
+%{_datadir}/texmf/fonts/vf/cg/optima/*
+%{_datadir}/texmf/fonts/vf/cg/times/*
+%{_datadir}/texmf/fonts/vf/cg/univers/*
+%{_datadir}/texmf/fonts/vf/monotype/helvetic/*
+%{_datadir}/texmf/fonts/vf/monotype/timesnew/*
+%{_datadir}/texmf/fonts/vf/public/ae/*
+%{_datadir}/texmf/fonts/vf/public/cmcyr/*
+%{_datadir}/texmf/fonts/vf/public/mathpple/*
+%{_datadir}/texmf/fonts/vf/yandy/mathplus/*
+%{_datadir}/texmf/fonts/vf/yandy/mathtime/*
+%{_datadir}/texmf/fonts/vf/yandy/times/*
 
 %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex/*
@@ -743,6 +852,7 @@ fi
 
 %{_datadir}/texmf/metapost/base/*
 %{_datadir}/texmf/metapost/config/*
+%{_datadir}/texmf/metapost/context/*
 %{_datadir}/texmf/metapost/misc/*
 
 %{_datadir}/texmf/mft/*
@@ -756,7 +866,14 @@ fi
 
 %{_datadir}/texmf/tex/plain/base/*
 %{_datadir}/texmf/tex/plain/config/*
+%{_datadir}/texmf/tex/plain/mathtime/*
 %{_datadir}/texmf/tex/plain/misc/*
+
+%{_datadir}/texmf/tex/cyrplain/base/*
+%config %{_datadir}/texmf/tex/cyrplain/config/*.ini
+%{_datadir}/texmf/tex/mex/base/*
+%config %{_datadir}/texmf/tex/mex/config/mex.ini
+%config %{_datadir}/texmf/tex/mex/config/mexconf.tex
 
 %{_datadir}/texmf/tex/texinfo/*
 
@@ -774,9 +891,21 @@ fi
 %doc %{_datadir}/texmf/doc/README
 %doc %{_datadir}/texmf/doc/context
 %doc %{_datadir}/texmf/doc/e*
+%doc %{_datadir}/texmf/doc/mkhtml.nawk
+%doc %{_datadir}/texmf/doc/tetex.gif
+%doc %{_datadir}/texmf/doc/mex/*
 
 %doc %{_datadir}/texmf/doc/fonts/c*
 %doc %{_datadir}/texmf/doc/fonts/ec*
+%doc %{_datadir}/texmf/doc/fonts/ee/*
+%doc %{_datadir}/texmf/doc/fonts/pl/*
+%doc %{_datadir}/texmf/doc/fonts/bluesky/*
+%doc %{_datadir}/texmf/doc/fonts/dstroke/*
+%doc %{_datadir}/texmf/doc/fonts/hoekwater/*
+%doc %{_datadir}/texmf/doc/fonts/lucidabr/*
+%doc %{_datadir}/texmf/doc/fonts/marvosym/*
+%doc %{_datadir}/texmf/doc/fonts/cyrplain/*
+%doc %{_datadir}/texmf/doc/fonts/fontinst/base/*
 %doc %{_datadir}/texmf/doc/fonts/fontname
 %doc %{_datadir}/texmf/doc/fonts/oldgerman
 %doc %{_datadir}/texmf/doc/generic
@@ -789,6 +918,9 @@ fi
 %doc %{_datadir}/texmf/doc/newhelpindex.html
 %doc %{_datadir}/texmf/doc/programs
 %doc %{_datadir}/texmf/doc/tetex
+
+%doc %{_datadir}/texmf/source/README
+%{_datadir}/texmf/source/generic
 
 %files latex 
 %defattr(644,root,root,755)
@@ -816,9 +948,15 @@ fi
 %{_datadir}/texmf/bibtex/bst/base/*
 %{_datadir}/texmf/bibtex/bst/germbib/*
 %{_datadir}/texmf/bibtex/bst/koma-script/*
+%{_datadir}/texmf/bibtex/bst/misc/*
 %{_datadir}/texmf/bibtex/bst/natbib/*
 
 %doc %{_datadir}/texmf/doc/bibtex/
+
+%{_datadir}/texmf/source/latex
+
+%{_datadir}/texmf/tex/platex/base/*
+%config %{_datadir}/texmf/tex/platex/config/*
 
 %files etex
 %defattr(644,root,root,755)
@@ -838,6 +976,8 @@ fi
 
 %{_datadir}/texmf/tex/eplain/*
 
+%config %{_datadir}/texmf/etex/latex/config/elatex.ini
+
 %files omega 
 %defattr(644,root,root,755)
 
@@ -850,14 +990,21 @@ fi
 
 %{_datadir}/texmf/fonts/ofm/public/omega/*
 %{_datadir}/texmf/fonts/tfm/public/omega/*.tfm
+%{_datadir}/texmf/fonts/ovf/public/omega/*
+%{_datadir}/texmf/fonts/ovp/public/omega/*
 %{_datadir}/texmf/fonts/type1/public/omega/*
 
 %{_datadir}/texmf/omega/otp/omega/*
 %{_datadir}/texmf/omega/plain/config/*
+%{_datadir}/texmf/omega/plain/base/*
 %{_datadir}/texmf/omega/lambda/*
 %{_datadir}/texmf/omega/ocp/char2uni/*
 %{_datadir}/texmf/omega/ocp/misc/*
+%{_datadir}/texmf/omega/ocp/omega/*
+%{_datadir}/texmf/omega/ocp/omega/*
+%{_datadir}/texmf/omega/ocp/uni2char/*
 %{_datadir}/texmf/omega/otp/char2uni/*
+%{_datadir}/texmf/omega/otp/uni2char/*
 %{_datadir}/texmf/omega/otp/misc/*
 
 %doc %{_datadir}/texmf/doc/omega
@@ -872,6 +1019,14 @@ fi
 %attr(755,root,root) %{_bindir}/pdfinitex
 %attr(755,root,root) %{_bindir}/pdftex
 %attr(755,root,root) %{_bindir}/pdfvirtex
+%attr(755,root,root) %{_bindir}/pdfeinitex
+%attr(755,root,root) %{_bindir}/pdfelatex
+%attr(755,root,root) %{_bindir}/pdfetex
+%attr(755,root,root) %{_bindir}/pdfevirtex
+%attr(755,root,root) %{_bindir}/thumbpdf
+%attr(755,root,root) %{_bindir}/e2pall
+%attr(755,root,root) %{_bindir}/epstopdf
+
 %{_mandir}/man1/pdfinitex.1.*
 %{_mandir}/man1/pdftex.1.*
 %{_mandir}/man1/pdfvirtex.1.*
@@ -881,9 +1036,17 @@ fi
 %{_datadir}/texmf/pdftex/texinfo/*
 
 %config %{_datadir}/texmf/pdftex/latex/config/pdflatex.ini
+%config %{_datadir}/texmf/pdftex/mex/config/pdfmex.ini
+%config %{_datadir}/texmf/pdftex/plain/config/pdftex.ini
+
+%config %{_datadir}/texmf/pdfetex/latex/config/pdfelatex.ini
+%config %{_datadir}/texmf/pdfetex/tex/config/pdfetex.ini
+
 
 %attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
+
+%{_datadir}/texmf/source/pdftex
 
 %files -n xdvi 
 %defattr(644,root,root,755)
@@ -923,6 +1086,7 @@ fi
 %attr(755,root,root) %{_bindir}/dvilj2p
 %attr(755,root,root) %{_bindir}/dvilj4
 %attr(755,root,root) %{_bindir}/dvilj4l
+%attr(755,root,root) %{_bindir}/dvilj6
 %{_mandir}/man1/dvilj.1.*
 
 %files afm 
@@ -950,7 +1114,10 @@ fi
 
 %{_datadir}/texmf/tex/amstex/base/*
 %{_datadir}/texmf/tex/amstex/config/*
+%{_datadir}/texmf/tex/plain/amsfonts/*
 %{_datadir}/texmf/bibtex/bst/amslatex/*
+
+%{_datadir}/texmf/source/amstex
 
 %doc %{_datadir}/texmf/doc/amstex
 %doc %{_datadir}/texmf/doc/latex/amslatex
