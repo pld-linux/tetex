@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	18
+Release:	19
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -28,8 +28,9 @@ Source2:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmfsrc-%{t
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
-Source6:	teTeX-hugelatex.cnf
-Source7:	%{name}-updmap
+Source6:	xdvi.png
+Source7:	teTeX-hugelatex.cnf
+Source8:	%{name}-updmap
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -595,6 +596,7 @@ cd ../../..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers \
+	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
 	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
@@ -644,7 +646,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
 install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
-install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
+install %{SOURCE8} $RPM_BUILD_ROOT%{_bindir}/
 touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 
 %{__make} init \
@@ -665,7 +667,7 @@ perl -pi \
 # prepare conf file to build hugelatex
 # (required to build jadetex)
 # I don't know how to make it better now :( /klakier
-cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
+cat %{SOURCE7} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
@@ -673,6 +675,7 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
+install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 # remove all *.dvi ? why ? /wiget
@@ -1524,6 +1527,7 @@ exit 0
 %files -n xdvi
 %defattr(644,root,root,755)
 %{_applnkdir}/Graphics/Viewers/xdvi.desktop
+%{_pixmapsdir}/xdvi.png
 %attr(755,root,root) %{_bindir}/xdvi.bin
 %attr(755,root,root) %{_bindir}/xdvi
 
