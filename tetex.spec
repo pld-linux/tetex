@@ -1,5 +1,6 @@
 #
 # TODO:
+# - xdvi links with installed instead of built kpathsea library
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
@@ -8,8 +9,8 @@
 # - context: split into language packages (cz, de, en, etc.)
 #
 
-%define		_ver	beta-20021112
-%define		texmf_ver	beta-20021112
+%define		_ver	beta-20021116
+%define		texmf_ver	beta-20021116
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
