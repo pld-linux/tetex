@@ -20,7 +20,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	4
+Release:	5
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -73,6 +73,10 @@ BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRequires:	openssl-devel
+Obsoletes:	tetex-doc
+Obsoletes:	tetex-tex-hyphen
+Obsoletes:	tetex-fontname
+Obsoletes:	tetex-fontinst
 %include	/usr/lib/rpm/macros.perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -141,6 +145,9 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-doc-uktug-faq
+Obsoletes:	tetex-doc-de-tex-faq
+Obsoletes:	tetex-doc-LaTeX-FAQ-francaise
 
 %description doc-tug-faq
 TeX User Group FAQ.
@@ -309,6 +316,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-rumakeindex
 
 %description makeindex
 A general purpose hierarchical index generator; it accepts one or more
@@ -333,6 +341,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-matapost
 
 %description metapost
 MetaPost.
@@ -371,6 +380,7 @@ Requires:	xdvi = %{version}
 Requires:	%{name} = %{version}
 Requires:	%{name}-dvips = %{version}
 Requires:	%{name}-metafont = %{version}
+Obsoletes:	tetex-texconfig
 
 %description -n texconfig
 TeX typesetting system configurator.
@@ -570,6 +580,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-fonts-ams = %{version}
+Obsoletes:	tetex-plain-amsfonts
 
 %description amstex
 American Mathematics Society macros for Plain TeX basic files.
@@ -690,6 +701,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Obsoletes:	tetex-cyramstex
 
 %description format-cyramstex
 Cyrillic AMSTeX format.
@@ -700,6 +712,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Obsoletes:	tetex-cyrtexinfo
 
 %description format-cyrtexinfo
 Cyrillic TeXInfo format.
@@ -734,6 +747,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-latex-context
 
 %description context
 A full featured, parameter driven macro package, which fully supports
@@ -758,6 +772,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-context = %{version}
+Obsoletes:	tetex-format-pdftex-context
 
 %description format-pdfcontext
 PDF ConTeXt format.
@@ -773,6 +788,43 @@ Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-latex = %{version}
 Obsoletes:	tetex-mwcls
 Obsoletes:	tetex-revtex4
+Obsoletes:	tetex-latex-graphics
+Obsoletes:	tetex-latex-misc
+Obsoletes:	tetex-latex-revtex4
+Obsoletes:	tetex-latex-caption
+Obsoletes:	tetex-latex-mwcls
+Obsoletes:	tetex-latex-titlesec
+Obsoletes:	tetex-latex-pb-diagram
+Obsoletes:	tetex-latex-units
+Obsoletes:	tetex-latex-ntgclass
+Obsoletes:	tetex-latex-fp
+Obsoletes:	tetex-latex-t2
+Obsoletes:	tetex-latex-natbib
+Obsoletes:	tetex-latex-listings
+Obsoletes:	tetex-latex-oberdiek
+Obsoletes:	tetex-latex-hyperref
+Obsoletes:	tetex-latex-fancyhdr
+Obsoletes:	tetex-latex-fancyvrb
+Obsoletes:	tetex-latex-koma-script
+Obsoletes:	tetex-bibtex-koma-script
+Obsoletes:	tetex-latex-multirow
+Obsoletes:	tetex-latex-ms
+Obsoletes:	tetex-latex-g-brief
+Obsoletes:	tetex-latex-pstriks
+Obsoletes:	tetex-latex-seminar
+Obsoletes:	tetex-latex-endfloat
+Obsoletes:	tetex-latex-curves
+Obsoletes:	tetex-latex-SIunits
+Obsoletes:	tetex-latex-labels
+Obsoletes:	tetex-latex-dvilj
+Obsoletes:	tetex-latex-dinbrief
+Obsoletes:	tetex-latex-eepic
+Obsoletes:	tetex-latex-tools
+Obsoletes:	tetex-latex-mwdtools
+Obsoletes:	tetex-latex-fancyheadings
+# FIXME: I can't find files from this packages in any subpackage in new tetex
+Obsoletes:	tetex-latex-algorith
+Obsoletes:	tetex-latex-draftcopy
 
 %description latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -802,6 +854,9 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-ams = %{version}
+Obsoletes:	tetex-latex-amsfonts
+Obsoletes:	tetex-latex-amscls
+Obsoletes:	tetex-latex-amsmath
 
 %description latex-ams
 This package is the principal package in the AMS-LaTeX distribution. It
@@ -863,6 +918,9 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Obsoletes:	tetex-bibtex
+Obsoletes:	tetex-rubibtex
+Obsoletes:	tetex-natbib
 
 %description latex-bibtex
 Bibliography management for LaTeX.
@@ -874,6 +932,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex-ams = %{version}
 Requires:	%{name}-latex-bibtex = %{version}
+Obsoletes:	tetex-bibtex-ams
 
 %description latex-bibtex-ams
 BibTeX style files for American Meteorological Society publications.
@@ -884,6 +943,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
+Obsoletes:	tetex-bibtex-plbib
 
 %description latex-bibtex-pl
 Polish bibliography management for LaTeX.
@@ -894,6 +954,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
+Obsoletes:	tetex-bibtex-germbib
 
 %description latex-bibtex-german
 German variants of standard BibTeX styles.
@@ -904,6 +965,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-bibtex-revtex4
 
 %description latex-bibtex-revtex4
 BibTeX styles for REVTeX4.
@@ -1113,6 +1175,8 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-adobe = %{version}
+Obsoletes:	tetex-latex-mathptm
+Obsoletes:	tetex-latex-mathptmx
 
 %description latex-psnfss
 LaTeX font definition files, macros and font metrics for common PostScript
@@ -1335,6 +1399,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-tex-eijkhout
 
 %description tex-misc
 Miscellaneous TeX macros.
@@ -1404,6 +1469,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-tex-spanishb
 
 %description tex-spanish
 Various TeX related files for typesetting documents written in Spanish,
