@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	13
+Release:	14
 License:	distributable
 Group:		Applications/Publishing/TeX
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_stable_ver}.tar.gz
@@ -739,6 +739,14 @@ exit 0
 exit 0
 
 %postun omega
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
+exit 0
+
+%post pdftex
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
+exit 0
+
+%postun pdftex
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
