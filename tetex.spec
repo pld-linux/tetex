@@ -1,13 +1,14 @@
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
-Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
+Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0
 Release:	1.1
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{version}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{version}.tar.gz
@@ -18,10 +19,16 @@ Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-arm.patch
 Patch4:		teTeX-info.patch
+Patch5:		teTeX-klibtool.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
+Prereq:		/sbin/ldconfig
 Prereq:		/sbin/install-info
+BuildRequires:	libpng-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	zlib-devel
+BuildRequires:	XFree86-devel
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -60,9 +67,10 @@ kitabýnda anlatýlmaktadýr.
 Summary:	LaTeX macro package
 Summary(de):	LaTeX-Makropaket
 Summary(fr):	Package de macros pour LaTeX
-Summary(tr):	LaTeX makro paketi
 Summary(pl):	Makro-pakiet LaTeX
+Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		/sbin/install-info
 
@@ -106,44 +114,14 @@ gerçekleþtirilmesi çok zor olsa da, hiç biçimlendirme komutuna yer
 vermeksizin (``2 birim aralýk býrak'' gibi), yalnýzca özel iþaretleme
 yönergeleri ile (``yeni bir kesime geç'' gibi) bunu baþarmaya çalýþýr.
 
-%package -n xdvi
-Summary:	X11 previewer
-Group:		Applications/Publishing/TeX
-Summary(de):	X11-Previewer 
-Summary(fr):	Prévisualisateur X11
-Summary(tr):	X11 öngörüntüleyici
-Summary(pl):	Przegl±darka DVI dla X11 
-Obsoletes:	tetex-xdvi
-
-%description -n xdvi
-xdvi is a program which runs under the X window system. It is used to
-preview dvi files, such as are produced by tex and latex.
-
-%description -l de -n xdvi
-xdvi ist ein Programm, das unter dem X-Window-System läuft und gewohnt 
-ist, dvi-Dateien als Vorschau anzuzeigen, etwa solche, die von tex und 
-latex erzeugt wurden. 
-
-%description -l fr -n xdvi
-xdvi est un programme s'exécutant sous le système X Window. Il sert à
-visualiser les fichiers dvi tels que ceux produits par tex et latex.
-
-%description -l pl -n xdvi
-xdvi jest programem (dzia³aj±cym w X Window System) do przegl±dania plików DVI, 
-produkowanych przez TeXa i LaTeXa.
-
-%description -l tr -n xdvi
-xdvi X Windows sistemi altýnda çalýþan bir programdýr. TeX ya da LaTeX
-tarafýndan oluþturulmuþ olan dvi dosyalarýnýn görüntülenmesi amacýyla
-kullanýlýr.
-
 %package dvips
 Summary:	dvi to postscript convertor
 Summary(de):	dvi-Postscript-Konvertierungsprogramm
 Summary(fr):	Convertisseur dvi vers PostScript
-Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Summary(pl):	Konwerter dvi do postscriptu
+Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		/sbin/install-info
 
@@ -171,9 +149,10 @@ iþleyiciler tarafýndan da (GFtoDVI gibi) üretilmiþ olabilir.
 Summary:	dvi to laserjet convertor
 Summary(de):	Ein dvi-->Laserjet-Konvertierer
 Summary(fr):	convertisseur dvi vers laserjet.
-Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Summary(pl):	Konwerter dvi do laserjet
+Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description dvilj
@@ -204,9 +183,10 @@ alýnabilir.
 Summary:	afm (Adobe Font Metrics) fonts and utilities
 Summary(de):	Fonts und Dienstprogramme für afm (Adobe Font Metrics)
 Summary(fr):	Fontes afm (Adobe Font Metrics) et utilitaires
-Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
 Summary(pl):	afm (Adobe Font Metrics) czcionki i narzêdzia
+Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description afm
@@ -244,9 +224,10 @@ bilgileri taþýyan TFM dosyalarý gerekir. afm2tfm bu gerekli dönüþümü yapar.
 Summary:	LaTeX macro package
 Summary(de):	LaTeX-Makropaket
 Summary(fr):	Package de macros pour LaTeX
-Summary(tr):	LaTeX makro paketi
 Summary(pl):	Makra dla LaTeX 
+Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description ams
@@ -259,6 +240,7 @@ Makra American Mathematics Society do sk³adania z publikacji matematycznych.
 Summary:	LaTeX macro package
 Summary(pl):	Dodatkowe makra dla LaTeX
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description bibtex 
@@ -268,6 +250,7 @@ LaTeX macro package.
 Summary:	e-TeX 
 Summary(pl):	e-TeX 
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description etex
@@ -280,6 +263,7 @@ e-TeX -- Pierwsza przymiarka do New Typesetting System...
 Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description omega
@@ -292,6 +276,7 @@ Omega -- TeX ze wsprciem dla Unicode.
 Summary:	PDFtex 
 Summary(pl):	PDFtex 
 Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
 %description pdftex
@@ -312,6 +297,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 sh ./reautoconf
@@ -325,7 +311,10 @@ LDFLAGS="-s"; export LDFLAGS
 	--with-texinfo \
 	--with-fonts-dir=/var/cache/fonts \
 	--with-texmf-dir=../share/texmf \
-	--with-ncurses
+	--with-ncurses \
+	--enable-shared \
+	--disable-static
+
 make
 (cd texk; make)
 (cd texk/tetex; make)
@@ -338,8 +327,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
-	$RPM_BUILD_ROOT/etc/cron.daily \
-	$RPM_BUILD_ROOT/etc/X11/wmconfig
+	$RPM_BUILD_ROOT/etc/cron.daily
 
 perl -pi \
 	-e "s|\.\./share/texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
@@ -347,6 +335,8 @@ perl -pi \
 	texk/share/texmf/web2c/texmf.cnf
 
 cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
+
+LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
 make install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
@@ -407,78 +397,17 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 
-#wmconfig things
+# temporary fix
+ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
-cat > $RPM_BUILD_ROOT/etc/X11/wmconfig/xdvi <<EOF
-xdvi name "XDvi"
-xdvi icon "text.xpm"
-xdvi mini-icon "mini-doc1.xpm"
-xdvi exec "xdvi &"
-xdvi group "Graphics/Viewers"
-EOF
-
-strip --strip-unneeded $RPM_BUILD_ROOT/%{_bindir}/* || :
-
-gzip $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
-
-%pre
-%{_bindir}/update-db
-
-# make sure ls-R used by tetex is updated after an install
+gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %post
 /sbin/install-info %{_infodir}/web2c.info.gz /etc/info-dir
 /sbin/install-info %{_infodir}/kpathsea.info.gz /etc/info-dir
+/sbin/ldconfig
 
 /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%post latex
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-/sbin/install-info %{_infodir}/latex.info.gz /etc/info-dir
-exit 0
-
-%post -n xdvi
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%post dvips
-/sbin/install-info %{_infodir}/dvips.info.gz /etc/info-dir
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%post dvilj
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%post afm
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun
-%{_bindir}/update-db
-
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun latex
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun -n xdvi
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun dvips
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun dvilj
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-exit 0
-
-%postun afm
-[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
 %preun
@@ -487,15 +416,56 @@ if [ "$1" = "0" ]; then
 	/sbin/install-info --delete %{_infodir}/web2c.info.gz /etc/info-dir
 fi
 
-%preun dvips
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/dvips.info.gz /etc/info-dir
-fi
+%postun
+%{_bindir}/update-db
+/sbin/ldconfig
+
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%post latex
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+/sbin/install-info %{_infodir}/latex.info.gz /etc/info-dir
+exit 0
 
 %preun latex
 if [ "$1" = "0" ]; then
 	/sbin/install-info --delete %{_infodir}/latex.info.gz /etc/info-dir
 fi
+
+%postun latex
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%post dvips
+/sbin/install-info %{_infodir}/dvips.info.gz /etc/info-dir
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%preun dvips
+if [ "$1" = "0" ]; then
+	/sbin/install-info --delete %{_infodir}/dvips.info.gz /etc/info-dir
+fi
+
+%postun dvips
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%post dvilj
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%postun dvilj
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%post afm
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
+
+%postun afm
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
+exit 0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -503,7 +473,7 @@ rm -rf $RPM_BUILD_ROOT
 %files 
 %defattr(644,root,root,755)
 
-%attr(1777,root,fonts) %dir /var/cache/fonts
+%attr(1777,root,root) %dir /var/cache/fonts
 
 %attr(750,root,root) %config /etc/cron.daily/tetex.cron
 #%config %{_datadir}/texmf/web2c/mktex.cnf
@@ -603,7 +573,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/kpathsea.info*
 %{_infodir}/web2c.info*
 
-%{_libdir}/libkpathsea.a
+%attr(755,root,root) %{_libdir}/lib*.so*
 
 %{_mandir}/man1/MakeTeXPK.1*
 %{_mandir}/man1/access.1*
@@ -706,68 +676,39 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/source/public/misc
 %{_datadir}/texmf/fonts/source/public/pandora
 %{_datadir}/texmf/fonts/source/public/pl
-%{_datadir}/texmf/fonts/source/public/rsfs
+%dir %{_datadir}/texmf/fonts/source/public/rsfs
+%{_datadir}/texmf/fonts/source/public/rsfs/*.mf
+%dir %{_datadir}/texmf/fonts/source/public/stmaryrd
 %{_datadir}/texmf/fonts/source/public/stmaryrd/*.mf
+%dir %{_datadir}/texmf/fonts/source/public/wasy/
 %{_datadir}/texmf/fonts/source/public/wasy/*.mf
+%dir %{_datadir}/texmf/fonts/source/public/xypic
 %{_datadir}/texmf/fonts/source/public/xypic/*.mf
+%dir %{_datadir}/texmf/fonts/source/yandy/mathtime
 %{_datadir}/texmf/fonts/source/yandy/mathtime/*
 
-%{_datadir}/texmf/fonts/tfm/adobe/avantgar/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/bookman/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/courier/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/helvetic/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/mathppl/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/mathptm/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/mathptmx/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/ncntrsbk/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/palatino/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/pslatex/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/symbol/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/times/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/utopia/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/zapfding/*.tfm
-%{_datadir}/texmf/fonts/tfm/adobe/zapfchan/*.tfm
-%{_datadir}/texmf/fonts/tfm/bitstrea/charter/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/helvetic/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/lubright/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/lucida/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/lucidfax/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/lucsans/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/lumath/*.tfm
-%{_datadir}/texmf/fonts/tfm/bh/wingding/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/albertus/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/atqolive/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/clarendo/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/coronet/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/courier/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/garamond/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/lettrgth/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/marigold/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/optima/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/times/*.tfm
-%{_datadir}/texmf/fonts/tfm/cg/univers/*.tfm
-%{_datadir}/texmf/fonts/tfm/hoekwater/context/*.tfm
-%{_datadir}/texmf/fonts/tfm/monotype/helvetic/*.tfm
-%{_datadir}/texmf/fonts/tfm/monotype/symbol/*.tfm
-%{_datadir}/texmf/fonts/tfm/monotype/timesnew/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/ae/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/bbm/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/bbold/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/cc-pl/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/cm/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/cmcyr/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/cmbright/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/cmextra/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/concmath/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/concrete/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/euxm/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/gothic/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/marvosym/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/mathpple/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/mflogo/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/misc/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/pandora/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/pl/*.tfm
+%{_datadir}/texmf/fonts/tfm/bh
+%{_datadir}/texmf/fonts/tfm/cg
+%{_datadir}/texmf/fonts/tfm/hoekwater
+%{_datadir}/texmf/fonts/tfm/monotype
+%{_datadir}/texmf/fonts/tfm/public/ae
+%{_datadir}/texmf/fonts/tfm/public/bbm
+%{_datadir}/texmf/fonts/tfm/public/bbold
+%{_datadir}/texmf/fonts/tfm/public/cc-pl
+%{_datadir}/texmf/fonts/tfm/public/cm
+%{_datadir}/texmf/fonts/tfm/public/cmcyr
+%{_datadir}/texmf/fonts/tfm/public/cmbright
+%{_datadir}/texmf/fonts/tfm/public/cmextra
+%{_datadir}/texmf/fonts/tfm/public/concmath
+%{_datadir}/texmf/fonts/tfm/public/concrete
+%{_datadir}/texmf/fonts/tfm/public/euxm
+%{_datadir}/texmf/fonts/tfm/public/gothic
+%{_datadir}/texmf/fonts/tfm/public/marvosym
+%{_datadir}/texmf/fonts/tfm/public/mathpple
+%{_datadir}/texmf/fonts/tfm/public/mflogo
+%{_datadir}/texmf/fonts/tfm/public/misc
+%{_datadir}/texmf/fonts/tfm/public/pandora
+%{_datadir}/texmf/fonts/tfm/public/pl
 %{_datadir}/texmf/fonts/tfm/public/rsfs
 %{_datadir}/texmf/fonts/tfm/public/stmaryrd
 %{_datadir}/texmf/fonts/tfm/public/wasy
@@ -904,7 +845,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/texmf/web2c/mktexdir
 %attr(755,root,root) %{_datadir}/texmf/web2c/mktexnam
 %attr(755,root,root) %{_datadir}/texmf/web2c/mktexupd
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/fmutil.cnf
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/fmtutil.cnf
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mktex.cnf
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/tex.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/texmf.cnf
@@ -917,12 +858,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/etex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
+#%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/tex.fmt
 
 %doc %{_datadir}/texmf/doc/Makefile
 %doc %{_datadir}/texmf/doc/README
@@ -1023,7 +963,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/viromega.1*
 
 %{_datadir}/texmf/fonts/ofm/public/omega
-%{_datadir}/texmf/fonts/tfm/public/omega/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/omega
 %{_datadir}/texmf/fonts/ovf/public/omega
 %{_datadir}/texmf/fonts/ovp/public/omega
 %{_datadir}/texmf/fonts/type1/public/omega
@@ -1075,23 +1015,10 @@ rm -rf $RPM_BUILD_ROOT
 %config %{_datadir}/texmf/pdfetex/latex/config/pdfelatex.ini
 %config %{_datadir}/texmf/pdfetex/tex/config/pdfetex.ini
 
-
 %attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
 
 %{_datadir}/texmf/source/pdftex
-
-%files -n xdvi 
-%defattr(644,root,root,755)
-
-%config /etc/X11/wmconfig/xdvi
-
-%attr(755,root,root) %{_bindir}/xdvi.bin
-%attr(755,root,root) %{_bindir}/xdvi
-
-%{_mandir}/man1/xdvi.1*
-%{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
-%{_datadir}/texmf/xdvi/XDvi
 
 %files dvips 
 %defattr(644,root,root,755)
@@ -1138,10 +1065,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/source/ams/cyrillic
 %{_datadir}/texmf/fonts/source/ams/euler
 %{_datadir}/texmf/fonts/source/ams/symbols
-%{_datadir}/texmf/fonts/tfm/ams/cmextra/*.tfm
-%{_datadir}/texmf/fonts/tfm/ams/cyrillic/*.tfm
-%{_datadir}/texmf/fonts/tfm/ams/euler/*.tfm
-%{_datadir}/texmf/fonts/tfm/ams/symbols/*.tfm
+%{_datadir}/texmf/fonts/tfm/ams
 
 %{_datadir}/texmf/tex/amstex/base
 %{_datadir}/texmf/tex/amstex/config
