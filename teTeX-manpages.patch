@@ -1,65 +1,51 @@
---- teTeX-src-beta-20020530/texk/tetex/Makefile.in.orig	Wed May 15 06:57:24 2002
-+++ teTeX-src-beta-20020530/texk/tetex/Makefile.in	Wed Jun 26 21:55:35 2002
+--- teTeX-src-beta-20021112/texk/tetex/Makefile.in.orig	Tue Nov 12 21:56:44 2002
++++ teTeX-src-beta-20021112/texk/tetex/Makefile.in	Wed Nov 13 10:59:50 2002
 @@ -38,27 +38,27 @@
  	  viromega.$(manext) virtex.$(manext) pdflatex.$(manext) \
  	  MakeTeXPK.$(manext) \
  	  cont-de.$(manext) cont-nl.$(manext) cont-en.$(manext)
--	ln -s allcm.$(manext) $(mandir)/allec.$(manext)
--	ln -s mktexlsr.$(manext) $(mandir)/texhash.$(manext)
--	ln -s tex.$(manext) $(mandir)/initex.$(manext)
--	ln -s tex.$(manext) $(mandir)/virtex.$(manext)
--	ln -s etex.$(manext) $(mandir)/einitex.$(manext)
--	ln -s etex.$(manext) $(mandir)/evirtex.$(manext)
--	ln -s etex.$(manext) $(mandir)/elatex.$(manext)
--	ln -s mf.$(manext) $(mandir)/inimf.$(manext)
--	ln -s mf.$(manext) $(mandir)/virmf.$(manext)
--	ln -s mpost.$(manext) $(mandir)/inimpost.$(manext)
--	ln -s mpost.$(manext) $(mandir)/virmpost.$(manext)
--	ln -s omega.$(manext) $(mandir)/iniomega.$(manext)
--	ln -s omega.$(manext) $(mandir)/viromega.$(manext)
--	ln -s omega.$(manext) $(mandir)/lambda.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/pdfinitex.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/pdfvirtex.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/pdflatex.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/cont-de.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/cont-nl.$(manext)
--	ln -s pdftex.$(manext) $(mandir)/cont-en.$(manext)
--	ln -s mktexpk.$(manext) $(mandir)/MakeTeXPK.$(manext)
-+	echo .so  allcm.$(manext) > $(mandir)/allec.$(manext)
-+	echo .so  mktexlsr.$(manext) > $(mandir)/texhash.$(manext)
-+	echo .so  tex.$(manext) > $(mandir)/initex.$(manext)
-+	echo .so  tex.$(manext) > $(mandir)/virtex.$(manext)
-+	echo .so  etex.$(manext) > $(mandir)/einitex.$(manext)
-+	echo .so  etex.$(manext) > $(mandir)/evirtex.$(manext)
-+	echo .so  etex.$(manext) > $(mandir)/elatex.$(manext)
-+	echo .so  mf.$(manext) > $(mandir)/inimf.$(manext)
-+	echo .so  mf.$(manext) > $(mandir)/virmf.$(manext)
-+	echo .so  mpost.$(manext) > $(mandir)/inimpost.$(manext)
-+	echo .so  mpost.$(manext) > $(mandir)/virmpost.$(manext)
-+	echo .so  omega.$(manext) > $(mandir)/iniomega.$(manext)
-+	echo .so  omega.$(manext) > $(mandir)/viromega.$(manext)
-+	echo .so  omega.$(manext) > $(mandir)/lambda.$(manext)
-+	echo .so  pdftex.$(manext) > $(mandir)/pdfinitex.$(manext)
-+	echo .so  pdftex.$(manext) > $(mandir)/pdfvirtex.$(manext)
-+	echo .so  pdftex.$(manext) > $(mandir)/pdflatex.$(manext)
-+	echo .so  pdftex.$(manext) > $(mandir)/cont-de.$(manext)
-+	echo .so  pdftex.$(manext) > $(mandir)/cont-nl.$(manext)
-+	echo .so pdftex.$(manext) > $(mandir)/cont-en.$(manext)
-+	echo .so mktexpk.$(manext) > $(mandir)/MakeTeXPK.$(manext)
+-	ln -s allcm.$(manext) $(man1dir)/allec.$(manext)
+-	ln -s mktexlsr.$(manext) $(man1dir)/texhash.$(manext)
+-	ln -s tex.$(manext) $(man1dir)/initex.$(manext)
+-	ln -s tex.$(manext) $(man1dir)/virtex.$(manext)
+-	ln -s etex.$(manext) $(man1dir)/einitex.$(manext)
+-	ln -s etex.$(manext) $(man1dir)/evirtex.$(manext)
+-	ln -s etex.$(manext) $(man1dir)/elatex.$(manext)
+-	ln -s mf.$(manext) $(man1dir)/inimf.$(manext)
+-	ln -s mf.$(manext) $(man1dir)/virmf.$(manext)
+-	ln -s mpost.$(manext) $(man1dir)/inimpost.$(manext)
+-	ln -s mpost.$(manext) $(man1dir)/virmpost.$(manext)
+-	ln -s omega.$(manext) $(man1dir)/iniomega.$(manext)
+-	ln -s omega.$(manext) $(man1dir)/viromega.$(manext)
+-	ln -s omega.$(manext) $(man1dir)/lambda.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/pdfinitex.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/pdfvirtex.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/pdflatex.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/cont-de.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/cont-nl.$(manext)
+-	ln -s pdftex.$(manext) $(man1dir)/cont-en.$(manext)
+-	ln -s mktexpk.$(manext) $(man1dir)/MakeTeXPK.$(manext)
++	echo .so allcm.$(manext) > $(man1dir)/allec.$(manext)
++	echo .so mktexlsr.$(manext) > $(man1dir)/texhash.$(manext)
++	echo .so tex.$(manext) > $(man1dir)/initex.$(manext)
++	echo .so tex.$(manext) > $(man1dir)/virtex.$(manext)
++	echo .so etex.$(manext) > $(man1dir)/einitex.$(manext)
++	echo .so etex.$(manext) > $(man1dir)/evirtex.$(manext)
++	echo .so etex.$(manext) > $(man1dir)/elatex.$(manext)
++	echo .so mf.$(manext) > $(man1dir)/inimf.$(manext)
++	echo .so mf.$(manext) > $(man1dir)/virmf.$(manext)
++	echo .so mpost.$(manext) > $(man1dir)/inimpost.$(manext)
++	echo .so mpost.$(manext) > $(man1dir)/virmpost.$(manext)
++	echo .so omega.$(manext) > $(man1dir)/iniomega.$(manext)
++	echo .so omega.$(manext) > $(man1dir)/viromega.$(manext)
++	echo .so omega.$(manext) > $(man1dir)/lambda.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/pdfinitex.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/pdfvirtex.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/pdflatex.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/cont-de.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/cont-nl.$(manext)
++	echo .so pdftex.$(manext) > $(man1dir)/cont-en.$(manext)
++	echo .so mktexpk.$(manext) > $(man1dir)/MakeTeXPK.$(manext)
  	test -r latex.info || cd $(srcdir) && for i in latex.info*; do \
  	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
  	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
-@@ -83,7 +83,12 @@
- 	  ln -s allcm allec; \
- 	  ln -s kpsetool kpsepath; \
- 	  ln -s kpsetool kpsexpand; \
--	  ln -s mktexlsr texhash
-+ 	  ln -s -f  mktexlsr texhash; \
-+  	  ln -s -f  tex amstex; \
-+  	  ln -s -f  tex eplain; \
-+  	  ln -s -f  pdftex cont-en; \
-+  	  ln -s -f  pdftex cont-nl; \
-+  	  ln -s -f  pdftex cont-de 
- 	cd $(scriptdir); rm -f fdf2tan makempy texfind texfont texshow texutil; \
- 	  for f in fdf2tan makempy texfind texfont texshow texutil; do \
-   	    ln -s texexec $$f; \
