@@ -1,5 +1,4 @@
 
-
 %define		tetex_ver	beta-20001218
 %define		texmf_ver	beta-20000804
 %define		texmfsrc_ver	beta-20000804
@@ -13,7 +12,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	7
+Release:	8
 License:	distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -43,6 +42,7 @@ Patch13:	teTeX-bug19278.patch
 Patch14:	teTeX-protos.patch
 Patch15:	teTeX-tektronix.patch
 Patch16:	teTeX-cx.patch
+Patch17:	teTeX-cpp_macros.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -587,6 +587,7 @@ tar xzf %{SOURCE2} -C texmf
 %patch14 -p1
 %patch15 -p1
 %patch16 -p1
+%patch17 -p1
 
 %build
 #sh ./reautoconf
