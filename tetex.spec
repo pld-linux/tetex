@@ -1,4 +1,11 @@
 
+# 
+# todo:
+# - *.fmt into appropriate subpackages
+# - mex (?), pdfetex subpackages - maybe more
+# - /usr/share/texmf/source -> one or more subpackages
+#   or just let's kill it?
+
 %define		tetex_ver	beta-20020208
 %define		texmf_ver	beta-20020207
 %define		texmfsrc_ver	beta-20020207
