@@ -314,7 +314,22 @@ Prereq:		%{_bindir}/texhash
 Omega is extended unicode TeX.
 
 %description -l pl omega
-Omega -- TeX ze wsprciem dla Unicode.
+Omega -- TeX ze wsparciem dla Unicode.
+
+
+%package oxdvi
+Summary:	xdvi viewer for Omega
+Summary(pl):	Przegl±darka xdvi dla Omegi
+Group:		Applications/Publishing/TeX
+Group(pl):	Aplikacje/Publikowanie/TeX
+Requires:	%{name} = %{version}
+
+%description oxdvi
+xdvi viewer for Omega - extended unicode TeX.
+
+%description -l pl oxdvi
+Przegl±darka xdvi dla Omegi -- TeXa ze wsparciem dla Unicode.
+
 
 %package pdftex
 Summary:	PDFtex 
@@ -1125,6 +1140,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/omega
 
 %attr(755,root,root) %{_bindir}/odvips
+
+%files oxdvi
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/oxdvi
 %attr(755,root,root) %{_bindir}/oxdvi.bin
 
