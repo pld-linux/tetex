@@ -35,6 +35,9 @@ Source6:	xdvi.png
 Source7:	%{name}-updmap
 # to be removed when next tetex version arrives
 Source8:	%{name}-listings.sty
+# for updated mwclsdoc.pdf
+Source9:	http://duch.mimuw.edu.pl/~wolinski/tex/mwcls.zip
+# Source9-md5:	39526eacb03437aeebb04b1561e6dab2
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -56,6 +59,7 @@ Patch19:	teTeX-kpathsea.patch
 Patch20:	teTeX-locale.patch
 Patch21:	teTeX-libXpm.patch
 Patch22:	%{name}-no_info_files.patch
+Patch23:	%{name}-mwcls-update.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -2957,6 +2961,9 @@ tar xzf %{SOURCE1} -C texmf
 %patch20 -p1
 %patch21 -p1
 %patch22
+%patch23 -p1
+
+unzip -o %{SOURCE9} mwclsdoc.pdf -d texmf/doc/latex/mwcls
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
