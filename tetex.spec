@@ -7,7 +7,7 @@
 #     - tetex-tex-qpx (R: fonts-qfonts and fonts-pxfonts)
 #     - tetex-tex-qtx (R: fonts-qfonts and fonts-txfonts)
 #     - fonts-cmbright
-#     - fonts-pxfonts
+#     - fonts-pxfonts (R: fonts-txfonts)
 #     - fonts-txfonts
 #     - fonts-type1-cc-pl
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
@@ -1093,14 +1093,15 @@ LaTeX font definition files, macros and font metrics for common PostScript
 fonts.
 
 %package latex-pxfonts
-Summary:	!!!fixme!!!
+Summary:	PX fonts LaTeX support
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-pxfonts = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-pxfonts
-!!!fixme!!!
+PX fonts LaTeX support.
 
 %package latex-qfonts
 Summary:	A collection of PostScript (Adobe Type 1) fonts in QX layout
@@ -1118,14 +1119,15 @@ which facilitates multilingual and technical typesetting using TeX,
 preserving usability in Windows applications.
 
 %package latex-txfonts
-Summary:	!!!fixme!!!
+Summary:	TX fonts LaTeX support
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-txfonts = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-txfonts
-!!!fixme!!!
+TX fonts LaTeX support.
 
 %package latex-umlaute
 Summary:	An interface to inputenc for using alternate input encodings
