@@ -1,5 +1,6 @@
 #
 # TODO:
+# - test installation of listings.sty, which is missing due to tetex 2.0.2 bug
 # - context: review package splitting
 # - omega: consider more splitting, check dependencies
 # - create new packages if there is a need: more latex splitting... others?
@@ -30,6 +31,8 @@ Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
 Source7:	%{name}-updmap
+# to be removed when next tetex version arrives
+Source8:	%{name}-listings.sty
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -3044,6 +3047,10 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
+
+# only for tetex 2.0.2, I hope
+install %{SOURCE8} $RPM_BUILD_ROOT%{_texmf}/tex/latex/listings/
+
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %clean
