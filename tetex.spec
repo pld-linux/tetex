@@ -17,16 +17,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.0.2
-Release:	3
+Version:	2.96.3.20040511
+Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-src-%{version}.tar.gz
-# Source0-md5:	a16f6bba227d55e79aeee46fbbd82d28
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-texmf-%{version}.tar.gz
-# Source1-md5:	d3bdb96f9077e43b2115d3cc471743b3
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-beta-%{version}.tar.gz
+# Source0-md5:	72a9c73c819f8bd066a61a9a20361426
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-beta-2.96.2.20040510.tar.gz
+# Source1-md5:	df969e252569057570ad4a88f17b7ffe
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
@@ -2932,7 +2932,7 @@ Xy-pic fonts.
 Fonty Xy-pic.
 
 %prep
-%setup -q -n tetex-src-%{version}
+%setup -q -n tetex-src-beta-%{version}
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
