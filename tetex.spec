@@ -11,6 +11,7 @@
 %define		_ver	beta-20021025
 %define		texmf_ver	beta-20021025
 
+%include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(es):	Sistema de typesetting TeX y formateador de fuentes MetaFont
@@ -50,15 +51,6 @@ Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
 Patch19:	teTeX-kpahtsea.patch
 URL:		http://www.tug.org/teTeX/
-Requires:	tmpwatch
-Requires:	dialog
-Requires:	tetex-fonts-cm = %{version}
-Requires:	tetex-fonts-misc = %{version}
-PreReq:		/sbin/ldconfig
-PreReq:		sed
-PreReq:		awk
-PreReq:		textutils
-PreReq:		sh-utils
 BuildRequires:	bison
 BuildRequires:	ed
 BuildRequires:	flex
@@ -73,11 +65,19 @@ BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRequires:	openssl-devel
+PreReq:		/sbin/ldconfig
+PreReq:		sed
+PreReq:		awk
+PreReq:		textutils
+PreReq:		sh-utils
+Requires:	%{name}-fonts-cm = %{version}
+Requires:	%{name}-fonts-misc = %{version}
+Requires:	dialog
+Requires:	tmpwatch
 Obsoletes:	tetex-doc
 Obsoletes:	tetex-tex-hyphen
 Obsoletes:	tetex-fontname
 Obsoletes:	tetex-fontinst
-%include	/usr/lib/rpm/macros.perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
@@ -131,19 +131,22 @@ TeXbook' baþlýklý kitabýnda anlatýlmaktadýr.
 
 %package doc-Catalogue
 Summary:	TeX Catalogue
+Summary(pl):	Katalog TeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description doc-Catalogue
 TeX Catalogue.
 
+%description doc-Catalogue -l pl
+Katalog TeXa.
+
 %package doc-tug-faq
 Summary:	TeX User Group FAQ
+Summary(pl):	FAQ Grupy U¿ytkowników TeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-doc-uktug-faq
 Obsoletes:	tetex-doc-de-tex-faq
@@ -152,38 +155,50 @@ Obsoletes:	tetex-doc-LaTeX-FAQ-francaise
 %description doc-tug-faq
 TeX User Group FAQ.
 
+%description doc-tug-faq -l pl
+FAQ Grupy U¿ytkowników TeXa.
+
 %package doc-latex
 Summary:	Basic LaTeX packages documentation
+Summary(pl):	Podstawowa dokumentacja do pakietów LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description doc-latex
 Basic LaTeX packages documentation.
 
+%description doc-latex -l pl
+Podstawowa dokumentacja do pakietów LaTeXa.
+
 %package doc-latex2e-html
 Summary:	HTML LaTeX2e documentation
+Summary(pl):	Dokumentacja LaTeX2e w formacie HTML
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description doc-latex2e-html
 HTML LaTeX2e documentation.
+
+%description doc-latex2e-html -l pl
+Dokumentacja LaTeX2e w formacie HTML.
 
 #
 # libraries
 #
 %package -n kpathsea
 Summary:	File name lookup library
+Summary(pl):	Biblioteka szukaj±ca nazw plików
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description -n kpathsea
 File name lookup library.
+
+%description -n kpathsea -l pl
+Biblioteka szukaj±ca nazw plików.
 
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
@@ -215,12 +230,11 @@ Summary:	DVI to PostScript converter
 Summary(de):	dvi-Postscript-Konvertierungsprogramm
 Summary(es):	Convertidor dvi para postscript
 Summary(fr):	Convertisseur dvi vers PostScript
-Summary(pl):	Konwerter plików DVI do PostScript-u
+Summary(pl):	Konwerter plików DVI do PostScriptu
 Summary(pt_BR):	Conversor dvi para postscript
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description dvips
@@ -268,8 +282,7 @@ Summary(pl):	Konwerter plików DVI do jêzyka PCL
 Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description dvilj
@@ -298,6 +311,15 @@ dvilj et ses cousins convertissent les fichiers dvi en commandes HPPCL
 LaserJet IIP (avec dvilj2p), HP LaserJet 4 (avec dvilj4), et autres
 imprimantes totalement compatibles.
 
+%description dvilj -l pl
+dvilj oraz pokrewne narzêdzia (za³±czone w tym pakiecie) konwertuj±
+pliki wyj¶ciowe .dvi systemu formatuj±cego tekst TeX na polecenia
+HP PCL (HP Printer Control Language). Przy u¿yciu dvilj mo¿na drukowaæ
+pliki TeXa na drukarkach HP LaserJet+ i w pe³ni kompatybilnych. Przy
+u¿yciu dvilj2p mo¿na drukowaæ na drukarkach HP LaserJet IIP i w pe³ni
+kompatybilnych. Przy u¿yciu dvilj4 mo¿na drukowaæ na drukarkach HP
+LaserJet4 i w pe³ni kompatybilnych.
+
 %description dvilj -l pt_BR
 Dvilj e semelhantes convertem arquivos de saída TeX .dvi em comandos
 HP PCL (i.e. Linguagem de Controle de Impressoras HP) adequados para
@@ -311,70 +333,102 @@ LaserJet IIP (dvilj2p ile), HP LaserJet4 (dvilj4 ile) ve tam
 uyumlularýndan yazýcý çýktýsý alýnabilir.
 
 %package makeindex
-Summary:	A general purpose hierarchical index generator.
+Summary:	A general purpose hierarchical index generator
+Summary(pl):	Generator hierarchicznych indeksów ogólnego przeznaczenia
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-rumakeindex
 
 %description makeindex
 A general purpose hierarchical index generator; it accepts one or more
 input files (often produced by a text formatter such as TeX or troff),
-sorts the entries, and produces an output file which can be formatted. The
-formats of the input and output files are specified in a style file; by
-default, input is assumed to be an idx file, as generated by LaTeX.
+sorts the entries, and produces an output file which can be formatted.
+The formats of the input and output files are specified in a style
+file; by default, input is assumed to be an idx file, as generated by
+LaTeX.
+
+%description makeindex -l pl
+Generator hierarchicznych indeksów ogólnego przeznaczenia; przyjmuje
+jeden lub wiêcej plików wej¶ciowych (zazwyczaj zrobionych przez
+narzêdzie formatuj±ce tekst, takie jak TeX lub troff), sortuje
+elementy i tworzy plik wyj¶ciowy, który mo¿e byæ sformatowany. Formaty
+plików wej¶ciowych i wyj¶ciowych podaje siê w pliku stylu; domy¶lnie
+przyjmowany jest plik wej¶ciowy w formacie idx, wygenerowany przez
+LaTeX.
 
 %package metafont
 Summary:	MetaFont
+Summary(pl):	Zestaw narzêdzi MetaFont
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description metafont
 MetaFont.
 
+%description metafont -l pl
+Zestaw narzêdzi MetaFont.
+
 %package metapost
 Summary:	MetaPost
+Summary(pl):	Zestaw narzêdzi MetaPost
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-matapost
 
 %description metapost
 MetaPost.
 
+%description metapost -l pl
+Zestaw narzêdzi MetaPost.
+
 %package mptopdf
 Summary:	MetaPost to PDF converter
+Summary(pl):	Konwerter MetaPost do PDF
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-metapost = %{version}
 
 %description mptopdf
 MetaPost to PDF converter.
 
+%description mptopdf -l pl
+Konwerter MetaPost do PDF.
+
 %package texdoctk
 Summary:	Easy access to TeX documentation
+Summary(pl):	£atwy dostêp do dokumentacji TeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description texdoctk
-A Perl/Tk-based GUI for easy access to package documentation for TeX on
-Unix platforms; the databases it uses are based on the texmf/doc subtrees
-of teTeX v.1.0.x, but database files for local configurations with
-modified/extended directories can be derived from them. Note that texdoctk
-is not a viewer itself, but an interface for finding documentation files
-and opening them with the appropriate viewer; so it relies on appropriate
-programs to be installed on the system. However, the choice of these
-programs can be configured by the sysadmin or user.
+A Perl/Tk-based GUI for easy access to package documentation for TeX
+on Unix platforms; the databases it uses are based on the texmf/doc
+subtrees of teTeX v.1.0.x, but database files for local configurations
+with modified/extended directories can be derived from them. Note that
+texdoctk is not a viewer itself, but an interface for finding
+documentation files and opening them with the appropriate viewer; so
+it relies on appropriate programs to be installed on the system.
+However, the choice of these programs can be configured by the
+sysadmin or user.
+
+%description texdoctk -l pl
+Oparty na Perlu i Tk graficzny interfejs daj±cy ³atwy dostêp do
+dokumentacji pakietów TeXowych na platformach uniksowych; u¿ywa baz
+danych opartych na poddrzewach texmf/doc z teTeXa 1.0.x, ale mo¿e
+u¿ywaæ konfiguracji ze zmodyfikowanymi lub rozszerzonymi katalogami.
+Nale¿y zauwa¿yæ, ¿e texdoctk sam w sobie nie jest przegl±dark±, ale
+interfejsem do wyszukiwania plików dokumentacji i otwierania ich we
+w³a¶ciwej przegl±darce; tak wiêc wymaga on odpowiednich programów
+zainstalowanych w systemie. Wybór tych programów mo¿e byæ dokonany
+przez administratora lub u¿ytkownika.
 
 %package -n texconfig
 Summary:	TeX typesetting system configurator
+Summary(pl):	Konfigurator systemu sk³adu TeX
 Group:		Applications/Publishing/TeX
 Requires:	xdvi = %{version}
 Requires:	%{name} = %{version}
@@ -385,6 +439,9 @@ Obsoletes:	tetex-texconfig
 %description -n texconfig
 TeX typesetting system configurator.
 
+%description -n texconfig -l pl
+Konfigurator systemu sk³adu TeX.
+
 %package -n xdvi
 Summary:	X11 previewer
 Summary(de):	X11-Previewer
@@ -393,9 +450,10 @@ Summary(fr):	Prévisualisateur X11
 Summary(pl):	Przegl±darka DVI dla X11
 Summary(pt_BR):	Visualizador TeX X11
 Summary(tr):	X11 öngörüntüleyici
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-metafont = %{version}
-Group:		Applications/Publishing/TeX
 Obsoletes:	tetex-xdvi
 
 %description -n xdvi
@@ -425,13 +483,17 @@ visualizar arquivos dvi, como os produzidos por tex e latex.
 
 %package pdftex
 Summary:	TeX generating PDF files instead DVI
-Summary(pl):	PDFtex
+Summary(pl):	TeX generuj±cy pliki PDF zamiast DVI
 Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description pdftex
 TeX generating PDF files instead DVI.
+
+%description pdftex -l pl
+TeX generuj±cy pliki PDF zamiast DVI.
 
 #
 # formats
@@ -441,231 +503,299 @@ TeX generating PDF files instead DVI.
 
 %package plain
 Summary:	Plain TeX format basic files
+Summary(pl):	Podstawowe pliki dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description plain
 Plain TeX format basic files.
 
+%description plain -l pl
+Podstawowe pliki dla formatu Plain TeX.
+
 %package plain-dvips
 Summary:	PostScript support for Plain TeX format
+Summary(pl):	Obs³uga PostScriptu dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-dvips = %{version}
 Requires:	%{name}-plain = %{version}
 
 %description plain-dvips
 PostScript support for Plain TeX format.
 
+%description plain-dvips -l pl
+Obs³uga PostScriptu dla formatu Plain TeX.
+
 %package plain-mathtime
 Summary:	Mathtime fonts for Plain
+Summary(pl):	Fonty Mathtime dla formatu Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description plain-mathtime
 The Mathtime fonts have a number of characters remapped to positions
-different from the ones normally used by the corresponding TeX CM-fonts.
-For the symbol font ``operators'' the corresponding mathtime style files
-use the Times Roman font (often called something like: ptmr or ptmr7t or
+different from the ones normally used by the corresponding TeX
+CM-fonts. For the symbol font ``operators'' the corresponding mathtime
+style files use the Times Roman font (often called something like:
+ptmr or ptmr7t or ptmrq).
+
+%description plain-mathtime -l pl
+Fonty Mathtime zawieraj± wiele znaków przemapowanych na pozycje
+ró¿ni±ce siê od tych normalnie u¿ywanych w odpowiadaj±cych im TeXowych
+fontach CM. Dla fontu symboli "operators" odpowiadaj±cy styl mathtime
+u¿ywa fontu Times Roman (zazwyczaj nazywanego w stylu ptmr, ptmr7t lub
 ptmrq).
 
 %package plain-misc
 Summary:	Miscellaneous macros for Plain TeX format
+Summary(pl):	Ró¿ne makra dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description plain-misc
 Miscellaneous macros for Plain TeX format.
 
+%description plain-misc -l pl
+Ró¿ne makra dla formatu Plain TeX.
+
 %package plain-plnfss
-Summary:	Simple NFSS macros for plain TeX
+Summary:	Simple NFSS macros for Plain TeX
+Summary(pl):	Proste makra NFSS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description plain-plnfss
 Simple NFSS macros for plain TeX.
 
+%description plain-plnfss -l pl
+Proste makra NFSS dla formatu Plain TeX.
+
 %package format-plain
 Summary:	TeX Plain format
+Summary(pl):	Format TeX Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description format-plain
 TeX Plain format.
 
+%description format-plain -l pl
+Format TeX Plain.
+
 %package format-pdftex
 Summary:	PDFTeX Plain format
+Summary(pl):	Format PDFTeX Plain
 Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-pdftex = %{version}
 
 %description format-pdftex
 PDFTeX Plain format.
 
+%description format-pdftex -l pl
+Format PDFTeX Plain.
+
 %package format-pdfetex
 Summary:	PDFTeX EPlain format
+Summary(pl):	Format PDFTeX EPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-pdftex = %{version}
 
 %description format-pdfetex
 PDFTeX EPlain format.
 
+%description format-pdfetex -l pl
+Format PDFTeX EPlain.
+
 # MeX Plain format
 
 %package mex
-Summary:	MeX Plain Format
+Summary:	MeX Plain Format basic files
+Summary(pl):	Podstawowe pliki dla format MeX Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	tetex-plain = %{version}
 Requires:	tetex-fonts-pl = %{version}
 
 %description mex
-MeX Plain Format.
+MeX Plain Format basic files.
+
+%description mex -l pl
+Podstawowe pliki dla formatu MeX Plain.
 
 %package format-mex
-Summary:	MeX Plain Format basic files
+Summary:	MeX Plain Format
+Summary(pl):	Format MeX Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	tetex-mex = %{version}
 
 %description format-mex
-MeX Plain Format basic files.
+MeX Plain Format.
+
+%description format-mex -l pl
+Format MeX Plain.
 
 %package format-pdfmex
-Group:		Applications/Publishing/TeX
 Summary:	PDFMeX Plain Format
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Format PDFMeX Plain
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-mex = %{version}
 Requires:	%{name}-pdftex = %{version}
 
 %description format-pdfmex
 PDFMeX Plain Format.
 
+%description format-pdfmex -l pl
+Format PDFMeX Plain.
+
 %package format-pdfemex
 Summary:	PDFMeX EPlain Format
+Summary(pl):	Format PDFMeX EPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-mex = %{version}
 Requires:	%{name}-pdftex = %{version}
 
 %description format-pdfemex
 PDFMeX EPlain Format.
 
+%description format-pdfemex -l pl
+Format PDFMeX EPlain.
+
 # AMS TeX format
 
 %package amstex
 Summary:	AMS macros for Plain TeX basic files
+Summary(pl):	Podstawowe pliki makr AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Obsoletes:	tetex-ams
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-fonts-ams = %{version}
+Obsoletes:	tetex-ams
 Obsoletes:	tetex-plain-amsfonts
 
 %description amstex
 American Mathematics Society macros for Plain TeX basic files.
 
+%description amstex -l pl
+Podstawowe pliki makr AMS (American Mathematics Society) dla formatu
+Plain TeX.
+
 %package format-amstex
 Summary:	AMS macros for Plain TeX
+Summary(pl):	Makra AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
-Obsoletes:	tetex-ams
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-amstex = %{version}
+Obsoletes:	tetex-ams
 
 %description format-amstex
 American Mathematics Society macros for Plain TeX.
 
+%description format-amstex -l pl
+Makra AMS (American Mathematics Society) dla formatu Plain TeX.
+
 %package format-pdfamstex
 Summary:	AMS macros for PDFTeX
+Summary(pl):	Makra AMS dla formatu PDFTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-amstex = %{version}
 Requires:	%{name}-pdftex = %{version}
 
 %description format-pdfamstex
 American Mathematics Society macros for PDFTeX.
 
+%description format-pdfamstex -l pl
+Makra AMS (American Mathematics Society) dla formatu PDFTeX.
+
 # CSPlain format
 
 %package csplain
 Summary:	TeX CSPlain format basic files
+Summary(pl):	Podstawowe pliki dla formatu TeX CSPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-fonts-cs = %{version}
 
 %description csplain
 TeX CSPlain format basic files.
 
+%description csplain -l pl
+Podstawowe pliki dla formatu TeX CSPlain.
+
 %package format-csplain
 Summary:	TeX CSPlain format
+Summary(pl):	Format TeX CSPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-csplain = %{version}
 
 %description format-csplain
 TeX CSPlain format.
 
+%description format-csplain -l pl
+Format TeX CSPlain.
+
 %package format-pdfcsplain
 Summary:	PDFTeX CSPlain format
+Summary(pl):	Format PDFTeX CSPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-csplain = %{version}
 
 %description format-pdfcsplain
 PDFTeX CSPlain format.
 
+%description format-pdfcsplain -l pl
+Format PDFTeX CSPlain.
+
 # CSLaTeX format
 
 %package cslatex
 Summary:	CSLaTeX format basic files
+Summary(pl):	Podstawowe pliki dla formatu CSLaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Requires:	%{name}-fonts-cs = %{version}
 
 %description cslatex
 CSLaTeX format basic files.
 
+%description cslatex -l pl
+Podstawowe pliki dla formatu CSLaTeX.
+
 %package format-cslatex
-Group:		Applications/Publishing/TeX
 Summary:	CSLaTeX format
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Format CSLaTeX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-cslatex = %{version}
 
 %description format-cslatex
 CSLaTeX format.
 
+%description format-cslatex -l pl
+Format CSLaTeX.
+
 %package format-pdfcslatex
-Group:		Applications/Publishing/TeX
 Summary:	PDF CSLaTeX format
+Summary(pl):	Format PDF CSLaTeX
+Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-cslatex = %{version}
@@ -673,79 +803,100 @@ Requires:	%{name}-cslatex = %{version}
 %description format-pdfcslatex
 PDF CSLaTeX format.
 
-# Cyryillc Plain format
+%description format-pdfcslatex -l pl
+Format PDF CSLaTeX.
+
+# Cyrillic Plain format
 
 %package cyrplain
-Summary:	Cyryillc Plain format basic files
+Summary:	Cyrillic Plain format basic files
+Summary(pl):	Podstawowe pliki dla formatu Cyrillic Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description cyrplain
-Cyryillc Plain format basic files.
+Cyrillic Plain format basic files.
+
+%description cyrplain -l pl
+Podstawowe pliki dla formatu Cyrillic Plain.
 
 %package format-cyrplain
-Summary:	Cyryillc Plain format.
+Summary:	Cyrillic Plain format
+Summary(pl):	Format Cyrillic Plain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-cyrplain = %{version}
 
 %description format-cyrplain
-Cyryillc Plain format.
+Cyrillic Plain format.
+
+%description format-cyrplain -l pl
+Format Cyrillic Plain.
 
 %package format-cyramstex
 Summary:	Cyrillic AMSTeX format
+Summary(pl):	Format Cyrillic AMSTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Obsoletes:	tetex-cyramstex
 
 %description format-cyramstex
 Cyrillic AMSTeX format.
 
+%description format-cyramstex -l pl
+Format Cyrillic AMSTeX.
+
 %package format-cyrtexinfo
 Summary:	Cyrillic TeXInfo format
+Summary(pl):	Format Cyrillic TeXInfo
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 Obsoletes:	tetex-cyrtexinfo
 
 %description format-cyrtexinfo
 Cyrillic TeXInfo format.
 
+%description format-cyrtexinfo -l pl
+Format Cyrillic TeXInfo.
+
 # EPlain format
 
 %package eplain
 Summary:	EPlain format basic files
+Summary(pl):	Podstawowe pliki dla formatu EPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description eplain
 EPlain format basic files.
 
+%description eplain -l pl
+Podstawowe pliki dla formatu EPlain.
+
 %package format-eplain
 Summary:	EPlain format
+Summary(pl):	Format EPlain
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-eplain = %{version}
 
 %description format-eplain
 EPlain format.
 
+%description format-eplain -l pl
+Format EPlain.
+
 # ConTeXt format.
 
 %package context
 Summary:	ConTeXt macro package basic files
+Summary(pl):	Podstawowe pliki pakietu makr ConTeXt
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-latex-context
 
@@ -755,21 +906,30 @@ advanced interactive documents.
 
 This package contains basic files.
 
+%description context -l pl
+Pakiet makr sterowanych przez parametry o pe³nych mo¿liwo¶ciach,
+ca³kowicie obs³uguj±cy zaawansowane dokumenty interaktywne.
+
+Ten pakiet zawiera podstawowe pliki.
+
 %package format-context
 Summary:	ConTeXt format
+Summary(pl):	Format ConTeXt
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-context = %{version}
 
 %description format-context
 ConTeXt format.
 
+%description format-context -l pl
+Format ConTeXt.
+
 %package format-pdfcontext
 Summary:	PDF ConTeXt format
+Summary(pl):	Format PDF ConTeXt
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-context = %{version}
 Obsoletes:	tetex-format-pdftex-context
@@ -777,17 +937,19 @@ Obsoletes:	tetex-format-pdftex-context
 %description format-pdfcontext
 PDF ConTeXt format.
 
+%description format-pdfcontext -l pl
+Format PDF ConTeXt.
+
 # LaTeX format.
 
 %package latex
 Summary:	LaTeX macro package basic files
+Summary(pl):	Podstawowe pliki pakietu makr LaTeX
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-latex = %{version}
-Obsoletes:	tetex-mwcls
-Obsoletes:	tetex-revtex4
+Obsoletes:	tetex-bibtex-koma-script
 Obsoletes:	tetex-latex-graphics
 Obsoletes:	tetex-latex-misc
 Obsoletes:	tetex-latex-revtex4
@@ -806,7 +968,6 @@ Obsoletes:	tetex-latex-hyperref
 Obsoletes:	tetex-latex-fancyhdr
 Obsoletes:	tetex-latex-fancyvrb
 Obsoletes:	tetex-latex-koma-script
-Obsoletes:	tetex-bibtex-koma-script
 Obsoletes:	tetex-latex-multirow
 Obsoletes:	tetex-latex-ms
 Obsoletes:	tetex-latex-g-brief
@@ -822,6 +983,8 @@ Obsoletes:	tetex-latex-eepic
 Obsoletes:	tetex-latex-tools
 Obsoletes:	tetex-latex-mwdtools
 Obsoletes:	tetex-latex-fancyheadings
+Obsoletes:	tetex-mwcls
+Obsoletes:	tetex-revtex4
 # FIXME: I can't find files from this packages in any subpackage in new tetex
 Obsoletes:	tetex-latex-algorith
 Obsoletes:	tetex-latex-draftcopy
@@ -833,74 +996,113 @@ convenient, predefined document formats for users.
 
 This package contains basic files.
 
+%description latex -l pl
+LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
+³atwiejszy w u¿yciu ni¿ TeX. Jest w³a¶ciwie zestawem makr TeXowych,
+daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
+
+Ten pakiet zawiera podstawowe pliki.
+
 %package latex-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
+Summary(pl):	Wirtualne fonty dla plików PDF z fontami CMR o kodowaniu T1
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-ae = %{version}
 
 %description latex-ae
-A set of virtual fonts which emulates T1 coded fonts using the standard CM
-fonts. The package is called AE fonts (for Almost European). The main use
-of the package is to produce PDF files using versions of the CM fonts
-instead of the bitmapped EC fonts.
+A set of virtual fonts which emulates T1 coded fonts using the
+standard CM fonts. The package is called AE fonts (for Almost
+European). The main use of the package is to produce PDF files using
+versions of the CM fonts instead of the bitmapped EC fonts.
+
+%description latex-ae -l pl
+Zestaw wirtualnych fontów emuluj±cych fonty o kodowaniu T1 przy u¿yciu
+standardowych fontów CM. Ten pakiet zosta³ nazwany AE (Almost European
+- prawie europejskie). G³ównym przeznaczeniem tego pakietu jest
+produkowanie plików PDF przy u¿yciu wersji fontów CM zamiast
+bitmapowych fontów EC.
 
 %package latex-ams
 Summary:	AMS math facilities for LaTeX
+Summary(pl):	Udogodnienia matematyczne AMS dla LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-ams = %{version}
-Obsoletes:	tetex-latex-amsfonts
 Obsoletes:	tetex-latex-amscls
+Obsoletes:	tetex-latex-amsfonts
 Obsoletes:	tetex-latex-amsmath
 
 %description latex-ams
-This package is the principal package in the AMS-LaTeX distribution. It
-adapts for use in LaTeX most of the mathematical features found in AMS-TeX.
+This package is the principal package in the AMS-LaTeX distribution.
+It adapts for use in LaTeX most of the mathematical features found in
+AMS-TeX.
+
+%description latex-ams -l pl
+To jest g³ówny pakiet dystrybucji AMS-LaTeX. Jest adaptacj± wiêkszo¶ci
+mo¿liwo¶ci matematycznych AMS-TeXa do u¿ywania w LaTeXu.
 
 %package latex-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
+Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-antp = %{version}
 
 %description latex-antp
 A replica of Antykwa Poltawskiego font in PostScript Type 1 format
--- preliminary version. This font was designed in the 'twenties and the 'thirties
-of XX century by a Polish graphic artist and a typographer Adam Poltawski.
-It was widely used by Polish printing houses as long as metal
-types were in use (until ca the 'sixties). Perhaps the first complete font
-family programmed and parametrized in METAPOST.
+-- preliminary version. This font was designed in the 'twenties and
+the 'thirties of XX century by a Polish graphic artist and a
+typographer Adam Poltawski. It was widely used by Polish printing
+houses as long as metal types were in use (until ca the 'sixties).
+Perhaps the first complete font family programmed and parametrized in
+METAPOST.
+
+%description latex-antp -l pl
+Wstêpna wersja repliki kroju Antykwa Pó³tawskiego w formacie
+PostScript Type 1. Ten krój zosta³ opracowany w latach 30-tych i
+40-tych XX wieku przez polskiego grafika i typografa Adama
+Pó³tawskiego. By³a szeroko u¿ywana przez polskie drukarnie dopóki
+u¿ywano metalowych czcionek (do lat 60-tych). Prawdopodobnie pierwsza
+kompletna rodzina fontów zaprogramowana i zparametryzowana w
+METAPOSCIE.
 
 %package latex-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
+Summary(pl):	Antykwa Turuñska - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-antt = %{version}
 
 %description latex-antt
-Antykwa Torunska is a serif font designed by the late Polish typographer
-Zygfryd Gardzielewski, reconstructed and digitized as as Type 1.
+Antykwa Torunska is a serif font designed by the late Polish
+typographer Zygfryd Gardzielewski, reconstructed and digitized as
+Type 1.
+
+%description latex-antt -l pl
+Antykwa Toruñska to krój szeryfowy opracowany niedawno przez polskiego
+typografa Zygfryda Gardzielewskiego, zrekonstruowany i przerobiony na
+postaæ cyfrow± jako Type 1.
 
 %package latex-bbm
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
+Summary(pl):	Tablicowy wariant fontów Computer Modern z obs³ug± LaTeXa
 Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-fonts-bbm = %{version}
 
 %description latex-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
 
+%description latex-bbm -l pl
+Tablicowy wariant fontów Computer Modern z obs³ug± LaTeXa.
+
+# XXX --q
 %package latex-bbold
 Summary:	Sans serif blackboard bold for LaTeX
 Group:		Applications/Publishing/TeX
