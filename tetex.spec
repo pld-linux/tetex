@@ -516,6 +516,7 @@ Summary(pl):	Omega - TeX ze wsparciem dla unikodu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-omega = %{version}
 
 %description omega
 Omega is a version of the TeX program modified for multilingual
@@ -2447,6 +2448,18 @@ Monotype fonts.
 %description fonts-monotype -l pl
 Fonty Monotype.
 
+%package fonts-omega
+Summary:	Fonts for Omega - extended unicode TeX
+Summary(pl):	Fonty dla Omegi - TeXa ze wsparciem dla unikodu
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-omega
+Fonts for Omega - extended unicode TeX.
+
+%description fonts-omega -l pl
+Fonty dla Omegi - TeXa ze wsparciem dla unikodu.
+
 %package fonts-pandora
 Summary:	The Pandora font family
 Summary(pl):	Rodzina fontów Pandora
@@ -2823,6 +2836,19 @@ Pazo Math fonts.
 
 %description fonts-type1-mathpazo -l pl
 Fonty matematyczne Pazo Math.
+
+%package fonts-type1-omega
+Summary:	Type1 fonts for Omega - extended unicode TeX
+Summary(pl):	Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-type1-omega
+Type1 fonts for Omega - extended unicode TeX.
+
+%description fonts-type1-omega -l pl
+Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu.
+
 
 %package fonts-type1-pl
 Summary:	Polish fonts
@@ -3870,6 +3896,12 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-monotype
 %texhash
 
+%post fonts-omega
+%texhash
+
+%postun fonts-omega
+%texhash
+
 %post fonts-pandora
 %texhash
 
@@ -4042,6 +4074,12 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun fonts-type1-mathpazo
+%texhash
+
+%post fonts-type1-omega
+%texhash
+
+%postun fonts-type1-omega
 %texhash
 
 %post fonts-type1-pl
@@ -4648,22 +4686,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ovf2ovp
 %attr(755,root,root) %{_bindir}/ovp2ovf
 %attr(755,root,root) %{_bindir}/outocp
-
-%dir %{texmf}/fonts/ocp
-%dir %{texmf}/fonts/ocp/public
-%{texmf}/fonts/ocp/public/oinuit
-%dir %{texmf}/fonts/ofm
-%dir %{texmf}/fonts/ofm/public
-%{texmf}/fonts/ofm/public/*
-%dir %{texmf}/fonts/ovf
-%dir %{texmf}/fonts/ovf/public
-%{texmf}/fonts/ovf/public/*
-%dir %{texmf}/fonts/ovp
-%dir %{texmf}/fonts/ovp/public
-%{texmf}/fonts/ovp/public/*
-%{texmf}/fonts/afm/public/omega
-%{texmf}/fonts/tfm/public/omega
-%{texmf}/fonts/type1/public/omega
 
 %files plain
 %defattr(644,root,root,755)
@@ -5485,6 +5507,23 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/tfm/monotype
 %{texmf}/fonts/vf/monotype
 
+%files fonts-omega
+%defattr(644,root,root,755)
+%dir %{texmf}/fonts/ocp
+%dir %{texmf}/fonts/ocp/public
+%{texmf}/fonts/ocp/public/oinuit
+%dir %{texmf}/fonts/ofm
+%dir %{texmf}/fonts/ofm/public
+%{texmf}/fonts/ofm/public/*
+%dir %{texmf}/fonts/ovf
+%dir %{texmf}/fonts/ovf/public
+%{texmf}/fonts/ovf/public/*
+%dir %{texmf}/fonts/ovp
+%dir %{texmf}/fonts/ovp/public
+%{texmf}/fonts/ovp/public/*
+%{texmf}/fonts/afm/public/omega
+%{texmf}/fonts/tfm/public/omega
+
 %files fonts-pandora
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/pandora
@@ -5577,8 +5616,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/tfm/yandy
 %{texmf}/fonts/vf/yandy
 
-%files fonts-type1-adobe
-%defattr(644,root,root,755)
+# Adobe Utopia fonts removed - "the fonts are not free software"
+#%files fonts-type1-adobe
+#%defattr(644,root,root,755)
 #%%{texmf}/fonts/type1/adobe
 
 %files fonts-type1-antp
@@ -5637,6 +5677,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/mathpazo
 %{texmf}/fonts/afm/public/mathpazo
 %{texmf}/fonts/type1/public/mathpazo
+
+%files fonts-type1-omega
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/omega
 
 %files fonts-type1-pl
 %defattr(644,root,root,755)
