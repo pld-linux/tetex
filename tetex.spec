@@ -31,7 +31,6 @@ URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
 Prereq:		/sbin/ldconfig
-Prereq:		/usr/sbin/fix-info-dir
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
@@ -82,7 +81,6 @@ Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
-Prereq:		/usr/sbin/fix-info-dir
 Prereq:		%{_bindir}/texhash
 
 %description latex
@@ -132,7 +130,6 @@ Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
-Prereq:		/usr/sbin/fix-info-dir
 Prereq:		%{_bindir}/texhash
 
 %description dvips
@@ -538,7 +535,7 @@ find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %post
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 /usr/bin/env - %{_bindir}/texhash 1>&2
@@ -546,28 +543,28 @@ exit 0
 
 %postun
 /sbin/ldconfig
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 [ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
 exit 0
 
 %post latex
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
 exit 0
 
 %postun latex
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvips
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvips
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
 exit 0
 
