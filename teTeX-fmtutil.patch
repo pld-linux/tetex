@@ -1,5 +1,5 @@
---- teTeX-src-beta-20021017/texk/web2c/fmtutil.in	Tue Oct 22 14:17:53 2002
-+++ teTeX-src-beta-20021017.new/texk/web2c/fmtutil.in	Tue Oct 22 14:15:30 2002
+--- teTeX-src-beta-20021025/texk/web2c/fmtutil.in	Thu Oct 24 14:10:18 2002
++++ teTeX-src-beta-20021025/texk/web2c/fmtutil.in.new	Sat Oct 26 18:07:43 2002
 @@ -39,13 +39,13 @@
  
  # Change "tex.ini -> bplain.ini" and "- -> language.dat"
@@ -25,7 +25,7 @@
  
  # Change "pdfamstex.ini -> pdfbamstex.ini" and "- -> language.dat"
  # if you want babel support in pdfamstex:
--#! pdfamstex	pdftex			language.dat	pdfamstex.ini
+-#! pdfamstex	pdftex			-	pdfamstex.ini
 +pdfamstex	pdftex			language.dat	pdfbamstex.ini
  
  # Context formats:
@@ -68,7 +68,7 @@
 -#! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
 +platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
 +mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
-+#! pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
++pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
 +pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
  
  # - Czech / Slovak:
