@@ -1,6 +1,5 @@
 #
 # TODO:
-# - latex-eurosym subpackage or R: fonts-eurosym for tetex-latex?
 # - context: review package splitting
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
@@ -964,6 +963,8 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-latex = %{version}
+# for misc/eurosym:
+Requires:	%{name}-fonts-eurosym = %{version}
 Obsoletes:	tetex-bibtex-koma-script
 Obsoletes:	tetex-latex-graphics
 Obsoletes:	tetex-latex-misc
