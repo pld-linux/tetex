@@ -3503,8 +3503,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
 %{_mandir}/man1/pdfvirtex.1*
-%attr(755,root,root) %{_bindir}/thumbpdf
-%{_mandir}/man1/thumbpdf.1*
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
 %{_datadir}/texmf/web2c/pdftex-pl.pool
 %{_datadir}/texmf/web2c/pdftex.pool
@@ -5338,7 +5336,9 @@ rm -rf $RPM_BUILD_ROOT
 %files tex-thumbpdf
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/generic/thumbpdf
+%attr(755,root,root) %{_bindir}/thumbpdf
 %{texmf}/tex/generic/thumbpdf
+%{_mandir}/man1/thumbpdf.1*
 
 %files tex-ukrhyph
 %defattr(644,root,root,755)
