@@ -3576,13 +3576,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/dvitomp.1*
 %{_mandir}/man1/dvitype.1*
 %lang(fi) %{_mandir}/fi/man1/dvips.1*
-%dir %{texmf}/dvips
 %{texmf}/dvips/base
 %{texmf}/dvips/misc
 %{texmf}/dvips/gsftopk
 %{texmf}/dvips/psfrag
 %{texmf}/dvips/psnfss
-%dir %{texmf}/dvips/config
 %{texmf}/dvips/config/builtin35.map
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
 %{texmf}/dvips/config/download35.map
@@ -3591,7 +3589,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/config/psfonts.map
 %{texmf}/dvips/config/psfonts_t1.map
 
-%dir %{texmf}/dvips/tetex
 %{texmf}/dvips/tetex/config.*
 %{texmf}/dvips/tetex/dvips35.map
 %{texmf}/dvips/tetex/lucidabr.map
