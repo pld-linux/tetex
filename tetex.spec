@@ -3001,8 +3001,7 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
-	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/ \
-	$RPM_BUILD_ROOT%{_texmf}/tex/latex/listings/
+	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/
 
 # commented out because of following (non-fatal) error:
 # Can't open texmf/web2c/texmf.cnf: No such file or directory.
@@ -3050,7 +3049,7 @@ install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 # only for tetex 2.0.2, I hope
-install %{SOURCE8} $RPM_BUILD_ROOT%{_texmf}/tex/latex/listings/
+install %{SOURCE8} $RPM_BUILD_ROOT%{texmf}/tex/latex/listings/
 
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
