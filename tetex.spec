@@ -7,7 +7,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	6
+Release:	7
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -29,6 +29,7 @@ Patch7:		teTeX-texmfcnf.patch
 Patch8:		teTeX-texmf-pdftex.patch
 Patch9:		teTeX-texmf-dvipsgeneric.patch
 Patch10:	teTeX-fmtutil.patch
+Patch11:	teTeX-grep.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -427,6 +428,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 %patch8  -p1
 %patch9  -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 sh ./reautoconf
@@ -845,7 +847,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/fonts/source/yandy
 %{_datadir}/texmf/fonts/source/yandy/mathtime
 
-%dir {_datadir}/texmf/fonts/tfm
+%dir %{_datadir}/texmf/fonts/tfm
 %{_datadir}/texmf/fonts/tfm/adobe
 %{_datadir}/texmf/fonts/tfm/bh
 %{_datadir}/texmf/fonts/tfm/bitstrea
@@ -875,7 +877,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/tfm/public/stmaryrd
 %{_datadir}/texmf/fonts/tfm/public/wasy
 %{_datadir}/texmf/fonts/tfm/public/xypic
-%dir %{_datadir}/texmf/fonts/tfm/public/yandy
+%dir %{_datadir}/texmf/fonts/tfm/yandy
 %{_datadir}/texmf/fonts/tfm/yandy/courier
 %{_datadir}/texmf/fonts/tfm/yandy/lubright
 %{_datadir}/texmf/fonts/tfm/yandy/lucida
