@@ -308,7 +308,7 @@ tar xzf %{SOURCE1} -C texk/share/texmf
 %build
 sh ./reautoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr \
 	--with-system-ncurses \
 	--with-system-zlib \
