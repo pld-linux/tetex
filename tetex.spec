@@ -7,7 +7,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	7
+Release:	14
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -30,6 +30,11 @@ Patch8:		teTeX-texmf-pdftex.patch
 Patch9:		teTeX-texmf-dvipsgeneric.patch
 Patch10:	teTeX-fmtutil.patch
 Patch11:	teTeX-grep.patch
+Patch12:	teTeX-italian.patch
+Patch13:	teTeX-bug19278.patch
+Patch14:	teTeX-protos.patch
+Patch15:	teTeX-tektronix.patch
+Patch16:	teTeX-cx.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -428,6 +433,11 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 %patch9  -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
+%patch13 -p1
+%patch14 -p1
+%patch15 -p1
+%patch16 -p1
 
 %build
 sh ./reautoconf
