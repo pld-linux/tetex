@@ -1290,8 +1290,8 @@ exit 0
 %attr(755,root,root) %{_bindir}/e2pall
 %attr(755,root,root) %{_bindir}/epstopdf
 
+%{_mandir}/man1/cont-en.1*
 %lang(de) %{_mandir}/man1/cont-de.1*
-%lang(en) %{_mandir}/man1/cont-en.1*
 %lang(nl) %{_mandir}/man1/cont-nl.1*
 %{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
