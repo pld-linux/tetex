@@ -2043,7 +2043,7 @@ w szczególno¶ci jest do³±czany jako "wspierany pakiet" LaTeX2e.
 %package fonts-adobe
 Summary:	Adobe fonts
 Summary(pl):	Fonty Adobe
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-adobe
@@ -2055,7 +2055,7 @@ Fonty Adobe.
 %package fonts-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
 Summary(pl):	Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ae
@@ -2067,7 +2067,7 @@ Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1.
 %package fonts-ams
 Summary:	AMS fonts
 Summary(pl):	Fonty AMS
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ams
@@ -2079,7 +2079,7 @@ Fonty AMS.
 %package fonts-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-antp
@@ -2092,7 +2092,7 @@ Type 1.
 %package fonts-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-antt
@@ -2104,7 +2104,7 @@ Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 %package fonts-bbm
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
 Summary(pl):	Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bbm
@@ -2116,7 +2116,7 @@ Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa.
 %package fonts-bbold
 Summary:	Sans serif blackboard bold for LaTeX
 Summary(pl):	Tablicowy t³usty font sans serif dla LaTeXa
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bbold
@@ -2128,7 +2128,7 @@ Tablicowy t³usty font sans serif dla LaTeXa.
 %package fonts-bh
 Summary:	Bold & Heavy Fonts
 Summary(pl):	Fonty Bold i Heavy
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bh
@@ -2140,7 +2140,7 @@ Fonty Bold i Heavy.
 %package fonts-bitstrea
 Summary:	Bitstream fonts
 Summary(pl):	Fonty Bitstream
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-bitstrea
@@ -2152,7 +2152,7 @@ Fonty Bitstream.
 %package fonts-cbgreek
 Summary:	Complete set of Greek fonts
 Summary(pl):	Pe³ny zestaw fontów greckich
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cbgreek
@@ -2164,7 +2164,7 @@ Pe³ny zestaw fontów greckich.
 %package fonts-cc-pl
 Summary:	Polish version of Computer Concrete fonts
 Summary(pl):	Polska wersja fontów Computer Concrete
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cc-pl
@@ -2176,7 +2176,7 @@ Polska wersja fontów Computer Concrete.
 %package fonts-cg
 Summary:	Compugraphic fonts
 Summary(pl):	Fonty Compugraphic
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cg
@@ -2188,7 +2188,7 @@ Fonty Compugraphic.
 %package fonts-cm
 Summary:	Computer Modern fonts
 Summary(pl):	Fonty Computer Modern
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cm
@@ -2200,7 +2200,7 @@ Fonty Computer Modern.
 %package fonts-cmbright
 Summary:	CM Bright fonts
 Summary(pl):	Fonty CM Bright
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmbright
@@ -2212,7 +2212,7 @@ Fonty CM Bright.
 %package fonts-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
 Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmcyr
@@ -2224,7 +2224,7 @@ Fonty Computer Modern rozszerzone o litery rosyjskie.
 %package fonts-cmextra
 Summary:	Extra Computer Modern fonts, from the American Mathematical Society
 Summary(pl):	Dodatkowe fonty Computer Modern z AMS
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cmextra
@@ -2236,7 +2236,7 @@ Dodatkowe fonty Computer Modern z AMS (American Mathematical Society).
 %package fonts-concmath
 Summary:	Concrete Math fonts
 Summary(pl):	Fonty matematyczne Concrete Math
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-concmath
@@ -2248,7 +2248,7 @@ Fonty matematyczne Concrete Math.
 %package fonts-concrete
 Summary:	Concrete Roman fonts
 Summary(pl):	Fonty Concrete Roman
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-concrete
@@ -2262,7 +2262,7 @@ przeznaczone do u¿ywania z fontami matematycznymi Euler.
 %package fonts-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-cs
@@ -2275,7 +2275,7 @@ czeskiego i s³owackiego.
 %package fonts-dstroke
 Summary:	Doublestroke font for typesetting the mathematical symbols
 Summary(pl):	Podwójnie kre¶lony font do sk³adania symboli matematycznych
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-dstroke
@@ -2287,7 +2287,7 @@ Podwójnie kre¶lony font do sk³adania symboli matematycznych.
 %package fonts-ecc
 Summary:	Sources for the European Concrete fonts
 Summary(pl):	¬ród³a dla fontów European Concrete
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-ecc
@@ -2303,7 +2303,7 @@ tekstowymi fontami towarzysz±cymi.
 %package fonts-eurosym
 Summary:	The new European currency symbol for the Euro
 Summary(pl):	Symbol nowej europejskiej waluty Euro
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-eurosym
@@ -2319,7 +2319,7 @@ ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
 Summary(pl):	Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-euxm
@@ -2333,7 +2333,7 @@ dla Concrete Math do³±czonego w fonts3 dystrybucji TeXLive.
 %package fonts-gothic
 Summary:	Gothic and ornamental initial fonts by Yannis Haralambous
 Summary(pl):	Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-gothic
@@ -2345,7 +2345,7 @@ Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa.
 %package fonts-hoekwater
 Summary:	Converted mflogo font
 Summary(pl):	Przekonwertowany font mflogo
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-hoekwater
@@ -2361,7 +2361,7 @@ stmaryrd, wasy, wasy2, xipa.
 %package fonts-jknappen
 Summary:	Miscellaneous packages by Joerg Knappen
 Summary(pl):	Ró¿ne pakiety autorstwa Joerga Knappena
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-jknappen
@@ -2375,7 +2375,7 @@ Knappena. Zawiera sgmlcmpt.
 %package fonts-latex
 Summary:	Basic LaTeX fonts
 Summary(pl):	Podstawowe fonty dla LaTeXa
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-latex
@@ -2387,7 +2387,7 @@ Podstawowe fonty dla LaTeXa.
 %package fonts-lh
 Summary:	Olga Lapko's LH fonts
 Summary(pl):	Fonty LH Olgi Lapko
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-lh
@@ -2399,7 +2399,7 @@ Fonty lh dla kodowañ `T2'/X2 (dla jêzyków zapisywanych cyrylic±).
 %package fonts-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
 Summary(pl):	Font Symbol Martina Vogela (marvosym)
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-marvosym
@@ -2421,7 +2421,7 @@ krawieckie; znak CE i inne.
 %package fonts-mflogo
 Summary:	Logo fonts
 Summary(pl):	Fonty logo
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-mflogo
@@ -2433,7 +2433,7 @@ Fonty logo.
 %package fonts-misc
 Summary:	Miscellaneous fonts
 Summary(pl):	Ró¿ne fonty
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-misc
@@ -2445,7 +2445,7 @@ Ró¿ne fonty.
 %package fonts-monotype
 Summary:	Monotype fonts
 Summary(pl):	Fonty Monotype
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-monotype
@@ -2457,7 +2457,7 @@ Fonty Monotype.
 %package fonts-omega
 Summary:	Fonts for Omega - extended unicode TeX
 Summary(pl):	Fonty dla Omegi - TeXa ze wsparciem dla unikodu
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-omega
@@ -2469,7 +2469,7 @@ Fonty dla Omegi - TeXa ze wsparciem dla unikodu.
 %package fonts-pandora
 Summary:	The Pandora font family
 Summary(pl):	Rodzina fontów Pandora
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pandora
@@ -2481,7 +2481,7 @@ Rodzina fontów Pandora.
 %package fonts-pazo
 Summary:	Pazo fonts
 Summary(pl):	Fonty Pazo
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pazo
@@ -2493,7 +2493,7 @@ Fonty Pazo.
 %package fonts-pl
 Summary:	Polish fonts
 Summary(pl):	Polskie fonty
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-pl
@@ -2505,7 +2505,7 @@ Polskie fonty.
 %package fonts-px
 Summary:	PX fonts
 Summary(pl):	Fonty PX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-px
@@ -2517,7 +2517,7 @@ Fonty PX.
 %package fonts-qfonts
 Summary:	Quasi fonts
 Summary(pl):	Fonty Quasi
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-qfonts
@@ -2529,7 +2529,7 @@ Fonty Quasi.
 %package fonts-qpx
 Summary:	Additional fonts for QPX package
 Summary(pl):	Dodatkowe fonty dla pakietu QPX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}
 Requires:	%{name}-fonts-px = %{epoch}:%{version}
@@ -2543,7 +2543,7 @@ Dodatkowe fonty dla pakietu QPX.
 %package fonts-qtx
 Summary:	Additional fonts for QTX package
 Summary(pl):	Dodatkowe fonty dla pakietu QTX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}
 Requires:	%{name}-fonts-tx = %{epoch}:%{version}
@@ -2557,7 +2557,7 @@ Dodatkowe fonty dla pakietu QTX.
 %package fonts-rsfs
 Summary:	Fonts of uppercase script letters for scientific and mathematical typesetting
 Summary(pl):	Fonty wielkich liter pisanych do sk³adania dokumentów naukowych i matematycznych
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-rsfs
@@ -2575,7 +2575,7 @@ matematycznym foncie TeXowym symbol.
 %package fonts-stmaryrd
 Summary:	St Mary Road symbols for functional programming
 Summary(pl):	Symbole St Mary Road do programowania funkcyjnego
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-stmaryrd
@@ -2587,7 +2587,7 @@ Symbole St Mary Road do programowania funkcyjnego.
 %package fonts-tx
 Summary:	TX fonts
 Summary(pl):	Fonty TX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-tx
@@ -2599,7 +2599,7 @@ Fonty TX.
 %package fonts-urw
 Summary:	URW fonts
 Summary(pl):	Fonty URW
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-urw
@@ -2611,7 +2611,7 @@ Fonty URW.
 %package fonts-vcm
 Summary:	VCM fonts
 Summary(pl):	Fonty VCM
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-vcm
@@ -2623,7 +2623,7 @@ Fonty VCM.
 %package fonts-vnr
 Summary:	VNR fonts
 Summary(pl):	Fonty VNR
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-vnr
@@ -2635,7 +2635,7 @@ Fonty VNR.
 %package fonts-wasy
 Summary:	Waldis symbol fonts
 Summary(pl):	Fonty Waldis symbol
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-wasy
@@ -2647,7 +2647,7 @@ Fonty Waldis symbol.
 %package fonts-xypic
 Summary:	Xy-pic fonts
 Summary(pl):	Fonty Xy-pic
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-xypic
@@ -2659,7 +2659,7 @@ Fonty Xy-pic.
 %package fonts-yandy
 Summary:	European Modern fonts from Y&Y
 Summary(pl):	Fonty European Modern od Y&Y
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-yandy
@@ -2671,7 +2671,7 @@ Fonty European Modern od Y&Y.
 %package fonts-type1-adobe
 Summary:	Adobe Type1 fonts
 Summary(pl):	Fonty Type1 Adobe
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-adobe
@@ -2683,7 +2683,7 @@ Fonty Type1 Adobe.
 %package fonts-type1-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-antp
@@ -2696,7 +2696,7 @@ Type 1.
 %package fonts-type1-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-antt
@@ -2708,7 +2708,7 @@ Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 %package fonts-type1-belleek
 Summary:	Free replacement for basic MathTime fonts
 Summary(pl):	Wolnodostêpny zamiennik podstawowych fontów MathTime
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-belleek
@@ -2720,7 +2720,7 @@ Wolnodostêpny zamiennik podstawowych fontów MathTime.
 %package fonts-type1-bitstrea
 Summary:	Bitstream fonts
 Summary(pl):	Fonty Bitstream
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-bitstrea
@@ -2732,7 +2732,7 @@ Fonty Bitstream.
 %package fonts-type1-bluesky
 Summary:	Computer Modern family fonts
 Summary(pl):	Fonty z rodziny Computer Modern
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-bluesky
@@ -2744,7 +2744,7 @@ Fonty z rodzony Computer Modern.
 %package fonts-type1-cc-pl
 Summary:	Polish version of Computer Concrete fonts
 Summary(pl):	Polska wersja fontów Computer Concrete
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cc-pl
@@ -2756,7 +2756,7 @@ Polska wersja fontów Computer Concrete.
 %package fonts-type1-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
 Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cmcyr
@@ -2768,7 +2768,7 @@ Fonty Computer Modern rozszerzone o litery rosyjskie.
 %package fonts-type1-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-cs
@@ -2781,7 +2781,7 @@ czeskiego i s³owackiego.
 %package fonts-type1-eurosym
 Summary:	The new European currency symbol for the Euro
 Summary(pl):	Symbol nowej europejskiej waluty Euro
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-eurosym
@@ -2797,7 +2797,7 @@ ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
 Summary(pl):	Przekonwertowany font mflogo
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-hoekwater
@@ -2812,7 +2812,7 @@ stmaryrd, wasy, wasy2, xipa.
 %package fonts-type1-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
 Summary(pl):	Font Symbol Martina Vogela (marvosym)
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-marvosym
@@ -2834,7 +2834,7 @@ krawieckie; znak CE i inne.
 %package fonts-type1-mathpazo
 Summary:	Pazo Math fonts
 Summary(pl):	Fonty matematyczne Pazo Math
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-mathpazo
@@ -2846,7 +2846,7 @@ Fonty matematyczne Pazo Math.
 %package fonts-type1-omega
 Summary:	Type1 fonts for Omega - extended unicode TeX
 Summary(pl):	Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-omega
@@ -2859,7 +2859,7 @@ Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu.
 %package fonts-type1-pl
 Summary:	Polish fonts
 Summary(pl):	Polskie fonty
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}
 
@@ -2872,7 +2872,7 @@ Polskie fonty.
 %package fonts-type1-px
 Summary:	PX fonts
 Summary(pl):	Fonty PX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-px
@@ -2884,7 +2884,7 @@ Fonty PX.
 %package fonts-type1-qfonts
 Summary:	Quasi fonts
 Summary(pl):	Fonty Quasi
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-qfonts
@@ -2896,7 +2896,7 @@ Fonty Quasi.
 %package fonts-type1-tx
 Summary:	TX fonts
 Summary(pl):	Fonty TX
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-tx
@@ -2908,7 +2908,7 @@ Fonty TX.
 %package fonts-type1-urw
 Summary:	URW fonts
 Summary(pl):	Fonty URW
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-urw
@@ -2920,7 +2920,7 @@ Fonty URW.
 %package fonts-type1-xypic
 Summary:	Xy-pic fonts
 Summary(pl):	Fonty Xy-pic
-Group:		Applications/Publishing/TeX
+Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-xypic
