@@ -1029,7 +1029,7 @@ exit 0
 
 %{_datadir}/texmf/fonts/type1/public/belleek
 %{_datadir}/texmf/fonts/type1/public/cs
-%config %{_datadir}/texmf/ls-R
+%ghost %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex
 
 %dir %{_datadir}/texmf/metafont
