@@ -1,7 +1,7 @@
 #
 # TODO:
 #
-# beta-20021022, rel. 1:
+# beta-20021025, rel. 1:
 # - testing
 #
 # later:
@@ -13,8 +13,8 @@
 # - context: split into language packages (cz, de, en, etc.)
 #
 
-%define		_ver	beta-20021022
-%define		texmf_ver	beta-20021022
+%define		_ver	beta-20021025
+%define		texmf_ver	beta-20021025
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -3823,13 +3823,11 @@ rm -rf $RPM_BUILD_ROOT
 %files format-pdfmex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfmex
-# does not build with beta 20021017
-#%attr(755,root,root) %{_bindir}/pdfmex-pl
+%attr(755,root,root) %{_bindir}/pdfmex-pl
 %dir %{texmf}/pdftex/mex
 %{texmf}/pdftex/mex/config
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
-# does not build with beta 20021017
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
 
 %files format-pdfemex
 %defattr(644,root,root,755)
@@ -3980,7 +3978,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-context
 %defattr(644,root,root,755)
-# does not build with beta 20021017
+# does not build with beta 20021025
 #%attr(755,root,root) %{_bindir}/cont-cz
 %attr(755,root,root) %{_bindir}/cont-de
 %attr(755,root,root) %{_bindir}/cont-en
@@ -3998,8 +3996,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/cont-en.1*
 %{_mandir}/man1/cont-nl.1*
 
-# does not build with beta 20021017
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
+# does not build with beta 20021025
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
