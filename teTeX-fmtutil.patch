@@ -66,10 +66,10 @@
 -#! mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
 -#! pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
 -#! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
-+platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
-+mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
-+pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
-+pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
++#!platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
++#!mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
++#!pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
++#!pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
  
  # - Czech / Slovak:
 -#! csplain	tex		-		csplain.ini
