@@ -75,6 +75,7 @@ BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-perlprov
 BuildRequires:	t1lib-devel
 BuildRequires:	texinfo
+BuildRequires:	unzip
 BuildRequires:	w3c-libwww-devel
 BuildRequires:	zlib-devel
 PreReq:		/sbin/ldconfig
