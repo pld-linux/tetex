@@ -1,7 +1,7 @@
 
-%define		tetex_ver	beta-20001218
-%define		texmf_ver	beta-20000804
-%define		texmfsrc_ver	beta-20000804
+%define		tetex_ver	beta-20020208
+%define		texmf_ver	beta-20020207
+%define		texmfsrc_ver	beta-20020207
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -19,9 +19,10 @@ Group(de):	Applikationen/Publizieren/TeX
 Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Group(pt_BR):	Aplicações/Editoração/TeX
-Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
-Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
-Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
+# Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-src-%{tetex_ver}.tar.gz
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-texmf-%{texmf_ver}.tar.gz
+Source2:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
@@ -37,7 +38,7 @@ Patch7:		teTeX-texmfcnf.patch
 Patch9:		teTeX-texmf-dvipsgeneric.patch
 Patch10:	teTeX-fmtutil.patch
 Patch11:	teTeX-grep.patch
-Patch12:	teTeX-italian.patch
+Patch12:	teTeX-all-languages.patch
 Patch13:	teTeX-bug19278.patch
 Patch14:	teTeX-protos.patch
 Patch15:	teTeX-tektronix.patch
@@ -51,18 +52,19 @@ PreReq:		sed
 PreReq:		awk
 PreReq:		textutils
 PreReq:		sh-utils
+BuildRequires:	bison
+BuildRequires:	ed
+BuildRequires:	flex
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
-#BuildRequires:	libwww-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	XFree86-devel
-BuildRequires:	ed
-BuildRequires:	texinfo
-BuildRequires:	flex
-BuildRequires:	bison
-BuildRequires:	zlib-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	rpm-perlprov
+BuildRequires:	t1lib-devel
+BuildRequires:	texinfo
+BuildRequires:	w3c-libwww-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	zlib-devel
 %include	/usr/lib/rpm/macros.perl
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
@@ -595,8 +597,8 @@ tar xzf %{SOURCE2} -C texmf
 %patch12 -p1
 %patch14 -p1
 %patch15 -p1
-%patch16 -p1
-%patch17 -p1
+#%patch16 -p1 -b .wiget
+#%patch17 -p1
 
 %build
 #sh ./reautoconf
@@ -606,6 +608,8 @@ CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 	--with-system-zlib \
 	--with-system-pnglib \
 	--with-system-tifflib \
+	--with-system-wwwlib \
+	--with-system-t1lib \
 	--disable-multiplatform \
 	--without-dialog \
 	--without-texinfo \
@@ -614,25 +618,21 @@ CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 	--with-texmf-dir=../../texmf \
 	--with-ncurses \
 	--enable-shared \
+	--enable-gf \
+	--enable-a4 \
+	--enable-ipc \
 	--disable-static
 
-#--with-system-wwwlib
-
 rm -f texk/{tetex,dvipsk}/*.info*
-(cd texk/dvipsk; makeinfo dvips.texi)
-(cd texk/tetex; makeinfo latex2e.texi)
-
-# enable polish hyphenation by default
-find -name language.dat -exec perl -pi -e 's/^%polish/polish/g' {} \;
-
-%{__make}
-%{__make} -C texk
-%{__make} -C texk/tetex
-
-
 cd texk/dvipsk
 makeinfo dvips.texi
 cd ../..
+
+cd texk/tetex
+makeinfo latex2e.texi
+cd ../..
+
+%{__make}
 
 cd texk/kpathsea
 makeinfo kpathsea.texi
@@ -641,6 +641,7 @@ cd ../..
 cd texk/web2c/doc
 makeinfo web2c.texi
 cd ../../..
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -670,30 +671,30 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
-%{__make} -C texk/tetex install \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT%{_libdir} \
-	datadir=$RPM_BUILD_ROOT%{_datadir} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	includedir=$RPM_BUILD_ROOT%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
+#%{__make} -C texk/tetex install \
+#	prefix=$RPM_BUILD_ROOT%{_prefix} \
+#	bindir=$RPM_BUILD_ROOT%{_bindir} \
+#	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+#	libdir=$RPM_BUILD_ROOT%{_libdir} \
+#	datadir=$RPM_BUILD_ROOT%{_datadir} \
+#	infodir=$RPM_BUILD_ROOT%{_infodir} \
+#	includedir=$RPM_BUILD_ROOT%{_includedir} \
+#	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
+#	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 
-%{__make} -C texk/ps2pkm install \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT%{_libdir} \
-	datadir=$RPM_BUILD_ROOT%{_datadir} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	includedir=$RPM_BUILD_ROOT%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
+#%{__make} -C texk/ps2pkm install \
+#	prefix=$RPM_BUILD_ROOT%{_prefix} \
+#	bindir=$RPM_BUILD_ROOT%{_bindir} \
+#	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+#	libdir=$RPM_BUILD_ROOT%{_libdir} \
+#	datadir=$RPM_BUILD_ROOT%{_datadir} \
+#	infodir=$RPM_BUILD_ROOT%{_infodir} \
+#	includedir=$RPM_BUILD_ROOT%{_includedir} \
+#	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
+#	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
-install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
+#install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
 install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
 touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
@@ -716,12 +717,12 @@ perl -pi \
 # prepare conf file to build hugelatex
 # (required to build jadetex)
 # I don't know how to make it better now :( /klakier
-cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
+#cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
 # temporary fix
-ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
+#ln -sf libkpathsea.so.3.3.7 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
@@ -1022,7 +1023,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/fonts/source/public/cm
 %{_datadir}/texmf/fonts/source/public/cm/*.mf
 %{_datadir}/texmf/fonts/source/public/cs
-%{_datadir}/texmf/fonts/source/public/cmbright
+# removed?
+#%{_datadir}/texmf/fonts/source/public/cmbright
 %{_datadir}/texmf/fonts/source/public/cmextra
 %{_datadir}/texmf/fonts/source/public/concmath
 %{_datadir}/texmf/fonts/source/public/concrete
@@ -1060,7 +1062,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/tfm/public/cc-pl
 %{_datadir}/texmf/fonts/tfm/public/cm
 %{_datadir}/texmf/fonts/tfm/public/cmcyr
-%{_datadir}/texmf/fonts/tfm/public/cmbright
+# removed ?
+#%{_datadir}/texmf/fonts/tfm/public/cmbright
 %{_datadir}/texmf/fonts/tfm/public/cmextra
 %{_datadir}/texmf/fonts/tfm/public/concmath
 %{_datadir}/texmf/fonts/tfm/public/concrete
@@ -1189,12 +1192,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/e*
 %doc %{_datadir}/texmf/doc/mkhtml.nawk
 %doc %{_datadir}/texmf/doc/tetex.gif
-%doc %{_datadir}/texmf/doc/mex
+# missing
+#%doc %{_datadir}/texmf/doc/mex
 
 %dir %{_datadir}/texmf/doc/fonts
 %doc %{_datadir}/texmf/doc/fonts/c*
 %doc %{_datadir}/texmf/doc/fonts/ec*
-%doc %{_datadir}/texmf/doc/fonts/pl
+# missing
+#%doc %{_datadir}/texmf/doc/fonts/pl
 %doc %{_datadir}/texmf/doc/fonts/bluesky
 %doc %{_datadir}/texmf/doc/fonts/dstroke
 %doc %{_datadir}/texmf/doc/fonts/hoekwater
@@ -1259,7 +1264,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/source/latex
 
 %dir %{_datadir}/texmf/tex/platex
-%{_datadir}/texmf/tex/platex/base
+# missing
+#%{_datadir}/texmf/tex/platex/base
 %config %{_datadir}/texmf/tex/platex/config
 
 %files etex
@@ -1296,7 +1302,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/viromega.1*
 
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
+# need fix fmtulis omega
+#%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
 
 %{_datadir}/texmf/fonts/tfm/public/omega
 %dir %{_datadir}/texmf/fonts/ofm
