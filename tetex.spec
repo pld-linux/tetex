@@ -1,4 +1,3 @@
-U rpm.groups
 %define		texmf_ver	1.0.1
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
