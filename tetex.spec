@@ -422,6 +422,10 @@ gzip $RPM_BUILD_ROOT/usr/share/{info/*info*,man/man1/*}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%pre
+%{_sbindir}/groupadd -g 60 fonts
+%{_bindir}/update-db
+
 # make sure ls-R used by tetex is updated after an install
 
 %post
@@ -454,6 +458,9 @@ exit 0
 exit 0
 
 %postun
+%{_sbindir}/groupdel fonts
+%{_bindir}/update-db
+
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
