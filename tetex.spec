@@ -8,6 +8,7 @@
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
+# - add esint fonts  
 
 %define tversion 2.99.6.20041211
 
@@ -3199,6 +3200,9 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 rm -rf $RPM_BUILD_ROOT%{texmf}/tex/latex/{beamer,pgf,xcolor}
 rm -rf $RPM_BUILD_ROOT%{texmf}/doc/latex/{beamer,pgf,xcolor}
 
+# not included in package
+rm -f $RPM_BUILD_ROOT${texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -5132,6 +5136,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/bezos/
 %{texmf}/tex/latex/bibunits/
 %doc %{texmf}/doc/latex/bibunits/
+%{texmf}/tex/latex/bibtopic/
 %{texmf}/tex/latex/bold-extra/
 %{texmf}/tex/latex/booktabs/
 %{texmf}/tex/latex/boxedminipage/
@@ -5160,6 +5165,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
 %{texmf}/tex/latex/endnotes/
+%{texmf}/tex/latex/enumitem/
 %{texmf}/tex/latex/eo/
 %doc %{texmf}/doc/latex/eo/
 %{texmf}/tex/latex/eso-pic/
@@ -5178,11 +5184,13 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/fancyvrb/
 %doc %{texmf}/doc/latex/fancyvrb/
 %{texmf}/tex/latex/fguill/
+%{texmf}/tex/latex/filecontents/
 %{texmf}/tex/latex/float/
 %{texmf}/tex/latex/floatflt/
 %doc %{texmf}/doc/latex/floatflt/
 %{texmf}/tex/latex/fnpara/
 %{texmf}/tex/latex/fontinst/
+%{texmf}/tex/latex/footbib/
 %{texmf}/tex/latex/footmisc/
 %{texmf}/tex/latex/footnpag/
 %{texmf}/tex/latex/fp
@@ -5192,7 +5200,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/geometry/
 %{texmf}/tex/latex/germbib/
 %{texmf}/tex/latex/gletter/
-%{texmf}/tex/latex/graphics
+%{texmf}/tex/latex/graphics/
+%{texmf}/tex/latex/greek/
 %{texmf}/tex/latex/hangcaption/
 %{texmf}/tex/latex/here/
 %{texmf}/tex/latex/hyperref
@@ -5393,6 +5402,7 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-bibtex-dk
 %defattr(644,root,root,755)
 %{texmf}/bibtex/bst/dk-bib
+%{texmf}/tex/latex/dk-bib
 
 %files latex-bibtex-nor
 %defattr(644,root,root,755)
