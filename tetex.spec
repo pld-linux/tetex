@@ -1,7 +1,7 @@
 #
 # TODO:
 #
-# beta-20020922, rel. 1:
+# beta-20021013, rel. 1:
 # - testing
 #
 # later:
@@ -12,8 +12,8 @@
 # - context: split into language packages (cz, de, en, etc.)
 #
 
-%define		_ver	beta-20020922
-%define		texmf_ver	beta-20020922
+%define		_ver	beta-20021013
+%define		texmf_ver	beta-20021013
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.6
+Release:	0.1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
