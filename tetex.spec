@@ -10,8 +10,8 @@
 # - look at mktexfmt
 
 
-%define		_ver	beta-20020530
-%define		texmf_ver	beta-20020530
+%define		_ver	beta-20020922
+%define		texmf_ver	beta-20020922
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
