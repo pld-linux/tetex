@@ -1,4 +1,4 @@
-%define		texmf_ver	1.0.1
+%define		texmf_ver	1.0.2
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
@@ -6,7 +6,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	5
+Release:	6
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
