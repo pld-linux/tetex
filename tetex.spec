@@ -335,7 +335,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/usr/share \
 	$RPM_BUILD_ROOT/var/lib/texmf \
-	$RPM_BUILD_ROOT/usr/lib/rhs/rhs-printfilters \
+	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
 	$RPM_BUILD_ROOT/etc/cron.daily \
 	$RPM_BUILD_ROOT/etc/X11/wmconfig
 
@@ -369,7 +369,7 @@ perl -pi \
 	$RPM_BUILD_ROOT/usr/share/texmf/web2c/texmf.cnf
 
 # install the new magic print filter for converting dvi to ps
-install %{SOURCE2} $RPM_BUILD_ROOT/usr/lib/rhs/rhs-printfilters
+install %{SOURCE2} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
 
 install %{SOURCE10} $RPM_BUILD_ROOT/etc/cron.daily
 
@@ -552,9 +552,9 @@ fi
 %{_infodir}/kpathsea.info*
 %{_infodir}/web2c.info*
 
-/usr/lib/libkpathsea.a
+%{_libdir}/libkpathsea.a
 
-%attr(755,root,root) /usr/lib/rhs/rhs-printfilters/dvi-to-ps.fpi
+%attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
 
 %{_mandir}/man1/MakeTeXPK.1.*
 %{_mandir}/man1/access.1.*
@@ -909,7 +909,7 @@ fi
 %files dvips 
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/lib/rhs/rhs-printfilters/dvi-to-ps.fpi
+%attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
 
 %attr(-,root,root) /usr/share/texmf/dvips
 
