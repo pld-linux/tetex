@@ -1,6 +1,10 @@
+
+%include	/usr/lib/rpm/macros.perl
+
 %define		tetex_ver	beta-20001218
 %define		texmf_ver	beta-20000804
 %define		texmfsrc_ver	beta-20000804
+
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
@@ -8,7 +12,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	4
+Release:	5
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -50,7 +54,7 @@ BuildRequires:	flex
 BuildRequires:	bison
 BuildRequires:	zlib-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	perl
+BuildRequires:	rpm-perlprov
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
