@@ -409,6 +409,7 @@ Summary:	TeX generating PDF files instead DVI
 Summary(pl):	PDFtex
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description pdftex
 TeX generating PDF files instead DVI.
@@ -1236,7 +1237,6 @@ Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-latex-psnfss = %{version}
-Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
