@@ -8,10 +8,11 @@ Version:	1.0
 Release:	1
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
-Source0:	ftp://ftp.rrzn.uni-hannover.de/pub/local/misc/teTeX-beta/teTeX-src-%{version}.tar.gz
-Source1:	ftp://ftp.rrzn.uni-hannover.de/pub/local/misc/teTeX-beta/teTeX-texmf-%{version}.tar.gz
-Source2:	dvi-to-ps.fpi
-Source3:	tetex.cron
+Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
+Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{version}.tar.gz
+Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{version}.tar.gz
+Source3:	dvi-to-ps.fpi
+Source4:	tetex.cron
 Patch0:		teTeX-rhconfig.patch  
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -302,6 +303,7 @@ pdfTeX generuje zamiast DVI pliki PDF
 
 install -d texk/share/texmf
 tar xzf %{SOURCE1} -C texk/share/texmf
+tar xzf %{SOURCE2} -C texk/share/texmf
 
 %patch2 -p1
 
@@ -395,9 +397,9 @@ perl -pi \
 	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 # install the new magic print filter for converting dvi to ps
-install %{SOURCE2} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
+install %{SOURCE3} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
 
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/cron.daily
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 
 #wmconfig things
 
