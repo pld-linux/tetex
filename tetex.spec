@@ -333,40 +333,40 @@ cd ../ps2pkm
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/usr/share \
+install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT/var/lib/texmf \
 	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
 	$RPM_BUILD_ROOT/etc/cron.daily \
 	$RPM_BUILD_ROOT/etc/X11/wmconfig
 
 perl -pi \
-	-e "s|\.\./share/texmf|$RPM_BUILD_ROOT/usr/share/texmf|g;" \
+	-e "s|\.\./share/texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
 	-e "s|/var/lib/texmf|$RPM_BUILD_ROOT/var/lib/texmf|g;" \
 	texk/share/texmf/web2c/texmf.cnf
 
-cp -a texk/share/texmf  $RPM_BUILD_ROOT/usr/share/texmf
+cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
 make install prefix=$RPM_BUILD_ROOT/usr \
-	texmf=$RPM_BUILD_ROOT/usr/share/texmf
+	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd texk/tetex
 make install prefix=$RPM_BUILD_ROOT/usr \
-        texmf=$RPM_BUILD_ROOT/usr/share/texmf
+        texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../ps2pkm 
 make install prefix=$RPM_BUILD_ROOT/usr \
-        texmf=$RPM_BUILD_ROOT/usr/share/texmf
+        texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../..
 install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT/usr/bin	
 
 make init prefix=$RPM_BUILD_ROOT/usr \
-	texmf=$RPM_BUILD_ROOT/usr/share/texmf
+	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 perl -pi \
-	-e "s|\.\./share/texmf|/usr/share/texmf|g;" \
+	-e "s|\.\./share/texmf|%{_datadir}/texmf|g;" \
 	-e "s|$RPM_BUILD_ROOT/var/lib/texmf|/var/lib/texmf|g;" \
-	$RPM_BUILD_ROOT/usr/share/texmf/web2c/texmf.cnf
+	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 # install the new magic print filter for converting dvi to ps
 install %{SOURCE2} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
@@ -465,8 +465,8 @@ fi
 %attr(1777,root,root) %dir /var/lib/texmf
 
 %attr(750,root,root) %config /etc/cron.daily/tetex.cron
-#%config /usr/share/texmf/web2c/mktex.cnf
-#%config /usr/share/texmf/web2c/texmf.cnf
+#%config %{_datadir}/texmf/web2c/mktex.cnf
+#%config %{_datadir}/texmf/web2c/texmf.cnf
 
 %attr(755,root,root) /usr/bin/MakeTeXPK
 %attr(755,root,root) /usr/bin/access
@@ -618,193 +618,193 @@ fi
 %{_mandir}/man1/vptovf.1.*
 %{_mandir}/man1/weave.1.*
 
-%doc /usr/share/texmf/ChangeLog
-%config /usr/share/texmf/aliases
+%doc %{_datadir}/texmf/ChangeLog
+%config %{_datadir}/texmf/aliases
 
-/usr/share/texmf/etex/plain/base/*
-/usr/share/texmf/etex/plain/config/*
-/usr/share/texmf/fontname/*
+%{_datadir}/texmf/etex/plain/base/*
+%{_datadir}/texmf/etex/plain/config/*
+%{_datadir}/texmf/fontname/*
 
-%attr(-,root,root) /usr/share/texmf/fonts/fontdesc
+%attr(-,root,root) %{_datadir}/texmf/fonts/fontdesc
 
-/usr/share/texmf/fonts/pfm/public/xypic/*
-/usr/share/texmf/fonts/source/jknappen/ec/*
-/usr/share/texmf/fonts/source/jknappen/sauter/*
-/usr/share/texmf/fonts/source/jknappen/tc/*
-/usr/share/texmf/fonts/source/public/bbm/*
-/usr/share/texmf/fonts/source/public/bbold/*
-/usr/share/texmf/fonts/source/public/cm/*.mf
+%{_datadir}/texmf/fonts/pfm/public/xypic/*
+%{_datadir}/texmf/fonts/source/jknappen/ec/*
+%{_datadir}/texmf/fonts/source/jknappen/sauter/*
+%{_datadir}/texmf/fonts/source/jknappen/tc/*
+%{_datadir}/texmf/fonts/source/public/bbm/*
+%{_datadir}/texmf/fonts/source/public/bbold/*
+%{_datadir}/texmf/fonts/source/public/cm/*.mf
 
-%doc /usr/share/texmf/fonts/source/public/cm/README
+%doc %{_datadir}/texmf/fonts/source/public/cm/README
 
-/usr/share/texmf/fonts/source/public/cmbright/*
-/usr/share/texmf/fonts/source/public/cmextra/*
-/usr/share/texmf/fonts/source/public/concmath/*
-/usr/share/texmf/fonts/source/public/concrete/*
-/usr/share/texmf/fonts/source/public/ecc/*
-/usr/share/texmf/fonts/source/public/euxm/*
-/usr/share/texmf/fonts/source/public/gothic/*
-/usr/share/texmf/fonts/source/public/mflogo/*
-/usr/share/texmf/fonts/source/public/misc/*
-/usr/share/texmf/fonts/source/public/pandora/*
-/usr/share/texmf/fonts/source/public/rsfs/*.mf
-/usr/share/texmf/fonts/source/public/stmary/*.mf
-/usr/share/texmf/fonts/source/public/wasy/*.mf
-/usr/share/texmf/fonts/source/public/xypic/*.mf
+%{_datadir}/texmf/fonts/source/public/cmbright/*
+%{_datadir}/texmf/fonts/source/public/cmextra/*
+%{_datadir}/texmf/fonts/source/public/concmath/*
+%{_datadir}/texmf/fonts/source/public/concrete/*
+%{_datadir}/texmf/fonts/source/public/ecc/*
+%{_datadir}/texmf/fonts/source/public/euxm/*
+%{_datadir}/texmf/fonts/source/public/gothic/*
+%{_datadir}/texmf/fonts/source/public/mflogo/*
+%{_datadir}/texmf/fonts/source/public/misc/*
+%{_datadir}/texmf/fonts/source/public/pandora/*
+%{_datadir}/texmf/fonts/source/public/rsfs/*.mf
+%{_datadir}/texmf/fonts/source/public/stmary/*.mf
+%{_datadir}/texmf/fonts/source/public/wasy/*.mf
+%{_datadir}/texmf/fonts/source/public/xypic/*.mf
 
-/usr/share/texmf/fonts/tfm/adobe/avantgar/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/bookman/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/courier/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/helvetic/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/mathppl/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/mathptm/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/mathptmx/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/ncntrsbk/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/palatino/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/symbol/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/times/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/utopia/*.tfm
-/usr/share/texmf/fonts/tfm/adobe/zapfding/*.tfm
-/usr/share/texmf/fonts/tfm/bitstrea/charter/*.tfm
-/usr/share/texmf/fonts/tfm/jknappen/ec/*.tfm
-/usr/share/texmf/fonts/tfm/public/bbm/*.tfm
-/usr/share/texmf/fonts/tfm/public/bbold/*.tfm
-/usr/share/texmf/fonts/tfm/public/cm/*.tfm
-/usr/share/texmf/fonts/tfm/public/cmbright/*.tfm
-/usr/share/texmf/fonts/tfm/public/cmextra/*.tfm
-/usr/share/texmf/fonts/tfm/public/concmath/*.tfm
-/usr/share/texmf/fonts/tfm/public/concrete/*.tfm
-/usr/share/texmf/fonts/tfm/public/ecc/*.tfm
-/usr/share/texmf/fonts/tfm/public/euxm/*.tfm
-/usr/share/texmf/fonts/tfm/public/gothic/*.tfm
-/usr/share/texmf/fonts/tfm/public/mflogo/*.tfm
-/usr/share/texmf/fonts/tfm/public/misc/*.tfm
-/usr/share/texmf/fonts/tfm/public/pandora/*.tfm
-/usr/share/texmf/fonts/tfm/public/rsfs/*
-/usr/share/texmf/fonts/tfm/public/stmary/*
-/usr/share/texmf/fonts/tfm/public/wasy/*
-/usr/share/texmf/fonts/tfm/public/xypic/*
+%{_datadir}/texmf/fonts/tfm/adobe/avantgar/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/bookman/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/courier/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/helvetic/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/mathppl/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/mathptm/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/mathptmx/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/ncntrsbk/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/palatino/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/symbol/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/times/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/utopia/*.tfm
+%{_datadir}/texmf/fonts/tfm/adobe/zapfding/*.tfm
+%{_datadir}/texmf/fonts/tfm/bitstrea/charter/*.tfm
+%{_datadir}/texmf/fonts/tfm/jknappen/ec/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/bbm/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/bbold/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/cm/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/cmbright/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/cmextra/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/concmath/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/concrete/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/ecc/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/euxm/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/gothic/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/mflogo/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/misc/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/pandora/*.tfm
+%{_datadir}/texmf/fonts/tfm/public/rsfs/*
+%{_datadir}/texmf/fonts/tfm/public/stmary/*
+%{_datadir}/texmf/fonts/tfm/public/wasy/*
+%{_datadir}/texmf/fonts/tfm/public/xypic/*
 
-/usr/share/texmf/fonts/type1/adobe/utopia/*
-/usr/share/texmf/fonts/type1/bitstrea/charter/*
-/usr/share/texmf/fonts/type1/bluesky/cm/*
-/usr/share/texmf/fonts/type1/hoekwater/cm/*
-/usr/share/texmf/fonts/type1/hoekwater/rsfs/*
-/usr/share/texmf/fonts/type1/hoekwater/stmary/*
-/usr/share/texmf/fonts/type1/hoekwater/wasy/*
-/usr/share/texmf/fonts/type1/public/xypic/*
-/usr/share/texmf/fonts/type1/urw/avantgar/*
-/usr/share/texmf/fonts/type1/urw/bookman/*
-/usr/share/texmf/fonts/type1/urw/courier/*
-/usr/share/texmf/fonts/type1/urw/helvetic/*
+%{_datadir}/texmf/fonts/type1/adobe/utopia/*
+%{_datadir}/texmf/fonts/type1/bitstrea/charter/*
+%{_datadir}/texmf/fonts/type1/bluesky/cm/*
+%{_datadir}/texmf/fonts/type1/hoekwater/cm/*
+%{_datadir}/texmf/fonts/type1/hoekwater/rsfs/*
+%{_datadir}/texmf/fonts/type1/hoekwater/stmary/*
+%{_datadir}/texmf/fonts/type1/hoekwater/wasy/*
+%{_datadir}/texmf/fonts/type1/public/xypic/*
+%{_datadir}/texmf/fonts/type1/urw/avantgar/*
+%{_datadir}/texmf/fonts/type1/urw/bookman/*
+%{_datadir}/texmf/fonts/type1/urw/courier/*
+%{_datadir}/texmf/fonts/type1/urw/helvetic/*
 
-/usr/share/texmf/fonts/vf/adobe/avantgar/*
-/usr/share/texmf/fonts/vf/adobe/bookman/*
-/usr/share/texmf/fonts/vf/adobe/courier/*
-/usr/share/texmf/fonts/vf/adobe/helvetic/*
-/usr/share/texmf/fonts/vf/adobe/mathppl/*
-/usr/share/texmf/fonts/vf/adobe/mathptm/*
-/usr/share/texmf/fonts/vf/adobe/mathptmx/*
-/usr/share/texmf/fonts/vf/adobe/ncntrsbk/*
-/usr/share/texmf/fonts/vf/adobe/palatino/*
-/usr/share/texmf/fonts/vf/adobe/times/*
-/usr/share/texmf/fonts/vf/adobe/utopia/*
-/usr/share/texmf/fonts/vf/adobe/zapfchan/*
-/usr/share/texmf/fonts/vf/bitstrea/charter/*
+%{_datadir}/texmf/fonts/vf/adobe/avantgar/*
+%{_datadir}/texmf/fonts/vf/adobe/bookman/*
+%{_datadir}/texmf/fonts/vf/adobe/courier/*
+%{_datadir}/texmf/fonts/vf/adobe/helvetic/*
+%{_datadir}/texmf/fonts/vf/adobe/mathppl/*
+%{_datadir}/texmf/fonts/vf/adobe/mathptm/*
+%{_datadir}/texmf/fonts/vf/adobe/mathptmx/*
+%{_datadir}/texmf/fonts/vf/adobe/ncntrsbk/*
+%{_datadir}/texmf/fonts/vf/adobe/palatino/*
+%{_datadir}/texmf/fonts/vf/adobe/times/*
+%{_datadir}/texmf/fonts/vf/adobe/utopia/*
+%{_datadir}/texmf/fonts/vf/adobe/zapfchan/*
+%{_datadir}/texmf/fonts/vf/bitstrea/charter/*
 
-%doc /usr/share/texmf/lists/bibtex
-%doc /usr/share/texmf/lists/bibtex-doc
-%doc /usr/share/texmf/lists/fonts-doc
-%doc /usr/share/texmf/lists/general-doc
-%doc /usr/share/texmf/lists/generic-doc
-%doc /usr/share/texmf/lists/makeindex-doc
-%doc /usr/share/texmf/lists/metapost
-%doc /usr/share/texmf/lists/metapost-doc
-%doc /usr/share/texmf/lists/misc-fonts
-%doc /usr/share/texmf/lists/pictex
-%doc /usr/share/texmf/lists/postscript-fonts
-%doc /usr/share/texmf/lists/programs-doc
-%doc /usr/share/texmf/lists/pstricks
-%doc /usr/share/texmf/lists/sauter-fonts
-%doc /usr/share/texmf/lists/tetex-base
-%doc /usr/share/texmf/lists/texdraw
-%doc /usr/share/texmf/lists/xypic
+%doc %{_datadir}/texmf/lists/bibtex
+%doc %{_datadir}/texmf/lists/bibtex-doc
+%doc %{_datadir}/texmf/lists/fonts-doc
+%doc %{_datadir}/texmf/lists/general-doc
+%doc %{_datadir}/texmf/lists/generic-doc
+%doc %{_datadir}/texmf/lists/makeindex-doc
+%doc %{_datadir}/texmf/lists/metapost
+%doc %{_datadir}/texmf/lists/metapost-doc
+%doc %{_datadir}/texmf/lists/misc-fonts
+%doc %{_datadir}/texmf/lists/pictex
+%doc %{_datadir}/texmf/lists/postscript-fonts
+%doc %{_datadir}/texmf/lists/programs-doc
+%doc %{_datadir}/texmf/lists/pstricks
+%doc %{_datadir}/texmf/lists/sauter-fonts
+%doc %{_datadir}/texmf/lists/tetex-base
+%doc %{_datadir}/texmf/lists/texdraw
+%doc %{_datadir}/texmf/lists/xypic
 
-/usr/share/texmf/ls-R
-/usr/share/texmf/makeindex/*
+%{_datadir}/texmf/ls-R
+%{_datadir}/texmf/makeindex/*
 
-/usr/share/texmf/metafont/base/*
-/usr/share/texmf/metafont/config/*
-/usr/share/texmf/metafont/misc/*
+%{_datadir}/texmf/metafont/base/*
+%{_datadir}/texmf/metafont/config/*
+%{_datadir}/texmf/metafont/misc/*
 
-/usr/share/texmf/metapost/base/*
-/usr/share/texmf/metapost/config/*
-/usr/share/texmf/metapost/misc/*
+%{_datadir}/texmf/metapost/base/*
+%{_datadir}/texmf/metapost/config/*
+%{_datadir}/texmf/metapost/misc/*
 
-/usr/share/texmf/mft/*
+%{_datadir}/texmf/mft/*
 
-/usr/share/texmf/tex/context/base/*
-/usr/share/texmf/tex/context/config/*
-/usr/share/texmf/tex/context/modules/*
-/usr/share/texmf/tex/context/ppchtex/*
+%{_datadir}/texmf/tex/context/base/*
+%{_datadir}/texmf/tex/context/config/*
+%{_datadir}/texmf/tex/context/modules/*
+%{_datadir}/texmf/tex/context/ppchtex/*
 
-/usr/share/texmf/tex/fontinst/etx/*
-/usr/share/texmf/tex/fontinst/mtx/*
-/usr/share/texmf/tex/fontinst/tex/*
+%{_datadir}/texmf/tex/fontinst/etx/*
+%{_datadir}/texmf/tex/fontinst/mtx/*
+%{_datadir}/texmf/tex/fontinst/tex/*
 
-/usr/share/texmf/tex/french/base/*
-/usr/share/texmf/tex/french/config/*
+%{_datadir}/texmf/tex/french/base/*
+%{_datadir}/texmf/tex/french/config/*
 
-%attr(-,root,root) /usr/share/texmf/tex/generic
+%attr(-,root,root) %{_datadir}/texmf/tex/generic
 
-/usr/share/texmf/tex/plain/base/*
-/usr/share/texmf/tex/plain/config/*
-/usr/share/texmf/tex/plain/misc/*
+%{_datadir}/texmf/tex/plain/base/*
+%{_datadir}/texmf/tex/plain/config/*
+%{_datadir}/texmf/tex/plain/misc/*
 
-/usr/share/texmf/tex/texinfo/*
+%{_datadir}/texmf/tex/texinfo/*
 
-%doc /usr/share/texmf/texconfig/README
+%doc %{_datadir}/texmf/texconfig/README
 
-/usr/share/texmf/texconfig/g*
-/usr/share/texmf/texconfig/v*
-/usr/share/texmf/texconfig/x*
+%{_datadir}/texmf/texconfig/g*
+%{_datadir}/texmf/texconfig/v*
+%{_datadir}/texmf/texconfig/x*
 
-/usr/share/texmf/updates.dat
+%{_datadir}/texmf/updates.dat
 
-%attr(-,root,root) /usr/share/texmf/web2c
+%attr(-,root,root) %{_datadir}/texmf/web2c
 
-%doc /usr/share/texmf/doc/Makefile
-%doc /usr/share/texmf/doc/README
-%doc /usr/share/texmf/doc/context
-%doc /usr/share/texmf/doc/e*
+%doc %{_datadir}/texmf/doc/Makefile
+%doc %{_datadir}/texmf/doc/README
+%doc %{_datadir}/texmf/doc/context
+%doc %{_datadir}/texmf/doc/e*
 
-%doc /usr/share/texmf/doc/fonts/c*
-%doc /usr/share/texmf/doc/fonts/ec*
-%doc /usr/share/texmf/doc/fonts/fontname
-%doc /usr/share/texmf/doc/fonts/oldgerman
-%doc %lang(fr) /usr/share/texmf/doc/french
-%doc /usr/share/texmf/doc/generic
-%doc /usr/share/texmf/doc/help*
-%doc /usr/share/texmf/doc/images
-%doc /usr/share/texmf/doc/index.html
-%doc /usr/share/texmf/doc/makeindex
-%doc /usr/share/texmf/doc/metapost
-%doc /usr/share/texmf/doc/mkhtml
-%doc /usr/share/texmf/doc/newhelpindex.html
-%doc /usr/share/texmf/doc/programs
-%doc /usr/share/texmf/doc/tetex
+%doc %{_datadir}/texmf/doc/fonts/c*
+%doc %{_datadir}/texmf/doc/fonts/ec*
+%doc %{_datadir}/texmf/doc/fonts/fontname
+%doc %{_datadir}/texmf/doc/fonts/oldgerman
+%doc %lang(fr) %{_datadir}/texmf/doc/french
+%doc %{_datadir}/texmf/doc/generic
+%doc %{_datadir}/texmf/doc/help*
+%doc %{_datadir}/texmf/doc/images
+%doc %{_datadir}/texmf/doc/index.html
+%doc %{_datadir}/texmf/doc/makeindex
+%doc %{_datadir}/texmf/doc/metapost
+%doc %{_datadir}/texmf/doc/mkhtml
+%doc %{_datadir}/texmf/doc/newhelpindex.html
+%doc %{_datadir}/texmf/doc/programs
+%doc %{_datadir}/texmf/doc/tetex
 
 %files latex 
 %defattr(644,root,root,755)
 
-/usr/share/texmf/etex/latex/misc/etex.sty
-/usr/share/texmf/fonts/source/public/latex/*
-/usr/share/texmf/fonts/tfm/public/latex/*
-/usr/share/texmf/lists/latex-doc
-/usr/share/texmf/lists/latex-extra
-/usr/share/texmf/tex/generic/pictex/latexpicobjs.tex
-/usr/share/texmf/tex/generic/xypic/xylatex.ini
-/usr/share/texmf/tex/latex/*
+%{_datadir}/texmf/etex/latex/misc/etex.sty
+%{_datadir}/texmf/fonts/source/public/latex/*
+%{_datadir}/texmf/fonts/tfm/public/latex/*
+%{_datadir}/texmf/lists/latex-doc
+%{_datadir}/texmf/lists/latex-extra
+%{_datadir}/texmf/tex/generic/pictex/latexpicobjs.tex
+%{_datadir}/texmf/tex/generic/xypic/xylatex.ini
+%{_datadir}/texmf/tex/latex/*
 
 %attr(755,root,root) /usr/bin/latex
 %attr(755,root,root) /usr/bin/pslatex
@@ -814,17 +814,17 @@ fi
 
 %{_infodir}/latex.info*
 
-%doc /usr/share/texmf/doc/latex
+%doc %{_datadir}/texmf/doc/latex
 %attr(755,root,root) /usr/bin/bibtex
 %{_mandir}/man1/bibtex.1.*
 
-/usr/share/texmf/bibtex/bib/*
-/usr/share/texmf/bibtex/bst/base/*
-/usr/share/texmf/bibtex/bst/germbib/*
-/usr/share/texmf/bibtex/bst/komascr/*
-/usr/share/texmf/bibtex/bst/natbib/*
+%{_datadir}/texmf/bibtex/bib/*
+%{_datadir}/texmf/bibtex/bst/base/*
+%{_datadir}/texmf/bibtex/bst/germbib/*
+%{_datadir}/texmf/bibtex/bst/komascr/*
+%{_datadir}/texmf/bibtex/bst/natbib/*
 
-%doc /usr/share/texmf/doc/bibtex/
+%doc %{_datadir}/texmf/doc/bibtex/
 
 %files etex
 %defattr(644,root,root,755)
@@ -842,9 +842,9 @@ fi
 %{_mandir}/man1/etex.1.*
 %{_mandir}/man1/evirtex.1.*
 
-%doc /usr/share/texmf/lists/eplain
-%doc /usr/share/texmf/lists/eplain-doc
-/usr/share/texmf/tex/eplain/*
+%doc %{_datadir}/texmf/lists/eplain
+%doc %{_datadir}/texmf/lists/eplain-doc
+%{_datadir}/texmf/tex/eplain/*
 
 %files omega 
 %defattr(644,root,root,755)
@@ -856,19 +856,19 @@ fi
 %{_mandir}/man1/omega.1.*
 %{_mandir}/man1/viromega.1.*
 
-/usr/share/texmf/fonts/ofm/public/omega/*
-/usr/share/texmf/fonts/tfm/public/omega/*.tfm
-/usr/share/texmf/fonts/type1/public/omega/*
+%{_datadir}/texmf/fonts/ofm/public/omega/*
+%{_datadir}/texmf/fonts/tfm/public/omega/*.tfm
+%{_datadir}/texmf/fonts/type1/public/omega/*
 
-/usr/share/texmf/omega/otp/omega/*
-/usr/share/texmf/omega/plain/config/*
-/usr/share/texmf/omega/latex/*
-/usr/share/texmf/omega/ocp/char2uni/*
-/usr/share/texmf/omega/ocp/misc/*
-/usr/share/texmf/omega/otp/char2uni/*
-/usr/share/texmf/omega/otp/misc/*
+%{_datadir}/texmf/omega/otp/omega/*
+%{_datadir}/texmf/omega/plain/config/*
+%{_datadir}/texmf/omega/latex/*
+%{_datadir}/texmf/omega/ocp/char2uni/*
+%{_datadir}/texmf/omega/ocp/misc/*
+%{_datadir}/texmf/omega/otp/char2uni/*
+%{_datadir}/texmf/omega/otp/misc/*
 
-%doc /usr/share/texmf/doc/omega
+%doc %{_datadir}/texmf/doc/omega
 
 %attr(755,root,root) /usr/bin/odvips
 %attr(755,root,root) /usr/bin/oxdvi
@@ -884,15 +884,15 @@ fi
 %{_mandir}/man1/pdftex.1.*
 %{_mandir}/man1/pdfvirtex.1.*
 
-/usr/share/texmf/pdftex/base/*
-/usr/share/texmf/pdftex/config/*
-/usr/share/texmf/pdftex/plain/misc/*
-/usr/share/texmf/pdftex/texinfo/*
+%{_datadir}/texmf/pdftex/base/*
+%{_datadir}/texmf/pdftex/config/*
+%{_datadir}/texmf/pdftex/plain/misc/*
+%{_datadir}/texmf/pdftex/texinfo/*
 
-%config /usr/share/texmf/pdftex/latex/config/pdflatex.ini
+%config %{_datadir}/texmf/pdftex/latex/config/pdflatex.ini
 
 %attr(755,root,root) /usr/bin/pdflatex 
-%doc /usr/share/texmf/doc/pdftex
+%doc %{_datadir}/texmf/doc/pdftex
 
 %files xdvi 
 %defattr(644,root,root,755)
@@ -903,24 +903,24 @@ fi
 %attr(755,root,root) /usr/bin/xdvi
 
 %{_mandir}/man1/xdvi.1.*
-/usr/share/texmf/tex/generic/xypic/xyxdvi.tex
-/usr/share/texmf/xdvi/XDvi
+%{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
+%{_datadir}/texmf/xdvi/XDvi
 
 %files dvips 
 %defattr(644,root,root,755)
 
 %attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
 
-%attr(-,root,root) /usr/share/texmf/dvips
+%attr(-,root,root) %{_datadir}/texmf/dvips
 
-/usr/share/texmf/tex/generic/pstricks/dvipsone.con
-/usr/share/texmf/tex/generic/xypic/xydvips.tex
-/usr/share/texmf/tex/plain/dvips/*
-/usr/share/texmf/tex/latex/graphics/*.def
-/usr/share/texmf/tex/latex/hyperref/*.def
-/usr/share/texmf/tex/latex/dvips/*.sty
+%{_datadir}/texmf/tex/generic/pstricks/dvipsone.con
+%{_datadir}/texmf/tex/generic/xypic/xydvips.tex
+%{_datadir}/texmf/tex/plain/dvips/*
+%{_datadir}/texmf/tex/latex/graphics/*.def
+%{_datadir}/texmf/tex/latex/hyperref/*.def
+%{_datadir}/texmf/tex/latex/dvips/*.sty
 
-%doc /usr/share/texmf/tex/latex/dvips/README
+%doc %{_datadir}/texmf/tex/latex/dvips/README
 
 %attr(755,root,root) /usr/bin/dvips
 %{_mandir}/man1/dvips.1.*
@@ -929,7 +929,7 @@ fi
 
 %files dvilj 
 %defattr(644,root,root,755)
-/usr/share/texmf/tex/latex/dvilj/*.sty
+%{_datadir}/texmf/tex/latex/dvilj/*.sty
 
 %attr(755,root,root) /usr/bin/dvilj
 %attr(755,root,root) /usr/bin/dvilj2p
@@ -940,7 +940,7 @@ fi
 %files afm 
 %defattr(644,root,root,755)
 
-/usr/share/texmf/fonts/afm/*
+%{_datadir}/texmf/fonts/afm/*
 
 %attr(755,root,root) /usr/bin/afm2tfm
 %{_mandir}/man1/afm2tfm.1.*
@@ -951,28 +951,28 @@ fi
 %attr(755,root,root) /usr/bin/amstex
 %{_mandir}/man1/amstex.1.*
 
-/usr/share/texmf/fonts/source/ams/cmextra/*
-/usr/share/texmf/fonts/source/ams/cyrillic/*
-/usr/share/texmf/fonts/source/ams/euler/*
-/usr/share/texmf/fonts/source/ams/symbols/*
-/usr/share/texmf/fonts/tfm/ams/cmextra/*.tfm
-/usr/share/texmf/fonts/tfm/ams/cyrillic/*.tfm
-/usr/share/texmf/fonts/tfm/ams/euler/*.tfm
-/usr/share/texmf/fonts/tfm/ams/symbols/*.tfm
-/usr/share/texmf/fonts/type1/bluesky/ams/*
+%{_datadir}/texmf/fonts/source/ams/cmextra/*
+%{_datadir}/texmf/fonts/source/ams/cyrillic/*
+%{_datadir}/texmf/fonts/source/ams/euler/*
+%{_datadir}/texmf/fonts/source/ams/symbols/*
+%{_datadir}/texmf/fonts/tfm/ams/cmextra/*.tfm
+%{_datadir}/texmf/fonts/tfm/ams/cyrillic/*.tfm
+%{_datadir}/texmf/fonts/tfm/ams/euler/*.tfm
+%{_datadir}/texmf/fonts/tfm/ams/symbols/*.tfm
+%{_datadir}/texmf/fonts/type1/bluesky/ams/*
 
-%doc /usr/share/texmf/lists/ams-doc
-%doc /usr/share/texmf/lists/ams-fonts
-%doc /usr/share/texmf/lists/amstex
+%doc %{_datadir}/texmf/lists/ams-doc
+%doc %{_datadir}/texmf/lists/ams-fonts
+%doc %{_datadir}/texmf/lists/amstex
 
-/usr/share/texmf/tex/amstex/base/*
-/usr/share/texmf/tex/amstex/config/*
-/usr/share/texmf/bibtex/bst/ams/*
+%{_datadir}/texmf/tex/amstex/base/*
+%{_datadir}/texmf/tex/amstex/config/*
+%{_datadir}/texmf/bibtex/bst/ams/*
 
-%doc /usr/share/texmf/doc/ams
-%doc /usr/share/texmf/doc/latex/amsfonts
-%doc /usr/share/texmf/doc/latex/amslatex
-%doc /usr/share/texmf/doc/fonts/ams
+%doc %{_datadir}/texmf/doc/ams
+%doc %{_datadir}/texmf/doc/latex/amsfonts
+%doc %{_datadir}/texmf/doc/latex/amslatex
+%doc %{_datadir}/texmf/doc/fonts/ams
 
 %changelog
 * Thu Apr  1 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
