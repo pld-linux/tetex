@@ -367,13 +367,13 @@ PostScript printers), tetex-latex (a higher level formatting package which
 provides an easier-to-use interface for TeX) and tetex-xdvi (for previewing
 .dvi files).
 
-%package -n kpathse-devel
+%package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
-%description -n kpathse-devel
+%description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
 	
 %prep
