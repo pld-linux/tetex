@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.3
+Release:	0.4
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -1236,6 +1236,7 @@ Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-latex-psnfss = %{version}
+Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
