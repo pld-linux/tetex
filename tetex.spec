@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	19
+Release:	20
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -1373,7 +1373,24 @@ exit 0
 
 %files dvips
 %defattr(644,root,root,755)
-%{_datadir}/texmf/dvips
+%{_datadir}/texmf/dvips/[!c]*
+%dir %{_datadir}/texmf/dvips/config
+%{_datadir}/texmf/dvips/config/charter.map
+%{_datadir}/texmf/dvips/config/cmcyr.map
+%{_datadir}/texmf/dvips/config/config.ams
+%{_datadir}/texmf/dvips/config/config.amz
+%{_datadir}/texmf/dvips/config/config.cm
+%{_datadir}/texmf/dvips/config/config.cmz
+%{_datadir}/texmf/dvips/config/config.dfaxhigh
+%{_datadir}/texmf/dvips/config/config.dfaxlo
+%{_datadir}/texmf/dvips/config/config.generic
+%{_datadir}/texmf/dvips/config/config.mirr
+%{_datadir}/texmf/dvips/config/config.pdf
+%{_datadir}/texmf/dvips/config/config.pl
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/dvips/config/config.ps
+%{_datadir}/texmf/dvips/config/config.www
+%{_datadir}/texmf/dvips/config/context.map
+%{_datadir}/texmf/dvips/config/cs.map
 
 # already in tetex
 #%{_datadir}/texmf/tex/generic/pstricks/dvipsone.con
