@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	17
+Release:	18
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -70,6 +70,9 @@ BuildRequires:	rpm-perlprov
 %include	/usr/lib/rpm/macros.perl
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
+# for accidentally installed newer tetex:
+Obsoletes:	tetex-fonts-misc
+Obsoletes:	kpathsea
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
