@@ -1,24 +1,13 @@
---- teTeX-src-beta-20020530/texmf/tex/generic/config/language.dat.wiget	Mon Apr  8 23:05:07 2002
-+++ teTeX-src-beta-20020530/texmf/tex/generic/config/language.dat	Wed Jun 26 22:05:31 2002
-@@ -29,8 +29,8 @@
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- % UK english, TWO LINES! To enabling these lines, remove %! and the space.
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--%! british  ukhyphen.tex
--%! =UKenglish
-+british  ukhyphen.tex
-+=UKenglish
- 
- % english should always be defined. Either an alias for american or british.
- =english
-@@ -50,32 +50,32 @@
+--- teTeX-src-beta-20021017/texmf/tex/generic/config/language.dat	Wed Oct 16 19:55:25 2002
++++ teTeX-src-beta-20021017.new/texmf/tex/generic/config/language.dat	Tue Oct 22 15:13:36 2002
+@@ -50,31 +50,31 @@
  % The following languages are disabled by default. Uncomment, what you need.
  % To enable, remove %! and the space.
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -%! bahasa	inhyph.tex
 -%! basque	bahyph.tex
 -%! croatian	hrhyph.tex
--%! czech	czhyphen.tex
+-%! czech	czhyph.tex      % depends on csplain being installed
 -%! danish	dkhyphen.tex
 -%! dutch	nehyph.tex
 -%! finnish	fi8hyph.tex
@@ -26,10 +15,20 @@
 -%! italian	ithyph.tex
 -%! latin	lahyph.tex
 -%! magyar	huhyph.tex
+-%! norsk	nohyph.tex      % old file
+-%! norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
+-%! norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
+-%! polish	plhyph.tex
+-%! portuges	pt8hyph.tex
+-%! romanian	rohyphen.tex
+-%! russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
+-%! slovak	skhyph.tex      % depends on csplain being installed
+-%! spanish	sphyph.tex
+-%! turkish	trhyph.tex
 +bahasa	inhyph.tex
 +basque	bahyph.tex
 +croatian	hrhyph.tex
-+%! czech	czhyphen.tex
++czech	czhyph.tex      % depends on csplain being installed
 +danish	dkhyphen.tex
 +dutch	nehyph.tex
 +finnish	fi8hyph.tex
@@ -37,25 +36,15 @@
 +italian	ithyph.tex
 +latin	lahyph.tex
 +magyar	huhyph.tex
- %! norsk	nohyph.tex      % old file
--%! norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
++norsk	nohyph.tex      % old file
 +norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
- %! norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
--%! polish	plhyph.tex
--%! portuges	pt8hyph.tex
--%! romanian	rohyphen.tex
--%! russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
--%! slovak	skhyph2e.tex
--%! spanish	sphyph.tex
--%! swedish	sehyph.tex
--%! turkish	trhyph.tex
++norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
 +polish	plhyph.tex
 +portuges	pt8hyph.tex
 +romanian	rohyphen.tex
 +russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
-+slovak	skhyph2e.tex
++slovak	skhyph.tex      % depends on csplain being installed
 +spanish	sphyph.tex
-+%! swedish	sehyph.tex
 +turkish	trhyph.tex
  
  % For Ukrainian, either use ukrhyph.tex (and edit that file for the encoding
