@@ -1,0 +1,14 @@
+--- teTeX-src-beta-20020208/texk/web2c/tex.ch.wiget	Tue Mar  5 14:33:43 2002
++++ teTeX-src-beta-20020208/texk/web2c/tex.ch	Tue Mar  5 14:50:00 2002
+@@ -192,8 +192,8 @@
+ @d ssup_error_line = 255
+ @d ssup_max_strings ==65535
+ {Larger values may be used, but then the arrays consume much more memory.}
+-@d ssup_trie_opcode == 65535
+-@d ssup_trie_size == 262143
++@d ssup_trie_opcode == 262143
++@d ssup_trie_size == 1048575
+ 
+ @d ssup_hyph_size == 65535 {Changing this requires changing (un)dumping!}
+ @d iinf_hyphen_size == 610 {Must be not less than |hyph_prime|!}
+
