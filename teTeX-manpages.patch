@@ -1,5 +1,5 @@
---- teTeX-src-beta-20020208/texk/tetex/Makefile.in.wiget	Thu Jan  3 20:07:22 2002
-+++ teTeX-src-beta-20020208/texk/tetex/Makefile.in	Wed Feb 20 22:27:05 2002
+--- teTeX-src-beta-20020530/texk/tetex/Makefile.in.orig	Wed May 15 06:57:24 2002
++++ teTeX-src-beta-20020530/texk/tetex/Makefile.in	Wed Jun 26 21:55:35 2002
 @@ -38,27 +38,27 @@
  	  viromega.$(manext) virtex.$(manext) pdflatex.$(manext) \
  	  MakeTeXPK.$(manext) \
@@ -54,12 +54,12 @@
  	  ln -s kpsetool kpsepath; \
  	  ln -s kpsetool kpsexpand; \
 -	  ln -s mktexlsr texhash
-+	  ln -s mktexlsr texhash; \
-+ 	  ln -s -f  tex amstex; \
-+ 	  ln -s -f  tex eplain; \
-+ 	  ln -s -f  pdftex cont-en; \
-+ 	  ln -s -f  pdftex cont-nl; \
-+ 	  ln -s -f  pdftex cont-de 
- 	cd $(scriptdir); rm -f fdf2tan makempy mptopdf texfind texfont texshow texutil; \
++ 	  ln -s -f  mktexlsr texhash; \
++  	  ln -s -f  tex amstex; \
++  	  ln -s -f  tex eplain; \
++  	  ln -s -f  pdftex cont-en; \
++  	  ln -s -f  pdftex cont-nl; \
++  	  ln -s -f  pdftex cont-de 
+ 	cd $(scriptdir); rm -f fdf2tan makempy texfind texfont texshow texutil; \
  	  for f in fdf2tan makempy texfind texfont texshow texutil; do \
    	    ln -s texexec $$f; \
