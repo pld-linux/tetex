@@ -1,6 +1,6 @@
 #
 # TODO:
-# - eurosym fonts subpackage (as missing files, now)
+# - latex-eurosym subpackage or R: fonts-eurosym for tetex-latex?
 # - context: review package splitting
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
@@ -2241,6 +2241,16 @@ also the corresponding text companion fonts.
 implementacja EC fontów Concrete Knutha, w³±cznie z odpowiadaj±cymi
 tekstowymi fontami towarzysz±cymi.
 
+%package fonts-eurosym
+Summary:	The new European currency symbol for the Euro
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-eurosym
+The new European currency symbol for the Euro implemented in Metafont,
+using the official European Commission dimensions, and providing several
+shapes (normal, slanted, bold, outline).
+
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
 Summary(pl):	Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
@@ -2690,6 +2700,16 @@ Czech/Slovak-tuned MetaFont Computer Modern fonts.
 %description fonts-type1-cs -l pl
 Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
 czeskiego i s³owackiego.
+
+%package fonts-type1-eurosym
+Summary:	The new European currency symbol for the Euro
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-type1-eurosym
+The new European currency symbol for the Euro implemented in Metafont,
+using the official European Commission dimensions, and providing several
+shapes (normal, slanted, bold, outline).
 
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
@@ -3705,6 +3725,12 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun fonts-ecc
 %texhash
 
+%post fonts-eurosym
+%texhash
+
+%postun fonts-eurosym
+%texhash
+
 %post fonts-euxm
 %texhash
 
@@ -3915,6 +3941,12 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun fonts-type1-cs
 %texhash
 
+%post fonts-type1-eurosym
+%texhash
+
+%postun fonts-type1-eurosym
+%texhash
+
 %post fonts-type1-hoekwater
 %texhash
 
@@ -3976,6 +4008,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/help
 %dir %{texmf}/doc/cstex
+%doc texmf/LICENSE.texmf
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
@@ -3989,6 +4022,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/help/tds.dvi
 %doc %{texmf}/doc/images
 %doc %{texmf}/doc/programs/web2c*
+%doc %{texmf}/doc/knuth
 
 %attr(755,root,root) %{_bindir}/MakeTeXPK
 %attr(755,root,root) %{_bindir}/access
@@ -4319,6 +4353,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
 %doc %{texmf}/dvipdfm/README*
+%doc %{texmf}/doc/latex/psnfssx
 %attr(755,root,root) %{_bindir}/dvips
 %attr(755,root,root) %{_bindir}/dvired
 %attr(755,root,root) %{_bindir}/dvitomp
@@ -5256,6 +5291,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/ecc
 %{texmf}/fonts/tfm/public/ecc
 
+%files fonts-eurosym
+%defattr(644,root,root,755)
+%{texmf}/fonts/source/public/eurosym
+%{texmf}/fonts/tfm/public/eurosym
+
 %files fonts-euxm
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/euxm
@@ -5440,6 +5480,10 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-cs
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/cs
+
+%files fonts-type1-eurosym
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/eurosym
 
 %files fonts-type1-hoekwater
 %defattr(644,root,root,755)
