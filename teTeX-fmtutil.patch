@@ -1,24 +1,37 @@
---- teTeX-src-beta-20020922/texk/web2c/fmtutil.in.wiget	Sun Jun  2 09:47:08 2002
-+++ teTeX-src-beta-20020922/texk/web2c/fmtutil.in	Thu Sep 26 21:12:07 2002
-@@ -49,48 +49,48 @@
- @OMEGA@lambda		omega		language.dat	lambda.ini
+--- teTeX-src-beta-20021017/texk/web2c/fmtutil.in	Tue Oct 22 14:17:53 2002
++++ teTeX-src-beta-20021017.new/texk/web2c/fmtutil.in	Tue Oct 22 14:15:30 2002
+@@ -39,13 +39,13 @@
  
- # The amstex format:
+ # Change "tex.ini -> bplain.ini" and "- -> language.dat"
+ # if you want babel support in tex:
+-tex		@TEXBIN@		-		tex.ini
++tex		@TEXBIN@		language.dat		bplain.ini
+ latex		@TEXBIN@		language.dat	latex.ini
+ @ETEX@etex		etex		language.def	*etex.ini
+ @ETEX@elatex		etex		language.dat	*elatex.ini
+ # Change "pdftex.ini -> pdfbplain.ini" and "- -> language.dat"
+ # if you want babel support in pdftex:
+-@PTEX@pdftex		pdftex		-	pdftex.ini
++@PTEX@pdftex		pdftex		language.dat	pdfbplain.ini
+ @PTEX@pdflatex	pdftex		language.dat	pdflatex.ini
+ @PETEX@pdfetex		pdfetex		language.def	*pdfetex.ini
+ @PETEX@pdfelatex	pdfetex		language.dat	*pdfelatex.ini
+@@ -56,50 +56,50 @@
+ 
+ # Change "amstex.ini -> bamstex.ini" and "- -> language.dat"
+ # if you want babel support in amstex:
 -#! amstex	@TEXBIN@		-		amstex.ini
-+amstex	@TEXBIN@		-		amstex.ini
++amstex	@TEXBIN@		language.dat		bamstex.ini
  
- # Variants of plain and amstex which allow to customize hyphenation:
--#! bplain	@TEXBIN@		language.dat	bplain.ini
--#! bamstex	@TEXBIN@		language.dat	bamstex.ini
+ # Change "pdfamstex.ini -> pdfbamstex.ini" and "- -> language.dat"
+ # if you want babel support in pdfamstex:
 -#! pdfamstex	pdftex			language.dat	pdfamstex.ini
-+bplain	@TEXBIN@		language.dat	bplain.ini
-+bamstex	@TEXBIN@		language.dat	bamstex.ini
-+pdfamstex	pdftex			language.dat	pdfamstex.ini
++pdfamstex	pdftex			language.dat	pdfbamstex.ini
  
  # Context formats:
 -#! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
 -#! cont-de	pdfetex		cont-usr.tex	*cont-de.ini
-+cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
++#! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
 +cont-de	pdfetex		cont-usr.tex	*cont-de.ini
  @PETEX@cont-en	pdfetex		cont-usr.tex	*cont-en.ini
 -#! cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
@@ -55,20 +68,25 @@
 -#! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
 +platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
 +mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
-+pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
++#! pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
 +pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
  
  # - Czech / Slovak:
 -#! csplain	tex		-		csplain.ini
--#! cslatex	tex		language.dat	cslatex.ini
+-#! cslatex	tex		-	cslatex.ini
+-#! pdfcsplain	pdftex		-		csplain.ini
+-#! pdfcslatex	pdftex		-    cslatex.ini
 +csplain	tex		-		csplain.ini
-+cslatex	tex		language.dat	cslatex.ini
- #! pdfcsplain	pdftex		-		csplain.ini
- #! pdfcslatex	pdftex		language.dat    cslatex.ini
++cslatex	tex		-	cslatex.ini
++pdfcsplain	pdftex		-		csplain.ini
++pdfcslatex	pdftex		-    cslatex.ini
  
  # Other formats:
--#! eplain	tex		language.dat	eplain.ini
-+eplain	tex		language.dat	eplain.ini
+ 
+ # Change "eplain.ini -> ebplain.ini" and "- -> language.dat"
+ # if you want babel support in eplain:
+-#! eplain	tex		-	eplain.ini
++eplain	tex		language.dat	ebplain.ini
+ 
  
  # mptopdf utility
- @PETEX@mptopdf		pdfetex		-		mptopdf.tex
