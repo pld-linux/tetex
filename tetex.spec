@@ -4143,13 +4143,17 @@ rm -rf $RPM_BUILD_ROOT
 
 #%attr(755,root,root) %{_bindir}/MakeTeXPK
 #%attr(755,root,root) %{_bindir}/access
+%attr(755,root,root) %{_bindir}/a2ping
+%attr(755,root,root) %{_bindir}/aleph
 %attr(755,root,root) %{_bindir}/afm2tfm
 %attr(755,root,root) %{_bindir}/allcm
 %attr(755,root,root) %{_bindir}/allec
 %attr(755,root,root) %{_bindir}/allneeded
 %attr(755,root,root) %{_bindir}/cweave
 %attr(755,root,root) %{_bindir}/ctangle
+%attr(755,root,root) %{_bindir}/ctie
 %attr(755,root,root) %{_bindir}/dmp
+%attr(755,root,root) %{_bindir}/dvi2png
 %attr(755,root,root) %{_bindir}/e2pall
 %attr(755,root,root) %{_bindir}/ebb
 %attr(755,root,root) %{_bindir}/fdf2tan
@@ -4162,6 +4166,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gftype
 %attr(755,root,root) %{_bindir}/gsftopk
 #%attr(755,root,root) %{_bindir}/initex
+%attr(755,root,root) %{_bindir}/kpseaccess
+%attr(755,root,root) %{_bindir}/kpsereadlink
+%attr(755,root,root) %{_bindir}/kpsewhere
 %attr(755,root,root) %{_bindir}/mag
 %attr(755,root,root) %{_bindir}/makempx
 %attr(755,root,root) %{_bindir}/makempy
@@ -4243,6 +4250,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(1777,root,root) /var/cache/fonts
 
 %{_datadir}/info/web2c.info*
+%{_datadir}info/texi2html.info.gz
+%{_datadir}/texi2html
 %{texmf}/updates.dat
 
 %{texmf}/aliases
@@ -4278,23 +4287,34 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pl) %{_mandir}/pl/man1/newer.1*
 #%{_mandir}/man1/MakeTeXPK.1*
 #%{_mandir}/man1/access.1*
+#%{_mandir}/man1/fontexport.1*
+#%{_mandir}/man1/fontimport.1*
+#%{_mandir}/man1/initex.1*
+#%{_mandir}/man1/t1mapper.1*
+#%{_mandir}/man1/virtex.1*
+#%{_mandir}/man8/mkfontdesc.8*
 %{_mandir}/man1/afm2tfm.1*
 %{_mandir}/man1/allcm.1*
 %{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
+%{_mandir}/man1/ctie.1.gz
 %{_mandir}/man1/cweb.1*
 %{_mandir}/man1/dmp.1*
+%{_mandir}/man1/dvipdft.1.gz
+%{_mandir}/man1/dvipng.1.gz
 %{_mandir}/man1/e2pall.1*
-#%{_mandir}/man1/fontexport.1*
-#%{_mandir}/man1/fontimport.1*
+%{_mandir}/man1/ebb.1.gz
 %{_mandir}/man1/fontinst.1*
 %{_mandir}/man1/gftodvi.1*
 %{_mandir}/man1/gftopk.1*
 %{_mandir}/man1/gftype.1*
 %{_mandir}/man1/gsftopk.1*
-#%{_mandir}/man1/initex.1*
+%{_mandir}/man1/kpseaccess.1.gz
+%{_mandir}/man1/kpsereadlink.1.gz
+%{_mandir}/man1/kpsewhere.1.gz
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
+%{_mandir}/man1/mktexfmt.1.gz
 %{_mandir}/man1/mktexlsr.1*
 %{_mandir}/man1/newer.1*
 %{_mandir}/man1/patgen.1*
@@ -4306,7 +4326,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pooltype.1*
 %{_mandir}/man1/ps2frag.1*
 %{_mandir}/man1/ps2pk.1*
-#%{_mandir}/man1/t1mapper.1*
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
@@ -4315,14 +4334,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/texi2pdf.1*
 %{_mandir}/man1/tftopl.1*
 %{_mandir}/man1/tie.1*
-%{_mandir}/man1/vftovp.1*
-#%{_mandir}/man1/virtex.1*
-%{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/updmap.1*
+%{_mandir}/man1/vftovp.1*
+%{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/weave.1*
 %{_mandir}/man5/fmtutil.cnf.5*
 %{_mandir}/man8/fmtutil.8*
-#%{_mandir}/man8/mkfontdesc.8*
 %{_mandir}/man8/texlinks.8*
 
 %files doc-Catalogue
@@ -4438,6 +4455,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpsewhich
 %attr(755,root,root) %{_bindir}/kpsexpand
 %attr(755,root,root) %{_libdir}/libkpathsea.so.*
+%{_libdir}/libkpathsea.la
 %{_mandir}/man1/kpsepath.1*
 %{_mandir}/man1/kpsestat.1*
 %{_mandir}/man1/kpsetool.1*
@@ -4602,15 +4620,13 @@ rm -rf $RPM_BUILD_ROOT
 %files -n xdvi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xdvi
-#%attr(755,root,root) %{_bindir}/xdvi.bin
+%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
 %attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
 %{_mandir}/man1/xdvizilla.1*
 %{_desktopdir}/xdvi.desktop
 %{_pixmapsdir}/xdvi.png
-%dir %{texmf}/xdvi
-%{texmf}/xdvi/XDvi
-%{texmf}/xdvi/xdvi.cfg
+%{texmf}/xdvi
 
 %files oxdvi
 %defattr(644,root,root,755)
@@ -4623,6 +4639,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/epstopdf
 #%attr(755,root,root) %{_bindir}/pdfinitex
 %attr(755,root,root) %{_bindir}/pdftex
+%attr(755,root,root) %{_bindir}/pdfxtex
 #%attr(755,root,root) %{_bindir}/pdftosrc
 #%attr(755,root,root) %{_bindir}/pdfvirtex
 %{texmf}/fonts/map/pdftex/updmap/pdftex.map
@@ -4635,6 +4652,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/epstopdf.1*
 #%{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
+%{_mandir}/man1/pdfxtex.1*
 #%{_mandir}/man1/pdfvirtex.1*
 
 %files omega
@@ -4872,7 +4890,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/context
 %dir %{texmf}/context
 %dir %{texmf}/context/config
-%dir %{texmf}/context/data
 %attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texfont
@@ -4883,15 +4900,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/texshow.1*
 %{texmf}/context/config/texexec.ini
 %{texmf}/context/config/texexec.rme
-%{texmf}/context/data/conedt.ini
-%{texmf}/context/data/cont-cz.tws
-%{texmf}/context/data/cont-de.tws
-%{texmf}/context/data/cont-en.tws
-%{texmf}/context/data/cont-it.tws
-%{texmf}/context/data/cont-nl.tws
-%{texmf}/context/data/cont-ro.tws
-%{texmf}/context/data/type-buy.dat
-%{texmf}/context/data/type-tmf.dat
+%{texmf}/context/data/
 #%{texmf}/context/perltk
 %{texmf}/tex/generic/context
 #%{texmf}/tex/latex/context
@@ -4918,17 +4927,17 @@ rm -rf $RPM_BUILD_ROOT
 %files format-context-de
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-de.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.fmt
 %{_mandir}/man1/cont-de.1*
 
 %files format-context-en
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-en.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.fmt
 %{_mandir}/man1/cont-en.1*
 # what is the difference betwen uk and en in this particular situation?
 %{texmf}/tex/context/config/cont-uk.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.fmt
 
 # no fmt, so commented out
 #%files format-context-it
@@ -4938,7 +4947,7 @@ rm -rf $RPM_BUILD_ROOT
 %files format-context-nl
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/#cont-nl.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/#cont-nl.fmt
 %{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
@@ -5025,7 +5034,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-bibtex
 %defattr(644,root,root,755)
-%doc %{texmf}/bibtex/bib/README
+%doc %{texmf}/bibtex/bib
+%doc %{texmf}/bibtex/bibgerm
 %doc %{texmf}/doc/bibtex/base
 
 %attr(755,root,root) %{_bindir}/bibtex
