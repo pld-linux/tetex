@@ -6,7 +6,6 @@
 # - move new files to proper subpackages
 #     - tetex-tex-qpx (R: fonts-qfonts and fonts-pxfonts)
 #     - tetex-tex-qtx (R: fonts-qfonts and fonts-txfonts)
-#     - fonts-cmbright
 #     - fonts-pxfonts (R: fonts-txfonts)
 #     - fonts-txfonts
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
@@ -936,6 +935,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-cmbright = %{version}
 
 %description latex-cmbright
 A family of sans serif fonts for TeX and LaTeX, based on Donald Knuth's CM
@@ -1550,6 +1550,15 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-cm
 Computer Modern fonts.
+
+%package fonts-cmbright
+Summary:	CM Bright fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cmbright
+CM Bright fonts.
 
 %package fonts-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
@@ -3252,6 +3261,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/cm
 %{texmf}/fonts/tfm/public/cm
 %{texmf}/fonts/source/public/cm-bold
+
+%files fonts-cmbright
+%defattr(644,root,root,755)
+%{texmf}/fonts/source/public/cmbright
+%{texmf}/fonts/tfm/public/cmbright
 
 %files fonts-cmcyr
 %defattr(644,root,root,755)
