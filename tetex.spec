@@ -350,7 +350,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
@@ -361,7 +361,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
@@ -372,7 +372,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
@@ -385,7 +385,7 @@ make init prefix=$RPM_BUILD_ROOT/usr \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
