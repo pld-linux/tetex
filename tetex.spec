@@ -70,7 +70,7 @@ BuildRequires:	texinfo
 BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
-BuildRequires:	openssl-devel >= 0.9.7
+BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	expat-devel
 PreReq:		/sbin/ldconfig
 PreReq:		sed
