@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -4202,12 +4202,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tetex-updmap
 %attr(755,root,root) %{_bindir}/tex
 %attr(755,root,root) %{_bindir}/texdoc
-%attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texhash
 %attr(755,root,root) %{_bindir}/texi2html
 %attr(755,root,root) %{_bindir}/texi2pdf
 %attr(755,root,root) %{_bindir}/texlinks
-%attr(755,root,root) %{_bindir}/texshow
 %attr(755,root,root) %{_bindir}/tftopl
 %attr(755,root,root) %{_bindir}/tie
 %attr(755,root,root) %{_bindir}/ttf2afm
@@ -4335,7 +4333,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
 %{_mandir}/man1/texi2pdf.1*
-%{_mandir}/man1/texshow.1*
 %{_mandir}/man1/tftopl.1*
 %{_mandir}/man1/tie.1*
 %{_mandir}/man1/vftovp.1*
@@ -4915,10 +4912,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/context/config
 %dir %{texmf}/context/data
 %attr(755,root,root) %{_bindir}/texexec
+%attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texfont
+%attr(755,root,root) %{_bindir}/texshow
 %attr(755,root,root) %{_bindir}/texutil
 %{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texutil.1*
+%{_mandir}/man1/texshow.1*
 %{texmf}/context/config/texexec.ini
 %{texmf}/context/config/texexec.rme
 %{texmf}/context/data/conedt.ini
