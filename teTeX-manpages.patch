@@ -1,0 +1,68 @@
+diff -Nru teTeX-0.9.orig/texk/tetex/Makefile.in teTeX-0.9/texk/tetex/Makefile.in
+--- teTeX-0.9.orig/texk/tetex/Makefile.in	Thu Jul  2 01:27:10 1998
++++ teTeX-0.9/texk/tetex/Makefile.in	Thu Dec 10 11:20:29 1998
+@@ -30,27 +30,27 @@
+ 	  viromega.$(manext) virtex.$(manext) pdflatex.$(manext) \
+ 	  MakeTeXPK.$(manext) \
+ 	  cont-de.$(manext) cont-nl.$(manext) cont-en.$(manext)
+-	ln -s allcm.$(manext) $(mandir)/allec.$(manext)
+-	ln -s mktexlsr.$(manext) $(mandir)/texhash.$(manext)
+-	ln -s tex.$(manext) $(mandir)/initex.$(manext)
+-	ln -s tex.$(manext) $(mandir)/virtex.$(manext)
+-	ln -s etex.$(manext) $(mandir)/einitex.$(manext)
+-	ln -s etex.$(manext) $(mandir)/evirtex.$(manext)
+-	ln -s etex.$(manext) $(mandir)/elatex.$(manext)
+-	ln -s mf.$(manext) $(mandir)/inimf.$(manext)
+-	ln -s mf.$(manext) $(mandir)/virmf.$(manext)
+-	ln -s mpost.$(manext) $(mandir)/inimpost.$(manext)
+-	ln -s mpost.$(manext) $(mandir)/virmpost.$(manext)
+-	ln -s omega.$(manext) $(mandir)/iniomega.$(manext)
+-	ln -s omega.$(manext) $(mandir)/viromega.$(manext)
+-	ln -s omega.$(manext) $(mandir)/lambda.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/pdfinitex.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/pdfvirtex.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/pdflatex.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/cont-de.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/cont-nl.$(manext)
+-	ln -s pdftex.$(manext) $(mandir)/cont-en.$(manext)
+-	ln -s mktexpk.$(manext) $(mandir)/MakeTeXPK.$(manext)
++	echo .so  allcm.$(manext) > $(mandir)/allec.$(manext)
++	echo .so  mktexlsr.$(manext) > $(mandir)/texhash.$(manext)
++	echo .so  tex.$(manext) > $(mandir)/initex.$(manext)
++	echo .so  tex.$(manext) > $(mandir)/virtex.$(manext)
++	echo .so  etex.$(manext) > $(mandir)/einitex.$(manext)
++	echo .so  etex.$(manext) > $(mandir)/evirtex.$(manext)
++	echo .so  etex.$(manext) > $(mandir)/elatex.$(manext)
++	echo .so  mf.$(manext) > $(mandir)/inimf.$(manext)
++	echo .so  mf.$(manext) > $(mandir)/virmf.$(manext)
++	echo .so  mpost.$(manext) > $(mandir)/inimpost.$(manext)
++	echo .so  mpost.$(manext) > $(mandir)/virmpost.$(manext)
++	echo .so  omega.$(manext) > $(mandir)/iniomega.$(manext)
++	echo .so  omega.$(manext) > $(mandir)/viromega.$(manext)
++	echo .so  omega.$(manext) > $(mandir)/lambda.$(manext)
++	echo .so  pdftex.$(manext) > $(mandir)/pdfinitex.$(manext)
++	echo .so  pdftex.$(manext) > $(mandir)/pdfvirtex.$(manext)
++	echo .so  pdftex.$(manext) > $(mandir)/pdflatex.$(manext)
++	echo .so  pdftex.$(manext) > $(mandir)/cont-de.$(manext)
++	echo .so  pdftex.$(manext) > $(mandir)/cont-nl.$(manext)
++	echo .so pdftex.$(manext) > $(mandir)/cont-en.$(manext)
++	echo .so mktexpk.$(manext) > $(mandir)/MakeTeXPK.$(manext)
+ 	test -r latex.info || cd $(srcdir) && for i in latex.info*; do \
+ 	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
+ 	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
+@@ -74,7 +74,14 @@
+ 	  ln -s allcm allec; \
+ 	  ln -s kpsetool kpsepath; \
+ 	  ln -s kpsetool kpsexpand; \
+-	  ln -s mktexlsr texhash
++	  ln -s mktexlsr texhash; \
++	  ln -s -f  tex amstex; \
++	  ln -s -f  tex eplain; \
++	  ln -s -f  kpsetool kpsepath; \
++	  ln -s -f  kpsetool kpsexpand; \
++	  ln -s -f  pdftex cont-en; \
++	  ln -s -f  pdftex cont-nl; \
++	  ln -s -f  pdftex cont-de; \
+ 
+ ac_include ../make/clean.mk
+ 

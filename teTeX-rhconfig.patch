@@ -1,0 +1,12 @@
+--- teTeX-0.9/texk/make/paths.mk.config	Fri Feb 13 15:15:30 1998
++++ teTeX-0.9/texk/make/paths.mk	Sat Sep 12 13:23:06 1998
+@@ -46,7 +46,7 @@
+ texmf = @texmfmain@
+ 
+ # The directory used by varfonts.
+-vartexfonts = /var/tmp/texfonts
++vartexfonts = @vartexfonts@
+ 
+ # Regular input files.
+ texinputdir = $(texmf)/tex
++

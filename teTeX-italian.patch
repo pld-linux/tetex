@@ -1,0 +1,29 @@
+--- teTeX-0.9/texmf/tex/generic/hyphen/ithyph.tex.fixme	Tue Mar  9 10:20:50 1999
++++ teTeX-0.9/texmf/tex/generic/hyphen/ithyph.tex	Thu Apr  1 20:30:18 1999
+@@ -28,6 +28,7 @@
+ % See comments and loading instructions at the end of the file after the
+ % \endinput line
+ %
++\begingroup
+ {\lccode`\'=`\'      % Apostrophe has its own lccode so that it is treated
+                      % as a letter 
+                      %>> 1998/04/14 inserted grouping
+@@ -94,6 +95,7 @@
+ 1z   2zb   2zd   2zl  2zn  2zp  2zt  2zs  2zv  2zz  2z.  2z'. 2z''  .z2
+ }}                          % Pattern end
+ 
++\endgroup
+ \endinput
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Information %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+--- teTeX-0.9/texmf/web2c/texmf.cnf.fixme	Mon Mar 29 17:08:56 1999
++++ teTeX-0.9/texmf/web2c/texmf.cnf	Thu Apr  1 20:32:08 1999
+@@ -386,7 +386,7 @@
+ % Max number of characters in all strings, including all error messages,
+ % help texts, font names, control sequences.  These values apply to TeX and MP.
+ pool_size.context = 750000
+-pool_size = 125000		
++pool_size = 150000
+ % Minimum pool space after TeX/MP's own strings; must be at least
+ % 25000 less than pool_size, but doesn't need to be nearly that large.
+ string_vacancies.context = 45000

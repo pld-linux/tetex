@@ -1,0 +1,32 @@
+--- teTeX-0.9/texmf/web2c/texmf.cnf.fixme	Thu Apr  1 20:35:20 1999
++++ teTeX-0.9/texmf/web2c/texmf.cnf	Thu Apr  1 20:40:42 1999
+@@ -380,11 +380,13 @@
+ 
+ % Extra space for the hash table of control sequences (which allows 10K
+ % names as distributed).
++hash_extra.jadetex = 25000
+ hash_extra.context = 25000
+ hash_extra = 0
+ 
+ % Max number of characters in all strings, including all error messages,
+ % help texts, font names, control sequences.  These values apply to TeX and MP.
++pool_size.jadetex = 400000
+ pool_size.context = 750000
+ pool_size = 150000
+ % Minimum pool space after TeX/MP's own strings; must be at least
+@@ -392,6 +394,7 @@
+ string_vacancies.context = 45000
+ string_vacancies = 25000
+ % Maximum number of strings.
++max_strings.jadetex = 50000
+ max_strings.context = 55000
+ max_strings = 15000
+ % min pool space left after loading .fmt
+@@ -424,6 +427,7 @@
+ max_in_open = 15	% simultaneous input files and error insertions
+ param_size.context = 1500
+ param_size = 500	% simultaneous macro parameters
++save_size.jadesize = 15000
+ save_size.context = 5000
+ save_size = 4000	% for saving values outside current group
+ stack_size.context = 1500
