@@ -1,5 +1,6 @@
 #
 # TODO:
+# - review etex/eplain/pdfetex stuff
 # - add missing files
 # - context: review package splitting
 # - omega: consider more splitting, check dependencies
@@ -21,7 +22,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.96.7.20040721
-Release:	0.1
+Release:	0.2
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -80,7 +81,11 @@ Obsoletes:	tetex-doc
 Obsoletes:	tetex-fontinst
 Obsoletes:	tetex-fontname
 Obsoletes:	tetex-fonts
+Obsoletes:	tetex-plain-mathtime
+Obsoletes:	tetex-plain-misc
+Obsoletes:	tetex-plain-plnfss
 Obsoletes:	tetex-tex-hyphen
+Obsoletes:	tetex-plain-dvips
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
@@ -516,6 +521,7 @@ Summary(pl):	Omega - TeX ze wsparciem dla unikodu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}
 Requires:	%{name}-fonts-omega = %{epoch}:%{version}
 
 %description omega
@@ -546,67 +552,6 @@ Plain TeX format basic files.
 
 %description plain -l pl
 Podstawowe pliki dla formatu Plain TeX.
-
-%package plain-dvips
-Summary:	PostScript support for Plain TeX format
-Summary(pl):	Obs³uga PostScriptu dla formatu Plain TeX
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-dvips = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
-
-%description plain-dvips
-PostScript support for Plain TeX format.
-
-%description plain-dvips -l pl
-Obs³uga PostScriptu dla formatu Plain TeX.
-
-%package plain-mathtime
-Summary:	Mathtime fonts for Plain
-Summary(pl):	Fonty Mathtime dla formatu Plain
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
-
-%description plain-mathtime
-The Mathtime fonts have a number of characters remapped to positions
-different from the ones normally used by the corresponding TeX
-CM-fonts. For the symbol font ``operators'' the corresponding mathtime
-style files use the Times Roman font (often called something like:
-ptmr or ptmr7t or ptmrq).
-
-%description plain-mathtime -l pl
-Fonty Mathtime zawieraj± wiele znaków przemapowanych na pozycje
-ró¿ni±ce siê od tych normalnie u¿ywanych w odpowiadaj±cych im TeXowych
-fontach CM. Dla fontu symboli "operators" odpowiadaj±cy styl mathtime
-u¿ywa fontu Times Roman (zazwyczaj nazywanego w stylu ptmr, ptmr7t lub
-ptmrq).
-
-%package plain-misc
-Summary:	Miscellaneous macros for Plain TeX format
-Summary(pl):	Ró¿ne makra dla formatu Plain TeX
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
-
-%description plain-misc
-Miscellaneous macros for Plain TeX format.
-
-%description plain-misc -l pl
-Ró¿ne makra dla formatu Plain TeX.
-
-%package plain-plnfss
-Summary:	Simple NFSS macros for Plain TeX
-Summary(pl):	Proste makra NFSS dla formatu Plain TeX
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-
-%description plain-plnfss
-Simple NFSS macros for plain TeX.
-
-%description plain-plnfss -l pl
-Proste makra NFSS dla formatu Plain TeX.
 
 %package format-plain
 Summary:	TeX Plain format
@@ -1400,6 +1345,23 @@ Knappen, including sgmlcmpt.
 Ró¿ne makra, g³ównie do u¿ywania dodatkowych fontów autorstwa Joerga
 Knappena. Zawiera sgmlcmpt.
 
+%package latex-lm
+Summary:	LaTeX styles for Latin Modern family fonts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-lm = %{epoch}:%{version}
+
+%description latex-lm
+Latin Modern family of fonts, based on the Computer Modern fonts released
+into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
+additional characters, mainly accented ones, but not only. There is a one
+set of PostScript fonts and four sets of TeX Font Metric files,
+corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
+TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
+fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
+to do with all these files. The author is Bugoslaw Jackowski.
+
 %package latex-lucidabr
 Summary:	Package to make Lucida Bright fonts usable with LaTeX
 Summary(pl):	Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu
@@ -1412,6 +1374,20 @@ Package to make Lucida Bright fonts usable with LaTeX.
 
 %description latex-lucidabr -l pl
 Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu.
+
+%package latex-marvosym
+Summary:	Styles for Martin Vogels Symbole (marvosym) font.
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-marvosym = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description latex-marvosym
+Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
+currency symbol as defined by the European commission; Euro currency
+symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
+engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
+planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
 
 %package latex-mathpple
 Summary:	Use PostScript Palatino for typesetting maths
@@ -1999,17 +1975,18 @@ dla jêzyka ukraiñskiego z ró¿nymi kodowaniami fontów z cyrylic±.
 Zawiera pakiety z implementacj± regu³ tradycyjnych, wspó³czesnych i
 ³±czonych angielsko-ukraiñskich.
 
-%package tex-vietnam
+%package latex-vietnam
 Summary:	Vietnamese language support
 Summary(pl):	Wsparcie dla jêzyka wietnamskiego
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{epoch}:%{version}
+Obsoletes:	tetex-tex-vietnam
 
-%description tex-vietnam
+%description latex-vietnam
 Vietnamese language support.
 
-%description tex-vietnam -l pl
+%description latex-vietnam -l pl
 Wsparcie dla jêzyka wietnamskiego.
 
 %package tex-xypic
@@ -2390,6 +2367,22 @@ The lh fonts for the `T2'/X2 encodings (for cyrillic languages).
 
 %description fonts-lh -l pl
 Fonty lh dla kodowañ `T2'/X2 (dla jêzyków zapisywanych cyrylic±).
+
+%package fonts-lm
+Summary:	Latin Modern family fonts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description fonts-lm
+Latin Modern family of fonts, based on the Computer Modern fonts released
+into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
+additional characters, mainly accented ones, but not only. There is a one
+set of PostScript fonts and four sets of TeX Font Metric files,
+corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
+TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
+fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
+to do with all these files. The author is Bugoslaw Jackowski.
 
 %package fonts-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
@@ -2773,6 +2766,14 @@ Czech/Slovak-tuned MetaFont Computer Modern fonts.
 Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
 czeskiego i s³owackiego.
 
+%package fonts-type1-dstroke
+Summary:	Doublestroke type1 font for typesetting the mathematical symbols
+Group:		Fonts
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-type1-dstroke
+Doublestroke type1 font for typesetting the mathematical symbols
+
 %package fonts-type1-eurosym
 Summary:	The new European currency symbol for the Euro
 Summary(pl):	Symbol nowej europejskiej waluty Euro
@@ -2803,6 +2804,22 @@ Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 Fonty oryginalnie stworzone w MetaFoncie, przekszta³cone do
 PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
 stmaryrd, wasy, wasy2, xipa.
+
+%package fonts-type1-lm
+Summary:	Type 1 Latin Modern family fonts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description fonts-type1-lm
+Latin Modern family of fonts, based on the Computer Modern fonts released
+into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
+additional characters, mainly accented ones, but not only. There is a one
+set of PostScript fonts and four sets of TeX Font Metric files,
+corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
+TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
+fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
+to do with all these files. The author is Bugoslaw Jackowski.
 
 %package fonts-type1-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
@@ -2911,6 +2928,14 @@ URW fonts.
 
 %description fonts-type1-urw -l pl
 Fonty URW.
+
+%package fonts-type1-vnr
+Summary:	Type 1 VNR fonts
+Group:		Fonts
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-type1-vnr
+Type 1 VNR fonts.
 
 %package fonts-type1-xypic
 Summary:	Xy-pic fonts
@@ -3151,30 +3176,6 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun plain
-%texhash
-
-%post plain-dvips
-%texhash
-
-%postun plain-dvips
-%texhash
-
-%post plain-mathtime
-%texhash
-
-%postun plain-mathtime
-%texhash
-
-%post plain-misc
-%texhash
-
-%postun plain-misc
-%texhash
-
-%post plain-plnfss
-%texhash
-
-%postun plain-plnfss
 %texhash
 
 %post format-plain
@@ -3471,10 +3472,22 @@ rm -rf $RPM_BUILD_ROOT
 %postun latex-jknappen
 %texhash
 
+%post latex-lm
+%texhash
+
+%postun latex-lm
+%texhash
+
 %post latex-lucidabr
 %texhash
 
 %postun latex-lucidabr
+%texhash
+
+%post latex-marvosym
+%texhash
+
+%postun latex-marvosym
 %texhash
 
 %post latex-mathpple
@@ -3687,10 +3700,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun tex-ukrhyph
 %texhash
 
-%post tex-vietnam
+%post latex-vietnam
 %texhash
 
-%postun tex-vietnam
+%postun latex-vietnam
 %texhash
 
 %post tex-xypic
@@ -3865,6 +3878,12 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun fonts-lh
+%texhash
+
+%post fonts-lm
+%texhash
+
+%postun fonts-lm
 %texhash
 
 %post fonts-marvosym
@@ -4047,6 +4066,12 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-type1-cs
 %texhash
 
+%post fonts-type1-dstroke
+%texhash
+
+%postun fonts-type1-dstroke
+%texhash
+
 %post fonts-type1-eurosym
 %texhash
 
@@ -4057,6 +4082,12 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun fonts-type1-hoekwater
+%texhash
+
+%post fonts-type1-lm
+%texhash
+
+%postun fonts-type1-lm
 %texhash
 
 %post fonts-type1-marvosym
@@ -4107,6 +4138,12 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-type1-urw
 %texhash
 
+%post fonts-type1-vnr
+%texhash
+
+%postun fonts-type1-vnr
+%texhash
+
 %post fonts-type1-xypic
 %texhash
 
@@ -4144,7 +4181,6 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_bindir}/MakeTeXPK
 #%attr(755,root,root) %{_bindir}/access
 %attr(755,root,root) %{_bindir}/a2ping
-%attr(755,root,root) %{_bindir}/aleph
 %attr(755,root,root) %{_bindir}/afm2tfm
 %attr(755,root,root) %{_bindir}/allcm
 %attr(755,root,root) %{_bindir}/allec
@@ -4153,7 +4189,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ctangle
 %attr(755,root,root) %{_bindir}/ctie
 %attr(755,root,root) %{_bindir}/dmp
-%attr(755,root,root) %{_bindir}/dvi2png
+%attr(755,root,root) %{_bindir}/dvipng
 %attr(755,root,root) %{_bindir}/e2pall
 %attr(755,root,root) %{_bindir}/ebb
 %attr(755,root,root) %{_bindir}/fdf2tan
@@ -4177,6 +4213,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mktexlsr
 %attr(755,root,root) %{_bindir}/newer
 %attr(755,root,root) %{_bindir}/patgen
+%attr(755,root,root) %{_bindir}/pdfetex
 %attr(755,root,root) %{_bindir}/pfb2pfa
 %attr(755,root,root) %{_bindir}/pk2bm
 %attr(755,root,root) %{_bindir}/pktogf
@@ -4250,21 +4287,33 @@ rm -rf $RPM_BUILD_ROOT
 %attr(1777,root,root) /var/cache/fonts
 
 %{_datadir}/info/web2c.info*
-%{_datadir}info/texi2html.info.gz
+%{_datadir}/info/texi2html.info.gz
 %{_datadir}/texi2html
 %{texmf}/updates.dat
 
 %{texmf}/aliases
 %{texmf}/tex/fontinst
+%{texmf}/tex/generic/bghyph
+%{texmf}/tex/generic/encodings
+%{texmf}/tex/generic/enctex
+%{texmf}/tex/generic/epsf
 %{texmf}/tex/generic/hyphen
+%{texmf}/tex/generic/letterspacing
+%{texmf}/tex/generic/localloc
+%{texmf}/tex/generic/null
+%{texmf}/tex/generic/path
+%{texmf}/tex/generic/random
+%{texmf}/tex/generic/tap
+%{texmf}/tex/generic/tex-ps
+%{texmf}/tex/generic/texnames
 %{texmf}/tex/texinfo
-#%{texmf}/tex/enctex
 %{texmf}/web2c/*.tcx
 %{texmf}/web2c/metafun.mem
 %{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
 %{texmf}/fonts/map/dvips/updmap/ps2pk.map
 %{texmf}/fonts/map/dvips/tetex/ps2pk35.map
+%{texmf}/fonts/map/fontname
 %{texmf}/fonts/enc/dvips/tetex/09fbbfac.enc
 %{texmf}/fonts/enc/dvips/tetex/0ef0afca.enc
 %{texmf}/fonts/enc/dvips/tetex/10037936.enc
@@ -4318,6 +4367,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mktexlsr.1*
 %{_mandir}/man1/newer.1*
 %{_mandir}/man1/patgen.1*
+%{_mandir}/man1/pdfetex.1*
 %{_mandir}/man1/pfb2pfa.1*
 %{_mandir}/man1/pk2bm.1*
 %{_mandir}/man1/pktogf.1*
@@ -4494,31 +4544,30 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/misc
 %{texmf}/dvips/gsftopk
 %{texmf}/dvips/psfrag
-%{texmf}/fonts/map/dvips/psnfss
-%{texmf}/fonts/map/dvips/psnfssx
-%{texmf}/fonts/map/dvips/updmap/builtin35.map
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
-%{texmf}/fonts/map/dvips/updmap/download35.map
-%{texmf}/fonts/map/dvipdfm/updmap/dvipdfm_dl14.map
-%{texmf}/fonts/map/dvipdfm/updmap/dvipdfm_ndl14.map
-%{texmf}/fonts/map/dvips/updmap/psfonts_pk.map
-%{texmf}/dvips/config/config.generic
-%{texmf}/fonts/map/dvips/updmap/psfonts.map
-%{texmf}/fonts/map/dvips/updmap/psfonts_t1.map
 
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
+%{texmf}/dvips/config/config.generic
 %{texmf}/dvips/tetex/config.*
-%{texmf}/fonts/map/dvips/tetex/dvipdfm35.map
-%{texmf}/fonts/map/dvips/tetex/bsr.map
+
+%{texmf}/fonts/enc/dvips/base
+%{texmf}/fonts/enc/dvips/tetex/mtex.enc
+%{texmf}/fonts/map/dvipdfm
+%{texmf}/fonts/map/dvips/misc
 %{texmf}/fonts/map/dvips/tetex/bsr-interpolated.map
+%{texmf}/fonts/map/dvips/tetex/bsr.map
+%{texmf}/fonts/map/dvips/tetex/dvipdfm35.map
 %{texmf}/fonts/map/dvips/tetex/dvips35.map
-%{texmf}/fonts/map/dvips/lucida
 %{texmf}/fonts/map/dvips/tetex/mathpple.map
 %{texmf}/fonts/map/dvips/tetex/mt-belleek.map
 %{texmf}/fonts/map/dvips/tetex/mt-plus.map
 %{texmf}/fonts/map/dvips/tetex/mt-yy.map
-%{texmf}/fonts/enc/dvips/tetex/mtex.enc
 %{texmf}/fonts/map/dvips/tetex/pdftex35.map
 %{texmf}/fonts/map/dvips/tetex/ttcmex.map
+%{texmf}/fonts/map/dvips/updmap/builtin35.map
+%{texmf}/fonts/map/dvips/updmap/download35.map
+%{texmf}/fonts/map/dvips/updmap/psfonts.map
+%{texmf}/fonts/map/dvips/updmap/psfonts_pk.map
+%{texmf}/fonts/map/dvips/updmap/psfonts_t1.map
 
 %dir %{texmf}/dvipdfm
 %{texmf}/dvipdfm/config
@@ -4601,7 +4650,7 @@ rm -rf $RPM_BUILD_ROOT
 %files mptopdf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mptopdf
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mptopdf.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mptopdf.fmt
 
 %files texdoctk
 %defattr(644,root,root,755)
@@ -4637,92 +4686,59 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
 %attr(755,root,root) %{_bindir}/epstopdf
-#%attr(755,root,root) %{_bindir}/pdfinitex
 %attr(755,root,root) %{_bindir}/pdftex
 %attr(755,root,root) %{_bindir}/pdfxtex
-#%attr(755,root,root) %{_bindir}/pdftosrc
-#%attr(755,root,root) %{_bindir}/pdfvirtex
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/pdftexconfig.tex
 %{texmf}/fonts/map/pdftex/updmap/pdftex.map
 %{texmf}/fonts/map/pdftex/updmap/pdftex_dl14.map
 %{texmf}/fonts/map/pdftex/updmap/pdftex_ndl14.map
-#%dir %{texmf}/pdftex
-#%dir %{texmf}/pdftex/config
-#%{texmf}/pdftex/config/cmttf.map
-#%{texmf}/pdftex/config/pdftex.cfg
+%{texmf}/web2c/pdfetex-pl.pool
+%{texmf}/web2c/pdfetex.pool
+%{texmf}/web2c/pdfxtex.pool
 %{_mandir}/man1/epstopdf.1*
-#%{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
 %{_mandir}/man1/pdfxtex.1*
-#%{_mandir}/man1/pdfvirtex.1*
 
 %files omega
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/omega
-%attr(755,root,root) %{_bindir}/lambda
-%attr(755,root,root) %{_bindir}/omega
-#%attr(755,root,root) %{_bindir}/iniomega
-#%attr(755,root,root) %{_bindir}/viromega
-%dir %{texmf}/dvips/omega
-%{texmf}/dvips/omega/config.omega
-%{texmf}/dvips/omega/omega.cfg
-%{texmf}/fonts/map/dvips/omega
 %dir %{texmf}/omega
-#%{texmf}/omega/encodings
-#%{texmf}/omega/lambda
-%{texmf}/omega/ocp
-%{texmf}/omega/otp
-#%{texmf}/omega/plain
-#%{texmf}/web2c/lambda.oft
-#%{texmf}/web2c/omega.oft
-%{texmf}/web2c/omega.pool
-%{_mandir}/man1/lambda.1*
-%{_mandir}/man1/omega.1*
-#%{_mandir}/man1/iniomega.1*
-#%{_mandir}/man1/viromega.1*
-
-# more split?
+%dir %{texmf}/dvips/omega
+%attr(755,root,root) %{_bindir}/aleph
+%attr(755,root,root) %{_bindir}/lambda
 %attr(755,root,root) %{_bindir}/mkocp
 %attr(755,root,root) %{_bindir}/mkofm
 %attr(755,root,root) %{_bindir}/odvicopy
 %attr(755,root,root) %{_bindir}/odvips
 %attr(755,root,root) %{_bindir}/odvitype
-%attr(755,root,root) %{_bindir}/ofm2opl
+%attr(755,root,root) %{_bindir}/omega
 %attr(755,root,root) %{_bindir}/omfonts
 %attr(755,root,root) %{_bindir}/opl2ofm
 %attr(755,root,root) %{_bindir}/otangle
 %attr(755,root,root) %{_bindir}/otp2ocp
+%attr(755,root,root) %{_bindir}/outocp
 %attr(755,root,root) %{_bindir}/ovf2ovp
 %attr(755,root,root) %{_bindir}/ovp2ovf
-%attr(755,root,root) %{_bindir}/outocp
+%{texmf}/dvips/omega/config.omega
+%{texmf}/dvips/omega/omega.cfg
+%{texmf}/fonts/map/dvips/omega
+%{texmf}/tex/lambda
+%{texmf}/omega/ocp
+%{texmf}/omega/otp
+%{texmf}/web2c/omega.pool
+%{texmf}/web2c/aleph.pool
+%{_mandir}/man1/lambda.1*
+%{_mandir}/man1/omega.1*
+
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/aleph.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/lambda.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/omega.fmt
 
 %files plain
 %defattr(644,root,root,755)
-%dir %{texmf}/tex/plain
-%dir %{texmf}/tex/plain/base
-%dir %{texmf}/tex/plain/config
-%dir %{texmf}/tex/plain/graphics
-%{texmf}/tex/plain/config/tex.ini
-%{texmf}/tex/plain/config/bplain.ini
-%{texmf}/tex/plain/base/*
-%{texmf}/tex/plain/graphics/*
+%{texmf}/tex/plain
 #%{texmf}/web2c/plain.mem
 #%{texmf}/web2c/plain.base
-
-%files plain-dvips
-%defattr(644,root,root,755)
-%{texmf}/tex/plain/dvips/
-
-%files plain-mathtime
-%defattr(644,root,root,755)
-#%%{texmf}/tex/plain/mathtime
-
-%files plain-misc
-%defattr(644,root,root,755)
-#%{texmf}/tex/plain/misc/
-
-%files plain-plnfss
-%defattr(644,root,root,755)
-#%{texmf}/tex/plain/plnfss
 
 %files format-plain
 %defattr(644,root,root,755)
@@ -4731,25 +4747,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-pdftex
 %defattr(644,root,root,755)
-#%dir %{texmf}/pdftex/plain
-#%{texmf}/pdftex/plain/config
-#%{texmf}/pdftex/plain/misc
-#%{texmf}/web2c/pdftex-pl.pool
-#%{texmf}/web2c/pdftex.pool
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdftex.fmt
 
 %files format-pdfetex
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/pdfetex
-#%attr(755,root,root) %{_bindir}/pdfevirtex
-#%attr(755,root,root) %{_bindir}/pdfeinitex
-#%dir %{texmf}/pdfetex
-#%dir %{texmf}/pdfetex/tex
-#%{texmf}/pdfetex/tex/config
-%{_mandir}/man1/pdfetex.1*
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfetex.efmt
-#%{texmf}/web2c/pdfetex-pl.pool
-#%{texmf}/web2c/pdfetex.pool
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfetex.fmt
 
 %files mex
 %defattr(644,root,root,755)
@@ -4761,23 +4763,18 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/mex/base/mex.tex
 %dir %{texmf}/tex/mex/config
 %{texmf}/tex/mex/config/mexconf.tex
-%{texmf}/tex/mex/config/mex.ini
 
 %files format-mex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mex
-#%attr(755,root,root) %{_bindir}/mex-pl
+%{texmf}/tex/mex/config/mex.ini
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex-pl.fmt
 
 %files format-pdfmex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfmex
-#%attr(755,root,root) %{_bindir}/pdfmex-pl
-#%dir %{texmf}/pdftex/mex
-#%{texmf}/pdftex/mex/config
+%{texmf}/tex/mex/config/pdfmex.ini
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
 
 %files format-pdfemex
 %defattr(644,root,root,755)
@@ -4870,26 +4867,25 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/etex
 %doc %{texmf}/doc/eplain
-%attr(755,root,root) %{_bindir}/etex
-#%attr(755,root,root) %{_bindir}/evirtex
-#%attr(755,root,root) %{_bindir}/einitex
-%attr(755,root,root) %{_bindir}/eplain
-#%{_mandir}/man1/einitex.1*
-%{_mandir}/man1/eplain.1*
-%{_mandir}/man1/etex.1*
-#%{_mandir}/man1/evirtex.1*
 %{texmf}/tex/plain/etex
+%{texmf}/tex/eplain
 
 %files format-eplain
 %defattr(644,root,root,755)
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/etex.efmt
+%attr(755,root,root) %{_bindir}/eplain
+%attr(755,root,root) %{_bindir}/etex
+%{_mandir}/man1/eplain.1*
+%{_mandir}/man1/etex.1*
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/eplain.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/etex.fmt
 
 %files context
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/context
 %dir %{texmf}/context
 %dir %{texmf}/context/config
+%dir %{texmf}/tex/context
+%dir %{texmf}/tex/context/config
 %attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texfont
@@ -4901,21 +4897,17 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/context/config/texexec.ini
 %{texmf}/context/config/texexec.rme
 %{texmf}/context/data/
-#%{texmf}/context/perltk
-%{texmf}/tex/generic/context
-#%{texmf}/tex/latex/context
+%{texmf}/fonts/enc/dvips/context
+%{texmf}/fonts/map/dvips/context
+%{texmf}/metapost/context
+%{texmf}/scripts/context
 %{texmf}/tex/context/base
-#%{texmf}/pdftex/config/context
-
-%dir %{texmf}/tex/context
-%dir %{texmf}/tex/context/config
 %{texmf}/tex/context/config/cont-usr.tex
 %{texmf}/tex/context/extra
+%{texmf}/tex/context/maths
 %{texmf}/tex/context/sample
 %{texmf}/tex/context/user
-
-%{texmf}/metapost/context
-#%{texmf}/dvips/config/context.map
+%{texmf}/tex/generic/context
 
 # no fmt, so commented out
 #%files format-context-cz
@@ -4947,7 +4939,7 @@ rm -rf $RPM_BUILD_ROOT
 %files format-context-nl
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/#cont-nl.fmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.fmt
 %{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
@@ -4964,46 +4956,170 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/latex.info*
 
 %dir %{texmf}/tex/latex
+
 %{texmf}/tex/latex/SIunits
+%{texmf}/tex/latex/a4wide/
+%{texmf}/tex/latex/abstract/
+%{texmf}/tex/latex/acronym/
 %{texmf}/tex/latex/adrconv
+%{texmf}/tex/latex/aeguill/
+%{texmf}/tex/latex/anysize/
+%{texmf}/tex/latex/appendix/
+%{texmf}/tex/latex/bar/
 %{texmf}/tex/latex/base
+%{texmf}/tex/latex/beton/
+%{texmf}/tex/latex/bezos/
+%{texmf}/tex/latex/bibunits/
+%{texmf}/tex/latex/bold-extra/
+%{texmf}/tex/latex/booktabs/
+%{texmf}/tex/latex/boxedminipage/
+%{texmf}/tex/latex/calrsfs/
+%{texmf}/tex/latex/cancel/
+%{texmf}/tex/latex/capt-of/
 %{texmf}/tex/latex/caption
+%{texmf}/tex/latex/ccaption/
+%{texmf}/tex/latex/changebar/
+%{texmf}/tex/latex/chappg/
+%{texmf}/tex/latex/chngpage/
+%{texmf}/tex/latex/citesort/
+%{texmf}/tex/latex/cmap/
+%{texmf}/tex/latex/comment/
+%{texmf}/tex/latex/concrete/
 %{texmf}/tex/latex/config
+%{texmf}/tex/latex/crop/
+%{texmf}/tex/latex/currvita/
 %{texmf}/tex/latex/curves
 %{texmf}/tex/latex/dinbrief
+%{texmf}/tex/latex/draftcopy/
 %{texmf}/tex/latex/dvilj
+%{texmf}/tex/latex/dvipdfm/
+%{texmf}/tex/latex/eclbip/
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
+%{texmf}/tex/latex/endnotes/
+%{texmf}/tex/latex/eo/
+%{texmf}/tex/latex/eso-pic/
+%{texmf}/tex/latex/etex/
+%{texmf}/tex/latex/euler/
+%{texmf}/tex/latex/eulervm/
+%{texmf}/tex/latex/eurosym/
+%{texmf}/tex/latex/exam/
+%{texmf}/tex/latex/example/
 %{texmf}/tex/latex/extsizes
+%{texmf}/tex/latex/fancybox/
+%{texmf}/tex/latex/fancyhdr/
+%{texmf}/tex/latex/fancyheadings/
+%{texmf}/tex/latex/fancyvrb/
+%{texmf}/tex/latex/fguill/
+%{texmf}/tex/latex/float/
+%{texmf}/tex/latex/floatflt/
+%{texmf}/tex/latex/fnpara/
+%{texmf}/tex/latex/fontinst/
+%{texmf}/tex/latex/footmisc/
+%{texmf}/tex/latex/footnpag/
 %{texmf}/tex/latex/fp
+%{texmf}/tex/latex/framed/
+%{texmf}/tex/latex/g-brief/
+%{texmf}/tex/latex/geometry/
+%{texmf}/tex/latex/germbib/
+%{texmf}/tex/latex/gletter/
 %{texmf}/tex/latex/graphics
+%{texmf}/tex/latex/hangcaption/
+%{texmf}/tex/latex/here/
 %{texmf}/tex/latex/hyperref
+%{texmf}/tex/latex/hyphenat/
+%{texmf}/tex/latex/import/
+%{texmf}/tex/latex/index/
 %{texmf}/tex/latex/koma-script
 %{texmf}/tex/latex/labels
+%{texmf}/tex/latex/lastpage/
+%{texmf}/tex/latex/layouts/
+%{texmf}/tex/latex/leftidx/
+%{texmf}/tex/latex/lettrine/
 %{texmf}/tex/latex/listings
+%{texmf}/tex/latex/mathcomp/
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
-%{texmf}/tex/latex/mparhack
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
 %{texmf}/tex/latex/ms
+%{texmf}/tex/latex/mt11p/
+%{texmf}/tex/latex/multibib/
+%{texmf}/tex/latex/multibox/
+%{texmf}/tex/latex/multind/
 %{texmf}/tex/latex/multirow
 %{texmf}/tex/latex/mwcls
 %{texmf}/tex/latex/natbib
+%{texmf}/tex/latex/nomencl/
 %{texmf}/tex/latex/ntgclass
 %{texmf}/tex/latex/oberdiek
+%{texmf}/tex/latex/optional/
+%{texmf}/tex/latex/overpic/
+%{texmf}/tex/latex/paralist/
+%{texmf}/tex/latex/parskip/
 %{texmf}/tex/latex/pb-diagram
+%{texmf}/tex/latex/pdfpages/
+%{texmf}/tex/latex/picinpar/
+%{texmf}/tex/latex/picins/
+%{texmf}/tex/latex/pict2e/
+%{texmf}/tex/latex/placeins/
+%{texmf}/tex/latex/portland/
 %{texmf}/tex/latex/preprint
+%{texmf}/tex/latex/preview/
+%{texmf}/tex/latex/program/
+%{texmf}/tex/latex/ps4pdf/
+%{texmf}/tex/latex/psboxit/
+%{texmf}/tex/latex/psfrag/
+%{texmf}/tex/latex/pslatex/
 %{texmf}/tex/latex/pstricks
+%{texmf}/tex/latex/relsize/
 %{texmf}/tex/latex/revtex4
+%{texmf}/tex/latex/rotating/
+%{texmf}/tex/latex/rotfloat/
+%{texmf}/tex/latex/scale/
+%{texmf}/tex/latex/sectsty/
+%{texmf}/tex/latex/selectp/
 %{texmf}/tex/latex/seminar
+%{texmf}/tex/latex/setspace/
+%{texmf}/tex/latex/shadow/
+%{texmf}/tex/latex/shapepar/
+%{texmf}/tex/latex/showdim/
+%{texmf}/tex/latex/showlabels/
+%{texmf}/tex/latex/showtags/
+%{texmf}/tex/latex/sidecap/
+%{texmf}/tex/latex/slashbox/
+%{texmf}/tex/latex/soul/
+%{texmf}/tex/latex/stdclsdv/
+%{texmf}/tex/latex/stmaryrd/
+%{texmf}/tex/latex/subfig/
+%{texmf}/tex/latex/subfigure/
+%{texmf}/tex/latex/supertabular/
 %{texmf}/tex/latex/t2
-%{texmf}/tex/latex/textmerg
-%{texmf}/tex/latex/titlesec
+%{texmf}/tex/latex/tabls/
 %{texmf}/tex/latex/texmacs
+%{texmf}/tex/latex/textfit/
+%{texmf}/tex/latex/textmerg
+%{texmf}/tex/latex/textpos/
+%{texmf}/tex/latex/threeparttable/
+%{texmf}/tex/latex/titlesec
+%{texmf}/tex/latex/tocbibind/
+%{texmf}/tex/latex/tocloft/
 %{texmf}/tex/latex/tools
+%{texmf}/tex/latex/totpages/
+%{texmf}/tex/latex/treesvr/
+%{texmf}/tex/latex/type1cm/
+%{texmf}/tex/latex/ulem/
 %{texmf}/tex/latex/units
-
+%{texmf}/tex/latex/upquote/
+%{texmf}/tex/latex/url/
+%{texmf}/tex/latex/vmargin/
+%{texmf}/tex/latex/vpage/
+%{texmf}/tex/latex/was/
+%{texmf}/tex/latex/wrapfig/
+%{texmf}/tex/latex/xcolor/
+%{texmf}/tex/latex/xtab/
+%{texmf}/tex/latex/yfonts/
+%{texmf}/tex/latex/version/
 %files latex-ae
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/ae
@@ -5037,17 +5153,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-bibtex
 %defattr(644,root,root,755)
-%doc %{texmf}/bibtex/bib
-%doc %{texmf}/bibtex/bibgerm
 %doc %{texmf}/doc/bibtex/base
-
-%attr(755,root,root) %{_bindir}/bibtex
-%attr(755,root,root) %{_bindir}/rubibtex
-
 %dir %{texmf}/doc/bibtex
 %dir %{texmf}/bibtex
 %dir %{texmf}/bibtex/bib
 %dir %{texmf}/bibtex/bst
+
+%attr(755,root,root) %{_bindir}/bibtex
+%attr(755,root,root) %{_bindir}/rubibtex
+
 
 %{texmf}/bibtex/bib/base
 %{texmf}/bibtex/bst/adrconv
@@ -5070,6 +5184,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-bibtex-german
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/bibtex/bibgerm
 %{texmf}/bibtex/bst/germbib
 
 %files latex-bibtex-revtex4
@@ -5124,11 +5239,24 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/jknappen
 %{texmf}/tex/latex/jknappen
 
+%files latex-lm
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/lm
+%{texmf}/tex/latex/lm
+%{texmf}/fonts/enc/dvips/lm
+%{texmf}/fonts/map/dvips/lm
+
 %files latex-lucidabr
 %defattr(644,root,root,755)
-#%doc %{texmf}/doc/fonts/lucidabr
+%doc %{texmf}/doc/fonts/lucida
+%{texmf}/fonts/map/dvips/lucida
+%{texmf}/fonts/map/dvips/tetex/lucidabr-o.map
 %{texmf}/tex/latex/lucidabr
 %{texmf}/tex/latex/lucida
+
+%files latex-marvosym
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/marvosym
 
 %files latex-mathpple
 %defattr(644,root,root,755)
@@ -5166,6 +5294,10 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-psnfss
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/psnfss
+%{texmf}/fonts/enc/dvips/psnfss
+%{texmf}/fonts/enc/dvips/psnfssx
+%{texmf}/fonts/map/dvips/psnfss
+%{texmf}/fonts/map/dvips/psnfssx
 %{texmf}/tex/latex/psnfss
 %{texmf}/tex/latex/psnfssx
 
@@ -5194,6 +5326,7 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-vnr
 %defattr(644,root,root,755)
 #%{texmf}/tex/latex/vnr
+%{texmf}/fonts/map/dvips/vntex/vnr.map
 
 %files latex-wasysym
 %defattr(644,root,root,755)
@@ -5315,6 +5448,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/generic/thumbpdf
 %attr(755,root,root) %{_bindir}/thumbpdf
 %{texmf}/tex/generic/thumbpdf
+%{texmf}/scripts/thumbpdf
 %{_mandir}/man1/thumbpdf.1*
 
 %files tex-ukrhyph
@@ -5322,9 +5456,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/generic/ukrhyph
 %{texmf}/tex/generic/ukrhyph
 
-%files tex-vietnam
+%files latex-vietnam
 %defattr(644,root,root,755)
-#%{texmf}/tex/generic/vietnam
+%{texmf}/tex/latex/vietnam
 
 %files tex-xypic
 %defattr(644,root,root,755)
@@ -5346,18 +5480,23 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-ams
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/amsfonts
+%{texmf}/fonts/map/dvips/ams
 %{texmf}/fonts/source/ams
 %{texmf}/fonts/tfm/ams
 
 %files fonts-antp
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/antp
+%{texmf}/fonts/enc/dvips/antp
+%{texmf}/fonts/map/dvips/antp
 %{texmf}/fonts/afm/public/antp
 %{texmf}/fonts/tfm/public/antp
 
 %files fonts-antt
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/antt
+%{texmf}/fonts/enc/dvips/antt
+%{texmf}/fonts/map/dvips/antt
 %{texmf}/fonts/afm/public/antt
 %{texmf}/fonts/tfm/public/antt
 
@@ -5373,6 +5512,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-bh
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/bh
 %{texmf}/fonts/tfm/bh
 %{texmf}/fonts/vf/bh
 
@@ -5390,6 +5530,8 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-cc-pl
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/cc-pl
+%{texmf}/fonts/enc/dvips/cc-pl
+%{texmf}/fonts/map/dvips/cc-pl
 %{texmf}/fonts/source/public/cc-pl
 %{texmf}/fonts/tfm/public/cc-pl
 
@@ -5439,6 +5581,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/dstroke
 %{texmf}/fonts/source/public/dstroke
+%{texmf}/fonts/tfm/public/dstroke
 
 %files fonts-ecc
 %defattr(644,root,root,755)
@@ -5479,8 +5622,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-lh
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/lh
 %{texmf}/fonts/source/lh
 %{texmf}/fonts/tfm/lh
+
+%files fonts-lm
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/lm
 
 %files fonts-marvosym
 %defattr(644,root,root,755)
@@ -5534,6 +5682,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/pl
 %{texmf}/dvips/pl
+%{texmf}/fonts/enc/dvips/pl
+%{texmf}/fonts/map/dvips/pl
 %{texmf}/fonts/source/public/pl
 %{texmf}/fonts/afm/public/pl
 %{texmf}/fonts/tfm/public/pl
@@ -5548,6 +5698,8 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-qfonts
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/qfonts
+%{texmf}/fonts/enc/dvips/qfonts/
+%{texmf}/fonts/map/dvips/qfonts/
 %{texmf}/dvips/qfonts/
 %{texmf}/fonts/afm/public/qfonts
 %{texmf}/fonts/tfm/public/qfonts
@@ -5601,6 +5753,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-xypic
 %defattr(644,root,root,755)
+%{texmf}/fonts/map/dvips/xypic
 %{texmf}/fonts/afm/public/xypic
 %{texmf}/fonts/source/public/xypic
 %{texmf}/fonts/tfm/public/xypic
@@ -5645,8 +5798,6 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-cc-pl
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/cc-plps
-%{texmf}/fonts/enc/dvips/cc-pl
-%{texmf}/fonts/map/dvips/cc-pl
 %{texmf}/fonts/type1/public/cc-pl
 
 %files fonts-type1-cmcyr
@@ -5657,6 +5808,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/cs
 
+%files fonts-type1-dstroke
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/dstroke
+
 %files fonts-type1-eurosym
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/eurosym
@@ -5664,6 +5819,11 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-hoekwater
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/hoekwater
+
+%files fonts-type1-lm
+%defattr(644,root,root,755)
+%{texmf}/fonts/afm/public/lm
+%{texmf}/fonts/type1/public/lm
 
 %files fonts-type1-marvosym
 %defattr(644,root,root,755)
@@ -5699,6 +5859,10 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-urw
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/urw
+
+%files fonts-type1-vnr
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/vnr
 
 %files fonts-type1-xypic
 %defattr(644,root,root,755)
