@@ -217,8 +217,9 @@ Summary(pl):	Konwerter plików DVI do PostScript-u
 Summary(pt_BR):	Conversor dvi para postscript
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
-PreReq:		%{_bindir}/texhash
 
 %description dvips
 The program dvips takes a DVI file file[.dvi] produced by TeX (or by
@@ -265,8 +266,9 @@ Summary(pl):	Konwerter plików DVI do jêzyka PCL
 Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
-PreReq:		%{_bindir}/texhash
 
 %description dvilj
 Dvilj and dvilj's siblings (included in this package) will convert TeX
@@ -412,8 +414,9 @@ TeX generating PDF files instead DVI.
 %package plain
 Summary:	Plain TeX format basic files
 Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
-PreReq:		%{_bindir}/texhash
 
 %description plain
 Plain TeX format basic files.
@@ -466,7 +469,8 @@ Simple NFSS macros for plain TeX.
 %package format-plain
 Summary:	TeX Plain format
 Group:		Applications/Publishing/TeX
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description format-plain
@@ -475,7 +479,8 @@ TeX Plain format.
 %package format-bplain
 Summary:	TeX BPlain format
 Group:		Applications/Publishing/TeX
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description format-bplain
@@ -553,7 +558,8 @@ PDFMeX EPlain Format.
 Summary:	AMS macros for Plain TeX basic files
 Group:		Applications/Publishing/TeX
 Obsoletes:	tetex-ams
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
 
 %description amstex
@@ -563,7 +569,8 @@ American Mathematics Society macros for Plain TeX basic files.
 Summary:	AMS macros for Plain TeX
 Group:		Applications/Publishing/TeX
 Obsoletes:	tetex-ams
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-amstex = %{version}
 
 %description format-amstex
@@ -573,7 +580,8 @@ American Mathematics Society macros for Plain TeX.
 Summary:	AMS macros for BPlain TeX
 Group:		Applications/Publishing/TeX
 Obsoletes:	tetex-ams
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-amstex = %{version}
 
 %description format-bamstex
@@ -749,10 +757,10 @@ PDF ConTeXt format.
 %package latex
 Summary:	LaTeX macro package basic files
 Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-latex = %{version}
-Requires:	tetex-tex-hyphen = %{version}
-PreReq:		%{_bindir}/texhash
 
 %description latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -839,7 +847,8 @@ A geometric sans serif blackboard bold font, for use in mathematics.
 %package latex-bibtex
 Summary:	Bibliography management for LaTeX
 Group:		Applications/Publishing/TeX
-PreReq:		%{_bindir}/texhash
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-bibtex
@@ -1179,8 +1188,9 @@ astronomy, etc.
 %package format-latex
 Summary:	LaTeX macro package
 Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
-PreReq:		%{_bindir}/texhash
 
 %description format-latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
