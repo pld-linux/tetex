@@ -17,15 +17,15 @@
 -%italian	ithyph.tex
 -%latin		lahyph.tex
 -%magyar		huhyph.tex
-+bahasa		inhyph.tex
-+basque		bahyph.tex
-+catalan	cahyph.tex
++%bahasa		inhyph.tex
++%basque		bahyph.tex
++%catalan	cahyph.tex
 +croatian	hrhyph.tex
 +czech		czhyph2e.tex
 +danish		dkhyphen.tex
 +dutch		nehyph.tex
 +finnish	fi8hyph.tex
-+galician	gahyph.tex
++%galician	gahyph.tex
 +greek		grhyph.tex
 +italian	ithyph.tex
 +latin		lahyph.tex
@@ -46,18 +46,18 @@
 +polish		plhyph.tex
 +portuges	pt8hyph.tex
 +romanian	rohyphen.tex
-+russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
-+serbocroatian	shhyphl.tex
++%russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
++%serbocroatian	shhyphl.tex
 +slovak         skhyph2e.tex
-+slovene	sihyph23.tex
++%slovene	sihyph23.tex
 +spanish	sphyph.tex
 +swedish	sehyph.tex
-+turkish	trhyph.tex
++%turkish	trhyph.tex
  
  % For Ukrainian, either use ukrhyph.tex (and edit that file for the encoding
  % that you need) or use one of the ukrhyph.ENC files.
 -%ukrainian	ukrhyph.tex
-+ukrainian	ukrhyph.tex
++%ukrainian	ukrhyph.tex
  %ukrainian	ukrhyph.t2a
  %ukrainian	ukrhyph.lcy
  %ukrainian	ukrhyph.ot2
