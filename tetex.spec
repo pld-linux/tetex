@@ -472,7 +472,7 @@ xdvi ist ein Programm, das unter dem X-Window-System läuft und gewohnt
 ist, dvi-Dateien als Vorschau anzuzeigen, etwa solche, die von tex und
 latex erzeugt wurden.
 
-%description -l es xdvi
+%description -l es -n xdvi
 xdvi es un programa que se ejecuta en el sistema X Window. Se usa para
 visualizar archivos dvi, como los producidos por tex y latex.
 
@@ -484,7 +484,7 @@ visualiser les fichiers dvi tels que ceux produits par tex et latex.
 Xdvi jest programem (dzia³aj±cym w X Window System) do przegl±dania
 plików DVI, produkowanych przez TeXa i LaTeXa.
 
-%description -l pt_BR xdvi
+%description -l pt_BR -n xdvi
 xdvi é um programa que roda no sistema X Window. É usado para
 visualizar arquivos dvi, como os produzidos por tex e latex.
 
