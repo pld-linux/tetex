@@ -518,6 +518,28 @@ Requires:	%{name}-csplain = %{version}
 %description format-pdfcsplain
 PDFTeX CSPlain format.
 
+# CSLaTeX format
+
+%package cslatex
+Summary:	CSLaTeX format basic files
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-plain = %{version}
+
+%description cslatex
+CSLaTeX format basic files.
+
+%package format-cslatex
+Group:		Applications/Publishing/TeX
+Summary:	CSLaTeX format
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-cslatex = %{version}
+
+%description format-cslatex
+CSLaTeX format.
+
 # Cyryillc Plain format
 
 %package cyrplain
@@ -643,6 +665,17 @@ Requires:	%{name}-fonts-bbm = %{version}
 %description latex-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
 
+%package latex-bbold
+Summary:	Sans serif blackboard bold for LaTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-bbm = %{version}
+
+%description latex-bbold
+A geometric sans serif blackboard bold font, for use in mathematics.
+
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
 Group:		Applications/Publishing/TeX
@@ -675,6 +708,20 @@ Requires:	%{name}-latex = %{version}
 
 %description latex-cite
 Supports compressed, sorted lists of numerical citations.
+
+%package latex-cmbright
+Summary:	Support for CM Bright fonts in LaTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-cmbright
+A family of sans serif fonts for TeX and LaTeX, based on Donald Knuth's CM
+fonts. It comprises OT1, T1 and TS1 encoded text fonts of various shapes as
+well as all the fonts necessary for mathematical typesetting, incl. AMS
+symbols. This collection provides all the necessary files for using the
+fonts with LaTeX.
 
 %package latex-concmath
 Summary:	LaTeX package and font definition files to access the Concrete math fonts
@@ -744,6 +791,86 @@ Requires:	%{name}-latex = %{version}
 %description latex-lucidabr
 Package to make Lucida Bright fonts usable with LaTeX.
 
+%package latex-mathpple
+Summary:	Use PostScript Palatino for typesetting maths
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-mathpple
+The package defines the PostScript font family `Palatino' (ppl) as the
+default roman font and then uses the `mathpple' fonts for typesetting math.
+These virtual fonts have been created for typesetting math in a style that
+suits the Palatino text fonts.  The AMS fonts, when used additionally, will
+be scaled to fit Palatino.
+
+%package latex-mathtime
+Summary:	Mathtime fonts for LaTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-mathtime
+The Mathtime fonts have a number of characters remapped to positions
+different from the ones normally used by the corresponding TeX CM-fonts.
+For the symbol font ``operators'' the corresponding mathtime style files
+use the Times Roman font (often called something like: ptmr or ptmr7t or
+ptmrq).
+
+%package latex-mflogo
+Summary:	LaTeX support for MetaFont and logo fonts
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-mflogo
+LaTeX package and font definition file to access the Knuthian `logo' fonts
+described in `The MetaFontbook' and the MetaFont and logos in LaTeX
+documents.
+
+%package latex-mfnfss
+Summary:	Font description files to use extra fonts like yinit and ygoth
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-mfnfss
+Font description files to use extra fonts like yinit and ygoth.
+
+%package latex-minitoc
+Summary:	Produce a table of contents for each chapter
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-minitoc
+Produce a table of contents for each chapter.
+
+%package latex-mltex
+Summary:	Support for MLTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-mltex
+Support for MLTeX, the multilingual TeX extension from Michael J. Ferguson.
+
+%package latex-palatcm
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-palatcm
+!!!fixme!!!
+
 %package latex-psnfss
 Summary:	LaTeX font support for common PostScript fonts. 
 Group:		Applications/Publishing/TeX
@@ -754,6 +881,88 @@ Requires:	%{name}-latex = %{version}
 %description latex-psnfss
 LaTeX font definition files, macros and font metrics for common PostScript
 fonts.
+
+%package latex-pxfonts
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-pxfonts
+!!!fixme!!!
+
+%package latex-qfonts
+Summary:	A collection of PostScript (Adobe Type 1) fonts in QX layout
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-qfonts
+A collection of Type 1 fonts; include QuasiBookman, QuasiChancery,
+QuasiCourier, QuasiPalatino, QuasiSwiss, QuasiSwissCondensed, and
+QuasiTimes (regular, italic, bold and bold italic), based on URW++ fonts
+distributed with Ghostscript. The fonts are encoded according to QX layout
+which facilitates multilingual and technical typesetting using TeX,
+preserving usability in Windows applications.
+
+%package latex-txfonts
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-txfonts
+!!!fixme!!!
+
+%package latex-umlaute
+Summary:	An interface to inputenc for using alternate input encodings
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-umlaute
+An interface to inputenc for using alternate input encodings.
+
+%package latex-vnps
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-vnps
+!!!fixme!!!
+
+%package latex-vnr
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-vnr
+!!!fixme!!!
+
+%package latex-wasysym
+Summary:	Extra characters from the Waldis symbol fonts
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-wasysym
+Makes some additional characters available that come from the wasy fonts
+(Waldis symbol fonts). These fonts are not automatically included in
+NFSS2/LaTeX2e since they take up important space and often aren't necessary
+if one makes use of the packages amsfonts or amssymb. Symbols include: join
+box, diamond, leadsto, sqsubset, lhd, rhd, apple, ocircle invneg, logof,
+varint, male, female, phone, clock lightning, pointer, sun, bell, permil,
+smiley, various electrical symbols, shapes, music notes, circles, signs,
+astronomy, etc.
 
 %package format-latex
 Summary:	LaTeX macro package
@@ -884,6 +1093,15 @@ core of the TeX text formatting system).
 Pakiet tetex-fonts zawiera czcionki u¿ywane przez TeXa oraz Xdvi.
 Je¿eli chcesz korzystaæ z którego¶ z tych programów, musisz
 zainstalowaæ ten pakiet.
+
+%package fonts-jknappen
+Summary:	fonts-jknappen
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-jknappen
+fonts-jknappen
 
 %package doc
 Summary:	The documentation files for the TeX text formatting system
@@ -1776,136 +1994,6 @@ Requires:	%{name} = %{version}
 %description plain-plnfss
 plain-plnfss
 
-%package latex-wasysym
-Summary:	latex-wasysym
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-wasysym
-latex-wasysym
-
-%package latex-vnr
-Summary:	latex-vnr
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-vnr
-latex-vnr
-
-%package latex-vnps
-Summary:	latex-vnps
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-vnps
-latex-vnps
-
-%package latex-umlaute
-Summary:	latex-umlaute
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-umlaute
-latex-umlaute
-
-%package latex-tools
-Summary:	latex-tools
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-tools
-latex-tools
-
-%package latex-titlesec
-Summary:	latex-titlesec
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-titlesec
-latex-titlesec
-
-%package latex-t2
-Summary:	latex-t2
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-t2
-latex-t2
-
-%package latex-SIunits
-Summary:	latex-SIunits
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-SIunits
-latex-SIunits
-
-%package latex-seminar
-Summary:	latex-seminar
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-seminar
-latex-seminar
-
-%package latex-revtex4
-Summary:	latex-revtex4
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-revtex4
-latex-revtex4
-
-%package latex-qfonts
-Summary:	latex-qfonts
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-qfonts
-latex-qfonts
-
-%package latex-pb-diagram
-Summary:	latex-pb-diagram
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-pb-diagram
-latex-pb-diagram
-
-%package latex-palatcm
-Summary:	latex-palatcm
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-palatcm
-latex-palatcm
-
 %package latex-oberdiek
 Summary:	latex-oberdiek
 Group:		Applications/Publishing/TeX
@@ -1946,236 +2034,6 @@ Requires:	%{name} = %{version}
 %description latex-mwcls
 latex-mwcls
 
-%package latex-multirow
-Summary:	latex-multirow
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-multirow
-latex-multirow
-
-%package latex-ms
-Summary:	latex-ms
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-ms
-latex-ms
-
-%package latex-mltex
-Summary:	latex-mltex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mltex
-latex-mltex
-
-%package latex-minitoc
-Summary:	latex-minitoc
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-minitoc
-latex-minitoc
-
-%package latex-mfnfss
-Summary:	latex-mfnfss
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mfnfss
-latex-mfnfss
-
-%package latex-mflogo
-Summary:	latex-mflogo
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mflogo
-latex-mflogo
-
-%package latex-mdwtools
-Summary:	latex-mdwtools
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mdwtools
-latex-mdwtools
-
-%package latex-mathtime
-Summary:	latex-mathtime
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mathtime
-latex-mathtime
-
-%package latex-mathptmx
-Summary:	latex-mathptmx
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mathptmx
-latex-mathptmx
-
-%package latex-mathptm
-Summary:	latex-mathptm
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mathptm
-latex-mathptm
-
-%package latex-mathpple
-Summary:	latex-mathpple
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mathpple
-latex-mathpple
-
-%package latex-listings
-Summary:	latex-listings
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-listings
-latex-listings
-
-%package latex-labels
-Summary:	latex-labels
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-labels
-latex-labels
-
-%package latex-koma-script
-Summary:	latex-koma-script
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-koma-script
-latex-koma-script
-
-%package latex-hyperref
-Summary:	latex-hyperref
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-hyperref
-latex-hyperref
-
-%package latex-graphics
-Summary:	latex-graphics
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-graphics
-latex-graphics
-
-%package latex-g-brief
-Summary:	latex-g-brief
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-g-brief
-latex-g-brief
-
-%package latex-fp
-Summary:	latex-fp
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-fp
-latex-fp
-
-%package latex-fancyvrb
-Summary:	latex-fancyvrb
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-fancyvrb
-latex-fancyvrb
-
-%package latex-fancyheadings
-Summary:	latex-fancyheadings
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-fancyheadings
-latex-fancyheadings
-
-%package latex-fancyhdr
-Summary:	latex-fancyhdr
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-fancyhdr
-latex-fancyhdr
-
-%package latex-endfloat
-Summary:	latex-endfloat
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-endfloat
-latex-endfloat
-
-%package latex-eepic
-Summary:	latex-eepic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-eepic
-latex-eepic
-
 %package latex-dvilj
 Summary:	latex-dvilj
 Group:		Applications/Publishing/TeX
@@ -2186,16 +2044,6 @@ Requires:	%{name} = %{version}
 %description latex-dvilj
 latex-dvilj
 
-%package latex-draftcopy
-Summary:	latex-draftcopy
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-draftcopy
-latex-draftcopy
-
 %package latex-dinbrief
 Summary:	latex-dinbrief
 Group:		Applications/Publishing/TeX
@@ -2205,37 +2053,6 @@ Requires:	%{name} = %{version}
 
 %description latex-dinbrief
 latex-dinbrief
-
-%package latex-curves
-Summary:	latex-curves
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-curves
-latex-curves
-
-%package cslatex
-Summary:	cslatex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description cslatex
-cslatex
-
-%package pdfcslatex
-Summary:	pdfcslatex
-Group:		Applications/Publishing/TeX
-Provides:	%{name}-latex
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description pdfcslatex
-pdfcslatex
 
 %package odvips
 Summary:	odvips
@@ -2968,6 +2785,17 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_bindir}/pdfcsplain
 #%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/pdfcsplain.fmt
 
+%files cslatex
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/cstex/INSTALL.cslatex
+%doc %{texmf}/doc/cstex/README.cslatex
+%{texmf}/tex/latex/cslatex
+
+%files format-cslatex
+%attr(755,root,root) %{_bindir}/cslatex
+%defattr(644,root,root,755)
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/cslatex.fmt
+
 %files cyrplain
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/cyrplain
@@ -3010,6 +2838,7 @@ rm -rf $RPM_BUILD_ROOT
 %files latex
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/latex
+%dir %{texmf}/doc/latex/styles
 %doc %{texmf}/doc/latex/SIunits
 %doc %{texmf}/doc/latex/base
 %doc %{texmf}/doc/latex/caption
@@ -3029,13 +2858,56 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/ntgclass
 %doc %{texmf}/doc/latex/oberdiek
 %doc %{texmf}/doc/latex/pb-diagram
+%doc %{texmf}/doc/latex/preprint
 %doc %{texmf}/doc/latex/rotating
 %doc %{texmf}/doc/latex/rotfloat
 %doc %{texmf}/doc/latex/revtex4
 %doc %{texmf}/doc/latex/scale
 %doc %{texmf}/doc/latex/showlabels
 %doc %{texmf}/doc/latex/sidecap
+%doc %{texmf}/doc/latex/styles/a4.dvi
+%doc %{texmf}/doc/latex/styles/adrguide.dvi
+%doc %{texmf}/doc/latex/styles/beton.dvi
+%doc %{texmf}/doc/latex/styles/blkarray.dvi
+%doc %{texmf}/doc/latex/styles/chappg.txt
+%doc %{texmf}/doc/latex/styles/comm_test_l.tex
+%doc %{texmf}/doc/latex/styles/concmath.dvi
+%doc %{texmf}/doc/latex/styles/crop.dvi
+%doc %{texmf}/doc/latex/styles/curves.dvi
+%doc %{texmf}/doc/latex/styles/endfloat.dvi
+%doc %{texmf}/doc/latex/styles/euler.dvi
+%doc %{texmf}/doc/latex/styles/examdoc.dvi
+%doc %{texmf}/doc/latex/styles/fancybox.dvi
+%doc %{texmf}/doc/latex/styles/float.dvi
+%doc %{texmf}/doc/latex/styles/footnpag-user.dvi
+%doc %{texmf}/doc/latex/styles/hyphenat.dvi
+%doc %{texmf}/doc/latex/styles/index.dvi
+%doc %{texmf}/doc/latex/styles/labels.dvi
+%doc %{texmf}/doc/latex/styles/lastpage.dvi
+%doc %{texmf}/doc/latex/styles/layman.dvi
+%doc %{texmf}/doc/latex/styles/listings.dvi
+%doc %{texmf}/doc/latex/styles/lucidabr.txt
+%doc %{texmf}/doc/latex/styles/mathcomp.dvi
+%doc %{texmf}/doc/latex/styles/mflogo.dvi
+%doc %{texmf}/doc/latex/styles/moreverb.dvi
+%doc %{texmf}/doc/latex/styles/paralist.dvi
+%doc %{texmf}/doc/latex/styles/picinpar.dvi
+%doc %{texmf}/doc/latex/styles/picins.txt
+%doc %{texmf}/doc/latex/styles/placeins.txt
+%doc %{texmf}/doc/latex/styles/readme.fp
+%doc %{texmf}/doc/latex/styles/sectsty.dvi
+%doc %{texmf}/doc/latex/styles/slashbox.tex
+%doc %{texmf}/doc/latex/styles/soul.dvi
+%doc %{texmf}/doc/latex/styles/stdclsdv.dvi
+%doc %{texmf}/doc/latex/styles/stmaryrd.dvi
+%doc %{texmf}/doc/latex/styles/subfigure.dvi
+%doc %{texmf}/doc/latex/styles/textfit.dvi
+%doc %{texmf}/doc/latex/styles/titlesec.dvi
+%doc %{texmf}/doc/latex/styles/tocloft.dvi
+%doc %{texmf}/doc/latex/styles/type1cm.txt
+%doc %{texmf}/doc/latex/styles/vmargin.dvi
 %doc %{texmf}/doc/latex/supertab
+%doc %{texmf}/doc/latex/textmerg
 %doc %{texmf}/doc/latex/units
 %doc %{texmf}/doc/latex/seminar
 %doc %{texmf}/doc/latex/tools
@@ -3049,6 +2921,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{texmf}/tex/latex
 %{texmf}/tex/latex/SIunits
+%{texmf}/tex/latex/adrconv
 %{texmf}/tex/latex/base
 %{texmf}/tex/latex/caption
 %{texmf}/tex/latex/config
@@ -3074,20 +2947,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/ntgclass
 %{texmf}/tex/latex/oberdiek
 %{texmf}/tex/latex/pb-diagram
+%{texmf}/tex/latex/preprint
+%{texmf}/tex/latex/pstricks
 %{texmf}/tex/latex/revtex4
 %{texmf}/tex/latex/seminar
 %{texmf}/tex/latex/t2
+%{texmf}/tex/latex/textmerg
 %{texmf}/tex/latex/titlesec
+%{texmf}/tex/latex/texmacs
 %{texmf}/tex/latex/tools
 %{texmf}/tex/latex/units
 
 %files latex-ae
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/ae
-
-%files latex-bbm
-%defattr(644,root,root,755)
-%{texmf}/tex/latex/bbm
 
 %files latex-ams
 %defattr(644,root,root,755)
@@ -3106,6 +2979,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/antt
 
+%files latex-bbm
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/styles/bbm.dvi
+%{texmf}/tex/latex/bbm
+
+%files latex-bbold
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/styles/bbold.dvi
+%{texmf}/tex/latex/bbold
+
 %files latex-carlisle
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/carlisle
@@ -3119,6 +3002,11 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-cite
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/cite
+
+%files latex-cmbright
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/cmbright
+%{texmf}/tex/latex/cmbright
 
 %files latex-concmath
 %defattr(644,root,root,755)
@@ -3148,10 +3036,73 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/lucidabr
 %{texmf}/tex/latex/lucidabr
 
+%files latex-mathpple
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/mathpple
+
+%files latex-mathtime
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/mathtime
+%{texmf}/tex/latex/mathtime
+
+%files latex-mflogo
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/mflogo
+
+%files latex-mfnfss
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/mfnfss
+%{texmf}/tex/latex/mfnfss
+
+%files latex-minitoc
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/minitoc
+%{texmf}/tex/latex/minitoc
+
+%files latex-mltex
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/mltex
+%{texmf}/tex/latex/mltex
+
+%files latex-palatcm
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/palatcm
+
 %files latex-psnfss
 %doc %{texmf}/doc/latex/psnfss
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/psnfss
+
+%files latex-pxfonts
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/pxfonts
+%{texmf}/tex/latex/pxfonts
+
+%files latex-qfonts
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/qfonts
+
+%files latex-txfonts
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/txfonts
+%{texmf}/tex/latex/txfonts
+
+%files latex-umlaute
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/umlaute
+
+%files latex-vnps
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/vnps
+
+%files latex-vnr
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/vnr
+
+%files latex-wasysym
+%doc %{texmf}/doc/latex/wasysym
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/wasysym
 
 %files format-latex
 %defattr(644,root,root,755)
@@ -3660,12 +3611,6 @@ rm -rf $RPM_BUILD_ROOT
 # zferyfikowac pliki z fontami
 %{texmf}/pdftex/config/context
 
-#%files format-pdfcslatex
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/pdfcslatex
-# jaki¶ problem z generowaniem
-#%config(noreplace) %verify(not md5 size mtime) /usr/share/texmf/web2c/pdfcslatex.fmt
-
 %files format-pdfplatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/platex
@@ -3819,38 +3764,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/plain/plnfss/plnfss.tex
 %{texmf}/tex/plain/plnfss/t5cmr.pfd
 %{texmf}/tex/plain/plnfss/t5vcmr.pfd
-
-%files cslatex
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/cstex/INSTALL.cslatex
-%doc %{texmf}/doc/cstex/README.cslatex
-%attr(755,root,root) %{_bindir}/cslatex
-%{texmf}/tex/cslatex
-%dir %{texmf}/tex/latex/cslatex
-%{texmf}/tex/latex/cslatex/cspsfont.il2
-%{texmf}/tex/latex/cslatex/cspsfont.tex
-%{texmf}/tex/latex/cslatex/cspsfont.xl2
-%{texmf}/tex/latex/cslatex/il2pag.fd
-%{texmf}/tex/latex/cslatex/il2pbk.fd
-%{texmf}/tex/latex/cslatex/il2pcr.fd
-%{texmf}/tex/latex/cslatex/il2phv.fd
-%{texmf}/tex/latex/cslatex/il2phvn.fd
-%{texmf}/tex/latex/cslatex/il2pnc.fd
-%{texmf}/tex/latex/cslatex/il2ppl.fd
-%{texmf}/tex/latex/cslatex/il2ptm.fd
-%{texmf}/tex/latex/cslatex/il2pzc.fd
-%{texmf}/tex/latex/cslatex/nhelvet.sty
-%{texmf}/tex/latex/cslatex/ntimes.sty
-%{texmf}/tex/latex/cslatex/xl2pag.fd
-%{texmf}/tex/latex/cslatex/xl2pbk.fd
-%{texmf}/tex/latex/cslatex/xl2pcr.fd
-%{texmf}/tex/latex/cslatex/xl2phv.fd
-%{texmf}/tex/latex/cslatex/xl2phvn.fd
-%{texmf}/tex/latex/cslatex/xl2pnc.fd
-%{texmf}/tex/latex/cslatex/xl2ppl.fd
-%{texmf}/tex/latex/cslatex/xl2ptm.fd
-%{texmf}/tex/latex/cslatex/xl2pzc.fd
-
 
 %files fontname
 %defattr(644,root,root,755)
