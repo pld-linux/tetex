@@ -1,9 +1,9 @@
---- tetex-src-beta-2.99.1.20041026/texk/tetex/Makefile.in.wiget	2004-09-27 22:21:38.000000000 +0200
-+++ tetex-src-beta-2.99.1.20041026/texk/tetex/Makefile.in	2004-11-03 11:12:07.231350361 +0100
-@@ -48,19 +48,19 @@
- 	  cweave.$(manext) odvicopy.$(manext) odvips.$(manext) \
- 	  odvitype.$(manext)
- 	cd $(man8dir); rm -f mktexfmt.8
+--- tetex-src-3.0/texk/tetex/Makefile.in.wiget	2005-02-04 23:20:54.000000000 +0100
++++ tetex-src-3.0/texk/tetex/Makefile.in	2005-02-07 14:14:53.286280104 +0100
+@@ -48,21 +48,21 @@
+ 	  cweave.$(manext) odvicopy.$(manext) \
+ 	  odvitype.$(manext) texconfig-sys.$(manext) \
+ 	  updmap-sys.$(manext) mktexfmt.$(manext) fmtutil-sys.$(manext)
 -	ln -s allcm.$(manext) $(man1dir)/allec.$(manext)
 -	ln -s mktexlsr.$(manext) $(man1dir)/texhash.$(manext)
 -	ln -s omega.$(manext) $(man1dir)/lambda.$(manext)
@@ -14,22 +14,26 @@
 -	ln -s cweb.$(manext) $(man1dir)/ctangle.$(manext)
 -	ln -s cweb.$(manext) $(man1dir)/cweave.$(manext)
 -	ln -s dvicopy.$(manext) $(man1dir)/odvicopy.$(manext)
--	ln -s dvips.$(manext) $(man1dir)/odvips.$(manext)
 -	ln -s dvitype.$(manext) $(man1dir)/odvitype.$(manext)
--	ln -s fmtutil.8 $(man8dir)/mktexfmt.8
-+	echo .so allcm.$(manext) > $(man1dir)/allec.$(manext)
-+	echo .so mktexlsr.$(manext) > $(man1dir)/texhash.$(manext)
-+	echo .so omega.$(manext) > $(man1dir)/lambda.$(manext)
-+	echo .so pdfetex.$(manext) > $(man1dir)/pdflatex.$(manext)
-+	echo .so kpsetool.$(manext) > $(man1dir)/kpsepath.$(manext)
-+	echo .so kpsetool.$(manext) > $(man1dir)/kpsexpand.$(manext)
-+	echo .so mf.$(manext) > $(man1dir)/mf-nowin.$(manext)
-+	echo .so cweb.$(manext) > $(man1dir)/ctangle.$(manext)
-+	echo .so cweb.$(manext) > $(man1dir)/cweave.$(manext)
-+	echo .so dvicopy.$(manext) > $(man1dir)/odvicopy.$(manext)
-+	echo .so dvips.$(manext) > $(man1dir)/odvips.$(manext)
-+	echo .so dvitype.$(manext) > $(man1dir)/odvitype.$(manext)
-+	echo .so fmtutil.8 > $(man8dir)/mktexfmt.8
+-	ln -s texconfig.$(manext) $(man1dir)/texconfig-sys.$(manext)
+-	ln -s updmap.$(manext) $(man1dir)/updmap-sys.$(manext)
+-	ln -s fmtutil.$(manext) $(man1dir)/mktexfmt.$(manext)
+-	ln -s fmtutil.$(manext) $(man1dir)/fmtutil-sys.$(manext)
++	echo .so allcm.$(manext) $(man1dir)/allec.$(manext)
++	echo .so mktexlsr.$(manext) $(man1dir)/texhash.$(manext)
++	echo .so omega.$(manext) $(man1dir)/lambda.$(manext)
++	echo .so pdfetex.$(manext) $(man1dir)/pdflatex.$(manext)
++	echo .so kpsetool.$(manext) $(man1dir)/kpsepath.$(manext)
++	echo .so kpsetool.$(manext) $(man1dir)/kpsexpand.$(manext)
++	echo .so mf.$(manext) $(man1dir)/mf-nowin.$(manext)
++	echo .so cweb.$(manext) $(man1dir)/ctangle.$(manext)
++	echo .so cweb.$(manext) $(man1dir)/cweave.$(manext)
++	echo .so dvicopy.$(manext) $(man1dir)/odvicopy.$(manext)
++	echo .so dvitype.$(manext) $(man1dir)/odvitype.$(manext)
++	echo .so texconfig.$(manext) $(man1dir)/texconfig-sys.$(manext)
++	echo .so updmap.$(manext) $(man1dir)/updmap-sys.$(manext)
++	echo .so fmtutil.$(manext) $(man1dir)/mktexfmt.$(manext)
++	echo .so fmtutil.$(manext) $(man1dir)/fmtutil-sys.$(manext)
  	test -r ./latex.info || cd $(srcdir) && for i in latex.info*; do \
  	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
  	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \

@@ -1,20 +1,19 @@
---- tetex-src-beta-2.99.1.20041026/texk/web2c/fmtutil.in.wiget	2004-10-05 07:08:28.000000000 +0200
-+++ tetex-src-beta-2.99.1.20041026/texk/web2c/fmtutil.in	2004-11-03 11:23:08.941701413 +0100
-@@ -38,11 +38,11 @@
+--- tetex-src-3.0/texk/web2c/fmtutil.in.wiget	2005-02-06 01:27:46.000000000 +0100
++++ tetex-src-3.0/texk/web2c/fmtutil.in	2005-02-07 14:19:18.162313703 +0100
+@@ -38,10 +38,10 @@
  
  # Change "tex.ini -> bplain.ini" and "- -> language.dat"
  # if you want babel support in tex:
 -tex		tex		-		-translate-file=cp227.tcx tex.ini
 +tex		tex		language.dat		-translate-file=cp227.tcx bplain.ini
- @ALEPH@aleph		aleph		-		*aleph.ini
  @PETEX@latex		pdfetex		language.dat	-translate-file=cp227.tcx *latex.ini
  @PETEX@etex		pdfetex		language.def	-translate-file=cp227.tcx *etex.ini
 -@PETEX@pdftex		pdfetex		-	-translate-file=cp227.tcx *pdftex.ini
 +@PETEX@pdftex		pdfetex		language.dat	-translate-file=cp227.tcx *pdfbplain.ini
  @PETEX@pdflatex	pdfetex		language.dat	-translate-file=cp227.tcx *pdflatex.ini
  @PETEX@pdfetex		pdfetex		language.def	-translate-file=cp227.tcx *pdfetex.ini
- @OMEGA@omega		omega		-	omega.ini
-@@ -53,32 +53,32 @@
+ #! pdfxlatex	pdfxtex		language.dat	-translate-file=cp227.tcx *pdfxlatex.ini
+@@ -55,32 +55,32 @@
  
  # Change "amstex.ini -> bamstex.ini" and "- -> language.dat"
  # if you want babel support in amstex:
@@ -59,9 +58,9 @@
 +utf8mex		pdfetex		mexconf.tex	-enc *utf8mex.ini
  
  # - Polish with translated messages (experimental):
- #! platex-pl	pdfetex		-		nls=tex-pl,il2-pl *platex.ini
-@@ -86,16 +86,16 @@
- #! pdfmex-pl	pdfetex		mexconf.tex	nls=pdftex-pl,il2-pl *pdfmex.ini
+ #! platex-pl	pdfetex		-		nls=pdfetex-pl,il2-pl *platex.ini
+@@ -88,16 +88,16 @@
+ #! pdfmex-pl	pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfmex.ini
  
  # - Czech / Slovak:
 -#! csplain	pdfetex		-		-translate-file=cp227.tcx *csplain.ini
