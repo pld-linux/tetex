@@ -6,14 +6,13 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	3
+Release:	4
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmf_ver}.tar.gz
-Source3:	dvi-to-ps.fpi
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	teTeX-hugelatex.cnf
@@ -305,8 +304,11 @@ Omega -- TeX ze wsprciem dla Unicode.
 Summary:	PDFtex 
 Summary(pl):	PDFtex 
 Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
 Group(pl):	Aplikacje/Publikowanie/TeX
+Requires:	%{name} = %{version}
+Group:		
+Group():	
+Group(pl):	Aplikacje/Komunikacja
 
 %description pdftex
 TeX generating PDFs instead DVI.
@@ -387,8 +389,8 @@ zainstalowaæ ten pakiet.
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
 Group:		Development/Libraries
-Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(fr):	Development/Librairies
 Requires:	%{name} = %{version}
 
 %description -n kpathsea-devel
@@ -465,7 +467,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers \
 	$RPM_BUILD_ROOT/var/cache/fonts \
-	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
 	$RPM_BUILD_ROOT/etc/cron.daily
 
 perl -pi \
@@ -540,7 +541,6 @@ cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 
 # install the new magic print filter for converting dvi to ps
-install %{SOURCE3} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 
@@ -1110,9 +1110,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files dvips 
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/rhs/rhs-printfilters/dvi-to-ps.fpi
-
-%attr(-,root,root) %{_datadir}/texmf/dvips
+%{_datadir}/texmf/dvips
 
 %{_datadir}/texmf/tex/generic/pstricks/dvipsone.con
 %{_datadir}/texmf/tex/generic/xypic/xydvips.tex
