@@ -9,7 +9,7 @@
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
 
-%define tversion 2.99.4.20041128
+%define tversion 2.99.6.20041211
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -20,16 +20,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.99.4.20041128
+Version:	2.99.6.20041211
 Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
 Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-%{version}-beta.tar.gz
-# Source0-md5:	c88f46b952e7f049f0052e91c3191a47
+# Source0-md5:	af68b9a811c71fc0bdbca9b8cf65534e
 Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-%{tversion}-beta.tar.gz
-# Source1-md5:	cec74b153a9d23ba17c463ec53d71eeb
+# Source1-md5:	379f7da224c568c72b93e131ef0bdd19
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
@@ -4368,7 +4368,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/texdoc
 %attr(755,root,root) %{_bindir}/texhash
 %attr(755,root,root) %{_bindir}/texi2html
-%attr(755,root,root) %{_bindir}/texi2pdf
 %attr(755,root,root) %{_bindir}/texlinks
 %attr(755,root,root) %{_bindir}/tftopl
 %attr(755,root,root) %{_bindir}/tie
@@ -4527,7 +4526,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/texdoc.1*
 %{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
-%{_mandir}/man1/texi2pdf.1*
 %{_mandir}/man1/tftopl.1*
 %{_mandir}/man1/tie.1*
 %{_mandir}/man1/updmap.1*
