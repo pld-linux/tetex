@@ -110,8 +110,8 @@ document ; au lieu de cela, tout est fait par des balises : « début de
 section », « gras ».
 
 %description -l pl latex
-LaTeX jest zestawem makr TeXowych. Makra LaTeX macros u³atwiaj± pisz±cym
-my¶lenie o zawarto¶ci dokumentu, zamiast o jego wygl±dzie.  Idealny, bardzo
+LaTeX jest zestawem makr TeXowych. Makra LaTeXa u³atwiaj± pisz±cym
+my¶lenie o zawarto¶ci dokumentu, zamiast o jego wygl±dzie. Idealny, bardzo
 trudny do implementacji system nie powinien posiadaæ komend formatuj±cych
 (takich jak ,,pisz kursyw±'', czy prze³±cz na font 8 punktowy) a jedynie
 polecenia znakuj±ce takie jak np. podkre¶l, czy zacznij sekcjê. LaTeX powoli
@@ -141,6 +141,11 @@ Prereq:		%{_bindir}/texhash
 The program dvips takes a DVI file file[.dvi] produced by TeX (or by some
 other processor such as GFtoDVI) and converts it to PostScript, normally
 sending the result directly to the laserprinter.
+
+%description -l pl dvips
+Program dvips bierze plik DVI wygenerowany przez TeXa (lub jaki¶ inny
+program, jak na przyk³ad GFtoDVI) i konwertuje go do PostScriptu. Domy¶lnie
+wynik jest wysy³any bezpo¶rednio do drukarki.
 
 %description -l de dvips
 Das dvips-Programm nimmt eine dvi-Datei ([.dvi]), die von TeX bzw. durch
@@ -252,7 +257,7 @@ Prereq:		%{_bindir}/texhash
 American Mathematics Society macros for plainTeX and LaTeX. 
 
 %description -l pl ams
-Makra American Mathematics Society do sk³adania z publikacji matematycznych.
+Makra American Mathematics Society do sk³adania publikacji matematycznych.
 
 %package bibtex 
 Summary:	LaTeX macro package
@@ -304,7 +309,7 @@ Group(pl):	Aplikacje/Publikowanie/TeX
 TeX generating PDFs instead DVI.
 
 %description -l pl pdftex
-pdfTeX generuje zamiast DVI pliki PDF.
+PDFTeX generuje pliki PDF na podstawie plików DVI.
 
 %package -n xdvi
 Summary:	X11 previewer
@@ -331,7 +336,7 @@ xdvi est un programme s'exécutant sous le système X Window. Il sert à
 visualiser les fichiers dvi tels que ceux produits par tex et latex.
 
 %description -l pl -n xdvi
-xdvi jest programem (dzia³aj±cym w X Window System) do przegl±dania plików
+Xdvi jest programem (dzia³aj±cym w X Window System) do przegl±dania plików
 DVI, produkowanych przez TeXa i LaTeXa.
 
 %package fonts
@@ -347,6 +352,10 @@ the TeX text formatting system.
 You will need to install tetex-fonts if you wish to use either tetex-xdvi
 (for previewing .dvi files in X) or the tetex package (the core of the TeX
 text formatting system).
+
+%description -l pl fonts
+Pakiet tetex-fonts zawiera czcionki u¿ywane przez TeXa oraz Xdvi. Je¿eli
+chcesz korzystaæ z którego¶ z tych programów, musisz zainstalowaæ ten pakiet.
 
 %package doc
 Summary:	The documentation files for the TeX text formatting system.
@@ -366,6 +375,10 @@ tetex-dvips (for converting .dvi files to PostScript format for printing on
 PostScript printers), tetex-latex (a higher level formatting package which
 provides an easier-to-use interface for TeX) and tetex-xdvi (for previewing
 .dvi files).
+
+%description -l pl doc
+Dokumentacja do TeXa. Je¿eli chcesz korzystaæ z TeXa to powiniene¶
+zainstalowaæ ten pakiet.
 
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
