@@ -9,6 +9,7 @@
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
 # - add esint fonts  
+# - add format-lamed
 
 %define tversion 2.99.6.20041211
 
@@ -3210,7 +3211,11 @@ rm -rf $RPM_BUILD_ROOT%{texmf}/tex/latex/{beamer,pgf,xcolor}
 rm -rf $RPM_BUILD_ROOT%{texmf}/doc/latex/{beamer,pgf,xcolor}
 
 # not included in package
-rm -f $RPM_BUILD_ROOT${texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
+rm -f $RPM_BUILD_ROOT%{texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/programs/texinfo.*
+rm -f $RPM_BUILD_ROOT%{texmf}/release-tetex-{src,texmf}.txt
+rm -f $RPM_BUILD_ROOT%{_infodir}/dir.gz
+rm -f $RPM_BUILD_ROOT%{_mandir}/{README.*,hu/man1/readlink.1*}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -5228,11 +5233,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/leftidx/
 %{texmf}/tex/latex/lettrine/
 %doc %{texmf}/doc/latex/lettrine/
-%{texmf}/tex/latex/listings
+%{texmf}/tex/latex/listings/
+%{texmf}/tex/latex/ltabptch/
 %{texmf}/tex/latex/mathcomp/
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
 %doc %{texmf}/doc/latex/memoir/
+%{texmf}/tex/latex/mh
+%doc %{texmf}/doc/latex/mh
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
 %doc %{texmf}/doc/latex/mparhack/
