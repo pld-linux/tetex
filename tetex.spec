@@ -1157,6 +1157,7 @@ pdfetex
 %package pdfelatex
 Summary:	pdfelatex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -1197,6 +1198,7 @@ pdftex-context
 %package pdflatex
 Summary:	pdflatex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -1219,6 +1221,7 @@ pdfmex
 %package pdfplatex
 Summary:	pdfplatex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -1389,6 +1392,7 @@ doc-latex2e-html
 %package platex
 Summary:	platex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -2001,6 +2005,7 @@ cslatex
 %package pdfcslatex
 Summary:	pdfcslatex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -2182,6 +2187,7 @@ eplain
 %package elatex
 Summary:	elatex
 Group:		Applications/Publishing/TeX
+Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
