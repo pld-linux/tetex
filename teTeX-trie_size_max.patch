@@ -28,3 +28,18 @@
  
  % Buffer size.  TeX uses the buffer to contain input lines, but macro
  % expansion works by writing material into the buffer and reparsing the
+
+--- teTeX-src-beta-20020530/texk/web2c/omegadir/com16bit.ch.wiget	Mon Jul  1 22:05:09 2002
++++ teTeX-src-beta-20020530/texk/web2c/omegadir/com16bit.ch	Mon Jul  1 22:07:04 2002
+@@ -133,8 +133,8 @@
+ @d ssup_error_line = 255
+ @d ssup_max_strings ==200000
+ {Larger values may be used, but then the arrays consume much more memory.}
+-@d ssup_trie_opcode == 65535
+-@d ssup_trie_size == 100000
++@d ssup_trie_opcode == 262143
++@d ssup_trie_size == 1048575
+ 
+ @d ssup_hyph_size == 65535 {Changing this requires changing (un)dumping!}
+ @d iinf_hyphen_size == 610 {Must be not less than |hyph_prime|!}
+
