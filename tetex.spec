@@ -4,8 +4,8 @@ Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
 Name:		tetex
-Version:	0.9
-Release:	17
+Version:	1.0
+Release:	1
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Source0:	ftp://ftp.rrzn.uni-hannover.de/pub/local/misc/teTeX-beta/teTeX-src-%{version}.tar.gz
