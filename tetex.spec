@@ -346,6 +346,7 @@ cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
 make install prefix=$RPM_BUILD_ROOT/usr \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	mandir=$RPM_BUILD_ROOT/%{_mandir} \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
@@ -356,6 +357,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 cd texk/tetex
 make install prefix=$RPM_BUILD_ROOT/usr \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	mandir=$RPM_BUILD_ROOT/%{_mandir} \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
@@ -366,6 +368,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
 cd ../ps2pkm 
 make install prefix=$RPM_BUILD_ROOT/usr \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	mandir=$RPM_BUILD_ROOT/%{_mandir} \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
@@ -378,6 +381,7 @@ install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
 make init prefix=$RPM_BUILD_ROOT/usr \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	mandir=$RPM_BUILD_ROOT/%{_mandir} \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir} \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
