@@ -358,7 +358,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../..
-install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT/usr/bin	
+install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}	
 
 make init prefix=$RPM_BUILD_ROOT/usr \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
@@ -394,53 +394,53 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/install-info %{_infodir}/web2c.info.gz /etc/info-dir
 /sbin/install-info %{_infodir}/kpathsea.info.gz /etc/info-dir
 
-/usr/bin/env - /usr/bin/texhash 2> /dev/null
+%{_bindir}/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %post latex
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 /sbin/install-info %{_infodir}/latex.info.gz /etc/info-dir
 exit 0
 
 %post xdvi
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %post dvips
 /sbin/install-info %{_infodir}/dvips.info.gz /etc/info-dir
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %post dvilj
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %post afm
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun latex
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun xdvi
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun dvips
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun dvilj
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %postun afm
-[ -x /usr/bin/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
+[ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
 %preun
@@ -468,84 +468,84 @@ fi
 #%config %{_datadir}/texmf/web2c/mktex.cnf
 #%config %{_datadir}/texmf/web2c/texmf.cnf
 
-%attr(755,root,root) /usr/bin/MakeTeXPK
-%attr(755,root,root) /usr/bin/access
-%attr(755,root,root) /usr/bin/all*
-%attr(755,root,root) /usr/bin/cont-de
-%attr(755,root,root) /usr/bin/cont-en
-%attr(755,root,root) /usr/bin/cont-nl
-%attr(755,root,root) /usr/bin/dmp
-%attr(755,root,root) /usr/bin/dvi2fax
-%attr(755,root,root) /usr/bin/dvicopy
-%attr(755,root,root) /usr/bin/dvihp
-%attr(755,root,root) /usr/bin/dvired
-%attr(755,root,root) /usr/bin/dvitomp
-%attr(755,root,root) /usr/bin/dvitype
-%attr(755,root,root) /usr/bin/fontexport
-%attr(755,root,root) /usr/bin/fontimport
-%attr(755,root,root) /usr/bin/fontinst
-%attr(755,root,root) /usr/bin/gftodvi
-%attr(755,root,root) /usr/bin/gftopk
-%attr(755,root,root) /usr/bin/gftype
-%attr(755,root,root) /usr/bin/gsftopk
-%attr(755,root,root) /usr/bin/inimf
-%attr(755,root,root) /usr/bin/inimpost
-%attr(755,root,root) /usr/bin/initex
-%attr(755,root,root) /usr/bin/kpsepath
-%attr(755,root,root) /usr/bin/kpsestat
-%attr(755,root,root) /usr/bin/kpsetool
-%attr(755,root,root) /usr/bin/kpsewhich
-%attr(755,root,root) /usr/bin/kpsexpand
-%attr(755,root,root) /usr/bin/lambda
-%attr(755,root,root) /usr/bin/mag
-%attr(755,root,root) /usr/bin/makeindex
-%attr(755,root,root) /usr/bin/makempx
-%attr(755,root,root) /usr/bin/mf
-%attr(755,root,root) /usr/bin/mft
-%attr(755,root,root) /usr/bin/mkfontdesc
-%attr(755,root,root) /usr/bin/mkindex
-%attr(755,root,root) /usr/bin/mkocp
-%attr(755,root,root) /usr/bin/mkofm
-%attr(755,root,root) /usr/bin/mktexlsr
-%attr(755,root,root) /usr/bin/mktexmf
-%attr(755,root,root) /usr/bin/mktexpk
-%attr(755,root,root) /usr/bin/mktextfm
-%attr(755,root,root) /usr/bin/mpost
-%attr(755,root,root) /usr/bin/mpto
-%attr(755,root,root) /usr/bin/newer
-%attr(755,root,root) /usr/bin/odvicopy
-%attr(755,root,root) /usr/bin/odvitype
-%attr(755,root,root) /usr/bin/ofm2opl
-%attr(755,root,root) /usr/bin/opl2ofm
-%attr(755,root,root) /usr/bin/otangle
-%attr(755,root,root) /usr/bin/otp2ocp
-%attr(755,root,root) /usr/bin/outocp
-%attr(755,root,root) /usr/bin/ovf2ovp
-%attr(755,root,root) /usr/bin/ovp2ovf
-%attr(755,root,root) /usr/bin/patgen
-%attr(755,root,root) /usr/bin/pfb2pfa
-%attr(755,root,root) /usr/bin/pk2bm
-%attr(755,root,root) /usr/bin/pktogf
-%attr(755,root,root) /usr/bin/pktype
-%attr(755,root,root) /usr/bin/pltotf
-%attr(755,root,root) /usr/bin/pooltype
-%attr(755,root,root) /usr/bin/ps2frag
-%attr(755,root,root) /usr/bin/ps2pk
-%attr(755,root,root) /usr/bin/readlink
-%attr(755,root,root) /usr/bin/tangle
-%attr(755,root,root) /usr/bin/tex
-%attr(755,root,root) /usr/bin/texconfig
-%attr(755,root,root) /usr/bin/texhash
-%attr(755,root,root) /usr/bin/texi2html
-%attr(755,root,root) /usr/bin/texi2pdf
-%attr(755,root,root) /usr/bin/tftopl
-%attr(755,root,root) /usr/bin/tie
-%attr(755,root,root) /usr/bin/vftovp
-%attr(755,root,root) /usr/bin/virmf
-%attr(755,root,root) /usr/bin/virmpost
-%attr(755,root,root) /usr/bin/virtex
-%attr(755,root,root) /usr/bin/vptovf
-%attr(755,root,root) /usr/bin/weave
+%attr(755,root,root) %{_bindir}/MakeTeXPK
+%attr(755,root,root) %{_bindir}/access
+%attr(755,root,root) %{_bindir}/all*
+%attr(755,root,root) %{_bindir}/cont-de
+%attr(755,root,root) %{_bindir}/cont-en
+%attr(755,root,root) %{_bindir}/cont-nl
+%attr(755,root,root) %{_bindir}/dmp
+%attr(755,root,root) %{_bindir}/dvi2fax
+%attr(755,root,root) %{_bindir}/dvicopy
+%attr(755,root,root) %{_bindir}/dvihp
+%attr(755,root,root) %{_bindir}/dvired
+%attr(755,root,root) %{_bindir}/dvitomp
+%attr(755,root,root) %{_bindir}/dvitype
+%attr(755,root,root) %{_bindir}/fontexport
+%attr(755,root,root) %{_bindir}/fontimport
+%attr(755,root,root) %{_bindir}/fontinst
+%attr(755,root,root) %{_bindir}/gftodvi
+%attr(755,root,root) %{_bindir}/gftopk
+%attr(755,root,root) %{_bindir}/gftype
+%attr(755,root,root) %{_bindir}/gsftopk
+%attr(755,root,root) %{_bindir}/inimf
+%attr(755,root,root) %{_bindir}/inimpost
+%attr(755,root,root) %{_bindir}/initex
+%attr(755,root,root) %{_bindir}/kpsepath
+%attr(755,root,root) %{_bindir}/kpsestat
+%attr(755,root,root) %{_bindir}/kpsetool
+%attr(755,root,root) %{_bindir}/kpsewhich
+%attr(755,root,root) %{_bindir}/kpsexpand
+%attr(755,root,root) %{_bindir}/lambda
+%attr(755,root,root) %{_bindir}/mag
+%attr(755,root,root) %{_bindir}/makeindex
+%attr(755,root,root) %{_bindir}/makempx
+%attr(755,root,root) %{_bindir}/mf
+%attr(755,root,root) %{_bindir}/mft
+%attr(755,root,root) %{_bindir}/mkfontdesc
+%attr(755,root,root) %{_bindir}/mkindex
+%attr(755,root,root) %{_bindir}/mkocp
+%attr(755,root,root) %{_bindir}/mkofm
+%attr(755,root,root) %{_bindir}/mktexlsr
+%attr(755,root,root) %{_bindir}/mktexmf
+%attr(755,root,root) %{_bindir}/mktexpk
+%attr(755,root,root) %{_bindir}/mktextfm
+%attr(755,root,root) %{_bindir}/mpost
+%attr(755,root,root) %{_bindir}/mpto
+%attr(755,root,root) %{_bindir}/newer
+%attr(755,root,root) %{_bindir}/odvicopy
+%attr(755,root,root) %{_bindir}/odvitype
+%attr(755,root,root) %{_bindir}/ofm2opl
+%attr(755,root,root) %{_bindir}/opl2ofm
+%attr(755,root,root) %{_bindir}/otangle
+%attr(755,root,root) %{_bindir}/otp2ocp
+%attr(755,root,root) %{_bindir}/outocp
+%attr(755,root,root) %{_bindir}/ovf2ovp
+%attr(755,root,root) %{_bindir}/ovp2ovf
+%attr(755,root,root) %{_bindir}/patgen
+%attr(755,root,root) %{_bindir}/pfb2pfa
+%attr(755,root,root) %{_bindir}/pk2bm
+%attr(755,root,root) %{_bindir}/pktogf
+%attr(755,root,root) %{_bindir}/pktype
+%attr(755,root,root) %{_bindir}/pltotf
+%attr(755,root,root) %{_bindir}/pooltype
+%attr(755,root,root) %{_bindir}/ps2frag
+%attr(755,root,root) %{_bindir}/ps2pk
+%attr(755,root,root) %{_bindir}/readlink
+%attr(755,root,root) %{_bindir}/tangle
+%attr(755,root,root) %{_bindir}/tex
+%attr(755,root,root) %{_bindir}/texconfig
+%attr(755,root,root) %{_bindir}/texhash
+%attr(755,root,root) %{_bindir}/texi2html
+%attr(755,root,root) %{_bindir}/texi2pdf
+%attr(755,root,root) %{_bindir}/tftopl
+%attr(755,root,root) %{_bindir}/tie
+%attr(755,root,root) %{_bindir}/vftovp
+%attr(755,root,root) %{_bindir}/virmf
+%attr(755,root,root) %{_bindir}/virmpost
+%attr(755,root,root) %{_bindir}/virtex
+%attr(755,root,root) %{_bindir}/vptovf
+%attr(755,root,root) %{_bindir}/weave
 
 /usr/include/kpathsea/*
 
@@ -806,8 +806,8 @@ fi
 %{_datadir}/texmf/tex/generic/xypic/xylatex.ini
 %{_datadir}/texmf/tex/latex/*
 
-%attr(755,root,root) /usr/bin/latex
-%attr(755,root,root) /usr/bin/pslatex
+%attr(755,root,root) %{_bindir}/latex
+%attr(755,root,root) %{_bindir}/pslatex
 
 %{_mandir}/man1/latex.1.*
 %{_mandir}/man1/pdflatex.1.*
@@ -815,7 +815,7 @@ fi
 %{_infodir}/latex.info*
 
 %doc %{_datadir}/texmf/doc/latex
-%attr(755,root,root) /usr/bin/bibtex
+%attr(755,root,root) %{_bindir}/bibtex
 %{_mandir}/man1/bibtex.1.*
 
 %{_datadir}/texmf/bibtex/bib/*
@@ -829,13 +829,13 @@ fi
 %files etex
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/bin/elatex
+%attr(755,root,root) %{_bindir}/elatex
 %{_mandir}/man1/elatex.1.*
 
-%attr(755,root,root) /usr/bin/einitex
-%attr(755,root,root) /usr/bin/eplain
-%attr(755,root,root) /usr/bin/etex
-%attr(755,root,root) /usr/bin/evirtex
+%attr(755,root,root) %{_bindir}/einitex
+%attr(755,root,root) %{_bindir}/eplain
+%attr(755,root,root) %{_bindir}/etex
+%attr(755,root,root) %{_bindir}/evirtex
 
 %{_mandir}/man1/einitex.1.*
 %{_mandir}/man1/eplain.1.*
@@ -849,9 +849,9 @@ fi
 %files omega 
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/bin/iniomega
-%attr(755,root,root) /usr/bin/omega
-%attr(755,root,root) /usr/bin/viromega
+%attr(755,root,root) %{_bindir}/iniomega
+%attr(755,root,root) %{_bindir}/omega
+%attr(755,root,root) %{_bindir}/viromega
 %{_mandir}/man1/iniomega.1.*
 %{_mandir}/man1/omega.1.*
 %{_mandir}/man1/viromega.1.*
@@ -870,16 +870,16 @@ fi
 
 %doc %{_datadir}/texmf/doc/omega
 
-%attr(755,root,root) /usr/bin/odvips
-%attr(755,root,root) /usr/bin/oxdvi
-%attr(755,root,root) /usr/bin/oxdvi.bin
+%attr(755,root,root) %{_bindir}/odvips
+%attr(755,root,root) %{_bindir}/oxdvi
+%attr(755,root,root) %{_bindir}/oxdvi.bin
 
 %files pdftex 
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/bin/pdfinitex
-%attr(755,root,root) /usr/bin/pdftex
-%attr(755,root,root) /usr/bin/pdfvirtex
+%attr(755,root,root) %{_bindir}/pdfinitex
+%attr(755,root,root) %{_bindir}/pdftex
+%attr(755,root,root) %{_bindir}/pdfvirtex
 %{_mandir}/man1/pdfinitex.1.*
 %{_mandir}/man1/pdftex.1.*
 %{_mandir}/man1/pdfvirtex.1.*
@@ -891,7 +891,7 @@ fi
 
 %config %{_datadir}/texmf/pdftex/latex/config/pdflatex.ini
 
-%attr(755,root,root) /usr/bin/pdflatex 
+%attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
 
 %files xdvi 
@@ -899,8 +899,8 @@ fi
 
 %config /etc/X11/wmconfig/xdvi
 
-%attr(755,root,root) /usr/bin/xdvi.bin
-%attr(755,root,root) /usr/bin/xdvi
+%attr(755,root,root) %{_bindir}/xdvi.bin
+%attr(755,root,root) %{_bindir}/xdvi
 
 %{_mandir}/man1/xdvi.1.*
 %{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
@@ -922,7 +922,7 @@ fi
 
 %doc %{_datadir}/texmf/tex/latex/dvips/README
 
-%attr(755,root,root) /usr/bin/dvips
+%attr(755,root,root) %{_bindir}/dvips
 %{_mandir}/man1/dvips.1.*
 
 %{_infodir}/dvips.info*
@@ -931,10 +931,10 @@ fi
 %defattr(644,root,root,755)
 %{_datadir}/texmf/tex/latex/dvilj/*.sty
 
-%attr(755,root,root) /usr/bin/dvilj
-%attr(755,root,root) /usr/bin/dvilj2p
-%attr(755,root,root) /usr/bin/dvilj4
-%attr(755,root,root) /usr/bin/dvilj4l
+%attr(755,root,root) %{_bindir}/dvilj
+%attr(755,root,root) %{_bindir}/dvilj2p
+%attr(755,root,root) %{_bindir}/dvilj4
+%attr(755,root,root) %{_bindir}/dvilj4l
 %{_mandir}/man1/dvilj.1.*
 
 %files afm 
@@ -942,13 +942,13 @@ fi
 
 %{_datadir}/texmf/fonts/afm/*
 
-%attr(755,root,root) /usr/bin/afm2tfm
+%attr(755,root,root) %{_bindir}/afm2tfm
 %{_mandir}/man1/afm2tfm.1.*
 
 %files ams 
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/bin/amstex
+%attr(755,root,root) %{_bindir}/amstex
 %{_mandir}/man1/amstex.1.*
 
 %{_datadir}/texmf/fonts/source/ams/cmextra/*
