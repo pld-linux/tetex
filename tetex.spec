@@ -1,5 +1,6 @@
 #
 # TODO:
+# - eurosym fonts subpackage (as missing files, now)
 # - context: review package splitting
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
@@ -4103,6 +4104,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/fontinst
 %{texmf}/tex/generic/hyphen
 %{texmf}/tex/texinfo
+%{texmf}/tex/enctex
 %{texmf}/web2c/*.tcx
 %{texmf}/web2c/metafun.mem
 %{texmf}/web2c/tex-pl.pool
@@ -4316,6 +4318,7 @@ rm -rf $RPM_BUILD_ROOT
 %files dvips
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
+%doc %{texmf}/dvipdfm/README*
 %attr(755,root,root) %{_bindir}/dvips
 %attr(755,root,root) %{_bindir}/dvired
 %attr(755,root,root) %{_bindir}/dvitomp
@@ -4363,6 +4366,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/tetex/mtex.enc
 %{texmf}/dvips/tetex/pdftex35.map
 %{texmf}/dvips/tetex/ttcmex.map
+
+%dir %{texmf}/dvipdfm
 %{texmf}/dvipdfm/config
 
 %files dvilj
@@ -5280,6 +5285,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-lh
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/lh
+%{texmf}/fonts/tfm/lh
 
 %files fonts-marvosym
 %defattr(644,root,root,755)
