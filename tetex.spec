@@ -47,6 +47,10 @@ URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
 Prereq:		/sbin/ldconfig
+Prereq:		sed
+Prereq:		awk
+Prereq:		textutils
+Prereq:		sh-utils
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
 #BuildRequires:	libwww-devel
