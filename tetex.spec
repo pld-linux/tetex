@@ -12,7 +12,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _)
-Release:	11
+Release:	12
 License:	distributable
 Group:		Applications/Publishing/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
@@ -926,9 +926,9 @@ exit 0
 %dir %{_datadir}/texmf/context/config
 %dir %{_datadir}/texmf/context/data
 %config %{_datadir}/texmf/context/config/texexec.ini
-%lang(cz) %{_datadir}/texmf/context/data/cont-cz.tws
+%lang(cs) %{_datadir}/texmf/context/data/cont-cz.tws
 %lang(de) %{_datadir}/texmf/context/data/cont-de.tws
-%lang(en) %{_datadir}/texmf/context/data/cont-en.tws
+%{_datadir}/texmf/context/data/cont-en.tws
 %lang(nl) %{_datadir}/texmf/context/data/cont-nl.tws
 
 %{_datadir}/texmf/context/perltk
