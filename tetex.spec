@@ -547,7 +547,7 @@ fi
 %attr(755,root,root) %{_bindir}/vptovf
 %attr(755,root,root) %{_bindir}/weave
 
-/usr/include/kpathsea/*
+%{_includedir}/kpathsea/*
 
 %{_infodir}/kpathsea.info*
 %{_infodir}/web2c.info*
