@@ -3001,7 +3001,8 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
-	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/
+	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/ \
+	$RPM_BUILD_ROOT%{_texmf}/tex/latex/listings/
 
 # commented out because of following (non-fatal) error:
 # Can't open texmf/web2c/texmf.cnf: No such file or directory.
