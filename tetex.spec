@@ -20,7 +20,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -80,7 +80,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ; 
 %define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ; 
 
-%define 	_noautoreqdep perl\\(path_tre\\)
+%define 	_noautoreqdep 'perl(path_tre)'
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -1027,7 +1027,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
-Requires:	%{name}-fonts-mathpple = %{version}
+Requires:	%{name}-fonts-adobe = %{version}
 
 %description latex-mathpple
 The package defines the PostScript font family `Palatino' (ppl) as the
@@ -1287,7 +1287,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-platex = %{version}
-Requires:	%{name}-type1-fonts-pl = %{version}
+Requires:	%{name}-fonts-type1-pl = %{version}
 
 %description format-pdfplatex
 PDF PLaTeX format.
@@ -1730,19 +1730,6 @@ currency symbol as defined by the European commission; Euro currency
 symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
 engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
 planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
-
-%package fonts-mathpple
-Summary:	Use PostScript Palatino for typesetting maths
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-mathpple
-The package defines the PostScript font family `Palatino' (ppl) as the
-default roman font and then uses the `mathpple' fonts for typesetting math.
-These virtual fonts have been created for typesetting math in a style that
-suits the Palatino text fonts.  The AMS fonts, when used additionally, will
-be scaled to fit Palatino.
 
 %package fonts-mflogo
 Summary:	Logo fonts
@@ -3006,12 +2993,6 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %texhash
 
 %postun fonts-marvosym
-%texhash
-
-%post fonts-mathpple
-%texhash
-
-%postun fonts-mathpple
 %texhash
 
 %post fonts-mflogo
