@@ -1,0 +1,11 @@
+--- texk/tetex/Makefile.in~	2003-06-30 17:48:26.000000000 +0000
++++ texk/tetex/Makefile.in	2003-06-30 18:25:55.000000000 +0000
+@@ -12,7 +12,7 @@
+ PDFSCRIPTS=e2pall epstopdf texi2pdf thumbpdf
+ manpgs= allcm allec allneeded dvi2fax dvired e2pall epstopdf fontexport fontimport fontinst kpsetool ps2frag pslatex rubibtex rumakeindex texconfig texdoc texexec texi2html texi2pdf texshow texutil thumbpdf texdoctk updmap
+ 
+-INFOFILES= latex.info latex.info-1 latex.info-2 latex.info-3
++INFOFILES= latex.info
+ POOLFILES = etex-pl.pool pdfetex-pl.pool pdftex-pl.pool tex-pl.pool
+ all: $(SCRIPTS) $(PDFSCRIPTS)
+ default: all
