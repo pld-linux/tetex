@@ -17,7 +17,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.0.1
+Version:	2.0.2
 Release:	0.1
 Epoch:		1
 License:	distributable
@@ -4249,7 +4249,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/fancy*
 %{texmf}/doc/latex/float*
 %{texmf}/doc/latex/footmisc
-%{texmf}/doc/latex/g-brief
+#%{texmf}/doc/latex/g-brief
 %{texmf}/doc/latex/geometry
 %{texmf}/doc/latex/graphics
 %{texmf}/doc/latex/hyperref
@@ -4355,7 +4355,6 @@ rm -rf $RPM_BUILD_ROOT
 %files dvips
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
-%doc %{texmf}/dvipdfm/README*
 %doc %{texmf}/doc/latex/psnfssx
 %attr(755,root,root) %{_bindir}/dvips
 %attr(755,root,root) %{_bindir}/dvired
@@ -4832,7 +4831,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancy*
 %{texmf}/tex/latex/fp
-%{texmf}/tex/latex/g-brief
+#%{texmf}/tex/latex/g-brief
 %{texmf}/tex/latex/graphics
 %{texmf}/tex/latex/hyperref
 %{texmf}/tex/latex/koma-script
