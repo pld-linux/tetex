@@ -27,7 +27,7 @@ Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-s
 # Source0-md5: a16f6bba227d55e79aeee46fbbd82d28
 Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-texmf-%{version}.tar.gz
 # Source1-md5: d3bdb96f9077e43b2115d3cc471743b3
-Source3:	%{name}-non-english-man-pages.tar.bz2
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5: dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
