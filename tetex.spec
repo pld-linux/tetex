@@ -17,6 +17,7 @@ Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-arm.patch
+Patch4:		teTeX-info.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -308,6 +309,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 sh ./reautoconf
@@ -334,7 +336,6 @@ cd ../ps2pkm
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
