@@ -457,9 +457,9 @@ tar xzf %{SOURCE2} -C texmf
 %patch16 -p1
 
 %build
-sh ./reautoconf
+#sh ./reautoconf
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
-%configure \
+%configure2_13 \
 	--with-system-ncurses \
 	--with-system-zlib \
 	--with-system-pnglib \
