@@ -1,88 +1,82 @@
---- tetex-src-2.0/texk/web2c/fmtutil.in	Sun Jan 26 23:24:30 2003
-+++ tetex-src-2.0/texk/web2c/fmtutil.in.new	Tue Feb  4 22:20:16 2003
-@@ -39,7 +39,7 @@
+--- tetex-src-beta-2.96.7.20040721/texk/web2c/fmtutil.in.orig	2004-09-11 14:47:38.611521144 +0200
++++ tetex-src-beta-2.96.7.20040721/texk/web2c/fmtutil.in	2004-09-11 14:53:29.254215352 +0200
+@@ -38,11 +38,11 @@
  
  # Change "tex.ini -> bplain.ini" and "- -> language.dat"
  # if you want babel support in tex:
--tex		@TEXBIN@		-		tex.ini
-+tex		@TEXBIN@		language.dat	bplain.ini
- # Change "tex -> etex" and "latex.ini -> *latex.ini" to get an
- # eTeX-2 enabled LaTeX format named latex. Or, don't change anything
- # and use elatex which is just the same.
-@@ -48,7 +48,7 @@
- @ETEX@elatex		etex		language.dat	*elatex.ini
- # Change "pdftex.ini -> pdfbplain.ini" and "- -> language.dat"
- # if you want babel support in pdftex:
--@PTEX@pdftex		pdftex		-	pdftex.ini
-+@PTEX@pdftex		pdftex		language.dat	pdfbplain.ini
- @PTEX@pdflatex	pdftex		language.dat	pdflatex.ini
- @PETEX@pdfetex		pdfetex		language.def	*pdfetex.ini
- @PETEX@pdfelatex	pdfetex		language.dat	*pdfelatex.ini
-@@ -59,32 +59,32 @@
+-tex		tex		-		-8bit tex.ini
++tex		tex		language.data		-8bit bplain.ini
+ @ALEPH@aleph		aleph		-		*aleph.ini
+ @PETEX@latex		pdfetex		language.dat	-8bit *latex.ini
+ @PETEX@etex		pdfetex		language.def	-8bit *etex.ini
+-@PETEX@pdftex		pdfetex		-	-8bit *pdftex.ini
++@PETEX@pdftex		pdfetex		language.data	-8bit *pdfbplain.ini
+ @PETEX@pdflatex	pdfetex		language.dat	-8bit *pdflatex.ini
+ @PETEX@pdfetex		pdfetex		language.def	-8bit *pdfetex.ini
+ @OMEGA@omega		omega		-	omega.ini
+@@ -52,31 +52,31 @@
  
  # Change "amstex.ini -> bamstex.ini" and "- -> language.dat"
  # if you want babel support in amstex:
--#! amstex	@TEXBIN@		-		amstex.ini
-+amstex	@TEXBIN@		language.dat	bamstex.ini
+-#! amstex	pdfetex		-		-8bit *amstex.ini
++amstex	pdfetex		language.data		-8bit *bamstex.ini
  
  # Change "pdfamstex.ini -> pdfbamstex.ini" and "- -> language.dat"
  # if you want babel support in pdfamstex:
--#! pdfamstex	pdftex			-	pdfamstex.ini
-+pdfamstex	pdftex		language.dat	pdfbamstex.ini
+-#! pdfamstex	pdfetex			-	-8bit *pdfamstex.ini
++pdfamstex	pdfetex			language.data	-8bit *pdfbamstex.ini
  
  # Context formats:
- #! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
--#! cont-de	pdfetex		cont-usr.tex	*cont-de.ini
-+cont-de	pdfetex		cont-usr.tex	*cont-de.ini
- @PETEX@cont-en	pdfetex		cont-usr.tex	*cont-en.ini
--#! cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
--#! cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
-+cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
-+cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
+ #! cont-cz	pdfetex		cont-usr.tex	-8bit *cont-cz.ini
+-#! cont-de	pdfetex		cont-usr.tex	-8bit *cont-de.ini
++cont-de	pdfetex		cont-usr.tex	-8bit *cont-de.ini
+ @PETEX@cont-en	pdfetex		cont-usr.tex	-8bit *cont-en.ini
+-#! cont-nl	pdfetex		cont-usr.tex	-8bit *cont-nl.ini
+-#! cont-uk	pdfetex		cont-usr.tex	-8bit *cont-uk.ini
++cont-nl	pdfetex		cont-usr.tex	-8bit *cont-nl.ini
++cont-uk	pdfetex		cont-usr.tex	-8bit *cont-uk.ini
  
  # language-specific things:
  
  # - Cyrillic:
--#! cyrtex	tex		language.dat	cyrtex.ini
--#! cyrtexinfo	tex		language.dat	cyrtxinf.ini
--#! cyramstex	tex		language.dat	cyramstx.ini
-+cyrtex	tex		language.dat	cyrtex.ini
-+cyrtexinfo	tex		language.dat	cyrtxinf.ini
-+cyramstex	tex		language.dat	cyramstx.ini
+-#! cyrtex	pdfetex		language.dat	-8bit *cyrtex.ini
+-#! cyrtexinfo	pdfetex		language.dat	-8bit *cyrtxinf.ini
+-#! cyramstex	pdfetex		language.dat	-8bit *cyramstx.ini
++cyrtex	pdfetex		language.dat	-8bit *cyrtex.ini
++cyrtexinfo	pdfetex		language.dat	-8bit *cyrtxinf.ini
++cyramstex	pdfetex		language.dat	-8bit *cyramstx.ini
  
  # - Polish:
--#! platex		tex		language.dat	platex.ini
--#! pdfplatex		pdftex		language.dat	pdfplatex.ini
--#! mex		tex		mexconf.tex	mex.ini
--#! pdfmex		pdftex		mexconf.tex	pdfmex.ini
--#! pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
-+platex		tex		language.dat	platex.ini
-+pdfplatex		pdftex		language.dat	pdfplatex.ini
-+mex		tex		mexconf.tex	mex.ini
-+pdfmex		pdftex		mexconf.tex	pdfmex.ini
-+pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
+-#! platex		pdfetex		language.dat	-8bit *platex.ini
+-#! pdfplatex		pdfetex		language.dat	-8bit *pdfplatex.ini
+-#! mex		pdfetex		mexconf.tex	-8bit *mex.ini
+-#! pdfmex		pdfetex		mexconf.tex	-8bit *pdfmex.ini
++platex		pdfetex		language.dat	-8bit *platex.ini
++pdfplatex		pdfetex		language.dat	-8bit *pdfplatex.ini
++mex		pdfetex		mexconf.tex	-8bit *mex.ini
++pdfmex		pdfetex		mexconf.tex	-8bit *pdfmex.ini
  
  # - Polish with translated messages (experimental):
- #! platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
-@@ -93,16 +93,16 @@
- #! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
+ #! platex-pl	pdfetex		-		nls=tex-pl,il2-pl *platex.ini
+@@ -84,16 +84,16 @@
+ #! pdfmex-pl	pdfetex		mexconf.tex	nls=pdftex-pl,il2-pl *pdfmex.ini
  
  # - Czech / Slovak:
--#! csplain	tex		-		csplain.ini
--#! cslatex	tex		-	cslatex.ini
--#! pdfcsplain	pdftex		-		csplain.ini
--#! pdfcslatex	pdftex		-    cslatex.ini
-+csplain	tex		-		csplain.ini
-+cslatex	tex		-	cslatex.ini
-+pdfcsplain	pdftex		-		csplain.ini
-+pdfcslatex	pdftex		-    cslatex.ini
+-#! csplain	pdfetex		-		-8bit *csplain.ini
+-#! cslatex	pdfetex		-	-8bit *cslatex.ini
+-#! pdfcsplain	pdfetex		-		-8bit *csplain.ini
+-#! pdfcslatex	pdfetex		-    -8bit *cslatex.ini
++csplain	pdfetex		-		-8bit *csplain.ini
++cslatex	pdfetex		-	-8bit *cslatex.ini
++pdfcsplain	pdfetex		-		-8bit *csplain.ini
++pdfcslatex	pdfetex		-    -8bit *cslatex.ini
  
  # Other formats:
  
  # Change "eplain.ini -> ebplain.ini" and "- -> language.dat"
  # if you want babel support in eplain:
--#! eplain	tex		-	eplain.ini
-+eplain	tex		language.dat	ebplain.ini
+-#! eplain	pdfetex		-	-8bit *eplain.ini
++eplain	pdfetex		language.dat	-8bit *ebplain.ini
  
  
  # mptopdf utility

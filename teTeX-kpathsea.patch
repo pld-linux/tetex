@@ -1,33 +1,11 @@
---- teTeX-src-beta-20020922.orig/texk/kpathsea/Makefile.in	Sat Oct  5 22:18:54 2002
-+++ teTeX-src-beta-20020922/texk/kpathsea/Makefile.in	Sat Oct  5 22:35:39 2002
-@@ -53,7 +53,7 @@
- 	$(link_command) readlink.o
+--- tetex-src-beta-2.96.7.20040721/texk/xdvik/Makefile.in.orig	2004-07-15 22:34:42.000000000 +0200
++++ tetex-src-beta-2.96.7.20040721/texk/xdvik/Makefile.in	2004-09-11 16:18:27.914101232 +0200
+@@ -102,7 +102,7 @@
+ 	cd gui; $(MAKE) $(makeargs) libgui.a
  
- $(kpathsea): $(objects) klibtool.version
--	$(LIBTOOL) archive $(AR) $(ARFLAGS) $@ $(objects)
-+	$(LIBTOOL) archive $(AR) $(ARFLAGS) $@ $(objects) -Wl,-soname -Wl,lib$(library).so.$(version)
+ @final_exec_name@: $(kpathsea) $(objects) $(LIBT1DEP) $(LIBGUIDEP)
+-	$(kpathsea_link) $(objects) $(LIBGUI) $(x_link) $(LOADLIBES)
++	$(kpathsea_link) $(objects) $(LIBGUI) $(LOADLIBES) $(x_link)
  
- # All the objects depend on the klibtool configuration file.
- $(objects): ../klibtool.config
---- teTeX-src-beta-20021116/texk/xdvik/Makefile.in.orig	Wed Nov 13 22:16:15 2002
-+++ teTeX-src-beta-20021116/texk/xdvik/Makefile.in	Tue Nov 26 21:00:20 2002
-@@ -55,7 +55,7 @@
- default all: $(program) $(perlprog) xdvi.1 t1mapper.1
- 
- $(program): $(kpathsea) $(objects) $(LIBWWWDEP) $(LIBT1DEP)
--	$(kpathsea_link) $(objects) $(x_link) $(LOADLIBES)
-+	$(kpathsea_link) $(objects) $(LOADLIBES) $(x_link)
- 
- ## $(client): xdvi-client.o my-vsnprintf.o
- ## 	   $(link_command) xdvi-client.o string-utils.o $(x_ldflags) -lX11
---- tetex-src-2.0.2/texk/oxdvik/Makefile.in.orig	Sun Feb  2 19:53:12 2003
-+++ tetex-src-2.0.2/texk/oxdvik/Makefile.in	Thu Jul 17 09:53:08 2003
-@@ -56,7 +56,7 @@
- default all: $(program)
- 
- $(program): $(kpathsea) $(objects) $(LIBWWWDEP) $(LIBT1DEP)
--	$(kpathsea_link) $(objects) $(x_link) $(LOADLIBES)
-+	$(kpathsea_link) $(objects) $(LOADLIBES) $(x_link)
- 
- ## $(client): xdvi-client.o my-vsnprintf.o
- ## 	   $(link_command) xdvi-client.o string-utils.o $(x_ldflags) -lX11
+ squeeze.o: squeeze.c
+ 	$(build_compile) -c $<
