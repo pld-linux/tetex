@@ -15,7 +15,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
-Release:	14
+Release:	15
 License:	distributable
 Group:		Applications/Publishing/TeX
 # ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_stable_ver}.tar.gz
@@ -676,6 +676,7 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 /usr/bin/fmtutil --all >/dev/null 2>&1
@@ -684,6 +685,7 @@ rm -rf $RPM_BUILD_ROOT
 exit 0
 
 %postun
+umask 022
 /sbin/ldconfig
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
@@ -691,70 +693,86 @@ exit 0
 exit 0
 
 %post latex
+umask 022
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun latex
+umask 022
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvips
+umask 022
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvips
+umask 022
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvilj
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvilj
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post afm
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun afm
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post ams
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun ams
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post omega
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun omega
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post pdftex
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun pdftex
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post fonts
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun fonts
+umask 022
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
