@@ -17,8 +17,6 @@ Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-arm.patch
-Patch4:		teTeX-italian.patch
-Patch5:		teTeX-jadetex.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -310,8 +308,6 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 %build
 sh ./reautoconf
