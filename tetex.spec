@@ -430,11 +430,9 @@ gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
-%preun
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 %postun
 /sbin/ldconfig
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
@@ -444,10 +442,8 @@ exit 0
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
-%preun latex
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 %postun latex
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
@@ -456,10 +452,8 @@ exit 0
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
-%preun dvips
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 %postun dvips
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
