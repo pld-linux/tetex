@@ -4221,7 +4221,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{texmf}/web2c/mktexdir
 %attr(755,root,root) %{texmf}/web2c/mktexupd
 
-%{_sysconfdir}/cron.daily/tetex
+%attr(750,root,root) %{_sysconfdir}/cron.daily/tetex
 
 %dir /etc/sysconfig/tetex-updmap
 %verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
