@@ -4453,6 +4453,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/xdvi/xdvi.cfg
 
 %files pdftex
+%defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
 %attr(755,root,root) %{_bindir}/epstopdf
 %attr(755,root,root) %{_bindir}/pdftex
@@ -4611,13 +4612,13 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/cslatex
 
 %files format-cslatex
-%attr(755,root,root) %{_bindir}/cslatex
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/cslatex
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/cslatex.fmt
 
 %files format-pdfcslatex
-%attr(755,root,root) %{_bindir}/pdfcslatex
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/pdfcslatex
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfcslatex.fmt
 
 %files cyrplain
@@ -4946,8 +4947,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/palatcm
 
 %files latex-psnfss
-%doc %{texmf}/doc/latex/psnfss
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/psnfss
 %{texmf}/tex/latex/psnfss
 
 %files latex-pxfonts
@@ -4977,8 +4978,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/vnr
 
 %files latex-wasysym
-%doc %{texmf}/doc/latex/wasysym
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/wasysym
 %{texmf}/tex/latex/wasysym
 
 %files format-latex
@@ -5018,6 +5019,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/platex
 
 %files format-platex
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/platex
 #%attr(755,root,root) %{_bindir}/platex-pl
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex.fmt
