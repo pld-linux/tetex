@@ -65,8 +65,8 @@
 -#! pdfcslatex	pdftex		language.dat    cslatex.ini
 +csplain	tex		-		csplain.ini
 +cslatex	tex		language.dat	cslatex.ini
-+pdfcsplain	pdftex		-		csplain.ini
-+pdfcslatex	pdftex		language.dat    cslatex.ini
++#! pdfcsplain	pdftex		-		csplain.ini
++#! pdfcslatex	pdftex		language.dat    cslatex.ini
  
  # Other formats:
 -#! eplain	tex		language.dat	eplain.ini
