@@ -2675,96 +2675,130 @@ Czech/Slovak-tuned MetaFont Computer Modern fonts.
 Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
 czeskiego i s³owackiego.
 
-# XXX --q
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Przekonwertowany font mflogo
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-hoekwater
 Fonts originally created in MetaFont, transformed to PostScript by Taco
 Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 
+%description fonts-type1-hoekwater -l pl
+Fonty oryginalnie stworzone w MetaFoncie, przekszta³cone do
+PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
+stmaryrd, wasy, wasy2, xipa.
+
 %package fonts-type1-marvosym
-Summary:	Martin Vogels Symbole (marvosym) font
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary:	Martin Vogel's Symbol (marvosym) font
+Summary(pl):	Font Symbol Martina Vogela (marvosym)
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-marvosym
 Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
 currency symbol as defined by the European commission; Euro currency
-symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
-engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
-planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
+symbols in typefaces Times, Helvetica and Courier; Symbols for
+structural engineering; Symbols for steel cross-sections; Astronomy
+signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
+symbols; CE sign and others.
+
+%description fonts-type1-marvosym -l pl
+Font Symbol Martina Vogela (marvosym) to font zawieraj±cy: symbol
+waluty Euro zdefiniowany przez Komisjê Europejsk±; symbole waluty
+Euro dla krojów Times, Helvetica i Courier; symbole dla in¿ynierii
+strukturalnej; symbole dla przekroi poprzecznych; symbole
+astronomiczne (S³oñce, Ksiê¿yc, planety); 12 znaków Zodiaku; symbole
+krawieckie; znak CE i inne.
 
 %package fonts-type1-mathpazo
 Summary:	Pazo Math fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty matematyczne Pazo Math
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-mathpazo
 Pazo Math fonts.
 
+%description fonts-type1-mathpazo -l pl
+Fonty matematyczne Pazo Math.
+
 %package fonts-type1-pl
 Summary:	Polish fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Polskie fonty
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description fonts-type1-pl
 Polish fonts.
 
+%description fonts-type1-pl -l pl
+Polskie fonty.
+
 %package fonts-type1-px
 Summary:	PX fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty PX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-px
 PX fonts.
 
+%description fonts-type1-px -l pl
+Fonty PX.
+
 %package fonts-type1-qfonts
 Summary:	Quasi fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Quasi
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-qfonts
 Quasi fonts.
 
+%description fonts-type1-qfonts -l pl
+Fonty Quasi.
+
 %package fonts-type1-tx
 Summary:	TX fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty TX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-tx
 TX fonts.
 
+%description fonts-type1-tx -l pl
+Fonty TX.
+
 %package fonts-type1-urw
 Summary:	URW fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty URW
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-urw
 URW fonts.
 
+%description fonts-type1-urw -l pl
+Fonty URW.
+
 %package fonts-type1-xypic
 Summary:	Xy-pic fonts
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
+Summary(pl):	Fonty Xy-pic
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-xypic
 Xy-pic fonts.
 
+%description fonts-type1-xypic -l pl
+Fonty Xy-pic.
+
 %prep
-%setup  -q -n teTeX-src-%{_ver}
+%setup -q -n teTeX-src-%{_ver}
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
