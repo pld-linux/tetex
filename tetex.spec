@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	0.3
+Release:	0.4
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -49,6 +49,7 @@ Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
 Patch19:	teTeX-kpathsea.patch
 Patch20:        teTeX-locale.patch
+Patch21:	teTeX-libXpm.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	bison
 BuildRequires:	ed
@@ -2920,6 +2921,7 @@ tar xzf %{SOURCE1} -C texmf
 %patch18 -p1
 %patch19 -p1
 %patch20 -p1
+%patch21 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
