@@ -1,0 +1,4 @@
+- release 14,
+- merged few patches from rawhide (italian, bug19278, protos,
+  tektronix and cx); i18n patch probably also can be merged but now aplying
+  this patch causes not installing few files.
