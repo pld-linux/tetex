@@ -4830,8 +4830,16 @@ rm -rf $RPM_BUILD_ROOT
 %files -n texconfig
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/texconfig
+%attr(755,root,root) %{_bindir}/texconfig-dialog
 %{_mandir}/man1/texconfig.1*
-%{texmf}/texconfig
+%dir %{texmf}/texconfig
+%attr(755,root,root) %{texmf}/texconfig/tcfmgr
+%{texmf}/texconfig/tcfmgr.map
+%{texmf}/texconfig/generic
+%doc %{texmf}/texconfig/README
+%{texmf}/texconfig/v
+%{texmf}/texconfig/g
+%{texmf}/texconfig/x
 
 %files -n xdvi
 %defattr(644,root,root,755)
