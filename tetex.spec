@@ -10,7 +10,7 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define tversion 2.99.1.20041026
+%define tversion 2.99.3.20041109
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -21,16 +21,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.99.1.20041026
+Version:	2.99.3.20041109
 Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-beta-%{version}.tar.gz
-# Source0-md5:	5f3d46a777ccb746c60e0d4b588c62bf
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-beta-%{tversion}.tar.gz
-# Source1-md5:	099935025a9585b95b38a0ef1ac8278b
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-%{version}-beta.tar.gz
+# Source0-md5:	d7a93c0405afadf8660f4c6f074e439e
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-%{tversion}-beta.tar.gz
+# Source1-md5:	b70a6babed0dbe0fae83ce22602eb617
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
@@ -650,6 +650,16 @@ PDFMeX EPlain Format.
 
 %description format-pdfemex -l pl
 Format PDFMeX EPlain.
+
+%package format-utf8mex
+Summary:	MeX Plain Format with UTF-8 encoded source files
+Summary(pl):	Format MeX Plain
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	tetex-mex = %{epoch}:%{version}
+
+%description format-utf8mex
+MeX Plain Format with UTF-8 encoded source files.
 
 # AMS TeX format
 
@@ -2949,7 +2959,7 @@ Xy-pic fonts.
 Fonty Xy-pic.
 
 %prep
-%setup -q -n tetex-src-beta-%{version}
+%setup -q -n tetex-src-%{version}-beta
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
@@ -3218,6 +3228,9 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun format-pdfemex
+%texhash
+
+%postun format-utf8mex
 %texhash
 
 %post amstex
@@ -4222,6 +4235,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pooltype
 %attr(755,root,root) %{_bindir}/ps2frag
 %attr(755,root,root) %{_bindir}/ps2pk
+# TODO: move this file to correct subpackage ?
+%attr(755,root,root) %{_bindir}/ps4pdf
 #%attr(755,root,root) %{_bindir}/t1mapper
 %attr(755,root,root) %{_bindir}/tangle
 %attr(755,root,root) %{_bindir}/tetex-updmap
@@ -4289,7 +4304,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/info/web2c.info*
 %{_datadir}/info/texi2html.info.gz
 %{_datadir}/texi2html
-%{texmf}/updates.dat
+#%{texmf}/updates.dat
 
 %{texmf}/aliases
 %{texmf}/tex/fontinst
@@ -4325,6 +4340,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/enc/dvips/tetex/bbad153f.enc
 %{texmf}/fonts/enc/dvips/tetex/d9b29452.enc
 %{texmf}/fonts/enc/dvips/tetex/f7b6d320.enc
+
+%{texmf}/fonts/enc/dvips/vntex/t5.enc
+%{texmf}/fonts/map/dvips/tetex/contnav.map
+%{texmf}/fonts/map/dvips/tetex/lumath-o.map
+%{texmf}/fonts/map/dvips/urwvn/urwvn.map
 
 %lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
 %lang(fi) %{_mandir}/fi/man1/allcm.1*
@@ -4670,6 +4690,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xdvi
 #%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
+%attr(755,root,root) %{_bindir}/xdvi-motif.bin
 %attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
 %{_mandir}/man1/xdvizilla.1*
@@ -4692,6 +4713,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/map/pdftex/updmap/pdftex.map
 %{texmf}/fonts/map/pdftex/updmap/pdftex_dl14.map
 %{texmf}/fonts/map/pdftex/updmap/pdftex_ndl14.map
+%{texmf}/fonts/map/pdftex/cmttf/cmttf.map
 %{texmf}/web2c/pdfetex-pl.pool
 %{texmf}/web2c/pdfetex.pool
 %{texmf}/web2c/pdfxtex.pool
@@ -4776,13 +4798,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/mex/config/pdfmex.ini
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
 
-%files format-pdfemex
-%defattr(644,root,root,755)
+#%files format-pdfemex
+#%defattr(644,root,root,755)
 #%attr(755,root,root) %{_bindir}/pdfemex
 #%attr(755,root,root) %{_bindir}/pdfemex-pl
 #%dir %{texmf}/pdfetex/mex
 #%{texmf}/pdfetex/mex/config
 #%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfemex.efmt
+
+%files format-utf8mex
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/utf8mex
+%doc %{texmf}/doc/mex/utf8mex
+%{texmf}/tex/mex/utf8mex
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/utf8mex.fmt
 
 %files amstex
 %defattr(644,root,root,755)
@@ -4960,16 +4989,24 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/SIunits
 %{texmf}/tex/latex/a4wide/
 %{texmf}/tex/latex/abstract/
+%doc %{texmf}/tex/doc/latex/abstract/
 %{texmf}/tex/latex/acronym/
 %{texmf}/tex/latex/adrconv
 %{texmf}/tex/latex/aeguill/
 %{texmf}/tex/latex/anysize/
 %{texmf}/tex/latex/appendix/
+%doc %{texmf}/tex/doc/latex/appendix/
 %{texmf}/tex/latex/bar/
+%doc %{texmf}/tex/doc/latex/bar/
 %{texmf}/tex/latex/base
+# confilct with tetex-latex-beamer.spec 
+#%{texmf}/tex/latex/beamer/
+#%doc %{texmf}/tex/doc/latex/beamer/
 %{texmf}/tex/latex/beton/
 %{texmf}/tex/latex/bezos/
+%doc %{texmf}/tex/doc/latex/bezos/
 %{texmf}/tex/latex/bibunits/
+%doc %{texmf}/tex/doc/latex/bibunits/
 %{texmf}/tex/latex/bold-extra/
 %{texmf}/tex/latex/booktabs/
 %{texmf}/tex/latex/boxedminipage/
@@ -4994,11 +5031,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/dvilj
 %{texmf}/tex/latex/dvipdfm/
 %{texmf}/tex/latex/eclbip/
+%doc %{texmf}/tex/doc/latex/eclbip/
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
 %{texmf}/tex/latex/endnotes/
 %{texmf}/tex/latex/eo/
+%doc %{texmf}/tex/doc/latex/eo/
 %{texmf}/tex/latex/eso-pic/
+%doc %{texmf}/tex/doc/latex/eso-pic/
 %{texmf}/tex/latex/etex/
 %{texmf}/tex/latex/euler/
 %{texmf}/tex/latex/eulervm/
@@ -5008,11 +5048,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancybox/
 %{texmf}/tex/latex/fancyhdr/
+%doc %{texmf}/tex/doc/latex/fancyhdr/
 %{texmf}/tex/latex/fancyheadings/
 %{texmf}/tex/latex/fancyvrb/
+%doc %{texmf}/tex/doc/latex/fancyvrb/
 %{texmf}/tex/latex/fguill/
 %{texmf}/tex/latex/float/
 %{texmf}/tex/latex/floatflt/
+%doc %{texmf}/tex/doc/latex/floatflt/
 %{texmf}/tex/latex/fnpara/
 %{texmf}/tex/latex/fontinst/
 %{texmf}/tex/latex/footmisc/
@@ -5020,6 +5063,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/fp
 %{texmf}/tex/latex/framed/
 %{texmf}/tex/latex/g-brief/
+%doc %{texmf}/tex/doc/latex/g-brief/
 %{texmf}/tex/latex/geometry/
 %{texmf}/tex/latex/germbib/
 %{texmf}/tex/latex/gletter/
@@ -5036,15 +5080,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/layouts/
 %{texmf}/tex/latex/leftidx/
 %{texmf}/tex/latex/lettrine/
+%doc %{texmf}/tex/doc/latex/lettrine/
 %{texmf}/tex/latex/listings
 %{texmf}/tex/latex/mathcomp/
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
+%doc %{texmf}/tex/doc/latex/memoir/
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
+%doc %{texmf}/tex/doc/latex/mparhack/
 %{texmf}/tex/latex/ms
 %{texmf}/tex/latex/mt11p/
+%doc %{texmf}/tex/doc/latex/mt11p/
 %{texmf}/tex/latex/multibib/
+%doc %{texmf}/tex/doc/latex/multibib/
 %{texmf}/tex/latex/multibox/
 %{texmf}/tex/latex/multind/
 %{texmf}/tex/latex/multirow
@@ -5062,12 +5111,15 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/picinpar/
 %{texmf}/tex/latex/picins/
 %{texmf}/tex/latex/pict2e/
+%doc %{texmf}/tex/doc/latex/pict2e/
 %{texmf}/tex/latex/placeins/
 %{texmf}/tex/latex/portland/
 %{texmf}/tex/latex/preprint
 %{texmf}/tex/latex/preview/
+%doc %{texmf}/tex/doc/latex/preview/
 %{texmf}/tex/latex/program/
 %{texmf}/tex/latex/ps4pdf/
+%doc %{texmf}/tex/doc/latex/ps4pdf/
 %{texmf}/tex/latex/psboxit/
 %{texmf}/tex/latex/psfrag/
 %{texmf}/tex/latex/pslatex/
@@ -5083,6 +5135,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/setspace/
 %{texmf}/tex/latex/shadow/
 %{texmf}/tex/latex/shapepar/
+%doc %{texmf}/tex/doc/latex/shapepar/
 %{texmf}/tex/latex/showdim/
 %{texmf}/tex/latex/showlabels/
 %{texmf}/tex/latex/showtags/
@@ -5092,6 +5145,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/stdclsdv/
 %{texmf}/tex/latex/stmaryrd/
 %{texmf}/tex/latex/subfig/
+%doc %{texmf}/tex/doc/latex/subfig/
 %{texmf}/tex/latex/subfigure/
 %{texmf}/tex/latex/supertabular/
 %{texmf}/tex/latex/t2
@@ -5100,12 +5154,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/textfit/
 %{texmf}/tex/latex/textmerg
 %{texmf}/tex/latex/textpos/
+%doc %{texmf}/tex/doc/latex/textpos/
 %{texmf}/tex/latex/threeparttable/
 %{texmf}/tex/latex/titlesec
 %{texmf}/tex/latex/tocbibind/
 %{texmf}/tex/latex/tocloft/
 %{texmf}/tex/latex/tools
 %{texmf}/tex/latex/totpages/
+%doc %{texmf}/tex/doc/latex/totpages/
 %{texmf}/tex/latex/treesvr/
 %{texmf}/tex/latex/type1cm/
 %{texmf}/tex/latex/ulem/
@@ -5115,8 +5171,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/vmargin/
 %{texmf}/tex/latex/vpage/
 %{texmf}/tex/latex/was/
+%doc %{texmf}/tex/doc/latex/was/
 %{texmf}/tex/latex/wrapfig/
-%{texmf}/tex/latex/xcolor/
+%doc %{texmf}/tex/doc/latex/wrapfig/
+# conflicts with tetex-latex-xcolor.spec
+#%{texmf}/tex/latex/xcolor/
+#%doc %{texmf}/tex/doc/latex/xcolor/
 %{texmf}/tex/latex/xtab/
 %{texmf}/tex/latex/yfonts/
 %{texmf}/tex/latex/version/
