@@ -867,24 +867,24 @@ Requires:	%{name}-latex-bibtex = %{version}
 !!!fixme!!!
 
 %package latex-bibtex-german
-Summary:	!!!fixme!!!
+Summary:	German variants of standard BibTeX styles
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
 
 %description latex-bibtex-german
-!!!fixme!!!
+German variants of standard BibTeX styles.
 
 %package latex-bibtex-revtex4
-Summary:	!!!fixme!!!
+Summary:	BibTeX styles for REVTeX4
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description latex-bibtex-revtex4
-!!!fixme!!!
+BibTeX styles for REVTeX4.
 
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
