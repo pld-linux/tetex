@@ -1,6 +1,6 @@
---- teTeX-src-beta-20021112/texk/tetex/Makefile.in.orig	Tue Nov 12 21:56:44 2002
-+++ teTeX-src-beta-20021112/texk/tetex/Makefile.in	Wed Nov 13 10:59:50 2002
-@@ -38,27 +38,27 @@
+--- teTeX-src-beta-20021225/texk/tetex/Makefile.in.wiget	Mon Dec 23 11:49:30 2002
++++ teTeX-src-beta-20021225/texk/tetex/Makefile.in	Mon Dec 30 13:22:49 2002
+@@ -39,27 +39,27 @@
  	  viromega.$(manext) virtex.$(manext) pdflatex.$(manext) \
  	  MakeTeXPK.$(manext) \
  	  cont-de.$(manext) cont-nl.$(manext) cont-en.$(manext)
@@ -25,27 +25,27 @@
 -	ln -s pdftex.$(manext) $(man1dir)/cont-nl.$(manext)
 -	ln -s pdftex.$(manext) $(man1dir)/cont-en.$(manext)
 -	ln -s mktexpk.$(manext) $(man1dir)/MakeTeXPK.$(manext)
-+	echo .so allcm.$(manext) > $(man1dir)/allec.$(manext)
-+	echo .so mktexlsr.$(manext) > $(man1dir)/texhash.$(manext)
-+	echo .so tex.$(manext) > $(man1dir)/initex.$(manext)
-+	echo .so tex.$(manext) > $(man1dir)/virtex.$(manext)
-+	echo .so etex.$(manext) > $(man1dir)/einitex.$(manext)
-+	echo .so etex.$(manext) > $(man1dir)/evirtex.$(manext)
-+	echo .so etex.$(manext) > $(man1dir)/elatex.$(manext)
-+	echo .so mf.$(manext) > $(man1dir)/inimf.$(manext)
-+	echo .so mf.$(manext) > $(man1dir)/virmf.$(manext)
-+	echo .so mpost.$(manext) > $(man1dir)/inimpost.$(manext)
-+	echo .so mpost.$(manext) > $(man1dir)/virmpost.$(manext)
-+	echo .so omega.$(manext) > $(man1dir)/iniomega.$(manext)
-+	echo .so omega.$(manext) > $(man1dir)/viromega.$(manext)
-+	echo .so omega.$(manext) > $(man1dir)/lambda.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/pdfinitex.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/pdfvirtex.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/pdflatex.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-de.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-nl.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-en.$(manext)
-+	echo .so mktexpk.$(manext) > $(man1dir)/MakeTeXPK.$(manext)
- 	test -r latex.info || cd $(srcdir) && for i in latex.info*; do \
++	echo .so allcm.$(manext) $(man1dir)/allec.$(manext)
++	echo .so mktexlsr.$(manext) $(man1dir)/texhash.$(manext)
++	echo .so tex.$(manext) $(man1dir)/initex.$(manext)
++	echo .so tex.$(manext) $(man1dir)/virtex.$(manext)
++	echo .so etex.$(manext) $(man1dir)/einitex.$(manext)
++	echo .so etex.$(manext) $(man1dir)/evirtex.$(manext)
++	echo .so etex.$(manext) $(man1dir)/elatex.$(manext)
++	echo .so mf.$(manext) $(man1dir)/inimf.$(manext)
++	echo .so mf.$(manext) $(man1dir)/virmf.$(manext)
++	echo .so mpost.$(manext) $(man1dir)/inimpost.$(manext)
++	echo .so mpost.$(manext) $(man1dir)/virmpost.$(manext)
++	echo .so omega.$(manext) $(man1dir)/iniomega.$(manext)
++	echo .so omega.$(manext) $(man1dir)/viromega.$(manext)
++	echo .so omega.$(manext) $(man1dir)/lambda.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/pdfinitex.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/pdfvirtex.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/pdflatex.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/cont-de.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/cont-nl.$(manext)
++	echo .so pdftex.$(manext) $(man1dir)/cont-en.$(manext)
++	echo .so mktexpk.$(manext) $(man1dir)/MakeTeXPK.$(manext)
+ 	test -r ./latex.info || cd $(srcdir) && for i in latex.info*; do \
  	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
  	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \

@@ -8,8 +8,8 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define		_ver	beta-20021216
-%define		texmf_ver	beta-20021216
+%define		_ver	beta-20021225
+%define		texmf_ver	beta-20021225
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
