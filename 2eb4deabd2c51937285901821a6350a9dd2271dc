@@ -1,0 +1,11 @@
+- added kpathsea-devel subpackage,
+- added fonts subpackage with type1 fonts,
+- added doc subpackage with tetex documentation (dvi files not installed -
+  only source tex files and related),
+- added separated package with xdvi,
+- --without-texinfo added to ./configure parameters,
+- updated some %%descriptions,
+- added missing "Prereq: %%{_bindir}/texhash",
+- fixes for building proper info pages for dvips and latex,
+- added texmf-dvipsgeneric, texmf-pdftex, texmfcnf, fmtutil patches from
+  rawhide.
