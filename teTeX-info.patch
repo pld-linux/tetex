@@ -107,13 +107,13 @@ diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpat
 -* mktextex: (kpathsea)mktex scripts.          TeX source generation.
 -* mktextfm: (kpathsea)mktex scripts.          TeX font metric generation.
 -* mktexlsr: (kpathsea)Filename database.      Update ls-R.
-+* Kpathsea: (kpathsea)			File lookup along search paths
-+* kpsewhich: (kpathsea)kpsewhich	TeX file searching
-+* mktexmf: (kpathsea)mktex		MF source generation
-+* mktexpk: (kpathsea)mktex		PK bitmap generation
-+* mktextex: (kpathsea)mktex		TeX source generation
-+* mktextfm: (kpathsea)mktex		TeX font metric generation
-+* mktexlsr: (kpathsea)Filename		Update ls-R
++* Kpathsea: (kpathsea).			File lookup along search paths
++* kpsewhich: (kpathsea)kpsewhich.	TeX file searching
++* mktexmf: (kpathsea)mktex.		MF source generation
++* mktexpk: (kpathsea)mktex.		PK bitmap generation
++* mktextex: (kpathsea)mktex.		TeX source generation
++* mktextfm: (kpathsea)mktex.		TeX font metric generation
++* mktexlsr: (kpathsea)Filename.		Update ls-R
  @end direntry
  
  @ifinfo
@@ -213,7 +213,7 @@ diff -Nru teTeX-1.0/texk/tetex/latex2e.texi teTeX-1.0.new/texk/tetex/latex2e.tex
 +@dircategory TeX:
  @direntry
 -* LaTeX2e: (latex).                  LaTeXe help 1.6.
-+* LaTeX2e: (latex)			LaTeXe help
++* LaTeX2e: (latex).			LaTeXe help
  @end direntry
  @comment %**end of header (This is for running Texinfo on a region.)
  
@@ -313,39 +313,39 @@ diff -Nru teTeX-1.0/texk/web2c/doc/web2c.texi teTeX-1.0.new/texk/web2c/doc/web2c
 -* virtex: (web2c)virtex invocation.             Virgin TeX.
 -* vptovf: (web2c)vptovf invocation.             Virtual pl -> virtual font.
 -* weave: (web2c)weave invocation.               WEB to TeX.
-+* Web2c: (web2c)			TeX, Metafont, and companion programs
-+* bibtex: (web2c)bibtex			Maintaining bibliographies
-+* dmp: (web2c)dmp			Troff->MPX (MetaPost pictures)
-+* dvicopy: (web2c)dvicopy		Virtual font expansion
-+* dvitomp: (web2c)dvitomp		DVI to MPX (MetaPost pictures)
-+* dvitype: (web2c)dvitype		DVI to human-readable text
-+* gftodvi: (web2c)gftodvi		Generic font proofsheets
-+* gftopk: (web2c)gftopk			Generic to packed fonts
-+* gftype: (web2c)gftype			GF to human-readable text
-+* inimf: (web2c)inimf			Initial Metafont
-+* inimpost: (web2c)inimpost		Initial MetaPost
-+* initex: (web2c)initex			Initial TeX
-+* makempx: (web2c)makempx		MetaPost label typesetting
-+* mf: (web2c)mf				Creating typeface families
-+* mft: (web2c)mft			Prettyprinting Metafont source
-+* mltex: (web2c)MLTeX			Multi-lingual TeX
-+* mpost: (web2c)mpost			Creating technical diagrams
-+* mpto: (web2c)mpto			MetaPost label extraction
-+* newer: (web2c)newer			Compare modification times
-+* patgen: (web2c)patgen			Creating hyphenation patterns
-+* pktogf: (web2c)pktogf			Packed to generic fonts
-+* pktype: (web2c)pktype			PK to human-readable text
-+* pltotf: (web2c)pltotf			Property list to TFM
++* Web2c: (web2c).			TeX, Metafont, and companion programs
++* bibtex: (web2c)bibtex.		Maintaining bibliographies
++* dmp: (web2c)dmp.			Troff->MPX (MetaPost pictures)
++* dvicopy: (web2c)dvicopy.		Virtual font expansion
++* dvitomp: (web2c)dvitomp.		DVI to MPX (MetaPost pictures)
++* dvitype: (web2c)dvitype.		DVI to human-readable text
++* gftodvi: (web2c)gftodvi.		Generic font proofsheets
++* gftopk: (web2c)gftopk.		Generic to packed fonts
++* gftype: (web2c)gftype.		GF to human-readable text
++* inimf: (web2c)inimf.			Initial Metafont
++* inimpost: (web2c)inimpost.		Initial MetaPost
++* initex: (web2c)initex		Initial TeX
++* makempx: (web2c)makempx.		MetaPost label typesetting
++* mf: (web2c)mf.			Creating typeface families
++* mft: (web2c)mft.			Prettyprinting Metafont source
++* mltex: (web2c)MLTeX.			Multi-lingual TeX
++* mpost: (web2c)mpost.			Creating technical diagrams
++* mpto: (web2c)mpto.			MetaPost label extraction
++* newer: (web2c)newer.			Compare modification times
++* patgen: (web2c)patgen.		Creating hyphenation patterns
++* pktogf: (web2c)pktogf.		Packed to generic fonts
++* pktype: (web2c)pktype.		PK to human-readable text
++* pltotf: (web2c)pltotf.		Property list to TFM
 +* pooltype: (web2c)pooltype		Display WEB pool files
-+* tangle: (web2c)tangle			WEB to Pascal
-+* tex: (web2c)tex			Typesetting
-+* tftopl: (web2c)tftopl			TFM -> property list
-+* vftovp: (web2c)vftovp			Virtual font -> virtual pl
-+* virmf: (web2c)virmf			Virgin Metafont
-+* virmpost: (web2c)virmpost		Virgin MetaPost
-+* virtex: (web2c)virtex			Virgin TeX
-+* vptovf: (web2c)vptovf			Virtual pl -> virtual font
-+* weave: (web2c)weave			WEB to TeX
++* tangle: (web2c)tangle.		WEB to Pascal
++* tex: (web2c)tex.			Typesetting
++* tftopl: (web2c)tftopl.		TFM -> property list
++* vftovp: (web2c)vftovp.		Virtual font -> virtual pl
++* virmf: (web2c)virmf.			Virgin Metafont
++* virmpost: (web2c)virmpost.		Virgin MetaPost
++* virtex: (web2c)virtex.		Virgin TeX
++* vptovf: (web2c)vptovf.		Virtual pl -> virtual font
++* weave: (web2c)weave.			WEB to TeX
  @end direntry
  
  @ifinfo
