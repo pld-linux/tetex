@@ -1209,6 +1209,7 @@ Style BibTeXa dla REVTeX4.
 
 %package latex-bibtex-jurabib
 Summary:	Extended BibTeX citation support for the humanities and legal texts
+Summary(pl):	Rozszerzona obs³uga cytowania BibTeXa do tekstów humanistycznych i prawniczych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -1216,6 +1217,10 @@ Obsoletes:	tetex-bibtex-jurabib
 
 %description latex-bibtex-jurabib
 Extended BibTeX citation support for the humanities and legal texts.
+
+%description latex-bibtex-jurabib -l pl
+Rozszerzona obs³uga cytowania BibTeXa do tekstów humanistycznych i
+prawniczych.
 
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
@@ -1507,7 +1512,7 @@ Obsoletes:	tetex-latex-mathptmx
 LaTeX font definition files, macros and font metrics for common
 PostScript fonts.
 
-%description latex-psnfss
+%description latex-psnfss -l pl
 LaTeXowe pliki definicji fontów, makra i metryki fontów dla
 popularnych fontów postscriptowych.
 
@@ -1889,6 +1894,11 @@ A collection of Russian hyphenation patterns supporting a number of
 Cyrillic font encodings, including T2, UCY (Omega Unicode Cyrillic),
 LCY, LWN (OT2), and koi8-r.
 
+%description tex-ruhyphen -l pl
+Zestaw rosyjskich wzorców przenoszenia wyrazów obs³uguj±cy wiele
+kodowañ fontów w cyrylicy, w³±cznie z T2, UCY (Omega Unicode
+Cyrillic), LCY, LWN (OT2) i koi8-r.
+
 %package tex-spanish
 Summary:	Various TeX related files for typesetting documents written in Spanish
 Summary(pl):	Ró¿ne pliki TeXowe s³u¿±ce do sk³adu dokumentów w jêzyku hiszpañskim
@@ -2255,13 +2265,19 @@ tekstowymi fontami towarzysz±cymi.
 
 %package fonts-eurosym
 Summary:	The new European currency symbol for the Euro
+Summary(pl):	Symbol nowej europejskiej waluty Euro
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-eurosym
 The new European currency symbol for the Euro implemented in Metafont,
-using the official European Commission dimensions, and providing several
-shapes (normal, slanted, bold, outline).
+using the official European Commission dimensions, and providing
+several shapes (normal, slanted, bold, outline).
+
+%description fonts-eurosym -l pl
+Symbol nowej europejskiej waluty Euro, zaimplementowany w Metafoncie,
+z u¿yciem oficjalnych wymiarów wg Komisji Europejskiej, dostarczaj±cy
+ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
@@ -2715,13 +2731,19 @@ czeskiego i s³owackiego.
 
 %package fonts-type1-eurosym
 Summary:	The new European currency symbol for the Euro
+Summary(pl):	Symbol nowej europejskiej waluty Euro
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 
 %description fonts-type1-eurosym
 The new European currency symbol for the Euro implemented in Metafont,
-using the official European Commission dimensions, and providing several
-shapes (normal, slanted, bold, outline).
+using the official European Commission dimensions, and providing
+several shapes (normal, slanted, bold, outline).
+
+%description fonts-type1-eurosym -l pl
+Symbol nowej europejskiej waluty Euro, zaimplementowany w Metafoncie,
+z u¿yciem oficjalnych wymiarów wg Komisji Europejskiej, dostarczaj±cy
+ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
@@ -2911,7 +2933,6 @@ cd texk/web2c/doc
 makeinfo web2c.texi
 cd ../../..
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
@@ -2966,6 +2987,9 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 %fixinfodir
@@ -4018,9 +4042,6 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %postun fonts-type1-xypic
 %texhash
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
