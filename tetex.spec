@@ -315,7 +315,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %build
 sh ./reautoconf
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
@@ -327,14 +327,11 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--with-texmf-dir=../share/texmf \
 	--with-ncurses
 make
-
-cd texk 
-make 
-
-cd tetex 
-make 
-
-cd ../ps2pkm 
+(cd texk; make)
+(cd texk/tetex; make)
+(cd texk/dvipsk; makeinfo dvips.texi)
+(cd texk/kpathsea; makeinfo kpathsea.texi)
+(cd texk/web2c/doc; makeinfo web2c.texi)
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -351,7 +348,8 @@ perl -pi \
 
 cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+make install \
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -362,7 +360,8 @@ make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd texk/tetex
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+make install \
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -373,7 +372,8 @@ make install prefix=$RPM_BUILD_ROOT%{_prefix} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../ps2pkm 
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+make install \
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
@@ -386,7 +386,8 @@ make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 cd ../..
 install $RPM_BUILD_DIR/teTeX-%{version}/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
-make init prefix=$RPM_BUILD_ROOT%{_prefix} \
+make init \
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
 	libdir=$RPM_BUILD_ROOT/%{_libdir} \
