@@ -37,9 +37,9 @@
 +italian	ithyph.tex
 +latin	lahyph.tex
 +magyar	huhyph.tex
-+norsk	nohyph.tex      % old file
++%! norsk	nohyph.tex      % old file
 +norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
-+norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
++%! norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
 +polish	plhyph.tex
 +portuges	pt8hyph.tex
 +romanian	rohyphen.tex
