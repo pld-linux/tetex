@@ -8,7 +8,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	1
+Release:	2
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -19,6 +19,7 @@ Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	teTeX-hugelatex.cnf
+Source7:	tetex-updmap
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -505,7 +506,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers \
 	$RPM_BUILD_ROOT/var/cache/fonts \
-	$RPM_BUILD_ROOT/etc/cron.daily
+	$RPM_BUILD_ROOT/etc/cron.daily\
+	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
+	
 
 perl -pi \
 	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
@@ -551,6 +554,9 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
+
+install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
+touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 
 %{__make} init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
@@ -1238,6 +1244,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/plain/dvips
 %{_datadir}/texmf/tex/latex/graphics/*.def
 %{_datadir}/texmf/tex/latex/hyperref/*.def
+
+%attr(755,root,root)%{_bindir}/tetex-updmap
+%dir %attr(750,root,root)%{_sysconfdir}/sysconfig/tetex-updmap/
+%config %{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
+
 
 %attr(755,root,root) %{_bindir}/dvips
 %{_mandir}/man1/dvips.1*
