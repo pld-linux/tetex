@@ -64,8 +64,6 @@ URL:		http://www.tug.org/teTeX/
 BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	ed
-BuildRequires:	expat-devel
 BuildRequires:	flex
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
@@ -77,7 +75,6 @@ BuildRequires:	t1lib-devel
 BuildRequires:	texinfo
 BuildRequires:	unzip
 BuildRequires:	w3c-libwww-devel
-BuildRequires:	zlib-devel
 PreReq:		/sbin/ldconfig
 PreReq:		awk
 PreReq:		sed
