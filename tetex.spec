@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	5
+Release:	6
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -2052,7 +2052,6 @@ w szczególno¶ci jest do³±czany jako "wspierany pakiet" LaTeX2e.
 Summary:	Adobe fonts
 Summary(pl):	Fonty Adobe
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-adobe
 Adobe fonts.
@@ -2064,7 +2063,6 @@ Fonty Adobe.
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
 Summary(pl):	Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-ae
 Virtual fonts for PDF-files with T1 encoded CMR-fonts.
@@ -2076,7 +2074,6 @@ Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1.
 Summary:	AMS fonts
 Summary(pl):	Fonty AMS
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-ams
 AMS fonts.
@@ -2088,7 +2085,6 @@ Fonty AMS.
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
@@ -2101,7 +2097,6 @@ Type 1.
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
@@ -2113,7 +2108,6 @@ Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
 Summary(pl):	Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
@@ -2125,7 +2119,6 @@ Tablicowy wariant fontów Computer Modern ze wsparciem dla LaTeXa.
 Summary:	Sans serif blackboard bold for LaTeX
 Summary(pl):	Tablicowy t³usty font sans serif dla LaTeXa
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-bbold
 Sans serif blackboard bold for LaTeX.
@@ -2137,7 +2130,6 @@ Tablicowy t³usty font sans serif dla LaTeXa.
 Summary:	Bold & Heavy Fonts
 Summary(pl):	Fonty Bold i Heavy
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-bh
 Bold & Heavy Fonts.
@@ -2149,7 +2141,6 @@ Fonty Bold i Heavy.
 Summary:	Bitstream fonts
 Summary(pl):	Fonty Bitstream
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-bitstrea
 Bitstream fonts.
@@ -2161,7 +2152,6 @@ Fonty Bitstream.
 Summary:	Complete set of Greek fonts
 Summary(pl):	Pe³ny zestaw fontów greckich
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cbgreek
 Complete set of Greek fonts.
@@ -2173,7 +2163,6 @@ Pe³ny zestaw fontów greckich.
 Summary:	Polish version of Computer Concrete fonts
 Summary(pl):	Polska wersja fontów Computer Concrete
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cc-pl
 Polish version of Computer Concrete fonts.
@@ -2185,7 +2174,6 @@ Polska wersja fontów Computer Concrete.
 Summary:	Compugraphic fonts
 Summary(pl):	Fonty Compugraphic
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cg
 Compugraphic fonts.
@@ -2197,7 +2185,6 @@ Fonty Compugraphic.
 Summary:	Computer Modern fonts
 Summary(pl):	Fonty Computer Modern
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cm
 Computer Modern fonts.
@@ -2209,7 +2196,6 @@ Fonty Computer Modern.
 Summary:	CM Bright fonts
 Summary(pl):	Fonty CM Bright
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cmbright
 CM Bright fonts.
@@ -2221,7 +2207,6 @@ Fonty CM Bright.
 Summary:	Computer Modern fonts extended with Russian letters
 Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cmcyr
 Computer Modern fonts extended with Russian letters.
@@ -2233,7 +2218,6 @@ Fonty Computer Modern rozszerzone o litery rosyjskie.
 Summary:	Extra Computer Modern fonts, from the American Mathematical Society
 Summary(pl):	Dodatkowe fonty Computer Modern z AMS
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cmextra
 Extra Computer Modern fonts, from the American Mathematical Society.
@@ -2245,7 +2229,6 @@ Dodatkowe fonty Computer Modern z AMS (American Mathematical Society).
 Summary:	Concrete Math fonts
 Summary(pl):	Fonty matematyczne Concrete Math
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-concmath
 Concrete Math fonts.
@@ -2257,7 +2240,6 @@ Fonty matematyczne Concrete Math.
 Summary:	Concrete Roman fonts
 Summary(pl):	Fonty Concrete Roman
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-concrete
 Concrete Roman fonts, designed by Donald E. Knuth, originally for use
@@ -2271,7 +2253,6 @@ przeznaczone do u¿ywania z fontami matematycznymi Euler.
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
@@ -2284,7 +2265,6 @@ czeskiego i s³owackiego.
 Summary:	Doublestroke font for typesetting the mathematical symbols
 Summary(pl):	Podwójnie kre¶lony font do sk³adania symboli matematycznych
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-dstroke
 Doublestroke font for typesetting the mathematical symbols.
@@ -2296,7 +2276,6 @@ Podwójnie kre¶lony font do sk³adania symboli matematycznych.
 Summary:	Sources for the European Concrete fonts
 Summary(pl):	¬ród³a dla fontów European Concrete
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-ecc
 The MetaFont sources and tfm files of the European Concrete Fonts.
@@ -2312,7 +2291,6 @@ tekstowymi fontami towarzysz±cymi.
 Summary:	The new European currency symbol for the Euro
 Summary(pl):	Symbol nowej europejskiej waluty Euro
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-eurosym
 The new European currency symbol for the Euro implemented in Metafont,
@@ -2328,7 +2306,6 @@ ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 Summary:	Fonts similar to EUSM but with two more characters
 Summary(pl):	Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-euxm
 Fonts like EUSM but with two more characters needed for Concrete Math
@@ -2342,7 +2319,6 @@ dla Concrete Math do³±czonego w fonts3 dystrybucji TeXLive.
 Summary:	Gothic and ornamental initial fonts by Yannis Haralambous
 Summary(pl):	Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-gothic
 Gothic and ornamental initial fonts by Yannis Haralambous.
@@ -2354,7 +2330,6 @@ Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa.
 Summary:	Converted mflogo font
 Summary(pl):	Przekonwertowany font mflogo
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-hoekwater
 Fonts originally created in MetaFont, transformed to PostScript by
@@ -2370,7 +2345,6 @@ stmaryrd, wasy, wasy2, xipa.
 Summary:	Miscellaneous packages by Joerg Knappen
 Summary(pl):	Ró¿ne pakiety autorstwa Joerga Knappena
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-jknappen
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
@@ -2384,7 +2358,6 @@ Knappena. Zawiera sgmlcmpt.
 Summary:	Basic LaTeX fonts
 Summary(pl):	Podstawowe fonty dla LaTeXa
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-latex
 Basic LaTeX fonts.
@@ -2396,7 +2369,6 @@ Podstawowe fonty dla LaTeXa.
 Summary:	Olga Lapko's LH fonts
 Summary(pl):	Fonty LH Olgi Lapko
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-lh
 The lh fonts for the `T2'/X2 encodings (for cyrillic languages).
@@ -2408,7 +2380,6 @@ Fonty lh dla kodowañ `T2'/X2 (dla jêzyków zapisywanych cyrylic±).
 Summary:	Martin Vogel's Symbol (marvosym) font
 Summary(pl):	Font Symbol Martina Vogela (marvosym)
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-marvosym
 Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
@@ -2430,7 +2401,6 @@ krawieckie; znak CE i inne.
 Summary:	Logo fonts
 Summary(pl):	Fonty logo
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-mflogo
 Logo fonts.
@@ -2442,7 +2412,6 @@ Fonty logo.
 Summary:	Miscellaneous fonts
 Summary(pl):	Ró¿ne fonty
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-misc
 Miscellaneous fonts.
@@ -2454,7 +2423,6 @@ Fonty ró¿ne.
 Summary:	Monotype fonts
 Summary(pl):	Fonty Monotype
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-monotype
 Monotype fonts.
@@ -2466,7 +2434,6 @@ Fonty Monotype.
 Summary:	Fonts for Omega - extended unicode TeX
 Summary(pl):	Fonty dla Omegi - TeXa ze wsparciem dla unikodu
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-omega
 Fonts for Omega - extended unicode TeX.
@@ -2478,7 +2445,6 @@ Fonty dla Omegi - TeXa ze wsparciem dla unikodu.
 Summary:	The Pandora font family
 Summary(pl):	Rodzina fontów Pandora
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-pandora
 The Pandora font family.
@@ -2490,7 +2456,6 @@ Rodzina fontów Pandora.
 Summary:	Pazo fonts
 Summary(pl):	Fonty Pazo
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-pazo
 Pazo fonts.
@@ -2502,7 +2467,6 @@ Fonty Pazo.
 Summary:	Polish fonts
 Summary(pl):	Polskie fonty
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-pl
 Polish fonts.
@@ -2514,7 +2478,6 @@ Polskie fonty.
 Summary:	PX fonts
 Summary(pl):	Fonty PX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-px
 PX fonts.
@@ -2526,7 +2489,6 @@ Fonty PX.
 Summary:	Quasi fonts
 Summary(pl):	Fonty Quasi
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-qfonts
 Quasi fonts.
@@ -2538,7 +2500,6 @@ Fonty Quasi.
 Summary:	Additional fonts for QPX package
 Summary(pl):	Dodatkowe fonty dla pakietu QPX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-px = %{epoch}:%{version}-%{release}
 
@@ -2552,7 +2513,6 @@ Dodatkowe fonty dla pakietu QPX.
 Summary:	Additional fonts for QTX package
 Summary(pl):	Dodatkowe fonty dla pakietu QTX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-tx = %{epoch}:%{version}-%{release}
 
@@ -2566,7 +2526,6 @@ Dodatkowe fonty dla pakietu QTX.
 Summary:	Fonts of uppercase script letters for scientific and mathematical typesetting
 Summary(pl):	Fonty wielkich liter pisanych do sk³adania dokumentów naukowych i matematycznych
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-rsfs
 Fonts of uppercase script letters for use as symbols in scientific and
@@ -2584,7 +2543,6 @@ matematycznym foncie TeXowym symbol.
 Summary:	St Mary Road symbols for functional programming
 Summary(pl):	Symbole St Mary Road do programowania funkcyjnego
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-stmaryrd
 St Mary Road symbols for functional programming.
@@ -2596,7 +2554,6 @@ Symbole St Mary Road do programowania funkcyjnego.
 Summary:	TX fonts
 Summary(pl):	Fonty TX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-tx
 TX fonts.
@@ -2608,7 +2565,6 @@ Fonty TX.
 Summary:	URW fonts
 Summary(pl):	Fonty URW
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-urw
 URW fonts.
@@ -2620,7 +2576,6 @@ Fonty URW.
 Summary:	VCM fonts
 Summary(pl):	Fonty VCM
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-vcm
 VCM fonts.
@@ -2632,7 +2587,6 @@ Fonty VCM.
 Summary:	VNR fonts
 Summary(pl):	Fonty VNR
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-vnr
 VNR fonts.
@@ -2644,7 +2598,6 @@ Fonty VNR.
 Summary:	Waldis symbol fonts
 Summary(pl):	Fonty Waldis symbol
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-wasy
 Waldis symbol fonts.
@@ -2656,7 +2609,6 @@ Fonty Waldis symbol.
 Summary:	Xy-pic fonts
 Summary(pl):	Fonty Xy-pic
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-xypic
 Xy-pic fonts.
@@ -2668,7 +2620,6 @@ Fonty Xy-pic.
 Summary:	European Modern fonts from Y&Y
 Summary(pl):	Fonty European Modern od Y&Y
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-yandy
 European Modern fonts from Y&Y.
@@ -2680,7 +2631,6 @@ Fonty European Modern od Y&Y.
 Summary:	Adobe Type1 fonts
 Summary(pl):	Fonty Type1 Adobe
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-adobe
 Adobe Type1 fonts.
@@ -2692,7 +2642,6 @@ Fonty Type1 Adobe.
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
@@ -2705,7 +2654,6 @@ Type 1.
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Summary(pl):	Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
@@ -2717,7 +2665,6 @@ Antykwa Toruñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 Summary:	Free replacement for basic MathTime fonts
 Summary(pl):	Wolnodostêpny zamiennik podstawowych fontów MathTime
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-belleek
 Free replacement for basic MathTime fonts.
@@ -2729,7 +2676,6 @@ Wolnodostêpny zamiennik podstawowych fontów MathTime.
 Summary:	Bitstream fonts
 Summary(pl):	Fonty Bitstream
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-bitstrea
 Bitstream fonts.
@@ -2741,7 +2687,6 @@ Fonty Bitstream.
 Summary:	Computer Modern family fonts
 Summary(pl):	Fonty z rodziny Computer Modern
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-bluesky
 Computer Modern family fonts.
@@ -2753,7 +2698,6 @@ Fonty z rodzony Computer Modern.
 Summary:	Polish version of Computer Concrete fonts
 Summary(pl):	Polska wersja fontów Computer Concrete
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-cc-pl
 Polish version of Computer Concrete fonts.
@@ -2765,7 +2709,6 @@ Polska wersja fontów Computer Concrete.
 Summary:	Computer Modern fonts extended with Russian letters
 Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-cmcyr
 Computer Modern fonts extended with Russian letters.
@@ -2777,7 +2720,6 @@ Fonty Computer Modern rozszerzone o litery rosyjskie.
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Summary(pl):	Fonty MetaFont Computer Modern dla jêzyków czeskiego i s³owackiego
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
@@ -2790,7 +2732,6 @@ czeskiego i s³owackiego.
 Summary:	The new European currency symbol for the Euro
 Summary(pl):	Symbol nowej europejskiej waluty Euro
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-eurosym
 The new European currency symbol for the Euro implemented in Metafont,
@@ -2806,7 +2747,6 @@ ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 Summary:	Converted mflogo font
 Summary(pl):	Przekonwertowany font mflogo
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-hoekwater
 Fonts originally created in MetaFont, transformed to PostScript by Taco
@@ -2821,7 +2761,6 @@ stmaryrd, wasy, wasy2, xipa.
 Summary:	Martin Vogel's Symbol (marvosym) font
 Summary(pl):	Font Symbol Martina Vogela (marvosym)
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-marvosym
 Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
@@ -2843,7 +2782,6 @@ krawieckie; znak CE i inne.
 Summary:	Pazo Math fonts
 Summary(pl):	Fonty matematyczne Pazo Math
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-mathpazo
 Pazo Math fonts.
@@ -2855,7 +2793,6 @@ Fonty matematyczne Pazo Math.
 Summary:	Type1 fonts for Omega - extended unicode TeX
 Summary(pl):	Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-omega
 Type1 fonts for Omega - extended unicode TeX.
@@ -2868,7 +2805,6 @@ Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu.
 Summary:	Polish fonts
 Summary(pl):	Polskie fonty
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-pl
@@ -2881,7 +2817,6 @@ Polskie fonty.
 Summary:	PX fonts
 Summary(pl):	Fonty PX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-px
 PX fonts.
@@ -2893,7 +2828,6 @@ Fonty PX.
 Summary:	Quasi fonts
 Summary(pl):	Fonty Quasi
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-qfonts
 Quasi fonts.
@@ -2905,7 +2839,6 @@ Fonty Quasi.
 Summary:	TX fonts
 Summary(pl):	Fonty TX
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-tx
 TX fonts.
@@ -2917,7 +2850,6 @@ Fonty TX.
 Summary:	URW fonts
 Summary(pl):	Fonty URW
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-urw
 URW fonts.
@@ -2929,7 +2861,6 @@ Fonty URW.
 Summary:	Xy-pic fonts
 Summary(pl):	Fonty Xy-pic
 Group:		Fonts
-Requires(post,postun):	%{_bindir}/texhash
 
 %description fonts-type1-xypic
 Xy-pic fonts.
@@ -3077,7 +3008,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 %fixinfodir
-%texhash
+if [ $1 = 1 ] 
+	%texhash
+endif
 
 %post doc-Catalogue
 %texhash
@@ -3728,418 +3661,694 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %post fonts-adobe
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-adobe
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-ae
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-ae
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-ams
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-ams
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-antp
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-antp
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-antt
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-antt
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-bbm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-bbm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-bbold
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-bbold
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-bh
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-bh
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-bitstrea
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-bitstrea
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cbgreek
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cbgreek
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cc-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cc-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cg
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cg
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cmbright
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cmbright
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cmcyr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cmcyr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cmextra
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cmextra
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-concmath
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-concmath
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-concrete
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-concrete
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-cs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-cs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-dstroke
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-dstroke
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-ecc
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-ecc
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-eurosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-eurosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-euxm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-euxm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-gothic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-gothic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-hoekwater
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-hoekwater
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-jknappen
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-jknappen
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-latex
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-latex
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-lh
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-lh
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-marvosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-marvosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-mflogo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-mflogo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-misc
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-misc
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-monotype
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-monotype
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-omega
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-omega
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-pandora
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-pandora
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-pazo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-pazo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-px
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-px
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-qfonts
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-qfonts
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-qpx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-qpx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-qtx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-qtx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-rsfs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-rsfs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-stmaryrd
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-stmaryrd
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-tx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-tx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-urw
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-urw
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-vcm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-vcm
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-vnr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-vnr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-wasy
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-wasy
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-xypic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-xypic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-yandy
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-yandy
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-adobe
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-adobe
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-antp
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-antp
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-antt
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-antt
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-belleek
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-belleek
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-bitstrea
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-bitstrea
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-bluesky
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-bluesky
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-cc-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-cc-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-cmcyr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-cmcyr
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-cs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-cs
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-eurosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-eurosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-hoekwater
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-hoekwater
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-marvosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-marvosym
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-mathpazo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-mathpazo
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-omega
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-omega
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-pl
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-px
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-px
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-qfonts
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-qfonts
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-tx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-tx
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-urw
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-urw
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %post fonts-type1-xypic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %postun fonts-type1-xypic
-%texhash
+if [ -f %{_bindir}/texhash
+	%texhash
+endif
 
 %files
 %defattr(644,root,root,755)
