@@ -1,20 +1,25 @@
---- teTeX-src-beta-20021017/texmf/tex/generic/config/language.dat	Wed Oct 16 19:55:25 2002
-+++ teTeX-src-beta-20021017.new/texmf/tex/generic/config/language.dat	Tue Oct 22 15:13:36 2002
-@@ -50,31 +50,31 @@
+--- texmf/tex/generic/config/language.dat.orig	2004-04-15 18:29:37.000000000 +0200
++++ texmf/tex/generic/config/language.dat	2004-06-18 19:27:16.000000000 +0200
+@@ -50,42 +50,42 @@
  % The following languages are disabled by default. Uncomment, what you need.
  % To enable, remove %! and the space.
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -%! bahasa	inhyph.tex
 -%! basque	bahyph.tex
+-%! catalan	cahyph.tex
 -%! croatian	hrhyph.tex
 -%! czech	czhyph.tex      % depends on csplain being installed
 -%! danish	dkhyphen.tex
 -%! dutch	nehyph.tex
+-%! esperanto	eohyph.tex
+-%! estonian	eehyph.tex
 -%! finnish	fi8hyph.tex
 -%! greek	grhyph.tex
+-%! icelandic	icehyph.tex
+-%! irish	gahyph.tex
 -%! italian	ithyph.tex
 -%! latin	lahyph.tex
--%! magyar	huhyph.tex
+-%! magyar	huhyphn.tex
 -%! norsk	nohyph.tex      % old file
 -%! norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
 -%! norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
@@ -22,21 +27,28 @@
 -%! portuges	pt8hyph.tex
 -%! romanian	rohyphen.tex
 -%! russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
+-%! serbian	srhyphc.tex     % Serbian Cyrillic Hyphenation Patterns
 -%! slovak	skhyph.tex      % depends on csplain being installed
 -%! slovene	sihyph23.tex
--%! spanish	sphyph.tex
+-%! spanish	eshyph.tex
+-%! swedish	sehyph.tex
 -%! turkish	trhyph.tex
 +bahasa	inhyph.tex
 +basque	bahyph.tex
++catalan	cahyph.tex
 +croatian	hrhyph.tex
 +czech	czhyph.tex      % depends on csplain being installed
 +danish	dkhyphen.tex
 +dutch	nehyph.tex
++esperanto	eohyph.tex
++estonian	eehyph.tex
 +finnish	fi8hyph.tex
 +greek	grhyph.tex
++icelandic	icehyph.tex
++irish	gahyph.tex
 +italian	ithyph.tex
 +latin	lahyph.tex
-+magyar	huhyph.tex
++magyar	huhyphn.tex
 +norsk	nohyph.tex      % old file
 +norsk	nohyphb.tex     % see texmf/doc/generic/nohyph/README.nohyph
 +norsk	nohyphbc.tex    % see texmf/doc/generic/nohyph/README.nohyph
@@ -44,15 +56,22 @@
 +portuges	pt8hyph.tex
 +romanian	rohyphen.tex
 +russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
++serbian	srhyphc.tex     % Serbian Cyrillic Hyphenation Patterns
 +slovak	skhyph.tex      % depends on csplain being installed
 +slovene	sihyph23.tex
-+spanish	sphyph.tex
++spanish	eshyph.tex
++swedish	sehyph.tex
 +turkish	trhyph.tex
  
  % For Ukrainian, either use ukrhyph.tex (and edit that file for the encoding
  % that you need) or use one of the ukrhyph.ENC files.
--%! ukrainian	ukrhyph.tex
-+ukrainian	ukrhyph.tex
- %! ukrainian	ukrhyph.t2a
- %! ukrainian	ukrhyph.lcy
- %! ukrainian	ukrhyph.ot2
+ %! ukrainian	ukrhyph.tex
+-%! ukrainian	ukrhyph.t2a
+-%! ukrainian	ukrhyph.lcy
+-%! ukrainian	ukrhyph.ot2
++ukrainian	ukrhyph.t2a
++ukrainian	ukrhyph.lcy
++ukrainian	ukrhyph.ot2
+ 
+ 
+ % A "language" without hyphenation:
