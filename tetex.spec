@@ -1207,6 +1207,16 @@ BibTeX styles for REVTeX4.
 %description latex-bibtex-revtex4 -l pl
 Style BibTeXa dla REVTeX4.
 
+%package latex-bibtex-jurabib
+Summary:	Extended BibTeX citation support for the humanities and legal texts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+Obsoletes:	tetex-bibtex-jurabib
+
+%description latex-bibtex-jurabib
+Extended BibTeX citation support for the humanities and legal texts.
+
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
 Summary(pl):	Ró¿ne ma³e pakiety autorstwa Davida Carlisle
@@ -3319,6 +3329,12 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun latex-bibtex-revtex4
 %texhash
 
+%post latex-bibtex-jurabib
+%texhash
+
+%postun latex-bibtex-jurabib
+%texhash
+
 %post latex-carlisle
 %texhash
 
@@ -4010,7 +4026,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/help
 %dir %{texmf}/doc/cstex
-%doc texmf/LICENSE.texmf
+%doc %{texmf}/LICENSE.texmf
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
@@ -4032,6 +4048,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/allcm
 %attr(755,root,root) %{_bindir}/allec
 %attr(755,root,root) %{_bindir}/allneeded
+%attr(755,root,root) %{_bindir}/cweave
+%attr(755,root,root) %{_bindir}/ctangle
 %attr(755,root,root) %{_bindir}/dmp
 %attr(755,root,root) %{_bindir}/e2pall
 %attr(755,root,root) %{_bindir}/ebb
@@ -4250,6 +4268,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/hyperref
 %{texmf}/doc/latex/koma-script
 %{texmf}/doc/latex/leftidx
+%{texmf}/doc/latex/listings
 %{texmf}/doc/latex/mdwtools
 %{texmf}/doc/latex/ms
 %{texmf}/doc/latex/mwcls
@@ -4290,7 +4309,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/styles/labels.dvi
 %{texmf}/doc/latex/styles/lastpage.dvi
 %{texmf}/doc/latex/styles/layman.dvi
-#%%{texmf}/doc/latex/styles/listings.dvi
 #%%{texmf}/doc/latex/styles/lucidabr.txt
 %{texmf}/doc/latex/styles/mathcomp.dvi
 %{texmf}/doc/latex/styles/moreverb.dvi
@@ -4922,6 +4940,12 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-bibtex-revtex4
 %defattr(644,root,root,755)
 %{texmf}/bibtex/bst/revtex4
+
+%files latex-bibtex-jurabib
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/jurabib
+%{texmf}/bibtex/bst/jurabib
+%{texmf}/tex/latex/jurabib
 
 %files latex-carlisle
 %defattr(644,root,root,755)
