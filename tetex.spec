@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.5
+Release:	0.6
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -3287,6 +3287,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/makempx
 %attr(755,root,root) %{_bindir}/makempy
 %attr(755,root,root) %{_bindir}/mkfontdesc
+%attr(755,root,root) %{_bindir}/mktexfmt
+%attr(755,root,root) %{_bindir}/mktexlsr
 %attr(755,root,root) %{_bindir}/newer
 %attr(755,root,root) %{_bindir}/patgen
 %attr(755,root,root) %{_bindir}/pfb2pfa
@@ -3415,9 +3417,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
 %{_mandir}/man1/mktexlsr.1*
-%{_mandir}/man1/mktexmf.1*
-%{_mandir}/man1/mktexpk.1*
-%{_mandir}/man1/mktextfm.1*
 %{_mandir}/man1/newer.1*
 %{_mandir}/man1/patgen.1*
 %{_mandir}/man1/pfb2pfa.1*
@@ -3656,8 +3655,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mfw
 %attr(755,root,root) %{_bindir}/virmf
 %attr(755,root,root) %{_bindir}/inimf
-%attr(755,root,root) %{_bindir}/mktexfmt
-%attr(755,root,root) %{_bindir}/mktexlsr
 %attr(755,root,root) %{_bindir}/mktexmf
 %attr(755,root,root) %{_bindir}/mktexpk
 %attr(755,root,root) %{_bindir}/mktextfm
@@ -3677,6 +3674,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mft.1*
 %{_mandir}/man1/inimf.1*
 %{_mandir}/man1/virmf.1*
+%{_mandir}/man1/mktexmf.1*
+%{_mandir}/man1/mktexpk.1*
+%{_mandir}/man1/mktextfm.1*
 
 %files metapost
 %defattr(644,root,root,755)
