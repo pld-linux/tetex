@@ -21,7 +21,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	5
+Release:	6
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -31,6 +31,7 @@ Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-texmf-%{te
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
+Source6:	xdvi.png
 Source7:	%{name}-updmap
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
@@ -2867,6 +2868,7 @@ cd ../../..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers \
+	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
 	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
@@ -2912,6 +2914,7 @@ perl -pi \
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
+install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %post
@@ -4418,6 +4421,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdvi.bin
 %{_mandir}/man1/xdvi.1*
 %{_prefix}/X11R6/share/applnk/Graphics/Viewers/xdvi.desktop
+%{_pixmapsdir}/xdvi.png
 %dir %{texmf}/xdvi
 %{texmf}/xdvi/XDvi
 %{texmf}/xdvi/xdvi.cfg
