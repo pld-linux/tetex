@@ -57,6 +57,7 @@ Patch20:	teTeX-locale.patch
 Patch21:	teTeX-libXpm.patch
 Patch22:	%{name}-no_info_files.patch
 URL:		http://www.tug.org/teTeX/
+BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
 BuildRequires:	flex
@@ -2958,6 +2959,7 @@ tar xzf %{SOURCE1} -C texmf
 %patch22
 
 %build
+find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure2_13 \
 	--with-system-ncurses \
