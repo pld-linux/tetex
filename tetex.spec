@@ -653,8 +653,6 @@ fi
 %{_datadir}/texmf/etex/plain/config/*
 %{_datadir}/texmf/fontname/*
 
-%attr(-,root,root) %{_datadir}/texmf/fonts/fontdesc
-
 %{_datadir}/texmf/fonts/pfm/public/xypic/*
 %{_datadir}/texmf/fonts/source/jknappen/ec/*
 %{_datadir}/texmf/fonts/source/jknappen/sauter/*
@@ -662,9 +660,6 @@ fi
 %{_datadir}/texmf/fonts/source/public/bbm/*
 %{_datadir}/texmf/fonts/source/public/bbold/*
 %{_datadir}/texmf/fonts/source/public/cm/*.mf
-
-%doc %{_datadir}/texmf/fonts/source/public/cm/README
-
 %{_datadir}/texmf/fonts/source/public/cmbright/*
 %{_datadir}/texmf/fonts/source/public/cmextra/*
 %{_datadir}/texmf/fonts/source/public/concmath/*
@@ -694,7 +689,6 @@ fi
 %{_datadir}/texmf/fonts/tfm/adobe/utopia/*.tfm
 %{_datadir}/texmf/fonts/tfm/adobe/zapfding/*.tfm
 %{_datadir}/texmf/fonts/tfm/bitstrea/charter/*.tfm
-%{_datadir}/texmf/fonts/tfm/jknappen/ec/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/bbm/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/bbold/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/cm/*.tfm
@@ -702,21 +696,21 @@ fi
 %{_datadir}/texmf/fonts/tfm/public/cmextra/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/concmath/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/concrete/*.tfm
-%{_datadir}/texmf/fonts/tfm/public/ecc/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/euxm/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/gothic/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/mflogo/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/misc/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/pandora/*.tfm
 %{_datadir}/texmf/fonts/tfm/public/rsfs/*
-%{_datadir}/texmf/fonts/tfm/public/stmary/*
+%{_datadir}/texmf/fonts/tfm/public/stmaryrd/*
 %{_datadir}/texmf/fonts/tfm/public/wasy/*
 %{_datadir}/texmf/fonts/tfm/public/xypic/*
 
 %{_datadir}/texmf/fonts/type1/adobe/utopia/*
 %{_datadir}/texmf/fonts/type1/bitstrea/charter/*
 %{_datadir}/texmf/fonts/type1/bluesky/cm/*
-%{_datadir}/texmf/fonts/type1/hoekwater/cm/*
+%{_datadir}/texmf/fonts/type1/hoekwater/mflogo/*
+%{_datadir}/texmf/fonts/type1/hoekwater/misc/*
 %{_datadir}/texmf/fonts/type1/hoekwater/rsfs/*
 %{_datadir}/texmf/fonts/type1/hoekwater/stmaryrd/*
 %{_datadir}/texmf/fonts/type1/hoekwater/wasy/*
@@ -755,7 +749,6 @@ fi
 
 %{_datadir}/texmf/tex/context/base/*
 %{_datadir}/texmf/tex/context/config/*
-%{_datadir}/texmf/tex/context/ppchtex/*
 
 %{_datadir}/texmf/tex/fontinst/base/*
 
@@ -916,9 +909,6 @@ fi
 %{_datadir}/texmf/tex/plain/dvips/*
 %{_datadir}/texmf/tex/latex/graphics/*.def
 %{_datadir}/texmf/tex/latex/hyperref/*.def
-%{_datadir}/texmf/tex/latex/dvips/*.sty
-
-%doc %{_datadir}/texmf/tex/latex/dvips/README
 
 %attr(755,root,root) %{_bindir}/dvips
 %{_mandir}/man1/dvips.1.*
