@@ -4167,6 +4167,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vftovp.1*
 #%{_mandir}/man1/virtex.1*
 %{_mandir}/man1/vptovf.1*
+%{_mandir}/man1/updmap.1*
 %{_mandir}/man1/weave.1*
 %{_mandir}/man5/fmtutil.cnf.5*
 %{_mandir}/man8/fmtutil.8*
@@ -4340,6 +4341,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{texmf}/dvips/tetex/config.*
 %{texmf}/dvips/tetex/dvipdfm35.map
+%{texmf}/dvips/tetex/bsr.map
+%{texmf}/dvips/tetex/bsr-interpolated.map
 %{texmf}/dvips/tetex/dvips35.map
 %{texmf}/dvips/tetex/lucidabr.map
 %{texmf}/dvips/tetex/mathpple.map
@@ -4378,6 +4381,7 @@ rm -rf $RPM_BUILD_ROOT
 %files metafont
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mf
+%attr(755,root,root) %{_bindir}/mf-nowin
 %attr(755,root,root) %{_bindir}/mft
 %attr(755,root,root) %{_bindir}/mfw
 %attr(755,root,root) %{_bindir}/virmf
