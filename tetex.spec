@@ -606,6 +606,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Requires:	%{name}-fonts-cs = %{version}
 
 %description csplain
 TeX CSPlain format basic files.
@@ -638,6 +639,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Requires:	%{name}-fonts-cs = %{version}
 
 %description cslatex
 CSLaTeX format basic files.
@@ -1017,6 +1019,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-mathpple = %{version}
 
 %description latex-mathpple
 The package defines the PostScript font family `Palatino' (ppl) as the
@@ -1045,6 +1048,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-mflogo = %{version}
 
 %description latex-mflogo
 LaTeX package and font definition file to access the Knuthian `logo' fonts
@@ -1119,6 +1123,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-qfonts = %{version}
 
 %description latex-qfonts
 A collection of Type 1 fonts; include QuasiBookman, QuasiChancery,
@@ -1160,11 +1165,12 @@ Requires:	%{name}-latex = %{version}
 VNPS fonts for LaTeX.
 
 %package latex-vnr
-Summary:	VNPS fonts for LaTeX
+Summary:	VNR fonts for LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-vnr = %{version}
 
 %description latex-vnr
 VNR fonts for LaTeX.
@@ -1175,6 +1181,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-wasy = %{version}
 
 %description latex-wasysym
 Makes some additional characters available that come from the wasy fonts
@@ -1417,6 +1424,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-xypic = %{version}
 
 %description tex-xypic
 A package for typesetting a variety of graphs and diagrams with TeX. Xy-pic
@@ -1581,247 +1589,263 @@ Requires(postun):	/usr/bin/texhash
 Concrete Math fonts.
 
 %package fonts-concrete
-Summary:	!!!fixme!!!
+Summary:	Concrete Roman fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-concrete
-!!!fixme!!!
+Concrete Roman fonts, designed by Donald E. Knuth, originally for use with
+Euler math fonts.
 
 %package fonts-cs
-Summary:	!!!fixme!!!
+Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cs
-!!!fixme!!!
+Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
 %package fonts-dstroke
-Summary:	!!!fixme!!!
+Summary:	Doublestroke font for typesetting the mathematical symbols
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-dstroke
-!!!fixme!!!
+Doublestroke font for typesetting the mathematical symbols.
 
 %package fonts-ecc
-Summary:	!!!fixme!!!
+Summary:	Sources for the European Concrete fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-ecc
-!!!fixme!!!
+The MetaFont sources and tfm files of the European Concrete Fonts. This is
+the EC implementation of Knuth's Concrete fonts, including also the
+corresponding text companion fonts.
 
 %package fonts-euxm
-Summary:	!!!fixme!!!
+Summary:	Fonts similar to EUSM but with two more characters
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-euxm
-!!!fixme!!!
+Fonts like EUSM but with two more characters needed for Concrete Math
+Included in TeXLive distribution in fonts3.
 
 %package fonts-gothic
-Summary:	!!!fixme!!!
+Summary:	Gothic and ornamental initial fonts by Yannis Haralambous
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-gothic
-!!!fixme!!!
+Gothic and ornamental initial fonts by Yannis Haralambous.
 
 %package fonts-hoekwater
-Summary:	!!!fixme!!!
+Summary:	Converted mflogo font
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-hoekwater
-!!!fixme!!!
+Fonts originally created in MetaFont, transformed to PostScript by Taco
+Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-jknappen
-Summary:	!!!fixme!!!
+Summary:	Miscellaneous packages by Joerg Knappen
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-jknappen
-!!!fixme!!!
+Miscellaneous macros, mostly for making use of extra fonts, by Joerg
+Knappen, including sgmlcmpt.
 
 %package fonts-latex
-Summary:	!!!fixme!!!
+Summary:	Basic LaTeX fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-latex
-!!!fixme!!!
+Basic LaTeX fonts.
 
 %package fonts-lh
-Summary:	!!!fixme!!!
+Summary:	Olga Lapko's LH fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-lh
-!!!fixme!!!
+The lh fonts for the `T2'/X2 encodings (for cyrillic languages).
 
 %package fonts-marvosym
-Summary:	!!!fixme!!!
+Summary:	Martin Vogels Symbole (marvosym) font
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-marvosym
-!!!fixme!!!
+Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
+currency symbol as defined by the European commission; Euro currency
+symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
+engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
+planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
 
 %package fonts-mathpple
-Summary:	!!!fixme!!!
+Summary:	Use PostScript Palatino for typesetting maths
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-mathpple
-!!!fixme!!!
+The package defines the PostScript font family `Palatino' (ppl) as the
+default roman font and then uses the `mathpple' fonts for typesetting math.
+These virtual fonts have been created for typesetting math in a style that
+suits the Palatino text fonts.  The AMS fonts, when used additionally, will
+be scaled to fit Palatino.
 
 %package fonts-mflogo
-Summary:	!!!fixme!!!
+Summary:	Logo fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-mflogo
-!!!fixme!!!
+Logo fonts.
 
 %package fonts-misc
-Summary:	!!!fixme!!!
+Summary:	Miscellaneous fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-misc
-!!!fixme!!!
+Miscellaneous fonts.
 
 %package fonts-monotype
-Summary:	!!!fixme!!!
+Summary:	Monotype fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-monotype
-!!!fixme!!!
+Monotype fonts.
 
 %package fonts-pandora
-Summary:	!!!fixme!!!
+Summary:	The Pandora font family
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-pandora
-!!!fixme!!!
+The Pandora font family.
 
 %package fonts-pazo
-Summary:	!!!fixme!!!
+Summary:	Pazo fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-pazo
-!!!fixme!!!
+Pazo fonts.
 
 %package fonts-pl
-Summary:	!!!fixme!!!
+Summary:	Polish fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-pl
-!!!fixme!!!
+Polish fonts.
 
 %package fonts-qfonts
-Summary:	!!!fixme!!!
+Summary:	Quasi fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-qfonts
-!!!fixme!!!
+Quasi fonts.
 
 %package fonts-rsfs
-Summary:	!!!fixme!!!
+Summary:	Fonts of uppercase script letters for use as symbols in scientific and mathematical typesetting
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-rsfs
-!!!fixme!!!
+Fonts of uppercase script letters for use as symbols in scientific and
+mathematical typesetting, in contrast to the informal script fonts such as
+that used for the `calligraphic' symbols in the TeX math symbol font.
 
 %package fonts-stmaryrd
-Summary:	!!!fixme!!!
+Summary:	St Mary Road symbols for functional programming
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-stmaryrd
-!!!fixme!!!
+St Mary Road symbols for functional programming.
 
 %package fonts-urw
-Summary:	!!!fixme!!!
+Summary:	URW fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-urw
-!!!fixme!!!
+URW fonts.
 
 %package fonts-vcm
-Summary:	!!!fixme!!!
+Summary:	VCM fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-vcm
-!!!fixme!!!
+VCM fonts
 
 %package fonts-vnr
-Summary:	!!!fixme!!!
+Summary:	VNR fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-vnr
-!!!fixme!!!
+VNR fonts.
 
 %package fonts-wasy
-Summary:	!!!fixme!!!
+Summary:	Waldis symbol fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-wasy
-!!!fixme!!!
+Waldis symbol fonts.
 
 %package fonts-xypic
-Summary:	!!!fixme!!!
+Summary:	Xy-pic fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-xypic
-!!!fixme!!!
+Xy-pic fonts.
 
-%package fonts-yandy
-Summary:	!!!fixme!!!
+%package fonts-y.andy
+Summary:	European Modern fonts from Y&Y
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-yandy
-!!!fixme!!!
+European Modern fonts from Y&Y.
 
 %package fonts-type1-adobe
 Summary:	Adobe Type1 fonts
@@ -1851,13 +1875,13 @@ Requires(postun):	/usr/bin/texhash
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
 %package fonts-type1-belleek
-Summary:	!!!fixme!!!
+Summary:	Free replacement for basic MathTime fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-belleek
-!!!fixme!!!
+Free replacement for basic MathTime fonts.
 
 %package fonts-type1-bitstrea
 Summary:	Bitstream fonts
@@ -1869,13 +1893,13 @@ Requires(postun):	/usr/bin/texhash
 Bitstream fonts.
 
 %package fonts-type1-bluesky
-Summary:	!!!fixme!!!
+Summary:	Computer Modern family fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-bluesky
-!!!fixme!!!
+Computer Modern family fonts.
 
 %package fonts-type1-cc-pl
 Summary:	Polish version of Computer Concrete fonts
@@ -1887,88 +1911,91 @@ Requires(postun):	/usr/bin/texhash
 Polish version of Computer Concrete fonts.
 
 %package fonts-type1-cmcyr
-Summary:	!!!fixme!!!
+Summary:	 Computer Modern fonts extended with Russian letters
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-cmcyr
-!!!fixme!!!
+Computer Modern fonts extended with Russian letters.
 
 %package fonts-type1-cs
-Summary:	!!!fixme!!!
+Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-cs
-!!!fixme!!!
+Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
 %package fonts-type1-hoekwater
-Summary:	!!!fixme!!!
+Summary:	Converted mflogo font
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-hoekwater
-!!!fixme!!!
+Fonts originally created in MetaFont, transformed to PostScript by Taco
+Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-type1-marvosym
-Summary:	!!!fixme!!!
+Summary:	Martin Vogels Symbole (marvosym) font
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-marvosym
-!!!fixme!!!
+Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
+currency symbol as defined by the European commission; Euro currency
+symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
+engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
+planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
 
 %package fonts-type1-mathpazo
-Summary:	!!!fixme!!!
+Summary:	Pazo Math fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-mathpazo
-!!!fixme!!!
+Pazo Math fonts.
 
 %package fonts-type1-pl
-Summary:	!!!fixme!!!
+Summary:	Polish fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description fonts-type1-pl
-!!!fixme!!!
+Polish fonts.
 
 %package fonts-type1-qfonts
-Summary:	!!!fixme!!!
+Summary:	Quasi fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-qfonts
-!!!fixme!!!
+Quasi fonts.
 
 %package fonts-type1-urw
-Summary:	!!!fixme!!!
+Summary:	URW fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-urw
-!!!fixme!!!
+URW fonts.
 
 %package fonts-type1-xypic
-Summary:	!!!fixme!!!
+Summary:	Xy-pic fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-xypic
-!!!fixme!!!
-
-# ------------------------
+Xy-pic fonts.
 
 %prep
 %setup  -q -n teTeX-src-%{_ver}
@@ -2787,7 +2814,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/styles/listings.dvi
 %doc %{texmf}/doc/latex/styles/lucidabr.txt
 %doc %{texmf}/doc/latex/styles/mathcomp.dvi
-%doc %{texmf}/doc/latex/styles/mflogo.dvi
 %doc %{texmf}/doc/latex/styles/moreverb.dvi
 %doc %{texmf}/doc/latex/styles/paralist.dvi
 %doc %{texmf}/doc/latex/styles/picinpar.dvi
@@ -2798,7 +2824,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/styles/slashbox.tex
 %doc %{texmf}/doc/latex/styles/soul.dvi
 %doc %{texmf}/doc/latex/styles/stdclsdv.dvi
-%doc %{texmf}/doc/latex/styles/stmaryrd.dvi
 %doc %{texmf}/doc/latex/styles/subfigure.dvi
 %doc %{texmf}/doc/latex/styles/textfit.dvi
 %doc %{texmf}/doc/latex/styles/titlesec.dvi
@@ -2986,6 +3011,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-mflogo
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/styles/mflogo.dvi
 %{texmf}/tex/latex/mflogo
 
 %files latex-mfnfss
@@ -3358,6 +3384,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-stmaryrd
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/styles/stmaryrd.dvi
 %{texmf}/fonts/source/public/stmaryrd
 %{texmf}/fonts/tfm/public/stmaryrd
 
