@@ -1208,7 +1208,7 @@ rm -rf $RPM_BUILD_ROOT
 %config %{_datadir}/texmf/pdftex/latex/config/pdflatex.ini
 %dir %{_datadir}/texmf/pdftex/mex
 %dir %{_datadir}/texmf/pdftex/mex/config
-#%config %{_datadir}/texmf/pdftex/mex/config/pdfmex.ini
+%config %{_datadir}/texmf/pdftex/mex/config/pdfmex.ini
 %dir %{_datadir}/texmf/pdftex/plain/config
 %config %{_datadir}/texmf/pdftex/plain/config/pdftex.ini
 
@@ -1222,7 +1222,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/texmf/pdfetex/mex
 %dir %{_datadir}/texmf/pdfetex/mex/config
-%config %{_datadir}/texmf/pdfetex/mex/config/pdfetex.ini
+#%config %{_datadir}/texmf/pdfetex/mex/config/pdfetex.ini
 
 %attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
