@@ -1673,6 +1673,7 @@ Summary(pl):	Pakiet makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Obsoletes:	hugelatex
 
 %description format-latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -4120,21 +4121,29 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{texmf}/doc/help
-%dir %{texmf}/doc/cstex
+%docdir %{texmf}/doc
+%dir %{texmf}/doc
 %doc texmf/LICENSE.texmf
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
+%dir %{texmf}/doc/tetex
 %doc %{texmf}/doc/tetex/TETEXDOC.*
 %doc %{texmf}/doc/tetex/teTeX-FAQ
 %doc %{texmf}/doc/tetex.gif
 %doc %{texmf}/doc/tetex.png
+%dir %{texmf}/doc/cstex
 %doc %{texmf}/doc/fontinst
+%dir %{texmf}/doc/fonts
 %doc %{texmf}/doc/fonts/fontname
+%dir %{texmf}/doc/fonts/polish
+%dir %{texmf}/doc/generic
 %doc %{texmf}/doc/generic/nohyph
+%dir %{texmf}/doc/help
 %doc %{texmf}/doc/help/tds.dvi
 %doc %{texmf}/doc/images
+%dir %{texmf}/doc/latex
+%dir %{texmf}/doc/programs
 %doc %{texmf}/doc/programs/web2c*
 %doc %{texmf}/doc/knuth
 
@@ -4336,7 +4345,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc-latex
 %defattr(644,root,root,755)
-%dir %{texmf}/doc/latex
 %dir %{texmf}/doc/latex/styles
 %{texmf}/doc/latex/SIunits
 %{texmf}/doc/latex/acronym
