@@ -1,31 +1,35 @@
---- tetex-src-beta-2.96.7.20040721/texk/tetex/Makefile.in.orig	2004-07-21 21:27:03.000000000 +0200
-+++ tetex-src-beta-2.96.7.20040721/texk/tetex/Makefile.in	2004-09-11 15:03:32.622489432 +0200
-@@ -47,17 +47,17 @@
- 	  pdfinitex.$(manext) texhash.$(manext) pdflatex.$(manext) \
- 	  cont-de.$(manext) cont-nl.$(manext) cont-en.$(manext) \
- 	  kpsepath.$(manext) kpsexpand.$(manext) mktexfmt.$(manext)
+--- tetex-src-beta-2.99.1.20041026/texk/tetex/Makefile.in.wiget	2004-09-27 22:21:38.000000000 +0200
++++ tetex-src-beta-2.99.1.20041026/texk/tetex/Makefile.in	2004-11-03 11:12:07.231350361 +0100
+@@ -48,19 +48,19 @@
+ 	  cweave.$(manext) odvicopy.$(manext) odvips.$(manext) \
+ 	  odvitype.$(manext)
+ 	cd $(man8dir); rm -f mktexfmt.8
 -	ln -s allcm.$(manext) $(man1dir)/allec.$(manext)
 -	ln -s mktexlsr.$(manext) $(man1dir)/texhash.$(manext)
--	ln -s etex.$(manext) $(man1dir)/elatex.$(manext)
 -	ln -s omega.$(manext) $(man1dir)/lambda.$(manext)
--	ln -s pdftex.$(manext) $(man1dir)/pdflatex.$(manext)
--	ln -s pdftex.$(manext) $(man1dir)/cont-de.$(manext)
--	ln -s pdftex.$(manext) $(man1dir)/cont-nl.$(manext)
--	ln -s pdftex.$(manext) $(man1dir)/cont-en.$(manext)
+-	ln -s pdfetex.$(manext) $(man1dir)/pdflatex.$(manext)
 -	ln -s kpsetool.$(manext) $(man1dir)/kpsepath.$(manext)
 -	ln -s kpsetool.$(manext) $(man1dir)/kpsexpand.$(manext)
--	ln -s fmtutil.$(manext) $(man1dir)/mktexfmt.$(manext)
+-	ln -s mf.$(manext) $(man1dir)/mf-nowin.$(manext)
+-	ln -s cweb.$(manext) $(man1dir)/ctangle.$(manext)
+-	ln -s cweb.$(manext) $(man1dir)/cweave.$(manext)
+-	ln -s dvicopy.$(manext) $(man1dir)/odvicopy.$(manext)
+-	ln -s dvips.$(manext) $(man1dir)/odvips.$(manext)
+-	ln -s dvitype.$(manext) $(man1dir)/odvitype.$(manext)
+-	ln -s fmtutil.8 $(man8dir)/mktexfmt.8
 +	echo .so allcm.$(manext) > $(man1dir)/allec.$(manext)
 +	echo .so mktexlsr.$(manext) > $(man1dir)/texhash.$(manext)
-+	echo .so etex.$(manext) > $(man1dir)/elatex.$(manext)
 +	echo .so omega.$(manext) > $(man1dir)/lambda.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/pdflatex.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-de.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-nl.$(manext)
-+	echo .so pdftex.$(manext) > $(man1dir)/cont-en.$(manext)
++	echo .so pdfetex.$(manext) > $(man1dir)/pdflatex.$(manext)
 +	echo .so kpsetool.$(manext) > $(man1dir)/kpsepath.$(manext)
 +	echo .so kpsetool.$(manext) > $(man1dir)/kpsexpand.$(manext)
-+	echo .so fmtutil.$(manext) > $(man1dir)/mktexfmt.$(manext)
++	echo .so mf.$(manext) > $(man1dir)/mf-nowin.$(manext)
++	echo .so cweb.$(manext) > $(man1dir)/ctangle.$(manext)
++	echo .so cweb.$(manext) > $(man1dir)/cweave.$(manext)
++	echo .so dvicopy.$(manext) > $(man1dir)/odvicopy.$(manext)
++	echo .so dvips.$(manext) > $(man1dir)/odvips.$(manext)
++	echo .so dvitype.$(manext) > $(man1dir)/odvitype.$(manext)
++	echo .so fmtutil.8 > $(man8dir)/mktexfmt.8
  	test -r ./latex.info || cd $(srcdir) && for i in latex.info*; do \
  	  $(INSTALL_DATA) $$i $(infodir)/$$i; done
  	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
