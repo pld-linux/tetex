@@ -7,8 +7,10 @@
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
-Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
+Summary(es):	Sistema de typesetting TeX y formateador de fuentes MetaFont
+Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
+Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
@@ -16,14 +18,16 @@ Release:	5
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	teTeX-hugelatex.cnf
-Source7:	tetex-updmap
+Source7:	%{name}-updmap
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -67,6 +71,11 @@ Usually, TeX is used in conjunction with a higher level formatting
 package like LaTeX or PlainTeX, since TeX by itself is not very
 user-friendly.
 
+%description -l es
+Tex formata archivos de texto y órdenes para una salida independiente
+de dispositivo (que se llama DVI - DeVice Independent). En The TeXbook
+de Knut se describen las capacidades y el lenguaje TeX.
+
 %description -l de
 TeX formatiert eine Datei, die abwechselnd Text und Befehle enthält
 und gibt eine geräteunabhängige Datei aus (DVI genannt, Abk. für
@@ -85,6 +94,11 @@ od urz±dzenia plik wynikowy (tzw. DVI -- skrót od DeVice Independent).
 Mo¿liwo¶ci TeXa, oraz jego jêzyk zosta³y opisane w ,,The TeXbook''
 Donalda E. Knutha.
 
+%description -l pt_BR
+Tex formata arquivos de texto e comandos para uma saída independente
+de dispositivo (chamado DVI - DeVice Independent). As capacidades e a
+linguagem TeX são descritas no The TeXbook, de Knuth.
+
 %description -l tr
 TeX, içinde metin ve komutlarýn yer aldýðý bir dosyayý okur ve dizgi
 aygýtýndan baðýmsýz bir çýktý (DeVice Independent - DVI) oluþturur.
@@ -94,12 +108,16 @@ TeXbook' baþlýklý kitabýnda anlatýlmaktadýr.
 %package latex
 Summary:	LaTeX macro package
 Summary(de):	LaTeX-Makropaket
+Summary(es):	Paquete de macros LaTeX
 Summary(fr):	Package de macros pour LaTeX
 Summary(pl):	Makro-pakiet LaTeX
+Summary(pt_BR):	Pacote de macros LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -116,6 +134,14 @@ keinerlei Formatierungsbefehle (von der Art 'Kursiv ein/aus' oder
 'Zeilenabstand um 2 Pica vergrößern') enthielte. Stattdessen würde all
 dies durch spezifische 'redaktionelle' Instruktionen ersetzt
 ('auszeichnen', 'neues Kapitel starten').
+
+%description -l es latex
+LaTeX es un paquete de macros TeX. Las macros LaTeX impulsionan
+escritores a pensar sobre el contenido de sus documentos, y no en su
+forma. Lo ideal, muy difícil de realizar, es no tener ningún comando
+de fomatear (como ''switch to italic'' 0 ''skip 2 points'') en el
+documento; en lugar de esto, todo se hace especificando instrucciones
+de marcado: : ''emphasize'', ''start la section''.
 
 %description -l fr latex
 LaTeX est un paquetage de macros TeX. Les macros LaTeX permettent aux
@@ -134,6 +160,14 @@ punktowy) a jedynie polecenia znakuj±ce takie jak np. podkre¶l, czy
 zacznij sekcjê. LaTeX powoli zbli¿a siê do tego idea³u, nie odrzucaj±c
 mo¿liwo¶ci ingerencji w wygl±d dokumentu.
 
+%description -l pt_BR latex
+LaTeX é um pacote de macros TeX. Os macros LaTeX encorajam escritores
+a pensar sobre o conteúdo de seus documentos, e não na forma. O ideal,
+muito difícil de realizar, é não ter nenhum comando de formatação
+(como ``switch to italic'' ou ``skip 2 picas'') no documento; no lugar
+disto, tudo é feito especificando instruções de marcação:
+``emphasize'', ``start a section''.
+
 %description -l tr latex
 LaTeX bir TeX makro paketidir. LaTeX makrolarý, yazarlarý belgelerinin
 biçimlerinden çok içerikleri üzerinde yoðunlaþmlarýna özendirir.
@@ -145,12 +179,16 @@ baþarmaya çalýþýr.
 %package dvips
 Summary:	dvi to postscript convertor
 Summary(de):	dvi-Postscript-Konvertierungsprogramm
+Summary(es):	Convertidor dvi para postscript
 Summary(fr):	Convertisseur dvi vers PostScript
 Summary(pl):	Konwerter dvi do postscriptu
+Summary(pt_BR):	Conversor dvi para postscript
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -159,20 +197,30 @@ The program dvips takes a DVI file file[.dvi] produced by TeX (or by
 some other processor such as GFtoDVI) and converts it to PostScript,
 normally sending the result directly to the laserprinter.
 
-%description -l pl dvips
-Program dvips bierze plik DVI wygenerowany przez TeXa (lub jaki¶ inny
-program, jak na przyk³ad GFtoDVI) i konwertuje go do PostScriptu.
-Domy¶lnie wynik jest wysy³any bezpo¶rednio do drukarki.
-
 %description -l de dvips
 Das dvips-Programm nimmt eine dvi-Datei ([.dvi]), die von TeX bzw.
 durch einen anderen Prozessor wie GFtoDVI) erzeugt wurde, und
 konvertiert diese in PostScript, wobei das Ergebnis in der Regel
 direkt an einen Laserdrucker gesandt wird.
 
+%description -l es dvips
+El programa dvips coge un archivo DVI (.dvi) producido por TeX (o por
+otro procesador como GFtoDVI) y lo convierte a PostScript, normalmente
+enviando el resultado directamente a la impresora láser.
+
 %description -l fr dvips
 Le programme dvips convertit les fichiers DVI en PostScript, en
 envoyant normalement le résultat directement sur une imprimante Laser.
+
+%description -l pl dvips
+Program dvips bierze plik DVI wygenerowany przez TeXa (lub jaki¶ inny
+program, jak na przyk³ad GFtoDVI) i konwertuje go do PostScriptu.
+Domy¶lnie wynik jest wysy³any bezpo¶rednio do drukarki.
+
+%description -l pt_BR dvips
+O programa dvips toma um arquivo DVI (.dvi) produzido pelo TeX (ou por
+outro processador como o GFtoDVI) e o converte para PostScript,
+normalmente enviando o resultado diretamente para a impressora laser.
 
 %description -l tr dvips
 dvips programý, dvi biçiminde bir girdi dosyasý alýr ve onu
@@ -183,12 +231,16 @@ olabileceði gibi baþka iþleyiciler tarafýndan da (GFtoDVI gibi)
 %package dvilj
 Summary:	dvi to laserjet convertor
 Summary(de):	Ein dvi-->Laserjet-Konvertierer
+Summary(es):	Convertidor dvi para laserjet
 Summary(fr):	convertisseur dvi vers laserjet.
 Summary(pl):	Konwerter dvi do laserjet
+Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -206,11 +258,23 @@ Printer Control Language) Befehle zum Drucken auf HP LaserJet+, HP
 LaserJet IIP (mit dvilj2p), HP LaserJet 4 (mit dvilj4) und vollständig
 kompatiblen Druckern.
 
+%description -l es dvilj
+Dvilj y semejantes convierten archivos de salida TeX.dvi en comandos
+HP PCL (i.e. Lenguaje de Control de Impresoras HP) adecuados a
+impresión de impresoras HP LaserJEt+, HP LaserJet IIP (usando
+dvilj2p), HP LaserJet 4 (usando dvilj4) y compatibles.
+
 %description -l fr dvilj
 dvilj et ses cousins convertissent les fichiers dvi en commandes HPPCL
 (le langage des imprimantes HP) pour les imprimer sur HP LaserJet+, HP
 LaserJet IIP (avec dvilj2p), HP LaserJet 4 (avec dvilj4), et autres
 imprimantes totalement compatibles.
+
+%description -l pt_BR dvilj
+Dvilj e semelhantes convertem arquivos de saída TeX .dvi em comandos
+HP PCL (i.e. Linguagem de Controle de Impressoras HP) adequados para
+impressão em impressoras HP LaserJet+, HP LaserJet IIP (usando
+dvilj2p), HP LaserJet 4 (usando dvilj4) e compatíveis.
 
 %description -l tr dvilj
 TeX çýktýsý dvi dosyalarýný HP PCL (HP'nin geliþtirdiði bir yazýcý
@@ -221,12 +285,16 @@ uyumlularýndan yazýcý çýktýsý alýnabilir.
 %package afm
 Summary:	afm (Adobe Font Metrics) fonts and utilities
 Summary(de):	Fonts und Dienstprogramme für afm (Adobe Font Metrics)
+Summary(es):	Fuentes afm (Adobe Font Metrics) y utilitarios relacionados
 Summary(fr):	Fontes afm (Adobe Font Metrics) et utilitaires
 Summary(pl):	afm (Adobe Font Metrics) czcionki i narzêdzia
+Summary(pt_BR):	Fontes afm (Adobe Font Metrics) e utilitários relacionados
 Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -243,6 +311,13 @@ Times-Roman.afm) begleitet, die die Eigenschaften des Fonts (hier:
 Times-Roman) beschreiben. Um solche Fonts mit TeX verwenden zu können,
 werden TFM-Dateien benötigt, die ähnliche Informationen
 
+%description -l es afm
+Fuentes PostScript son (o deberían ser) acompañadas de archivos de
+métrica de fuentes como Times Roman. Afm, que describen las
+características de la fuente Times-Roman. Para usar estas fuentes con
+TeX, necesitamos de archivos TFM que contiene información similar.
+Afm2tfm hace esta conversión.
+
 %description -l fr afm
 Les fontes PostScript sont (ou devraient être) accompagnées de fontes
 métriques comme Times-Roman.afm qui décrivent les caractéristiques des
@@ -256,6 +331,13 @@ takimi jak np. Times-Roman.afm, opisuj±cymi charakterystykê znaków.
 Aby u¿ywaæ takich fontów z TeXem potrzebne s± metryki zrozumia³e dla
 TeXa (pliki *.TFM). afm2tfm konwertuje pomiêdzy tymi dwoma rodzajami
 metryk.
+
+%description -l pt_BR afm
+Fontes PostScript são (ou deveriam ser) acompanhadas por arquivos de
+métrica de fontes como Times-Roman.afm, que descrevem as
+características da fonte Times-Roman. Para usar tais fontes com o TeX,
+precisamos de arquivos TFM que contém informações similares. afm2tfm
+faz esta conversão.
 
 %description -l tr afm
 PostScript yazýtipleri, yazýtipi ölçüt dosyalarý ile beraber
@@ -272,7 +354,9 @@ Summary(pl):	Makra dla LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -288,7 +372,9 @@ Summary:	LaTeX macro package
 Summary(pl):	Dodatkowe makra dla LaTeX
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -300,7 +386,9 @@ Summary:	e-TeX
 Summary(pl):	e-TeX 
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -315,7 +403,9 @@ Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -325,12 +415,14 @@ Omega is extended unicode TeX.
 %description -l pl omega
 Omega -- TeX ze wsparciem dla Unicode.
 
-
 %package oxdvi
 Summary:	xdvi viewer for Omega
 Summary(pl):	Przegl±darka xdvi dla Omegi
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description oxdvi
@@ -339,13 +431,14 @@ xdvi viewer for Omega - extended unicode TeX.
 %description -l pl oxdvi
 Przegl±darka xdvi dla Omegi -- TeXa ze wsparciem dla Unicode.
 
-
 %package pdftex
 Summary:	PDFtex 
 Summary(pl):	PDFtex 
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description pdftex
@@ -357,13 +450,17 @@ PDFTeX generuje pliki PDF na podstawie plików DVI.
 %package -n xdvi
 Summary:	X11 previewer
 Summary(de):	X11-Previewer
+Summary(es):	Visualizador TeX X11
 Summary(fr):	Prévisualisateur X11
 Summary(pl):	Przegl±darka DVI dla X11
+Summary(pt_BR):	Visualizador TeX X11
 Summary(tr):	X11 öngörüntüleyici
 Requires:	%{name} = %{version}
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Obsoletes:	tetex-xdvi
 
 %description -n xdvi
@@ -375,6 +472,10 @@ xdvi ist ein Programm, das unter dem X-Window-System läuft und gewohnt
 ist, dvi-Dateien als Vorschau anzuzeigen, etwa solche, die von tex und
 latex erzeugt wurden.
 
+%description -l es xdvi
+xdvi es un programa que se ejecuta en el sistema X Window. Se usa para
+visualizar archivos dvi, como los producidos por tex y latex.
+
 %description -l fr -n xdvi
 xdvi est un programme s'exécutant sous le système X Window. Il sert à
 visualiser les fichiers dvi tels que ceux produits par tex et latex.
@@ -383,11 +484,17 @@ visualiser les fichiers dvi tels que ceux produits par tex et latex.
 Xdvi jest programem (dzia³aj±cym w X Window System) do przegl±dania
 plików DVI, produkowanych przez TeXa i LaTeXa.
 
+%description -l pt_BR xdvi
+xdvi é um programa que roda no sistema X Window. É usado para
+visualizar arquivos dvi, como os produzidos por tex e latex.
+
 %package fonts
 Summary:	The font files for the TeX text formatting system.
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Prereq:		%{_bindir}/texhash
 
 %description fonts
@@ -407,7 +514,9 @@ zainstalowaæ ten pakiet.
 Summary:	The documentation files for the TeX text formatting system.
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description doc
@@ -429,14 +538,28 @@ zainstalowaæ ten pakiet.
 
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
+Summary(es):	Bibliotecas y archivos de inclusión para desarrollo TeX
+Summary(pt_BR):	Bibliotecas e headers para desenvolvimento TeX
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
+
+%description -l es devel
+Bibliotecas, archivos de inclusión, etc, para que puedas desarrollar
+aplicaciones TeX.
+
+%description -l pt_BR devel
+Bibliotecas, headers e outros componentes que podem ser utilizados
+para desenvolver aplicações TeX.
 
 %prep
 %setup   -q -n teTeX-src-%{tetex_ver}
