@@ -40,9 +40,7 @@ BuildRequires:	ed
 BuildRequires:	texinfo
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
-BuildRoot:	/tmp/%{name}-%{version}-root
-
-%define		_applnkdir	/usr/X11R6/share/applnk
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes a
