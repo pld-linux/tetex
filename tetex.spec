@@ -51,6 +51,7 @@ Patch16:	teTeX-cx.patch
 Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
 Patch19:	teTeX-kpathsea.patch
+Patch20:        teTeX-locale.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	bison
 BuildRequires:	ed
