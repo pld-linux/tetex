@@ -2,21 +2,14 @@
 # TODO:
 #
 # beta-20020922, rel. 1:
-# - clean up: fonts
-# - move new files to proper subpackages
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
-# - move dvips configs and maps to fonts subpackages
-# - check what is needed for texconfig to run and move appropriate files
-#   into package which owns texconfig (i.e. one file from xdvi package)
-# - tetex-doc-latex package: its size will be about 22MB uncompressed
 #
 # later:
-# - create new packages if there is a need: texinfo, texconfig, more latex
-#   splitting... others?
+# - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
-# - context: split into packages
+# - context: split into language packages (cz, de, en, etc.)
 #
 
 %define		_ver	beta-20020922
@@ -152,6 +145,16 @@ Requires:	%{name} = %{version}
 
 %description doc-tug-faq
 TeX User Group FAQ.
+
+%package doc-latex
+Summary:	Basic LaTeX packages documentation
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description doc-latex
+Basic LaTeX packages documentation.
 
 %package doc-latex2e-html
 Summary:	HTML LaTeX2e documentation
@@ -351,6 +354,17 @@ is not a viewer itself, but an interface for finding documentation files
 and opening them with the appropriate viewer; so it relies on appropriate
 programs to be installed on the system. However, the choice of these
 programs can be configured by the sysadmin or user.
+
+%package -n texconfig
+Summary:	TeX typesetting system configurator
+Group:		Applications/Publishing/TeX
+Requires:	xdvi = %{version}
+Requires:	%{name} = %{version}
+Requires:	%{name}-dvips = %{version}
+Requires:	%{name}-metafont = %{version}
+
+%description -n texconfig
+TeX typesetting system configurator.
 
 %package -n xdvi
 Summary:	X11 previewer
@@ -1274,6 +1288,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-platex = %{version}
+Requires:	%{name}-type1-fonts-pl = %{version}
 
 %description format-pdfplatex
 PDF PLaTeX format.
@@ -2193,8 +2208,6 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %post
 %fixinfodir
-#%fmtutil -f tex
-#fmtutil -f bplain
 %texhash
 
 %postun
@@ -3228,6 +3241,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%dir %{texmf}/doc/help
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
@@ -3241,6 +3255,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/tetex.png
 %doc %{texmf}/doc/fontinst
 %doc %{texmf}/doc/fonts/fontname
+%doc %{texmf}/doc/generic/nohyph
+%doc %{texmf}/doc/help/tds.dvi
+%doc %{texmf}/doc/images
 %doc %{texmf}/doc/programs/web2c*
 
 %attr(755,root,root) %{_bindir}/MakeTeXPK
@@ -3285,7 +3302,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tangle
 %attr(755,root,root) %{_bindir}/tetex-updmap
 %attr(755,root,root) %{_bindir}/tex
-%attr(755,root,root) %{_bindir}/texconfig
 %attr(755,root,root) %{_bindir}/texdoc
 %attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texfind
@@ -3360,7 +3376,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/fontinst
 %{texmf}/tex/generic/hyphen
 %{texmf}/tex/texinfo
-%{texmf}/texconfig
 %{texmf}/web2c/*.tcx
 %{texmf}/web2c/metafun.mem
 %{texmf}/web2c/tex-pl.pool
@@ -3411,7 +3426,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/t1mapper.1*
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
-%{_mandir}/man1/texconfig.1*
 %{_mandir}/man1/texdoc.1*
 %{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texhash.1*
@@ -3438,6 +3452,104 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/doc/help/faq/uktug-faq
 
+%files doc-latex
+%defattr(644,root,root,755)
+%{texmf}/doc/latex
+%{texmf}/doc/latex/styles
+%{texmf}/doc/latex/SIunits
+%{texmf}/doc/latex/acronym
+%{texmf}/doc/latex/aeguill
+%{texmf}/doc/latex/anysize
+%{texmf}/doc/latex/base
+%{texmf}/doc/latex/booktabs
+%{texmf}/doc/latex/caption
+%{texmf}/doc/latex/ccaption
+%{texmf}/doc/latex/changebar
+%{texmf}/doc/latex/currvita
+%{texmf}/doc/latex/dinbrief
+%{texmf}/doc/latex/draftcopy
+%{texmf}/doc/latex/eepic
+%{texmf}/doc/latex/fancy*
+%{texmf}/doc/latex/float*
+%{texmf}/doc/latex/footmisc
+%{texmf}/doc/latex/g-brief
+%{texmf}/doc/latex/geometry
+%{texmf}/doc/latex/graphics
+%{texmf}/doc/latex/hyperref
+%{texmf}/doc/latex/koma-script
+%{texmf}/doc/latex/leftidx
+%{texmf}/doc/latex/mdwtools
+%{texmf}/doc/latex/ms
+%{texmf}/doc/latex/mwcls
+%{texmf}/doc/latex/natbib
+%{texmf}/doc/latex/nomencl
+%{texmf}/doc/latex/ntgclass
+%{texmf}/doc/latex/oberdiek
+%{texmf}/doc/latex/overpic
+%{texmf}/doc/latex/pb-diagram
+%{texmf}/doc/latex/pdfpages
+%{texmf}/doc/latex/preprint
+%{texmf}/doc/latex/program
+%{texmf}/doc/latex/psfrag
+%{texmf}/doc/latex/psgo
+%{texmf}/doc/latex/rotating
+%{texmf}/doc/latex/rotfloat
+%{texmf}/doc/latex/revtex4
+%{texmf}/doc/latex/scale
+%{texmf}/doc/latex/showlabels
+%{texmf}/doc/latex/sidecap
+%{texmf}/doc/latex/styles/a4.dvi
+%{texmf}/doc/latex/styles/adrguide.dvi
+%{texmf}/doc/latex/styles/beton.dvi
+%{texmf}/doc/latex/styles/blkarray.dvi
+%{texmf}/doc/latex/styles/chappg.txt
+%{texmf}/doc/latex/styles/comm_test_l.tex
+%{texmf}/doc/latex/styles/concmath.dvi
+%{texmf}/doc/latex/styles/crop.dvi
+%{texmf}/doc/latex/styles/curves.dvi
+%{texmf}/doc/latex/styles/endfloat.dvi
+%{texmf}/doc/latex/styles/euler.dvi
+%{texmf}/doc/latex/styles/examdoc.dvi
+%{texmf}/doc/latex/styles/fancybox.dvi
+%{texmf}/doc/latex/styles/float.dvi
+%{texmf}/doc/latex/styles/footnpag-user.dvi
+%{texmf}/doc/latex/styles/hyphenat.dvi
+%{texmf}/doc/latex/styles/index.dvi
+%{texmf}/doc/latex/styles/labels.dvi
+%{texmf}/doc/latex/styles/lastpage.dvi
+%{texmf}/doc/latex/styles/layman.dvi
+%{texmf}/doc/latex/styles/listings.dvi
+%{texmf}/doc/latex/styles/lucidabr.txt
+%{texmf}/doc/latex/styles/mathcomp.dvi
+%{texmf}/doc/latex/styles/moreverb.dvi
+%{texmf}/doc/latex/styles/paralist.dvi
+%{texmf}/doc/latex/styles/picinpar.dvi
+%{texmf}/doc/latex/styles/picins.txt
+%{texmf}/doc/latex/styles/placeins.txt
+%{texmf}/doc/latex/styles/readme.fp
+%{texmf}/doc/latex/styles/sectsty.dvi
+%{texmf}/doc/latex/styles/slashbox.tex
+%{texmf}/doc/latex/styles/soul.dvi
+%{texmf}/doc/latex/styles/stdclsdv.dvi
+%{texmf}/doc/latex/styles/subfigure.dvi
+%{texmf}/doc/latex/styles/textfit.dvi
+%{texmf}/doc/latex/styles/titlesec.dvi
+%{texmf}/doc/latex/styles/tocloft.dvi
+%{texmf}/doc/latex/styles/type1cm.txt
+%{texmf}/doc/latex/styles/vmargin.dvi
+%{texmf}/doc/latex/seminar
+%{texmf}/doc/latex/supertab
+%{texmf}/doc/latex/textmerg
+%{texmf}/doc/latex/tocbibind
+%{texmf}/doc/latex/treesvr
+%{texmf}/doc/latex/tools
+%{texmf}/doc/latex/units
+%{texmf}/doc/latex/xtab
+%{texmf}/doc/latex/yfonts
+%{texmf}/doc/latex/general
+%{texmf}/doc/latex/pslatex
+%{texmf}/doc/latex/images
+
 %files doc-latex2e-html
 %defattr(644,root,root,755)
 %{texmf}/doc/latex/latex2e-html
@@ -3451,15 +3563,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpsetool
 %attr(755,root,root) %{_bindir}/kpsewhich
 %attr(755,root,root) %{_bindir}/kpsexpand
+%attr(755,root,root) %{_libdir}/libkpathsea.so.*
 %{_mandir}/man1/kpsestat.1*
 %{_mandir}/man1/kpsetool.1*
 %{_mandir}/man1/kpsewhich.1*
-%{_libdir}/libkpathsea.so.*
 
 %files -n kpathsea-devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libkpathsea.so
 %{_includedir}/kpathsea
-%{_libdir}/libkpathsea.so
 %{_infodir}/kpathsea.info*
 
 %files dvips
@@ -3584,6 +3696,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/texdoctk
 
 %{_mandir}/man1/texdoctk.1*
+
+%files -n texconfig
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/texconfig
+%{_mandir}/man1/texconfig.1*
+%{texmf}/texconfig
 
 %files -n xdvi
 %defattr(644,root,root,755)
@@ -3875,100 +3993,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex
 %defattr(644,root,root,755)
-%dir %{texmf}/doc/latex
-%dir %{texmf}/doc/latex/styles
-%doc %{texmf}/doc/latex/SIunits
-%doc %{texmf}/doc/latex/acronym
-%doc %{texmf}/doc/latex/aeguill
-%doc %{texmf}/doc/latex/anysize
-%doc %{texmf}/doc/latex/base
-%doc %{texmf}/doc/latex/booktabs
-%doc %{texmf}/doc/latex/caption
-%doc %{texmf}/doc/latex/ccaption
-%doc %{texmf}/doc/latex/changebar
-%doc %{texmf}/doc/latex/currvita
-%doc %{texmf}/doc/latex/dinbrief
-%doc %{texmf}/doc/latex/draftcopy
-%doc %{texmf}/doc/latex/eepic
-%doc %{texmf}/doc/latex/fancy*
-%doc %{texmf}/doc/latex/float*
-%doc %{texmf}/doc/latex/footmisc
-%doc %{texmf}/doc/latex/g-brief
-%doc %{texmf}/doc/latex/geometry
-%doc %{texmf}/doc/latex/graphics
-%doc %{texmf}/doc/latex/hyperref
-%doc %{texmf}/doc/latex/koma-script
-%doc %{texmf}/doc/latex/leftidx
-%doc %{texmf}/doc/latex/mdwtools
-%doc %{texmf}/doc/latex/ms
-%doc %{texmf}/doc/latex/mwcls
-%doc %{texmf}/doc/latex/natbib
-%doc %{texmf}/doc/latex/nomencl
-%doc %{texmf}/doc/latex/ntgclass
-%doc %{texmf}/doc/latex/oberdiek
-%doc %{texmf}/doc/latex/overpic
-%doc %{texmf}/doc/latex/pb-diagram
-%doc %{texmf}/doc/latex/pdfpages
-%doc %{texmf}/doc/latex/preprint
-%doc %{texmf}/doc/latex/program
-%doc %{texmf}/doc/latex/psfrag
-%doc %{texmf}/doc/latex/psgo
-%doc %{texmf}/doc/latex/rotating
-%doc %{texmf}/doc/latex/rotfloat
-%doc %{texmf}/doc/latex/revtex4
-%doc %{texmf}/doc/latex/scale
-%doc %{texmf}/doc/latex/showlabels
-%doc %{texmf}/doc/latex/sidecap
-%doc %{texmf}/doc/latex/styles/a4.dvi
-%doc %{texmf}/doc/latex/styles/adrguide.dvi
-%doc %{texmf}/doc/latex/styles/beton.dvi
-%doc %{texmf}/doc/latex/styles/blkarray.dvi
-%doc %{texmf}/doc/latex/styles/chappg.txt
-%doc %{texmf}/doc/latex/styles/comm_test_l.tex
-%doc %{texmf}/doc/latex/styles/concmath.dvi
-%doc %{texmf}/doc/latex/styles/crop.dvi
-%doc %{texmf}/doc/latex/styles/curves.dvi
-%doc %{texmf}/doc/latex/styles/endfloat.dvi
-%doc %{texmf}/doc/latex/styles/euler.dvi
-%doc %{texmf}/doc/latex/styles/examdoc.dvi
-%doc %{texmf}/doc/latex/styles/fancybox.dvi
-%doc %{texmf}/doc/latex/styles/float.dvi
-%doc %{texmf}/doc/latex/styles/footnpag-user.dvi
-%doc %{texmf}/doc/latex/styles/hyphenat.dvi
-%doc %{texmf}/doc/latex/styles/index.dvi
-%doc %{texmf}/doc/latex/styles/labels.dvi
-%doc %{texmf}/doc/latex/styles/lastpage.dvi
-%doc %{texmf}/doc/latex/styles/layman.dvi
-%doc %{texmf}/doc/latex/styles/listings.dvi
-%doc %{texmf}/doc/latex/styles/lucidabr.txt
-%doc %{texmf}/doc/latex/styles/mathcomp.dvi
-%doc %{texmf}/doc/latex/styles/moreverb.dvi
-%doc %{texmf}/doc/latex/styles/paralist.dvi
-%doc %{texmf}/doc/latex/styles/picinpar.dvi
-%doc %{texmf}/doc/latex/styles/picins.txt
-%doc %{texmf}/doc/latex/styles/placeins.txt
-%doc %{texmf}/doc/latex/styles/readme.fp
-%doc %{texmf}/doc/latex/styles/sectsty.dvi
-%doc %{texmf}/doc/latex/styles/slashbox.tex
-%doc %{texmf}/doc/latex/styles/soul.dvi
-%doc %{texmf}/doc/latex/styles/stdclsdv.dvi
-%doc %{texmf}/doc/latex/styles/subfigure.dvi
-%doc %{texmf}/doc/latex/styles/textfit.dvi
-%doc %{texmf}/doc/latex/styles/titlesec.dvi
-%doc %{texmf}/doc/latex/styles/tocloft.dvi
-%doc %{texmf}/doc/latex/styles/type1cm.txt
-%doc %{texmf}/doc/latex/styles/vmargin.dvi
-%doc %{texmf}/doc/latex/seminar
-%doc %{texmf}/doc/latex/supertab
-%doc %{texmf}/doc/latex/textmerg
-%doc %{texmf}/doc/latex/tocbibind
-%doc %{texmf}/doc/latex/treesvr
-%doc %{texmf}/doc/latex/tools
-%doc %{texmf}/doc/latex/units
-%doc %{texmf}/doc/latex/xtab
-%doc %{texmf}/doc/latex/yfonts
-%doc %{texmf}/doc/latex/general
-%doc %{texmf}/doc/latex/pslatex
 %{_mandir}/man1/latex.1*
 %{_mandir}/man1/pslatex.1*
 %lang(fi) %{_mandir}/fi/man1/latex.1*
