@@ -40,6 +40,7 @@ Patch14:	teTeX-protos.patch
 Patch15:	teTeX-tektronix.patch
 Patch16:	teTeX-cx.patch
 Patch17:	teTeX-cpp_macros.patch
+Patch18:	teTeX-trie_size_max.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -67,9 +68,9 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
-%define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2
-%define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-%define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0
+%define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2 ; 
+%define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ; 
+%define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ; 
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -2369,6 +2370,7 @@ tar xzf %{SOURCE1} -C texmf
 %patch15 -p1
 #%patch16 -p1 -b .wiget
 #%patch17 -p1
+%patch18 -p1
 
 %build
 #sh ./reautoconf
@@ -2472,7 +2474,9 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 /sbin/ldconfig
 #jakie formaty trzzeba przegenerowaæ ?
 %fmtutil -f tex
+
 #%fmtutil -f bplain
+
 %texhash
 
 %postun
@@ -2483,6 +2487,7 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %post latex
 %fixinfodir
 %fmtutil -f latex
+
 %texhash
 
 %postun latex
@@ -2511,6 +2516,7 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %post omega
 %fmtutil -f omega
+
 %texhash
 
 %postun omega
@@ -2518,6 +2524,7 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %post omega-lambda
 %fmtutil -f lambda
+
 %texhash
 
 %postun omega-lambda
