@@ -5,6 +5,7 @@
 # - testing
 #
 # later:
+# - omega
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
@@ -339,6 +340,16 @@ Requires:	%{name} = %{version}
 %description metapost
 MetaPost.
 
+%package mptopdf
+Summary:	MetaPost to PDF converter
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-metapost = %{version}
+
+%description mptopdf
+MetaPost to PDF converter.
+
 %package texdoctk
 Summary:	Easy access to TeX documentation
 Group:		Applications/Publishing/TeX
@@ -486,16 +497,6 @@ Requires:	%{name}-plain = %{version}
 %description format-plain
 TeX Plain format.
 
-%package format-bplain
-Summary:	TeX BPlain format
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{version}
-
-%description format-bplain
-TeX BPlain format.
-
 %package format-pdftex
 Summary:	PDFTeX Plain format
 Group:		Applications/Publishing/TeX
@@ -587,17 +588,6 @@ Requires:	%{name}-amstex = %{version}
 %description format-amstex
 American Mathematics Society macros for Plain TeX.
 
-%package format-bamstex
-Summary:	AMS macros for BPlain TeX
-Group:		Applications/Publishing/TeX
-Obsoletes:	tetex-ams
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-amstex = %{version}
-
-%description format-bamstex
-American Mathematics Society macros for BPlain TeX.
-
 %package format-pdfamstex
 Summary:	AMS macros for PDFTeX
 Group:		Applications/Publishing/TeX
@@ -664,6 +654,16 @@ Requires:	%{name}-cslatex = %{version}
 
 %description format-cslatex
 CSLaTeX format.
+
+%package format-pdfcslatex
+Group:		Applications/Publishing/TeX
+Summary:	PDF CSLaTeX format
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-cslatex = %{version}
+
+%description format-pdfcslatex
+PDF CSLaTeX format.
 
 # Cyryillc Plain format
 
@@ -2172,7 +2172,7 @@ perl -pi \
 	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
 	texmf/web2c/texmf.cnf
 
-cp -a texmf $RPM_BUILD_ROOT%{_datadir}/texmf
+cp -a texmf $RPM_BUILD_ROOT%{texmf}
 
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
@@ -2284,6 +2284,12 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun metapost
 %texhash
 
+%post mptopdf
+%texhash
+
+%postun mptopdf
+%texhash
+
 %post texdoctk
 %texhash
 
@@ -2338,12 +2344,6 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun format-plain
 %texhash
 
-%post format-bplain
-%texhash
-
-%postun format-bplain
-%texhash
-
 %post format-pdftex
 %texhash
 
@@ -2392,12 +2392,6 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun format-amstex
 %texhash
 
-%post format-bamstex
-%texhash
-
-%postun format-bamstex
-%texhash
-
 %post format-pdfamstex
 %texhash
 
@@ -2432,6 +2426,12 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %texhash
 
 %postun format-cslatex
+%texhash
+
+%post format-pdfcslatex
+%texhash
+
+%postun format-pdfcslatex
 %texhash
 
 %post cyrplain
@@ -3474,6 +3474,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/dinbrief
 %{texmf}/doc/latex/draftcopy
 %{texmf}/doc/latex/eepic
+%{texmf}/doc/latex/extsizes
 %{texmf}/doc/latex/fancy*
 %{texmf}/doc/latex/float*
 %{texmf}/doc/latex/footmisc
@@ -3683,7 +3684,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/metapost
 %attr(755,root,root) %{_bindir}/mpost
 %attr(755,root,root) %{_bindir}/mpto
-%attr(755,root,root) %{_bindir}/mptopdf
 %attr(755,root,root) %{_bindir}/virmpost
 %attr(755,root,root) %{_bindir}/inimpost
 %dir %{texmf}/metapost
@@ -3698,9 +3698,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/inimpost.1*
 %{_mandir}/man1/virmpost.1*
 
-%files texdoctk
-%doc %{texmf}/doc/texdoctk
+%files mptopdf
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/mptopdf
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mptopdf.efmt
+
+%files texdoctk
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/texdoctk
 %attr(755,root,root) %{_bindir}/texdoctk
 %{texmf}/texdoctk
 
@@ -3747,6 +3752,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/tex/plain/config
 %dir %{texmf}/tex/plain/graphics
 %{texmf}/tex/plain/config/tex.ini
+%{texmf}/tex/plain/config/bplain.ini
 %{texmf}/tex/plain/base/*
 %{texmf}/tex/plain/graphics/*
 %{texmf}/web2c/plain.mem
@@ -3770,23 +3776,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-plain
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/tex.fmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/plain.fmt
-
-%files format-bplain
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/bplain
-%{texmf}/tex/plain/config/bplain.ini
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/bplain.fmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/tex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/plain.fmt
 
 %files format-pdftex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/plain
 %{texmf}/pdftex/plain/config
 %{texmf}/pdftex/plain/misc
-%{_datadir}/texmf/web2c/pdftex-pl.pool
-%{_datadir}/texmf/web2c/pdftex.pool
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
+%{texmf}/web2c/pdftex-pl.pool
+%{texmf}/web2c/pdftex.pool
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdftex.fmt
 
 %files format-pdfetex
 %defattr(644,root,root,755)
@@ -3797,9 +3797,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/pdfetex/tex
 %{texmf}/pdfetex/tex/config
 %{_mandir}/man1/pdfetex.1*
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
-%{_datadir}/texmf/web2c/pdfetex-pl.pool
-%{_datadir}/texmf/web2c/pdfetex.pool
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfetex.efmt
+%{texmf}/web2c/pdfetex-pl.pool
+%{texmf}/web2c/pdfetex.pool
 
 %files mex
 %defattr(644,root,root,755)
@@ -3817,17 +3817,19 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mex
 %attr(755,root,root) %{_bindir}/mex-pl
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex-pl.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex-pl.fmt
 
 %files format-pdfmex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfmex
-%attr(755,root,root) %{_bindir}/pdfmex-pl
+# does not build with beta 20021017
+#%attr(755,root,root) %{_bindir}/pdfmex-pl
 %dir %{texmf}/pdftex/mex
 %{texmf}/pdftex/mex/config
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex-pl.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
+# does not build with beta 20021017
+#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex-pl.fmt
 
 %files format-pdfemex
 %defattr(644,root,root,755)
@@ -3835,7 +3837,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfemex-pl
 %dir %{texmf}/pdfetex/mex
 %{texmf}/pdfetex/mex/config
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfemex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfemex.efmt
 
 %files amstex
 %defattr(644,root,root,755)
@@ -3851,16 +3853,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fi) %{_mandir}/fi/man1/amstex.1*
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/amstex.fmt
 
-%files format-bamstex
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/bamstex
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/bamstex.fmt
-
 %files format-pdfamstex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfamstex
 %{texmf}/pdftex/amstex
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfamstex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfamstex.fmt
 
 %files csplain
 %defattr(644,root,root,755)
@@ -3880,8 +3877,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-pdfcsplain
 %defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/pdfcsplain
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/pdfcsplain.fmt
+%attr(755,root,root) %{_bindir}/pdfcsplain
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/pdfcsplain.fmt
 
 %files cslatex
 %defattr(644,root,root,755)
@@ -3893,7 +3890,12 @@ rm -rf $RPM_BUILD_ROOT
 %files format-cslatex
 %attr(755,root,root) %{_bindir}/cslatex
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/cslatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/cslatex.fmt
+
+%files format-pdfcslatex
+%attr(755,root,root) %{_bindir}/pdfcslatex
+%defattr(644,root,root,755)
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfcslatex.fmt
 
 %files cyrplain
 %defattr(644,root,root,755)
@@ -3978,6 +3980,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-context
 %defattr(644,root,root,755)
+# does not build with beta 20021017
 #%attr(755,root,root) %{_bindir}/cont-cz
 %attr(755,root,root) %{_bindir}/cont-de
 %attr(755,root,root) %{_bindir}/cont-en
@@ -3995,11 +3998,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/cont-en.1*
 %{_mandir}/man1/cont-nl.1*
 
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-cz.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-de.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-en.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-nl.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-uk.efmt
+# does not build with beta 20021017
+#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.efmt
 
 %files format-pdfcontext
 %defattr(644,root,root,755)
@@ -4024,6 +4028,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/dvilj
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
+%{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancy*
 %{texmf}/tex/latex/fp
 %{texmf}/tex/latex/g-brief
@@ -4243,7 +4248,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/latex
 %attr(755,root,root) %{_bindir}/pslatex
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/latex.fmt
 
 %files format-elatex
 %defattr(644,root,root,755)
@@ -4251,14 +4256,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/elatex.1*
 %{texmf}/etex/latex/config
 %{texmf}/etex/latex/misc
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/elatex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/elatex.efmt
 
 %files format-pdflatex
 %defattr(644,root,root,755)
 %{texmf}/pdftex/latex/config
 %dir %{texmf}/pdftex/latex
 %attr(755,root,root) %{_bindir}/pdflatex
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdflatex.fmt
 %{_mandir}/man1/pdflatex.1*
 
 %files format-pdfelatex
@@ -4266,7 +4271,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfelatex
 %dir %{texmf}/pdfetex/latex
 %{texmf}/pdfetex/latex/config
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfelatex.efmt
 
 %files platex
 %defattr(644,root,root,755)
@@ -4278,15 +4283,15 @@ rm -rf $RPM_BUILD_ROOT
 %files format-platex
 %attr(755,root,root) %{_bindir}/platex
 %attr(755,root,root) %{_bindir}/platex-pl
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex-pl.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex-pl.fmt
 
 %files format-pdfplatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/platex
 %{texmf}/pdftex/platex/config
 %attr(755,root,root) %{_bindir}/pdfplatex
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfplatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfplatex.fmt
 
 %files tex-babel
 %defattr(644,root,root,755)
