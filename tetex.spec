@@ -23,7 +23,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	0.1
+Release:	0.2
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -91,6 +91,7 @@ Obsoletes:	tetex-plain-dvips
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
+%define		fmtdir	/var/lib/texmf/web2c
 %define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2 ;
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ;
 %define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ;
@@ -4355,6 +4356,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ebb
 %attr(755,root,root) %{_bindir}/fdf2tan
 %attr(755,root,root) %{_bindir}/fmtutil
+%attr(755,root,root) %{_bindir}/fmtutil-sys
 #%attr(755,root,root) %{_bindir}/fontexport
 #%attr(755,root,root) %{_bindir}/fontimport
 %attr(755,root,root) %{_bindir}/fontinst
@@ -4397,6 +4399,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tie
 %attr(755,root,root) %{_bindir}/ttf2afm
 %attr(755,root,root) %{_bindir}/updmap
+%attr(755,root,root) %{_bindir}/updmap-sys
 %attr(755,root,root) %{_bindir}/vftovp
 #%attr(755,root,root) %{_bindir}/virtex
 %attr(755,root,root) %{_bindir}/vptovf
@@ -4412,6 +4415,8 @@ rm -rf $RPM_BUILD_ROOT
 #%verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
 
 %ghost %{texmf}/ls-R
+%ghost %{_localstatedir}/ls-R
+
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.cnf
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.opt
@@ -4433,11 +4438,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/dvips
 %dir %{texmf}/dvips/config
 %dir %{texmf}/dvips/tetex
+%dir %{_localstatedir}/fonts
+%dir %{_localstatedir}/fonts/map
 
 %attr(1777,root,root) /var/cache/fonts
 
 %{_datadir}/info/web2c.info*
-%{_datadir}/info/texi2html.info.gz
+%{_datadir}/info/texi2html.info*
 %{_datadir}/texi2html
 #%{texmf}/updates.dat
 
@@ -4460,7 +4467,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/generic/texnames
 %{texmf}/tex/texinfo
 %{texmf}/web2c/*.tcx
-#%{texmf}/web2c/metafun.mem
+%{fmtdir}/metafun.mem
 #%{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
 #%{texmf}/fonts/map/dvips/updmap/ps2pk.map
@@ -4510,6 +4517,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/dvipng.1*
 %{_mandir}/man1/e2pall.1*
 %{_mandir}/man1/ebb.1*
+%{_mandir}/man1/fmtutil.1*
 %{_mandir}/man1/fontinst.1*
 %{_mandir}/man1/gftodvi.1*
 %{_mandir}/man1/gftopk.1*
@@ -4520,6 +4528,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kpsewhere.1*
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
+%{_mandir}/man1/makempy.1*
 #%{_mandir}/man1/mktexfmt.1*
 %{_mandir}/man1/mktexlsr.1*
 %{_mandir}/man1/newer.1*
@@ -4536,9 +4545,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
+%{_mandir}/man1/texlinks.1*
 #%{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
 %{_mandir}/man1/tftopl.1*
+%{_mandir}/man1/ttf2afm.1*
 %{_mandir}/man1/tie.1*
 %{_mandir}/man1/updmap.1*
 %{_mandir}/man1/vftovp.1*
@@ -4625,6 +4636,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/natbib
 %{texmf}/doc/latex/nomencl
 %{texmf}/doc/latex/ntgclass
+%{texmf}/doc/latex/ntheorem
 %{texmf}/doc/latex/oberdiek
 %{texmf}/doc/latex/overpic
 %{texmf}/doc/latex/paralist
@@ -4736,11 +4748,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/map/dvips/tetex/mt-yy.map
 %{texmf}/fonts/map/dvips/tetex/pdftex35.map
 %{texmf}/fonts/map/dvips/tetex/ttcmex.map
-#%{texmf}/fonts/map/dvips/updmap/builtin35.map
-#%{texmf}/fonts/map/dvips/updmap/download35.map
-#%{texmf}/fonts/map/dvips/updmap/psfonts.map
-#%{texmf}/fonts/map/dvips/updmap/psfonts_pk.map
-#%{texmf}/fonts/map/dvips/updmap/psfonts_t1.map
+%{_localstatedir}/fonts/map/dvipdfm
+%{_localstatedir}/fonts/map/dvips
 
 %dir %{texmf}/dvipdfm
 %{texmf}/dvipdfm/config
@@ -4788,7 +4797,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/mft/mplain.mft
 %{texmf}/mft/plain.mft
 %{texmf}/mft/pl.mft
-#%{texmf}/web2c/mf.base
+%{fmtdir}/mf.base
 #%{texmf}/web2c/mf-nowin.base
 %{texmf}/web2c/mf.pool
 #%{texmf}/web2c/mfw.base
@@ -4813,8 +4822,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/metapost/config
 %{texmf}/metapost/mfpic
 %{texmf}/metapost/misc
-#%{texmf}/web2c/mpost.mem
+%{texmf}/metapost/support
 %{texmf}/web2c/mp.pool
+%{fmtdir}/mpost.mem
 %{_mandir}/man1/mpost.1*
 %{_mandir}/man1/mpto.1*
 #%{_mandir}/man1/inimpost.1*
@@ -4823,7 +4833,7 @@ rm -rf $RPM_BUILD_ROOT
 %files mptopdf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mptopdf
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mptopdf.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/mptopdf.fmt
 
 %files texdoctk
 %defattr(644,root,root,755)
@@ -4837,9 +4847,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/texconfig
 %attr(755,root,root) %{_bindir}/texconfig-dialog
+%attr(755,root,root) %{_bindir}/texconfig-sys
+%attr(755,root,root) %{texmf}/texconfig/tcfmgr
 %{_mandir}/man1/texconfig.1*
 %dir %{texmf}/texconfig
-%attr(755,root,root) %{texmf}/texconfig/tcfmgr
 %{texmf}/texconfig/tcfmgr.map
 %{texmf}/texconfig/generic
 %doc %{texmf}/texconfig/README
@@ -4871,9 +4882,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdftex
 %attr(755,root,root) %{_bindir}/pdfxtex
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/pdftexconfig.tex
-#%{texmf}/fonts/map/pdftex/updmap/pdftex.map
-#%{texmf}/fonts/map/pdftex/updmap/pdftex_dl14.map
-#%{texmf}/fonts/map/pdftex/updmap/pdftex_ndl14.map
+%{_localstatedir}/fonts/map/pdftex/
 %{texmf}/fonts/map/pdftex/cmttf/cmttf.map
 %{texmf}/web2c/pdfetex-pl.pool
 %{texmf}/web2c/pdfetex.pool
@@ -4911,30 +4920,39 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/web2c/omega.pool
 %{texmf}/web2c/aleph.pool
 #%{_mandir}/man1/lambda.1*
+%{_mandir}/man1/mkocp.1*
+%{_mandir}/man1/mkofm.1*
 %{_mandir}/man1/omega.1*
+%{_mandir}/man1/ofm2opl.1.gz
+%{_mandir}/man1/opl2ofm.1.gz
+%{_mandir}/man1/otp2ocp.1.gz
+%{_mandir}/man1/outocp.1.gz
+%{_mandir}/man1/ovf2ovp.1.gz
+%{_mandir}/man1/ovp2ovf.1.gz
 
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/aleph.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/lambda.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/omega.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/aleph.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/lambda.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/omega.fmt
 
 %files plain
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/plain
 %{texmf}/tex/plain
 #%{texmf}/web2c/plain.mem
 #%{texmf}/web2c/plain.base
 
 %files format-plain
 %defattr(644,root,root,755)
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/tex.fmt
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/plain.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/tex.fmt
+#%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/plain.fmt
 
 %files format-pdftex
 %defattr(644,root,root,755)
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdftex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdftex.fmt
 
 %files format-pdfetex
 %defattr(644,root,root,755)
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfetex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfetex.fmt
 
 %files mex
 %defattr(644,root,root,755)
@@ -4951,13 +4969,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mex
 %{texmf}/tex/mex/config/mex.ini
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/utf8mex.fmt
 
 %files format-pdfmex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfmex
 %{texmf}/tex/mex/config/pdfmex.ini
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfmex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfmex.fmt
 
 #%files format-pdfemex
 #%defattr(644,root,root,755)
@@ -4965,7 +4984,7 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_bindir}/pdfemex-pl
 #%dir %{texmf}/pdfetex/mex
 #%{texmf}/pdfetex/mex/config
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfemex.efmt
+#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfemex.efmt
 
 %files format-utf8mex
 %defattr(644,root,root,755)
@@ -4987,13 +5006,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amstex
 %{_mandir}/man1/amstex.1*
 %lang(fi) %{_mandir}/fi/man1/amstex.1*
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/amstex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/amstex.fmt
 
 %files format-pdfamstex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfamstex
 #%{texmf}/pdftex/amstex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfamstex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfamstex.fmt
 
 %files csplain
 %defattr(644,root,root,755)
@@ -5010,12 +5029,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-csplain
 %defattr(644,root,root,755)
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/csplain.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/csplain.fmt
 
 %files format-pdfcsplain
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfcsplain
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/pdfcsplain.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/pdfcsplain.fmt
 
 %files cslatex
 %defattr(644,root,root,755)
@@ -5027,12 +5046,12 @@ rm -rf $RPM_BUILD_ROOT
 %files format-cslatex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cslatex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/cslatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/cslatex.fmt
 
 %files format-pdfcslatex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pdfcslatex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfcslatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfcslatex.fmt
 
 %files cyrplain
 %defattr(644,root,root,755)
@@ -5042,17 +5061,17 @@ rm -rf $RPM_BUILD_ROOT
 %files format-cyrplain
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cyrtex
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cyrtex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cyrtex.fmt
 
 %files format-cyramstex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cyramstex
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cyramstex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cyramstex.fmt
 
 %files format-cyrtexinfo
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cyrtexinfo
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cyrtexinfo.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cyrtexinfo.fmt
 
 %files eplain
 %defattr(644,root,root,755)
@@ -5067,8 +5086,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/etex
 %{_mandir}/man1/eplain.1*
 %{_mandir}/man1/etex.1*
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/eplain.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/etex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/eplain.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/etex.fmt
 
 %files context
 %defattr(644,root,root,755)
@@ -5083,6 +5102,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/texshow
 %attr(755,root,root) %{_bindir}/texutil
 %{_mandir}/man1/texexec.1*
+%{_mandir}/man1/texfind.1*
+%{_mandir}/man1/texfont.1*
 %{_mandir}/man1/texutil.1*
 %{_mandir}/man1/texshow.1*
 %{texmf}/context/config/texexec.ini
@@ -5107,22 +5128,22 @@ rm -rf $RPM_BUILD_ROOT
 #%defattr(644,root,root,755)
 #%%{texmf}/tex/context/config/cont-cz.ini
 # does not build with beta 20021025
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
+#%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cont-cz.efmt
 
 %files format-context-de
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-de.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cont-de.fmt
 #%{_mandir}/man1/cont-de.1*
 
 %files format-context-en
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-en.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cont-en.fmt
 #%{_mandir}/man1/cont-en.1*
 # what is the difference betwen uk and en in this particular situation?
 %{texmf}/tex/context/config/cont-uk.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cont-uk.fmt
 
 # no fmt, so commented out
 #%files format-context-it
@@ -5132,7 +5153,7 @@ rm -rf $RPM_BUILD_ROOT
 %files format-context-nl
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
-#%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.fmt
+%config(noreplace) %verify(not size md5 mtime) %{fmtdir}/cont-nl.fmt
 #%{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
@@ -5268,6 +5289,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/multirow
 %{texmf}/tex/latex/mwcls
 %{texmf}/tex/latex/natbib
+%{texmf}/tex/latex/nextpage/
+%{texmf}/tex/latex/ntheorem/
 %{texmf}/tex/latex/nomencl/
 %{texmf}/tex/latex/ntgclass
 %{texmf}/tex/latex/oberdiek
@@ -5343,6 +5366,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/was/
 %{texmf}/tex/latex/wrapfig/
 %doc %{texmf}/doc/latex/wrapfig/
+%{texmf}/tex/latex/xkeyval/
 %{texmf}/tex/latex/xtab/
 %{texmf}/tex/latex/yfonts/
 %{texmf}/tex/latex/version/
@@ -5598,7 +5622,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/latex
 %attr(755,root,root) %{_bindir}/pslatex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/latex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/latex.fmt
 
 #%files format-elatex
 #%defattr(644,root,root,755)
@@ -5606,14 +5630,14 @@ rm -rf $RPM_BUILD_ROOT
 #%{_mandir}/man1/elatex.1*
 #%{texmf}/etex/latex/config
 #%{texmf}/etex/latex/misc
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/elatex.efmt
+#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/elatex.efmt
 
 %files format-pdflatex
 %defattr(644,root,root,755)
 #%{texmf}/pdftex/latex/config
 #%dir %{texmf}/pdftex/latex
 %attr(755,root,root) %{_bindir}/pdflatex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdflatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdflatex.fmt
 #%{_mandir}/man1/pdflatex.1*
 
 #%files format-pdfelatex
@@ -5621,7 +5645,7 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_bindir}/pdfelatex
 #%dir %{texmf}/pdfetex/latex
 #%{texmf}/pdfetex/latex/config
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfelatex.efmt
+#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfelatex.efmt
 
 %files platex
 %defattr(644,root,root,755)
@@ -5634,15 +5658,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/platex
 #%attr(755,root,root) %{_bindir}/platex-pl
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex.fmt
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/platex-pl.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/platex.fmt
+#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/platex-pl.fmt
 
 %files format-pdfplatex
 %defattr(644,root,root,755)
 #%dir %{texmf}/pdftex/platex
 #%{texmf}/pdftex/platex/config
 %attr(755,root,root) %{_bindir}/pdfplatex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdfplatex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfplatex.fmt
 
 %files tex-babel
 %defattr(644,root,root,755)
@@ -6057,7 +6081,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-type1-antt
 %defattr(644,root,root,755)
-#%{texmf}/dvips/antt
+%{texmf}/dvips/antt
 %{texmf}/fonts/type1/public/antt
 
 %files fonts-type1-belleek
