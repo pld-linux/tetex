@@ -2959,9 +2959,10 @@ tar xzf %{SOURCE1} -C texmf
 #fixme:%patch3  -p1
 #%patch4  -p0 # there is no klibtool
 %patch5  -p1
-%patch6 -p1
+%patch6 -p1 -b .wiget
 %patch7 -p1
-%patch8 -p1
+# dvips.tex moved?
+#patch8 -p1
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
@@ -4297,7 +4298,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/generic/enctex
 %{texmf}/tex/generic/epsf
 %{texmf}/tex/generic/hyphen
-%{texmf}/tex/generic/letterspacing
+#%{texmf}/tex/generic/letterspacing
 %{texmf}/tex/generic/localloc
 %{texmf}/tex/generic/null
 %{texmf}/tex/generic/path
@@ -4345,24 +4346,24 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/allcm.1*
 %{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
-%{_mandir}/man1/ctie.1.gz
+%{_mandir}/man1/ctie.1*
 %{_mandir}/man1/cweb.1*
 %{_mandir}/man1/dmp.1*
-%{_mandir}/man1/dvipdft.1.gz
-%{_mandir}/man1/dvipng.1.gz
+%{_mandir}/man1/dvipdft.1*
+%{_mandir}/man1/dvipng.1*
 %{_mandir}/man1/e2pall.1*
-%{_mandir}/man1/ebb.1.gz
+%{_mandir}/man1/ebb.1*
 %{_mandir}/man1/fontinst.1*
 %{_mandir}/man1/gftodvi.1*
 %{_mandir}/man1/gftopk.1*
 %{_mandir}/man1/gftype.1*
 %{_mandir}/man1/gsftopk.1*
-%{_mandir}/man1/kpseaccess.1.gz
-%{_mandir}/man1/kpsereadlink.1.gz
-%{_mandir}/man1/kpsewhere.1.gz
+%{_mandir}/man1/kpseaccess.1*
+%{_mandir}/man1/kpsereadlink.1*
+%{_mandir}/man1/kpsewhere.1*
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
-%{_mandir}/man1/mktexfmt.1.gz
+#%{_mandir}/man1/mktexfmt.1*
 %{_mandir}/man1/mktexlsr.1*
 %{_mandir}/man1/newer.1*
 %{_mandir}/man1/patgen.1*
@@ -4490,9 +4491,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/xtab
 %{texmf}/doc/latex/yfonts
 
-%files doc-latex2e-html
-%defattr(644,root,root,755)
-%{texmf}/doc/latex/latex2e-html
+#%files doc-latex2e-html
+#%defattr(644,root,root,755)
+#%{texmf}/doc/latex/latex2e-html
 
 %files -n kpathsea
 %defattr(644,root,root,755)
@@ -4668,7 +4669,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n xdvi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xdvi
-%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
+#%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
 %attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
 %{_mandir}/man1/xdvizilla.1*
@@ -4919,13 +4920,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-de.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.fmt
-%{_mandir}/man1/cont-de.1*
+#%{_mandir}/man1/cont-de.1*
 
 %files format-context-en
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-en.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.fmt
-%{_mandir}/man1/cont-en.1*
+#%{_mandir}/man1/cont-en.1*
 # what is the difference betwen uk and en in this particular situation?
 %{texmf}/tex/context/config/cont-uk.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.fmt
@@ -4939,7 +4940,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.fmt
-%{_mandir}/man1/cont-nl.1*
+#%{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
 #%files format-context-ro
