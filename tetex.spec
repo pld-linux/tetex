@@ -949,7 +949,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
-Requires:	%{name}-concmath = %{version}
+Requires:	%{name}-fonts-concmath = %{version}
 
 %description latex-concmath
 LaTeX package and font definition files to access the Concrete math fonts,
@@ -1536,13 +1536,13 @@ Requires(postun):	/usr/bin/texhash
 !!!fixme!!!
 
 %package fonts-cm
-Summary:	!!!fixme!!!
+Summary:	Computer Modern fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cm
-!!!fixme!!!
+Computer Modern fonts.
 
 %package fonts-cm-bold
 Summary:	!!!fixme!!!
@@ -1554,31 +1554,31 @@ Requires(postun):	/usr/bin/texhash
 !!!fixme!!!
 
 %package fonts-cmcyr
-Summary:	!!!fixme!!!
+Summary:	Computer Modern fonts extended with Russian letters
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cmcyr
-!!!fixme!!!
+Computer Modern fonts extended with Russian letters.
 
 %package fonts-cmextra
-Summary:	!!!fixme!!!
+Summary:	Extra Computer Modern fonts, from the American Mathematical Society
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cmextra
-!!!fixme!!!
+Extra Computer Modern fonts, from the American Mathematical Society.
 
 %package fonts-concmath
-Summary:	!!!fixme!!!
+Summary:	Concrete Math fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-concmath
-!!!fixme!!!
+Concrete Math fonts.
 
 %package fonts-concrete
 Summary:	!!!fixme!!!
