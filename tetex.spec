@@ -4,10 +4,6 @@
 # beta-20020922, rel. 1:
 # - clean up: fonts
 # - move new files to proper subpackages
-#     - tetex-tex-qpx (R: fonts-qfonts and fonts-pxfonts)
-#     - tetex-tex-qtx (R: fonts-qfonts and fonts-txfonts)
-#     - fonts-pxfonts (R: fonts-txfonts)
-#     - fonts-txfonts
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
 # - move dvips configs and maps to fonts subpackages
 # - check what is needed for texconfig to run and move appropriate files
@@ -1110,7 +1106,7 @@ Summary:	PX fonts LaTeX support
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-pxfonts = %{version}
+Requires:	%{name}-fonts-px = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-pxfonts
@@ -1137,7 +1133,7 @@ Summary:	TX fonts LaTeX support
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-txfonts = %{version}
+Requires:	%{name}-fonts-tx = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description latex-txfonts
@@ -1347,6 +1343,28 @@ Included are macros for color, graphics, pie charts, rotation, trees and
 overlays. It has many special features, including: a wide variety of
 graphics (picture drawing) macros, with a flexible interface and with color
 support. There are macros for coloring or shading the cells of tables.
+
+%package tex-qpx
+Summary:	QuasiPalatino and PX fonts typesetting support
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-qpx = %{version}
+
+%description tex-qpx
+QuasiPalatino and PX fonts typesetting support.
+
+%package tex-qtx
+Summary:	QuasiTimes and TX fonts typesetting support
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-qtx = %{version}
+
+%description tex-qtx
+QuasiTimes and TX fonts typesetting support.
 
 %package tex-ruhyphen
 Summary:	Russian hyphenation
@@ -1763,6 +1781,15 @@ Requires(postun):	/usr/bin/texhash
 %description fonts-pl
 Polish fonts.
 
+%package fonts-px
+Summary:	PX fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-px
+PX fonts.
+
 %package fonts-qfonts
 Summary:	Quasi fonts
 Group:	Applications/Publishing/TeX
@@ -1771,6 +1798,28 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-qfonts
 Quasi fonts.
+
+%package fonts-qpx
+Summary:	Additional fonts for QPX package
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-qfonts = %{version}
+Requires:	%{name}-fonts-px = %{version}
+
+%description fonts-qpx
+Additional fonts for QPX package.
+
+%package fonts-qtx
+Summary:	Additional fonts for QTX package
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-qfonts = %{version}
+Requires:	%{name}-fonts-tx = %{version}
+
+%description fonts-qtx
+Additional fonts for QTX package.
 
 %package fonts-rsfs
 Summary:	Fonts of uppercase script letters for use as symbols in scientific and mathematical typesetting
@@ -1791,6 +1840,15 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-stmaryrd
 St Mary Road symbols for functional programming.
+
+%package fonts-tx
+Summary:	TX fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-tx
+TX fonts.
 
 %package fonts-urw
 Summary:	URW fonts
@@ -1969,6 +2027,15 @@ Requires:	%{name}-fonts-type1-bluesky = %{version}
 %description fonts-type1-pl
 Polish fonts.
 
+%package fonts-type1-px
+Summary:	PX fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-px
+PX fonts.
+
 %package fonts-type1-qfonts
 Summary:	Quasi fonts
 Group:	Applications/Publishing/TeX
@@ -1977,6 +2044,15 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-qfonts
 Quasi fonts.
+
+%package fonts-type1-tx
+Summary:	TX fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-tx
+TX fonts.
 
 %package fonts-type1-urw
 Summary:	URW fonts
@@ -2135,11 +2211,17 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
+%doc %{texmf}/doc/tetex/CREDITS
+%doc %{texmf}/doc/tetex/FEATURES
+%doc %{texmf}/doc/tetex/NEWS
+%doc %{texmf}/doc/tetex/README
+%doc %{texmf}/doc/tetex/TETEXDOC.*
 %doc %{texmf}/doc/tetex/teTeX-FAQ
 %doc %{texmf}/doc/tetex.gif
 %doc %{texmf}/doc/tetex.png
 %doc %{texmf}/doc/fontinst
 %doc %{texmf}/doc/fonts/fontname
+%doc %{texmf}/doc/programs/web2c*
 
 %attr(755,root,root) %{_bindir}/MakeTeXPK
 %attr(755,root,root) %{_bindir}/access
@@ -2765,25 +2847,41 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/doc/latex
 %dir %{texmf}/doc/latex/styles
 %doc %{texmf}/doc/latex/SIunits
+%doc %{texmf}/doc/latex/acronym
+%doc %{texmf}/doc/latex/aeguill
+%doc %{texmf}/doc/latex/anysize
 %doc %{texmf}/doc/latex/base
+%doc %{texmf}/doc/latex/booktabs
 %doc %{texmf}/doc/latex/caption
+%doc %{texmf}/doc/latex/ccaption
+%doc %{texmf}/doc/latex/changebar
+%doc %{texmf}/doc/latex/currvita
 %doc %{texmf}/doc/latex/dinbrief
+%doc %{texmf}/doc/latex/draftcopy
 %doc %{texmf}/doc/latex/eepic
 %doc %{texmf}/doc/latex/fancy*
 %doc %{texmf}/doc/latex/float*
+%doc %{texmf}/doc/latex/footmisc
 %doc %{texmf}/doc/latex/g-brief
 %doc %{texmf}/doc/latex/geometry
 %doc %{texmf}/doc/latex/graphics
 %doc %{texmf}/doc/latex/hyperref
 %doc %{texmf}/doc/latex/koma-script
+%doc %{texmf}/doc/latex/leftidx
 %doc %{texmf}/doc/latex/mdwtools
 %doc %{texmf}/doc/latex/ms
 %doc %{texmf}/doc/latex/mwcls
 %doc %{texmf}/doc/latex/natbib
+%doc %{texmf}/doc/latex/nomencl
 %doc %{texmf}/doc/latex/ntgclass
 %doc %{texmf}/doc/latex/oberdiek
+%doc %{texmf}/doc/latex/overpic
 %doc %{texmf}/doc/latex/pb-diagram
+%doc %{texmf}/doc/latex/pdfpages
 %doc %{texmf}/doc/latex/preprint
+%doc %{texmf}/doc/latex/program
+%doc %{texmf}/doc/latex/psfrag
+%doc %{texmf}/doc/latex/psgo
 %doc %{texmf}/doc/latex/rotating
 %doc %{texmf}/doc/latex/rotfloat
 %doc %{texmf}/doc/latex/revtex4
@@ -2829,11 +2927,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/styles/tocloft.dvi
 %doc %{texmf}/doc/latex/styles/type1cm.txt
 %doc %{texmf}/doc/latex/styles/vmargin.dvi
+%doc %{texmf}/doc/latex/seminar
 %doc %{texmf}/doc/latex/supertab
 %doc %{texmf}/doc/latex/textmerg
-%doc %{texmf}/doc/latex/units
-%doc %{texmf}/doc/latex/seminar
+%doc %{texmf}/doc/latex/tocbibind
+%doc %{texmf}/doc/latex/treesvr
 %doc %{texmf}/doc/latex/tools
+%doc %{texmf}/doc/latex/units
+%doc %{texmf}/doc/latex/xtab
+%doc %{texmf}/doc/latex/yfonts
 %doc %{texmf}/doc/latex/general
 %doc %{texmf}/doc/latex/pslatex
 %{_mandir}/man1/latex.1*
@@ -3153,6 +3255,16 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/pstricks
 %{texmf}/tex/generic/pstricks
 
+%files tex-qpx
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/polish/qpx
+%{texmf}/tex/generic/qpx
+
+%files tex-qtx
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/polish/qtx
+%{texmf}/tex/generic/qtx
+
 %files tex-ruhyphen
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/generic/ruhyphen
@@ -3371,12 +3483,27 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/afm/public/pl
 %{texmf}/fonts/tfm/public/pl
 
+%files fonts-px
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/pxfonts
+%{texmf}/fonts/vf/public/pxfonts
+
 %files fonts-qfonts
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/qfonts
 %{texmf}/dvips/qfonts/
 %{texmf}/fonts/afm/public/qfonts
 %{texmf}/fonts/tfm/public/qfonts
+
+%files fonts-qpx
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/qpx
+%{texmf}/fonts/vf/public/qpx
+
+%files fonts-qtx
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/qtx
+%{texmf}/fonts/vf/public/qtx
 
 %files fonts-rsfs
 %defattr(644,root,root,755)
@@ -3388,6 +3515,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/styles/stmaryrd.dvi
 %{texmf}/fonts/source/public/stmaryrd
 %{texmf}/fonts/tfm/public/stmaryrd
+
+%files fonts-tx
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/txfonts
+%{texmf}/fonts/vf/public/txfonts
 
 %files fonts-urw
 %defattr(644,root,root,755)
@@ -3480,11 +3612,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-type1-pl
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/polish/plpsfont
 %{texmf}/fonts/type1/public/pl
+
+%files fonts-type1-px
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/pxfonts
 
 %files fonts-type1-qfonts
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/qfonts
+
+%files fonts-type1-tx
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/txfonts
 
 %files fonts-type1-urw
 %defattr(644,root,root,755)
