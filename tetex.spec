@@ -6,7 +6,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	2
+Release: 3
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
@@ -33,7 +33,7 @@ URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
 Prereq:		/sbin/ldconfig
-BuildRequires:	libpng-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
 BuildRequires:	XFree86-devel
