@@ -1,3 +1,4 @@
+U rpm.groups
 %define		texmf_ver	1.0.1
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -9,6 +10,7 @@ Version:	1.0.7
 Release:	4
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
@@ -16,7 +18,6 @@ Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	teTeX-hugelatex.cnf
-
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -81,6 +82,7 @@ Summary(fr):	Package de macros pour LaTeX
 Summary(pl):	Makro-pakiet LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -131,6 +133,7 @@ Summary(fr):	Convertisseur dvi vers PostScript
 Summary(pl):	Konwerter dvi do postscriptu
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -168,6 +171,7 @@ Summary(fr):	convertisseur dvi vers laserjet.
 Summary(pl):	Konwerter dvi do laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -205,6 +209,7 @@ Summary(fr):	Fontes afm (Adobe Font Metrics) et utilitaires
 Summary(pl):	afm (Adobe Font Metrics) czcionki i narzêdzia
 Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -250,6 +255,7 @@ Summary(fr):	Package de macros pour LaTeX
 Summary(pl):	Makra dla LaTeX 
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -265,6 +271,7 @@ matematycznych.
 Summary:	LaTeX macro package
 Summary(pl):	Dodatkowe makra dla LaTeX
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -276,6 +283,7 @@ LaTeX macro package.
 Summary:	e-TeX 
 Summary(pl):	e-TeX 
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
@@ -291,6 +299,7 @@ Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Requires:	%{name} = %{version}
 Prereq:		%{_bindir}/texhash
 
@@ -305,10 +314,8 @@ Summary:	PDFtex
 Summary(pl):	PDFtex 
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Requires:	%{name} = %{version}
-Group:		
-Group():	
-Group(pl):	Aplikacje/Komunikacja
 
 %description pdftex
 TeX generating PDFs instead DVI.
@@ -324,6 +331,7 @@ Summary(pl):	Przegl±darka DVI dla X11
 Summary(tr):	X11 öngörüntüleyici
 Requires:	%{name} = %{version}
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Obsoletes:	tetex-xdvi
 
@@ -347,6 +355,7 @@ plików DVI, produkowanych przez TeXa i LaTeXa.
 %package fonts
 Summary:	The font files for the TeX text formatting system.
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Prereq:		%{_bindir}/texhash
 
@@ -366,6 +375,7 @@ zainstalowaæ ten pakiet.
 %package doc
 Summary:	The documentation files for the TeX text formatting system.
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
 
@@ -389,8 +399,9 @@ zainstalowaæ ten pakiet.
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
 Group:		Development/Libraries
-Group(pl):	Programowanie/Biblioteki
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description -n kpathsea-devel
@@ -419,7 +430,6 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 sh ./reautoconf
 LDFLAGS="-s"
 CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
-export LDFLAGS CXXFLAGS
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
