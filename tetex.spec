@@ -61,6 +61,7 @@ Patch21:	teTeX-libXpm.patch
 Patch22:	%{name}-no_info_files.patch
 Patch23:	%{name}-mwcls-update.patch
 URL:		http://www.tug.org/teTeX/
+BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
@@ -75,7 +76,6 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	t1lib-devel
 BuildRequires:	texinfo
 BuildRequires:	w3c-libwww-devel
-BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 PreReq:		/sbin/ldconfig
 PreReq:		awk
