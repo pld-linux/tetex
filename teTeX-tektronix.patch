@@ -1,5 +1,5 @@
---- teTeX-1.0/texk/share/texmf/tex/plain/dvips/dvips.tex.tektronix	Sat Jan 15 17:55:36 2000
-+++ teTeX-1.0/texk/share/texmf/tex/plain/dvips/dvips.tex	Sat Jan 15 17:56:01 2000
+--- teTeX-1.0/texk/dvipsk/tex/dvips.tex.tektronix	Sat Jan 15 17:55:36 2000
++++ teTeX-1.0/texk/dvipsk/tex/dvips.tex	Sat Jan 15 17:56:01 2000
 @@ -2751,7 +2751,7 @@
  only understands RGB, there should be no problem.
  
