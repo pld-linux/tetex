@@ -4006,7 +4006,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tetex-updmap
 %attr(755,root,root) %{_bindir}/tex
 %attr(755,root,root) %{_bindir}/texdoc
-%attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texfont
 %attr(755,root,root) %{_bindir}/texhash
@@ -4133,7 +4132,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
-%{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
 %{_mandir}/man1/texi2pdf.1*
@@ -4653,6 +4651,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/context
 %dir %{texmf}/context/config
 %dir %{texmf}/context/data
+%attr(755,root,root) %{_bindir}/texexec
+%{_mandir}/man1/texexec.1*
 %{texmf}/context/config/texexec.ini
 %{texmf}/context/config/texexec.rme
 %{texmf}/context/data/conedt.ini
