@@ -988,7 +988,6 @@ Obsoletes:	tetex-latex-fancyvrb
 Obsoletes:	tetex-latex-koma-script
 Obsoletes:	tetex-latex-multirow
 Obsoletes:	tetex-latex-ms
-Obsoletes:	tetex-latex-g-brief
 Obsoletes:	tetex-latex-pstriks
 Obsoletes:	tetex-latex-seminar
 Obsoletes:	tetex-latex-endfloat
@@ -4246,7 +4245,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/fancy*
 %{texmf}/doc/latex/float*
 %{texmf}/doc/latex/footmisc
-#%{texmf}/doc/latex/g-brief
 %{texmf}/doc/latex/geometry
 %{texmf}/doc/latex/graphics
 %{texmf}/doc/latex/hyperref
@@ -4292,7 +4290,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/styles/labels.dvi
 %{texmf}/doc/latex/styles/lastpage.dvi
 %{texmf}/doc/latex/styles/layman.dvi
-# removed due to license problems
 #%%{texmf}/doc/latex/styles/listings.dvi
 #%%{texmf}/doc/latex/styles/lucidabr.txt
 %{texmf}/doc/latex/styles/mathcomp.dvi
@@ -4358,6 +4355,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/dvitomp
 %attr(755,root,root) %{_bindir}/dvitype
 %attr(755,root,root) %{_bindir}/dvicopy
+%attr(755,root,root) %{_bindir}/dvipdfm
+%attr(755,root,root) %{_bindir}/dvipdft
 # dvi2fax requires ghostscript
 %attr(755,root,root) %{_bindir}/dvi2fax
 %{_infodir}/dvips.info*
@@ -4828,13 +4827,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancy*
 %{texmf}/tex/latex/fp
-#%{texmf}/tex/latex/g-brief
 %{texmf}/tex/latex/graphics
 %{texmf}/tex/latex/hyperref
 %{texmf}/tex/latex/koma-script
 %{texmf}/tex/latex/labels
-# removed due to license problems
-#%%{texmf}/tex/latex/listings
+%{texmf}/tex/latex/listings
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/misc
 %{texmf}/tex/latex/ms
