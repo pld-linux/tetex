@@ -469,7 +469,7 @@ cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
-make install \
+%{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
@@ -481,7 +481,7 @@ make install \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd texk/tetex
-make install \
+%{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
@@ -494,7 +494,7 @@ make install \
 cd ../..
 
 cd texk/ps2pkm 
-make install \
+%{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
@@ -508,7 +508,7 @@ cd ../..
 
 install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
-make init \
+%{__make} init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
