@@ -64,6 +64,7 @@ Summary(tr):	LaTeX makro paketi
 Summary(pl):	Makro-pakiet LaTeX
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Prereq:		/sbin/install-info
 
 %description latex
 LaTeX is a TeX macro package. The LaTeX macros encourage writers to think
@@ -144,6 +145,7 @@ Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Summary(pl):	Konwerter dvi do postscriptu
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Prereq:		/sbin/install-info
 
 %description dvips
 The program dvips takes a DVI file file[.dvi] produced by TeX (or by some
