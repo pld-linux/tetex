@@ -946,7 +946,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/context/base
 %{_datadir}/texmf/tex/context/config
 
-%dif %{_datadir}/texmf/tex/cslatex
+%dir %{_datadir}/texmf/tex/cslatex
 %{_datadir}/texmf/tex/cslatex/*.fd
 %config %{_datadir}/texmf/tex/cslatex/*.cfg
 %config %{_datadir}/texmf/tex/cslatex/*.ini
