@@ -591,6 +591,7 @@ install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
+/usr/bin/fmtutil --all >/dev/null 2>&1 
 
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
