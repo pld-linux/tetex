@@ -1,18 +1,19 @@
-%define		texmf_ver	1.0.2
-%define		texmfsrc_ver	1.0.1
+%define		tetex_ver	beta-20001218
+%define		texmf_ver	beta-20000804
+%define		texmfsrc_ver	beta-20000804
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	1.0.7
-Release:	14
+Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
+Release:	0.1
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
-Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
+Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
 Source4:	%{name}.cron
@@ -21,12 +22,10 @@ Source6:	teTeX-hugelatex.cnf
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
-Patch3:		teTeX-arm.patch
 Patch4:		teTeX-info.patch
 Patch5:		teTeX-klibtool.patch
 Patch6:		teTeX-texi2html.patch
 Patch7:		teTeX-texmfcnf.patch
-Patch8:		teTeX-texmf-pdftex.patch
 Patch9:		teTeX-texmf-dvipsgeneric.patch
 Patch10:	teTeX-fmtutil.patch
 Patch11:	teTeX-grep.patch
@@ -41,11 +40,16 @@ Requires:	dialog
 Prereq:		/sbin/ldconfig
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
+#BuildRequires:	libwww-devel
+BuildRequires:	libtiff-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ed
 BuildRequires:	texinfo
 BuildRequires:	flex
 BuildRequires:	bison
+BuildRequires:	zlib-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	perl
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -430,45 +434,47 @@ Requires:	%{name} = %{version}
 Kpathsea library filename lookup header files and documentation.
 
 %prep
-%setup   -q -n teTeX-1.0
+%setup   -q -n teTeX-src-%{tetex_ver}
 %patch   -p1 
 %patch1  -p1 
 
-install -d texk/share/texmf
-tar xzf %{SOURCE1} -C texk/share/texmf
-tar xzf %{SOURCE2} -C texk/share/texmf
+install -d texmf
+tar xzf %{SOURCE1} -C texmf
+tar xzf %{SOURCE2} -C texmf
 
 %patch2  -p1
-%patch3  -p1
 %patch4  -p1
 %patch5  -p1
 %patch6  -p1
 %patch7  -p1
-%patch8  -p1
 %patch9  -p1
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
-%patch13 -p1
 %patch14 -p1
 %patch15 -p1
 %patch16 -p1
 
 %build
 sh ./reautoconf
-CXXFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions"
+CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
 	--with-system-pnglib \
+	--with-system-tifflib \
 	--disable-multiplatform \
 	--without-dialog \
 	--without-texinfo \
+	--without-t1utils \
 	--with-fonts-dir=/var/cache/fonts \
-	--with-texmf-dir=../share/texmf \
+	--with-texmf-dir=../../texmf \
 	--with-ncurses \
 	--enable-shared \
 	--disable-static
+
+	
+#--with-system-wwwlib 
 
 rm -f texk/{tetex,dvipsk}/*.info*
 (cd texk/dvipsk; makeinfo dvips.texi)
@@ -478,13 +484,9 @@ rm -f texk/{tetex,dvipsk}/*.info*
 find -name language.dat -exec perl -pi -e 's/^%polish/polish/g' {} \;
 
 %{__make}
-cd texk 
-%{__make}
-cd ..
+%{__make} -C texk
+%{__make} -C texk/tetex
 
-cd texk/tetex
-%{__make}
-cd ../..
 
 cd texk/dvipsk
 makeinfo dvips.texi
@@ -506,11 +508,11 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT/etc/cron.daily
 
 perl -pi \
-	-e "s|\.\./share/texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
+	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
 	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
-	texk/share/texmf/web2c/texmf.cnf
+	texmf/web2c/texmf.cnf
 
-cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
+cp -a texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
@@ -525,8 +527,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
-cd texk/tetex
-%{__make} install \
+%{__make} -C texk/tetex install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
@@ -536,10 +537,9 @@ cd texk/tetex
 	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-cd ../..
 
-cd texk/ps2pkm 
-%{__make} install \
+
+%{__make} -C texk/ps2pkm install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
@@ -549,7 +549,6 @@ cd texk/ps2pkm
 	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-cd ../..
 
 install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
@@ -565,16 +564,13 @@ install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 perl -pi \
-	-e "s|\.\./share/texmf|%{_datadir}/texmf|g;" \
-	-e "s|$RPM_BUILD_ROOT/var/cache/fonts|/var/cache/fonts|g;" \
+	-e "s|$RPM_BUILD_ROOT||g;" \
 	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 ## temporary fix
 # prepare conf file to build hugelatex 
 # (required to build jadetex)
 # I don't know how to make it better now :( /klakier
 cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
-
-# install the new magic print filter for converting dvi to ps
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 
@@ -583,72 +579,73 @@ ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 
-find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
+# remove all *.dvi ? why ? /wiget
+#find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
-/usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun
 /sbin/ldconfig
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post latex
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun latex
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvips
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvips
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post dvilj
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun dvilj
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post afm
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun afm
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post omega
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun omega
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %post fonts
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %postun fonts
-[ -x %{_bindir}/texhash ] && /usr/bin/env - %{_bindir}/texhash 1>&2
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
 %clean
@@ -666,6 +663,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/MakeTeXPK
 %attr(755,root,root) %{_bindir}/access
 %attr(755,root,root) %{_bindir}/all*
+%attr(755,root,root) %{_bindir}/bamstex
+%attr(755,root,root) %{_bindir}/bplain
 %attr(755,root,root) %{_bindir}/dmp
 %attr(755,root,root) %{_bindir}/dvi2fax
 %attr(755,root,root) %{_bindir}/dvicopy
@@ -759,6 +758,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
 
+%{_mandir}/man1/dvi2fax.1*
+%{_mandir}/man1/dvihp.1*
+%{_mandir}/man1/dvitomp.1*
+%{_mandir}/man1/epstopdf.1*
 %{_mandir}/man1/dmp.1*
 %{_mandir}/man1/dvicopy.1*
 %{_mandir}/man1/dvired.1*
@@ -819,9 +822,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/context/config
 %dir %{_datadir}/texmf/context/data
 %config %{_datadir}/texmf/context/config/texexec.ini
+%lang(cz) %{_datadir}/texmf/context/data/cont-cz.tws
 %lang(de) %{_datadir}/texmf/context/data/cont-de.tws
 %lang(en) %{_datadir}/texmf/context/data/cont-en.tws
 %lang(nl) %{_datadir}/texmf/context/data/cont-nl.tws
+
+%{_datadir}/texmf/context/perltk
 
 %dir %{_datadir}/texmf/etex
 %dir %{_datadir}/texmf/etex/plain
@@ -848,6 +854,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/source/public/cc-pl
 %dir %{_datadir}/texmf/fonts/source/public/cm
 %{_datadir}/texmf/fonts/source/public/cm/*.mf
+%{_datadir}/texmf/fonts/source/public/cs
 %{_datadir}/texmf/fonts/source/public/cmbright
 %{_datadir}/texmf/fonts/source/public/cmextra
 %{_datadir}/texmf/fonts/source/public/concmath
@@ -880,6 +887,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/tfm/monotype
 %dir %{_datadir}/texmf/fonts/tfm/public
 %{_datadir}/texmf/fonts/tfm/public/ae
+%{_datadir}/texmf/fonts/tfm/public/cs
 %{_datadir}/texmf/fonts/tfm/public/bbm
 %{_datadir}/texmf/fonts/tfm/public/bbold
 %{_datadir}/texmf/fonts/tfm/public/cc-pl
@@ -915,6 +923,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/fonts/tfm/yandy/times
 %{_datadir}/texmf/fonts/tfm/yandy/zapfding
 
+%{_datadir}/texmf/fonts/type1/public/belleek
+%{_datadir}/texmf/fonts/type1/public/cs
 %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex
 
@@ -936,6 +946,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/context/base
 %{_datadir}/texmf/tex/context/config
 
+%dif %{_datadir}/texmf/tex/cslatex
+%{_datadir}/texmf/tex/cslatex/*.fd
+%config %{_datadir}/texmf/tex/cslatex/*.cfg
+%config %{_datadir}/texmf/tex/cslatex/*.ini
+
+%{_datadir}/texmf/tex/csplain
+
 %dir %{_datadir}/texmf/tex/fontinst
 %{_datadir}/texmf/tex/fontinst/base
 
@@ -951,6 +968,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/cyrplain/base
 %dir %{_datadir}/texmf/tex/cyrplain/config
 %config %{_datadir}/texmf/tex/cyrplain/config/*.ini
+%config %{_datadir}/texmf/tex/cyrplain/config/*.cfg
 %dir %{_datadir}/texmf/tex/mex
 %{_datadir}/texmf/tex/mex/base
 %dir %{_datadir}/texmf/tex/mex/config
@@ -991,17 +1009,23 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/elatex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/etex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/amstex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/bamstex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/bplain.fmt
 #%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
 
-%docdir %{_datadir}/texmf/doc
+#docdir %{_datadir}/texmf/doc
 %dir %{_datadir}/texmf/doc
 %doc %{_datadir}/texmf/doc/Makefile
 %doc %{_datadir}/texmf/doc/README
 %doc %{_datadir}/texmf/doc/context
+%doc %{_datadir}/texmf/doc/cstex
+%doc %{_datadir}/texmf/doc/cyrplain
+%doc %{_datadir}/texmf/doc/fontinst
 %doc %{_datadir}/texmf/doc/e*
 %doc %{_datadir}/texmf/doc/mkhtml.nawk
 %doc %{_datadir}/texmf/doc/tetex.gif
@@ -1018,6 +1042,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/fonts/marvosym
 %doc %{_datadir}/texmf/doc/fonts/fontname
 %doc %{_datadir}/texmf/doc/fonts/oldgerman
+%doc %{_datadir}/texmf/doc/fonts/ae
+%doc %{_datadir}/texmf/doc/fonts/belleek
 %doc %{_datadir}/texmf/doc/generic
 %doc %{_datadir}/texmf/doc/help*
 %doc %{_datadir}/texmf/doc/images
@@ -1028,6 +1054,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/newhelpindex.html
 %doc %{_datadir}/texmf/doc/programs
 %doc %{_datadir}/texmf/doc/tetex
+%doc %{_datadir}/texmf/source/info
 
 %doc %{_datadir}/texmf/source/README
 %dir %{_datadir}/texmf/source
@@ -1108,6 +1135,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/viromega.1*
 
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
 
 %{_datadir}/texmf/fonts/tfm/public/omega
 %dir %{_datadir}/texmf/fonts/ofm
@@ -1174,7 +1202,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/pdftex/config
 %dir %{_datadir}/texmf/pdftex/plain
 %{_datadir}/texmf/pdftex/plain/misc
-%{_datadir}/texmf/pdftex/texinfo
 
 %dir %{_datadir}/texmf/pdftex/latex
 %dir %{_datadir}/texmf/pdftex/latex/config
@@ -1192,6 +1219,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/pdfetex/tex
 %dir %{_datadir}/texmf/pdfetex/tex/config
 %config %{_datadir}/texmf/pdfetex/tex/config/pdfetex.ini
+
+%dir %{_datadir}/texmf/pdfetex/mex
+%dir %{_datadir}/texmf/pdfetex/mex/config
+%config %{_datadir}/texmf/pdfetex/mex/config/pdfetex.ini
 
 %attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
@@ -1250,6 +1281,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/plain/amsfonts
 
 %{_datadir}/texmf/source/amstex
+%{_datadir}/texmf/bibtex/bst/ams
 
 %doc %{_datadir}/texmf/doc/amstex
 %doc %{_datadir}/texmf/doc/fonts/amsfonts
