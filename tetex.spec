@@ -8,9 +8,6 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define		_ver	beta-20030112
-%define		texmf_ver	beta-20030112
-
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -20,14 +17,14 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	1
+Version:	2.0
+Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-src-%{_ver}.tar.gz
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/teTeX-texmf-%{texmf_ver}.tar.gz
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-src-%{version}.tar.gz
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/2.0/distrib/%{name}-texmf-%{version}.tar.gz
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
