@@ -15,7 +15,7 @@ Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
 Release:	6
-License:	Distributable
+License:	distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
 Group(es):	Aplicaciones/Editoración/TeX
