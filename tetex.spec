@@ -18,7 +18,6 @@
 # - tetex-doc-latex package: its size will be about 22MB uncompressed
 #
 # later:
-# - what happend to omega?
 # - create new packages if there is a need: texinfo, texconfig, more latex
 #   splitting... others?
 # - look at mktexfmt
@@ -1471,15 +1470,6 @@ Requires(postun):	/usr/bin/texhash
 %description fonts-marvosym
 fonts-marvosym
 
-%package fonts-omega
-Summary:	fonts-omega
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-omega
-fonts-omega
-
 %package fonts-qfonts
 Summary:	fonts-qfonts
 Group:		Applications/Publishing/TeX
@@ -1920,15 +1910,6 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-mathpazo
 fonts-type1-mathpazo
-
-%package fonts-type1-omega
-Summary:	fonts-type1-omega
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-type1-omega
-fonts-type1-omega
 
 %package fonts-type1-pl
 Summary:	fonts-type1-pl
@@ -3192,14 +3173,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/marvosym
 %{texmf}/fonts/afm/public/marvosym
 %{texmf}/fonts/tfm/public/marvosym
-
-#%files fonts-omega
-#%defattr(644,root,root,755)
-#%{texmf}/fonts/afm/public/omega
-#%{texmf}/fonts/ofm/public/omega
-#%{texmf}/fonts/ovf/public/omega
-#%{texmf}/fonts/ovp/public/omega
-#%{texmf}/fonts/tfm/public/omega
 
 %files fonts-qfonts
 %defattr(644,root,root,755)
