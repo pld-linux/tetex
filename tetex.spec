@@ -773,6 +773,14 @@ exit 0
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
 
+%post ams
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
+exit 0
+
+%postun ams
+[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
+exit 0
+
 %post omega
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
