@@ -2812,7 +2812,7 @@ Xy-pic fonts.
 Fonty Xy-pic.
 
 %prep
-%setup -q -n teTeX-src-%{_ver}
+%setup -q -n tetex-src-%{version}
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
