@@ -9,7 +9,6 @@
 #     - fonts-cmbright
 #     - fonts-pxfonts (R: fonts-txfonts)
 #     - fonts-txfonts
-#     - fonts-type1-cc-pl
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
 # - move dvips configs and maps to fonts subpackages
 # - find '!!!fixme!!!' string for unresolved issues and solve the problems
@@ -1501,31 +1500,31 @@ Requires(postun):	/usr/bin/texhash
 !!!fixme!!!
 
 %package fonts-bitstrea
-Summary:	!!!fixme!!!
+Summary:	Bitstream fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-bitstrea
-!!!fixme!!!
+Bitstream fonts.
 
 %package fonts-cbgreek
-Summary:	!!!fixme!!!
+Summary:	Complete set of Greek fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cbgreek
-!!!fixme!!!
+Complete set of Greek fonts.
 
 %package fonts-cc-pl
-Summary:	!!!fixme!!!
+Summary:	Polish version of Computer Concrete fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cc-pl
-!!!fixme!!!
+Polish version of Computer Concrete fonts.
 
 %package fonts-cg
 Summary:	!!!fixme!!!
@@ -1861,13 +1860,13 @@ Requires(postun):	/usr/bin/texhash
 !!!fixme!!!
 
 %package fonts-type1-bitstrea
-Summary:	!!!fixme!!!
+Summary:	Bitstream fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-bitstrea
-!!!fixme!!!
+Bitstream fonts.
 
 %package fonts-type1-bluesky
 Summary:	!!!fixme!!!
@@ -1877,6 +1876,15 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-bluesky
 !!!fixme!!!
+
+%package fonts-type1-cc-pl
+Summary:	Polish version of Computer Concrete fonts
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-cc-pl
+Polish version of Computer Concrete fonts.
 
 %package fonts-type1-cmcyr
 Summary:	!!!fixme!!!
@@ -3214,7 +3222,6 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-cc-pl
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/cc-pl
-%{texmf}/dvips/cc-pl
 %{texmf}/fonts/source/public/cc-pl
 %{texmf}/fonts/tfm/public/cc-pl
 
@@ -3414,6 +3421,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/bluesky
 %{texmf}/dvips/bluesky
 %{texmf}/fonts/type1/bluesky
+
+%files fonts-type1-cc-pl
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/polish/cc-plps
+%{texmf}/dvips/cc-pl
+%{texmf}/fonts/type1/public/cc-pl
 
 %files fonts-type1-cmcyr
 %defattr(644,root,root,755)
