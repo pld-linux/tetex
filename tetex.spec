@@ -3090,7 +3090,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 %fixinfodir
-if [ $1 = 1 ] 
+if [ $1 = 1 ]
 	%texhash
 endif
 
@@ -4357,6 +4357,7 @@ endif
 %{_mandir}/man8/texlinks.8*
 
 %files dirs-fonts
+%defattr(644,root,root,755)
 %dir %{texmf}
 %dir %{texmf}/fonts
 %dir %{texmf}/fonts/afm
