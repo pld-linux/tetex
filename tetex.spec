@@ -64,6 +64,7 @@ BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRequires:	openssl-devel
+BuildRequires:	expat-devel
 PreReq:		/sbin/ldconfig
 PreReq:		sed
 PreReq:		awk
