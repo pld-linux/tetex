@@ -8,7 +8,6 @@
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
-#
 
 %define tversion 2.99.4.20041128
 
@@ -1026,6 +1025,16 @@ standardowych fontów CM. Ten pakiet zosta³ nazwany AE (Almost European
 produkowanie plików PDF przy u¿yciu wersji fontów CM zamiast
 bitmapowych fontów EC.
 
+%package latex-algorithms
+Summary:	Floating algorithm environment
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description latex-algorithms
+Defines a floating algorithm environment designed to work with the algorithmic
+package.
+
 %package latex-ams
 Summary:	AMS math facilities for LaTeX
 Summary(pl):	Udogodnienia matematyczne AMS dla LaTeXa
@@ -1149,6 +1158,26 @@ BibTeX style files for American Mathematical Society publications.
 
 %description latex-bibtex-ams -l pl
 Pliki stylów BibTeXa do publikacji American Mathematical Society.
+
+%package latex-bibtex-dk
+Summary:	Danish variants of the standard BibTeX styles
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
+
+%description latex-bibtex-dk
+Dk-bib is a translation of the four standard BibTeX style files (abbrv, alpha,
+plain and unsrt) into Danish. The files have been extended with ISBN, ISSN and
+URL fields which can be enabled through a LaTeX style file.
+
+%package latex-bibtex-nor
+Summary:	Norwegian variants of the standard BibTeX styles
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
+
+%description latex-bibtex-nor
+Norwegian variants of the standard BibTeX styles.
 
 %package latex-bibtex-pl
 Summary:	Polish bibliography management for LaTeX
@@ -1371,6 +1400,31 @@ TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
 fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
 to do with all these files. The author is Bugoslaw Jackowski.
 
+%package latex-lineno
+Summary:	Lline numbers on paragraphs
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description latex-lineno
+The LaTeX package lineno.sty provides line numbers on paragraphs. After TeX has
+broken a paragraph into lines there will be line numbers attached to them, with
+the possibility to make references through the LaTeX \ref, \pageref cross
+reference mechanism.
+
+%package latex-microtype
+Summary:	An interface to the micro-typographic extensions of pdfTeX
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description latex-microtype
+The `microtype' package provides a LaTeX interface to pdfTeX's micro-
+typographic extensions: character protrusion and font expansion. It allows to
+restrict character protrusion and/or font expansion to a definable set of
+fonts, and to configure micro-typographic aspects of the fonts in a
+straight-forward and flexible way. Settings for various fonts are provided.
+
 %package latex-lucidabr
 Summary:	Package to make Lucida Bright fonts usable with LaTeX
 Summary(pl):	Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu
@@ -1569,6 +1623,16 @@ QuasiTimes (zwyk³e, pochy³e, t³uste i t³uste pochy³e), oparte na
 fontach URW++ rozpowszechnianych z Ghostscriptem. Fonty s± kodowane
 zgodnie z uk³adem QX, który u³atwia sk³ad wielojêzyczny i techniczny w
 TeXu, zachowuj±c przydatno¶æ dla aplikacji windowsowych.
+
+%package latex-urwvn
+Summary:	URWVN fonts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-urwvn = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description latex-urwvn
+URWVN fonts
 
 %package latex-txfonts
 Summary:	TX fonts LaTeX support
@@ -2017,6 +2081,15 @@ Pakiet do sk³adania w TeXu ró¿nych wykresów i diagramów. Xy-pic dzia³a
 z wiêkszo¶ci± formatów (w tym LaTeX, AMS-LaTeX, AMS-TeX i plain TeX),
 w szczególno¶ci jest do³±czany jako "wspierany pakiet" LaTeX2e.
 
+%package tex-xkeyval
+Summary:	Extension to keyval package
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name} = %{epoch}:%{version}
+
+%description tex-xkeyval
+Extension to keyval package.
+
 #
 # Fonts packages
 #
@@ -2296,6 +2369,18 @@ several shapes (normal, slanted, bold, outline).
 Symbol nowej europejskiej waluty Euro, zaimplementowany w Metafoncie,
 z u¿yciem oficjalnych wymiarów wg Komisji Europejskiej, dostarczaj±cy
 ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
+
+%package fonts-eulervm
+Summary:	The Virtual Euler Math fonts
+Group:		Fonts
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-eulervm
+Euler-VM is a set of _virtual_ math fonts based on Euler and
+CM.  This approach has several advantages over immediately
+using the _real_ Euler fonts:  Most noticeably, less TeX
+resources are consumed, the quality of various math symbols
+is improved, and a usable \hslash symbol can be provided.
 
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
@@ -2605,6 +2690,15 @@ URW fonts.
 %description fonts-urw -l pl
 Fonty URW.
 
+%package fonts-urwvn
+Summary:	URWVN fonts
+Summary(pl):	Fonty URWV
+Group:		Fonts
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-urwvn
+URWVN fonts.
+
 %package fonts-vcm
 Summary:	VCM fonts
 Summary(pl):	Fonty VCM
@@ -2813,6 +2907,32 @@ Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 Fonty oryginalnie stworzone w MetaFoncie, przekszta³cone do
 PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
 stmaryrd, wasy, wasy2, xipa.
+
+%package fonts-type1-fpl
+Summary:	SC/OsF for URW Palladio L
+Group:		Fonts
+Requires(post,postun):	/usr/bin/texhash
+
+%description fonts-type1-fpl
+The FPL Fonts provide a set of SC/OsF fonts for URW Palladio L which are
+compatible with respect to metrics with the Palatino SC/OsF fonts from
+Adobe. Note that it is not my aim to exactly reproduce the outlines of
+the original Adobe fonts. The SC and OsF in the FPL Fonts were designed
+with the glyphs from URW Palladio L as starting point. For some glyphs
+(eg 'o') I got the best result by scaling and boldening. For others (eg
+'h') shifting selected portions of the character gave more satisfying
+results. All this was done using the free font editor FontForge
+<URL:http://fontforge.sf.net>. The kerning data in these fonts comes
+from Walter Schmidt's improved Palatino metrics.
+
+%package fonts-type1-tt2001
+Summary:	Type 1 tt2001 family fonts
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{epoch}:%{version}
+
+%description fonts-type1-tt2001
+Type1 tt2001 famliy fonts
 
 %package fonts-type1-lm
 Summary:	Type 1 Latin Modern family fonts
@@ -3074,6 +3194,10 @@ install %{SOURCE5} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
+# in separate spec
+rm -rf $RPM_BUILD_ROOT%{texmf}/tex/latex/{beamer,pgf,xcolor}
+rm -rf $RPM_BUILD_ROOT%{texmf}/doc/latex/{beamer,pgf,xcolor}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -4310,8 +4434,10 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/fontinst
 %{texmf}/tex/generic/bghyph
 %{texmf}/tex/generic/encodings
+%doc %{texmf}/doc/generic/enctex
 %{texmf}/tex/generic/enctex
 %{texmf}/tex/generic/epsf
+%doc %{texmf}/doc/generic/hyphen
 %{texmf}/tex/generic/hyphen
 #%{texmf}/tex/generic/letterspacing
 %{texmf}/tex/generic/localloc
@@ -4324,7 +4450,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/texinfo
 %{texmf}/web2c/*.tcx
 %{texmf}/web2c/metafun.mem
-%{texmf}/web2c/tex-pl.pool
+#%{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
 %{texmf}/fonts/map/dvips/updmap/ps2pk.map
 %{texmf}/fonts/map/dvips/tetex/ps2pk35.map
@@ -4541,6 +4667,7 @@ rm -rf $RPM_BUILD_ROOT
 %files dvips
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
+%doc %{texmf}/doc/programs/dvipdfm.dvi
 %doc %{texmf}/doc/latex/psnfssx
 %attr(755,root,root) %{_bindir}/dvips
 %attr(755,root,root) %{_bindir}/dvired
@@ -4845,6 +4972,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/cstex/testlat.tex
 %attr(755,root,root) %{_bindir}/csplain
 %{texmf}/tex/csplain
+%{texmf}/tex/generic/csplain
 
 %files format-csplain
 %defattr(644,root,root,755)
@@ -4933,6 +5061,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/context/base
 %{texmf}/tex/context/config/cont-usr.tex
 %{texmf}/tex/context/extra
+%{texmf}/tex/context/foxet
+%{texmf}/tex/context/interface
 %{texmf}/tex/context/maths
 %{texmf}/tex/context/sample
 %{texmf}/tex/context/user
@@ -4987,26 +5117,23 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/tex/latex
 
 %{texmf}/tex/latex/SIunits
-%{texmf}/tex/latex/a4wide/
-%{texmf}/tex/latex/abstract/
-%doc %{texmf}/tex/doc/latex/abstract/
-%{texmf}/tex/latex/acronym/
+%{texmf}/tex/latex/a4wide
+%{texmf}/tex/latex/abstract
+%doc %{texmf}/doc/latex/abstract
+%{texmf}/tex/latex/acronym
 %{texmf}/tex/latex/adrconv
-%{texmf}/tex/latex/aeguill/
-%{texmf}/tex/latex/anysize/
-%{texmf}/tex/latex/appendix/
-%doc %{texmf}/tex/doc/latex/appendix/
+%{texmf}/tex/latex/aeguill
+%{texmf}/tex/latex/anysize
+%{texmf}/tex/latex/appendix
+%doc %{texmf}/doc/latex/appendix
 %{texmf}/tex/latex/bar/
-%doc %{texmf}/tex/doc/latex/bar/
+%doc %{texmf}/doc/latex/bar/
 %{texmf}/tex/latex/base
-# confilct with tetex-latex-beamer.spec 
-#%{texmf}/tex/latex/beamer/
-#%doc %{texmf}/tex/doc/latex/beamer/
 %{texmf}/tex/latex/beton/
 %{texmf}/tex/latex/bezos/
-%doc %{texmf}/tex/doc/latex/bezos/
+%doc %{texmf}/doc/latex/bezos/
 %{texmf}/tex/latex/bibunits/
-%doc %{texmf}/tex/doc/latex/bibunits/
+%doc %{texmf}/doc/latex/bibunits/
 %{texmf}/tex/latex/bold-extra/
 %{texmf}/tex/latex/booktabs/
 %{texmf}/tex/latex/boxedminipage/
@@ -5031,14 +5158,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/dvilj
 %{texmf}/tex/latex/dvipdfm/
 %{texmf}/tex/latex/eclbip/
-%doc %{texmf}/tex/doc/latex/eclbip/
+%doc %{texmf}/doc/latex/eclbip/
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
 %{texmf}/tex/latex/endnotes/
 %{texmf}/tex/latex/eo/
-%doc %{texmf}/tex/doc/latex/eo/
+%doc %{texmf}/doc/latex/eo/
 %{texmf}/tex/latex/eso-pic/
-%doc %{texmf}/tex/doc/latex/eso-pic/
+%doc %{texmf}/doc/latex/eso-pic/
 %{texmf}/tex/latex/etex/
 %{texmf}/tex/latex/euler/
 %{texmf}/tex/latex/eulervm/
@@ -5048,14 +5175,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancybox/
 %{texmf}/tex/latex/fancyhdr/
-%doc %{texmf}/tex/doc/latex/fancyhdr/
+%doc %{texmf}/doc/latex/fancyhdr/
 %{texmf}/tex/latex/fancyheadings/
 %{texmf}/tex/latex/fancyvrb/
-%doc %{texmf}/tex/doc/latex/fancyvrb/
+%doc %{texmf}/doc/latex/fancyvrb/
 %{texmf}/tex/latex/fguill/
 %{texmf}/tex/latex/float/
 %{texmf}/tex/latex/floatflt/
-%doc %{texmf}/tex/doc/latex/floatflt/
+%doc %{texmf}/doc/latex/floatflt/
 %{texmf}/tex/latex/fnpara/
 %{texmf}/tex/latex/fontinst/
 %{texmf}/tex/latex/footmisc/
@@ -5063,7 +5190,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/fp
 %{texmf}/tex/latex/framed/
 %{texmf}/tex/latex/g-brief/
-%doc %{texmf}/tex/doc/latex/g-brief/
+%doc %{texmf}/doc/latex/g-brief/
 %{texmf}/tex/latex/geometry/
 %{texmf}/tex/latex/germbib/
 %{texmf}/tex/latex/gletter/
@@ -5080,20 +5207,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/layouts/
 %{texmf}/tex/latex/leftidx/
 %{texmf}/tex/latex/lettrine/
-%doc %{texmf}/tex/doc/latex/lettrine/
+%doc %{texmf}/doc/latex/lettrine/
 %{texmf}/tex/latex/listings
 %{texmf}/tex/latex/mathcomp/
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
-%doc %{texmf}/tex/doc/latex/memoir/
+%doc %{texmf}/doc/latex/memoir/
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
-%doc %{texmf}/tex/doc/latex/mparhack/
+%doc %{texmf}/doc/latex/mparhack/
 %{texmf}/tex/latex/ms
 %{texmf}/tex/latex/mt11p/
-%doc %{texmf}/tex/doc/latex/mt11p/
+%doc %{texmf}/doc/latex/mt11p/
 %{texmf}/tex/latex/multibib/
-%doc %{texmf}/tex/doc/latex/multibib/
+%doc %{texmf}/doc/latex/multibib/
 %{texmf}/tex/latex/multibox/
 %{texmf}/tex/latex/multind/
 %{texmf}/tex/latex/multirow
@@ -5111,15 +5238,15 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/picinpar/
 %{texmf}/tex/latex/picins/
 %{texmf}/tex/latex/pict2e/
-%doc %{texmf}/tex/doc/latex/pict2e/
+%doc %{texmf}/doc/latex/pict2e/
 %{texmf}/tex/latex/placeins/
 %{texmf}/tex/latex/portland/
 %{texmf}/tex/latex/preprint
 %{texmf}/tex/latex/preview/
-%doc %{texmf}/tex/doc/latex/preview/
+%doc %{texmf}/doc/latex/preview/
 %{texmf}/tex/latex/program/
 %{texmf}/tex/latex/ps4pdf/
-%doc %{texmf}/tex/doc/latex/ps4pdf/
+%doc %{texmf}/doc/latex/ps4pdf/
 %{texmf}/tex/latex/psboxit/
 %{texmf}/tex/latex/psfrag/
 %{texmf}/tex/latex/pslatex/
@@ -5135,7 +5262,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/setspace/
 %{texmf}/tex/latex/shadow/
 %{texmf}/tex/latex/shapepar/
-%doc %{texmf}/tex/doc/latex/shapepar/
+%doc %{texmf}/doc/latex/shapepar/
 %{texmf}/tex/latex/showdim/
 %{texmf}/tex/latex/showlabels/
 %{texmf}/tex/latex/showtags/
@@ -5145,7 +5272,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/stdclsdv/
 %{texmf}/tex/latex/stmaryrd/
 %{texmf}/tex/latex/subfig/
-%doc %{texmf}/tex/doc/latex/subfig/
+%doc %{texmf}/doc/latex/subfig/
 %{texmf}/tex/latex/subfigure/
 %{texmf}/tex/latex/supertabular/
 %{texmf}/tex/latex/t2
@@ -5154,14 +5281,14 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/textfit/
 %{texmf}/tex/latex/textmerg
 %{texmf}/tex/latex/textpos/
-%doc %{texmf}/tex/doc/latex/textpos/
+%doc %{texmf}/doc/latex/textpos/
 %{texmf}/tex/latex/threeparttable/
 %{texmf}/tex/latex/titlesec
 %{texmf}/tex/latex/tocbibind/
 %{texmf}/tex/latex/tocloft/
 %{texmf}/tex/latex/tools
 %{texmf}/tex/latex/totpages/
-%doc %{texmf}/tex/doc/latex/totpages/
+%doc %{texmf}/doc/latex/totpages/
 %{texmf}/tex/latex/treesvr/
 %{texmf}/tex/latex/type1cm/
 %{texmf}/tex/latex/ulem/
@@ -5171,15 +5298,18 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/vmargin/
 %{texmf}/tex/latex/vpage/
 %{texmf}/tex/latex/was/
-%doc %{texmf}/tex/doc/latex/was/
+%doc %{texmf}/doc/latex/was/
 %{texmf}/tex/latex/wrapfig/
-%doc %{texmf}/tex/doc/latex/wrapfig/
-# conflicts with tetex-latex-xcolor.spec
-#%{texmf}/tex/latex/xcolor/
-#%doc %{texmf}/tex/doc/latex/xcolor/
+%doc %{texmf}/doc/latex/wrapfig/
 %{texmf}/tex/latex/xtab/
 %{texmf}/tex/latex/yfonts/
 %{texmf}/tex/latex/version/
+
+%files latex-algorithms
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/algorithms
+%{texmf}/tex/latex/algorithms
+
 %files latex-ae
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/ae
@@ -5257,6 +5387,19 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/bibtex/bst/jurabib
 %{texmf}/tex/latex/jurabib
 
+# latex or context ?
+#%files latex-bibtex-context
+#%defattr(644,root,root,755)
+#%{texmf}/bibtex/bst/context
+
+%files latex-bibtex-dk
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bst/dk-bib
+
+%files latex-bibtex-nor
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bst/norbib
+
 %files latex-carlisle
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/carlisle
@@ -5314,6 +5457,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/lucidabr
 %{texmf}/tex/latex/lucida
 
+%files latex-lineno
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/lineno
+%{texmf}/tex/latex/lineno
+
 %files latex-marvosym
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/marvosym
@@ -5325,7 +5473,13 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-mathtime
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/mathtime
+%doc %{texmf}/doc/fonts/mathtime
 %{texmf}/tex/latex/mathtime
+
+%files latex-microtype
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/microtype
+%{texmf}/tex/latex/microtype
 
 %files latex-mflogo
 %defattr(644,root,root,755)
@@ -5378,6 +5532,10 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-umlaute
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/umlaute
+
+%files latex-urwvn
+%defattr(644,root,root,755)
+%{texmf}/tex/latex/urwvn
 
 %files latex-vnps
 %defattr(644,root,root,755)
@@ -5525,6 +5683,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/generic/xypic
 %{texmf}/tex/generic/xypic
 
+%files tex-xkeyval
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/xkeyval
+%{texmf}/tex/generic/xkeyval
+
 %files fonts-adobe
 %defattr(644,root,root,755)
 %{texmf}/fonts/afm/adobe
@@ -5554,7 +5717,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-antt
 %defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/polish/antt
+%doc %{texmf}/doc/fonts/antt
 %{texmf}/fonts/enc/dvips/antt
 %{texmf}/fonts/map/dvips/antt
 %{texmf}/fonts/afm/public/antt
@@ -5651,8 +5814,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-eurosym
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/eurosym
 %{texmf}/fonts/source/public/eurosym
 %{texmf}/fonts/tfm/public/eurosym
+
+%files fonts-eulervm
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/eulervm
+%{texmf}/fonts/tfm/public/eulervm
+%{texmf}/fonts/vf/public/eulervm
 
 %files fonts-euxm
 %defattr(644,root,root,755)
@@ -5673,7 +5843,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-jknappen
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/jknappen
-#%%{texmf}/fonts/tfm/jknappen
+%{texmf}/fonts/tfm/jknappen
 
 %files fonts-latex
 %defattr(644,root,root,755)
@@ -5794,7 +5964,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-urw
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/urw
 %{texmf}/fonts/afm/urw
+
+%files fonts-urwvn
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/urwvn
+%{texmf}/fonts/type1/public/urwvn
+%{texmf}/fonts/vf/public/urwvn
 
 %files fonts-vcm
 %defattr(644,root,root,755)
@@ -5837,7 +6014,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-type1-antt
 %defattr(644,root,root,755)
-%{texmf}/dvips/antt
+#%{texmf}/dvips/antt
 %{texmf}/fonts/type1/public/antt
 
 %files fonts-type1-belleek
@@ -5880,6 +6057,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/hoekwater
 
+%files fonts-type1-fpl
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/fpl
+%{texmf}/fonts/type1/public/fpl
+
 %files fonts-type1-lm
 %defattr(644,root,root,755)
 %{texmf}/fonts/afm/public/lm
@@ -5915,6 +6097,10 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-tx
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/txfonts
+
+%files fonts-type1-tt2001
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/public/tt2001
 
 %files fonts-type1-urw
 %defattr(644,root,root,755)
