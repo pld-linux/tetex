@@ -1,0 +1,11 @@
+--- teTeX-src-beta-20021225/texk/makeindexk/sortid.c.orig	Tue Dec 31 11:17:18 2002
++++ teTeX-src-beta-20021225/texk/makeindexk/sortid.c	Tue Dec 31 11:17:33 2002
+@@ -27,7 +27,7 @@
+ 
+ #include    "mkind.h"
+ 
+-#ifdef HAVE_LOCALE_H
++#ifdef HAVE_SETLOCALE
+ #include <locale.h>
+ #endif
+ 
