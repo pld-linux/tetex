@@ -2715,7 +2715,7 @@ Requires(post,postun):	/usr/bin/texhash
 %description fonts-type1-belleek
 Free replacement for basic MathTime fonts.
 
-%description fonts-type1-belleek
+%description fonts-type1-belleek -l pl
 Wolnodostêpny zamiennik podstawowych fontów MathTime.
 
 %package fonts-type1-bitstrea
