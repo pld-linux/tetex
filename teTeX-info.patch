@@ -6,7 +6,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/bugs.texi teTeX-1.0.new/texk/kpathsea/bugs.tex
  @cindex Kpsewhich, and debugging
  It is sometimes helpful to run the standalone Kpsewhich utility
 -(@pxref{Invoking kpsewhich}), instead of the original program.
-+(@pxref{Invoking}), instead of the original program.
++(@pxref{kpsewhich}), instead of the original program.
  
  @cindex numeric debugging values
  In any case, you can @emph{not} use the @emph{names} below; you must
