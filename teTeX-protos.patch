@@ -1,0 +1,24 @@
+--- teTeX-1.0/texk/kpathsea/configure.proto	Thu May  4 00:37:10 2000
++++ teTeX-1.0/texk/kpathsea/configure	Thu May  4 00:37:47 2000
+@@ -1694,7 +1694,8 @@
+   cat > conftest.$ac_ext <<EOF
+ #line 1696 "configure"
+ #include "confdefs.h"
+-
++#include <stdlib.h>
++#include <string.h>
+ #define VAR	"YOW_VAR"
+ #define STRING1 "GabbaGabbaHey"
+ #define STRING2 "Yow!!"		/* should be shorter than STRING1 */
+--- teTeX-1.0/libs/libwww/configure.proto	Thu May  4 00:34:05 2000
++++ teTeX-1.0/libs/libwww/configure	Thu May  4 00:34:32 2000
+@@ -3030,7 +3030,8 @@
+   cat > conftest.$ac_ext <<EOF
+ #line 3032 "configure"
+ #include "confdefs.h"
+-
++#include <stdlib.h>
++#include <string.h>
+ #define VAR	"YOW_VAR"
+ #define STRING1 "GabbaGabbaHey"
+ #define STRING2 "Yow!!"		/* should be shorter than STRING1 */
