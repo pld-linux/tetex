@@ -1828,7 +1828,7 @@ Requires(postun):	/usr/bin/texhash
 %description fonts-xypic
 Xy-pic fonts.
 
-%package fonts-y.andy
+%package fonts-yandy
 Summary:	European Modern fonts from Y&Y
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
