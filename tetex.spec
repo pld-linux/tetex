@@ -1068,6 +1068,8 @@ exit 0
 %{_datadir}/texmf/fonts/tfm/yandy/times
 %{_datadir}/texmf/fonts/tfm/yandy/zapfding
 
+%dir %{_datadir}/texmf/fonts/type1
+%dir %{_datadir}/texmf/fonts/type1/public
 %{_datadir}/texmf/fonts/type1/public/belleek
 %{_datadir}/texmf/fonts/type1/public/cs
 %ghost %{_datadir}/texmf/ls-R
@@ -1443,7 +1445,6 @@ exit 0
 %dir %{_datadir}/texmf/fonts/pfm/public
 %{_datadir}/texmf/fonts/pfm/public/xypic
 
-%dir %{_datadir}/texmf/fonts/type1
 %dir %{_datadir}/texmf/fonts/type1/adobe
 %{_datadir}/texmf/fonts/type1/adobe/utopia
 %dir %{_datadir}/texmf/fonts/type1/bitstrea
@@ -1461,7 +1462,6 @@ exit 0
 %{_datadir}/texmf/fonts/type1/hoekwater/rsfs
 %{_datadir}/texmf/fonts/type1/hoekwater/stmaryrd
 %{_datadir}/texmf/fonts/type1/hoekwater/wasy
-%dir %{_datadir}/texmf/fonts/type1/public
 %{_datadir}/texmf/fonts/type1/public/cmcyr
 %{_datadir}/texmf/fonts/type1/public/marvosym
 %{_datadir}/texmf/fonts/type1/public/pl
