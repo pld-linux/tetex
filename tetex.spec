@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	3
+Release:	4
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -83,8 +83,8 @@ PreReq:		sed
 PreReq:		sh-utils
 PreReq:		textutils
 Requires:	dialog
-Requires:	%{name}-fonts-cm = %{epoch}:%{version}
-Requires:	%{name}-fonts-misc = %{epoch}:%{version}
+Requires:	%{name}-fonts-cm = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-misc = %{epoch}:%{version}-%{release}
 Requires:	tmpwatch
 Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
@@ -148,7 +148,7 @@ Summary:	TeX Catalogue
 Summary(pl):	Katalog TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description doc-Catalogue
 TeX Catalogue.
@@ -161,7 +161,7 @@ Summary:	TeX User Group FAQ
 Summary(pl):	FAQ Grupy U¿ytkowników TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-doc-de-tex-faq
 Obsoletes:	tetex-doc-LaTeX-FAQ-francaise
 Obsoletes:	tetex-doc-uktug-faq
@@ -177,7 +177,7 @@ Summary:	Basic LaTeX packages documentation
 Summary(pl):	Podstawowa dokumentacja do pakietów LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description doc-latex
 Basic LaTeX packages documentation.
@@ -190,7 +190,7 @@ Summary:	HTML LaTeX2e documentation
 Summary(pl):	Dokumentacja LaTeX2e w formacie HTML
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description doc-latex2e-html
 HTML LaTeX2e documentation.
@@ -206,7 +206,7 @@ Summary:	File name lookup library
 Summary(pl):	Biblioteka szukaj±ca nazw plików
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description -n kpathsea
 File name lookup library.
@@ -220,7 +220,7 @@ Summary(es):	Bibliotecas y archivos de inclusión para desarrollo TeX
 Summary(pl):	Pliki nag³ówkowe oraz dokumetacja kpathsea
 Summary(pt_BR):	Bibliotecas e headers para desenvolvimento TeX
 Group:		Development/Libraries
-Requires:	kpathsea = %{epoch}:%{version}
+Requires:	kpathsea = %{epoch}:%{version}-%{release}
 
 %description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
@@ -249,7 +249,7 @@ Summary(pt_BR):	Conversor dvi para postscript
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description dvips
 The program dvips takes a DVI file file[.dvi] produced by TeX (or by
@@ -297,7 +297,7 @@ Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description dvilj
 Dvilj and dvilj's siblings (included in this package) will convert TeX
@@ -351,7 +351,7 @@ Summary:	A general purpose hierarchical index generator
 Summary(pl):	Generator hierarchicznych indeksów ogólnego przeznaczenia
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-rumakeindex
 
 %description makeindex
@@ -376,7 +376,7 @@ Summary:	MetaFont
 Summary(pl):	Zestaw narzêdzi MetaFont
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description metafont
 MetaFont.
@@ -389,7 +389,7 @@ Summary:	MetaPost
 Summary(pl):	Zestaw narzêdzi MetaPost
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-matapost
 
 %description metapost
@@ -403,7 +403,7 @@ Summary:	MetaPost to PDF converter
 Summary(pl):	Konwerter MetaPost do PDF
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-metapost = %{epoch}:%{version}
+Requires:	%{name}-metapost = %{epoch}:%{version}-%{release}
 
 %description mptopdf
 MetaPost to PDF converter.
@@ -416,7 +416,7 @@ Summary:	Easy access to TeX documentation
 Summary(pl):	£atwy dostêp do dokumentacji TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description texdoctk
 A Perl/Tk-based GUI for easy access to package documentation for TeX
@@ -444,10 +444,10 @@ przez administratora lub u¿ytkownika.
 Summary:	TeX typesetting system configurator
 Summary(pl):	Konfigurator systemu sk³adu TeX
 Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-dvips = %{epoch}:%{version}
-Requires:	%{name}-metafont = %{epoch}:%{version}
-Requires:	xdvi = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-dvips = %{epoch}:%{version}-%{release}
+Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
+Requires:	xdvi = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-texconfig
 
 %description -n texconfig
@@ -466,8 +466,8 @@ Summary(pt_BR):	Visualizador TeX X11
 Summary(tr):	X11 öngörüntüleyici
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-metafont = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-xdvi
 
 %description -n xdvi
@@ -499,7 +499,7 @@ visualizar arquivos dvi, como os produzidos por tex e latex.
 Summary:	xdvi viewer for Omega
 Summary(pl):	Przegl±darka xdvi dla Omegi
 Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description oxdvi
 xdvi viewer for Omega - extended unicode TeX.
@@ -512,8 +512,8 @@ Summary:	TeX generating PDF files instead DVI
 Summary(pl):	TeX generuj±cy pliki PDF zamiast DVI
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
 
 %description pdftex
 TeX generating PDF files instead DVI.
@@ -526,8 +526,8 @@ Summary:	Extended unicode TeX
 Summary(pl):	Omega - TeX ze wsparciem dla unikodu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-omega = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-omega = %{epoch}:%{version}-%{release}
 
 %description omega
 Omega is a version of the TeX program modified for multilingual
@@ -550,7 +550,7 @@ Summary:	Plain TeX format basic files
 Summary(pl):	Podstawowe pliki dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plain
 Plain TeX format basic files.
@@ -563,8 +563,8 @@ Summary:	PostScript support for Plain TeX format
 Summary(pl):	Obs³uga PostScriptu dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-dvips = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-dvips = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description plain-dvips
 PostScript support for Plain TeX format.
@@ -577,7 +577,7 @@ Summary:	Mathtime fonts for Plain
 Summary(pl):	Fonty Mathtime dla formatu Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description plain-mathtime
 The Mathtime fonts have a number of characters remapped to positions
@@ -598,7 +598,7 @@ Summary:	Miscellaneous macros for Plain TeX format
 Summary(pl):	Ró¿ne makra dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description plain-misc
 Miscellaneous macros for Plain TeX format.
@@ -611,7 +611,7 @@ Summary:	Simple NFSS macros for Plain TeX
 Summary(pl):	Proste makra NFSS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plain-plnfss
 Simple NFSS macros for plain TeX.
@@ -624,7 +624,7 @@ Summary:	TeX Plain format
 Summary(pl):	Format TeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description format-plain
 TeX Plain format.
@@ -637,8 +637,8 @@ Summary:	PDFTeX Plain format
 Summary(pl):	Format PDFTeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-pdftex = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description format-pdftex
 PDFTeX Plain format.
@@ -651,8 +651,8 @@ Summary:	PDFTeX EPlain format
 Summary(pl):	Format PDFTeX EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-pdftex = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description format-pdfetex
 PDFTeX EPlain format.
@@ -667,9 +667,9 @@ Summary:	MeX Plain Format basic files
 Summary(pl):	Podstawowe pliki dla format MeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	tetex-fonts-pl = %{epoch}:%{version}
-Requires:	tetex-plain = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	tetex-fonts-pl = %{epoch}:%{version}-%{release}
+Requires:	tetex-plain = %{epoch}:%{version}-%{release}
 
 %description mex
 MeX Plain Format basic files.
@@ -682,7 +682,7 @@ Summary:	MeX Plain Format
 Summary(pl):	Format MeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	tetex-mex = %{epoch}:%{version}
+Requires:	tetex-mex = %{epoch}:%{version}-%{release}
 
 %description format-mex
 MeX Plain Format.
@@ -695,8 +695,8 @@ Summary:	PDFMeX Plain Format
 Summary(pl):	Format PDFMeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-mex = %{epoch}:%{version}
-Requires:	%{name}-pdftex = %{epoch}:%{version}
+Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 
 %description format-pdfmex
 PDFMeX Plain Format.
@@ -709,8 +709,8 @@ Summary:	PDFMeX EPlain Format
 Summary(pl):	Format PDFMeX EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-mex = %{epoch}:%{version}
-Requires:	%{name}-pdftex = %{epoch}:%{version}
+Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 
 %description format-pdfemex
 PDFMeX EPlain Format.
@@ -725,8 +725,8 @@ Summary:	AMS macros for Plain TeX basic files
 Summary(pl):	Podstawowe pliki makr AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-ams = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-ams
 Obsoletes:	tetex-plain-amsfonts
 
@@ -742,7 +742,7 @@ Summary:	AMS macros for Plain TeX
 Summary(pl):	Makra AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-amstex = %{epoch}:%{version}
+Requires:	%{name}-amstex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-ams
 
 %description format-amstex
@@ -756,8 +756,8 @@ Summary:	AMS macros for PDFTeX
 Summary(pl):	Makra AMS dla formatu PDFTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-amstex = %{epoch}:%{version}
-Requires:	%{name}-pdftex = %{epoch}:%{version}
+Requires:	%{name}-amstex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 
 %description format-pdfamstex
 American Mathematical Society macros for PDFTeX.
@@ -772,8 +772,8 @@ Summary:	TeX CSPlain format basic files
 Summary(pl):	Podstawowe pliki dla formatu TeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-cs = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-fonts-cs = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description csplain
 TeX CSPlain format basic files.
@@ -786,7 +786,7 @@ Summary:	TeX CSPlain format
 Summary(pl):	Format TeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-csplain = %{epoch}:%{version}
+Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
 
 %description format-csplain
 TeX CSPlain format.
@@ -799,7 +799,7 @@ Summary:	PDFTeX CSPlain format
 Summary(pl):	Format PDFTeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-csplain = %{epoch}:%{version}
+Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
 
 %description format-pdfcsplain
 PDFTeX CSPlain format.
@@ -814,8 +814,8 @@ Summary:	CSLaTeX format basic files
 Summary(pl):	Podstawowe pliki dla formatu CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-cs = %{epoch}:%{version}
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-fonts-cs = %{epoch}:%{version}-%{release}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description cslatex
 CSLaTeX format basic files.
@@ -828,7 +828,7 @@ Summary:	CSLaTeX format
 Summary(pl):	Format CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-cslatex = %{epoch}:%{version}
+Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
 
 %description format-cslatex
 CSLaTeX format.
@@ -842,7 +842,7 @@ Summary(pl):	Format PDF CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-cslatex = %{epoch}:%{version}
+Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
 
 %description format-pdfcslatex
 PDF CSLaTeX format.
@@ -857,7 +857,7 @@ Summary:	Cyrillic Plain format basic files
 Summary(pl):	Podstawowe pliki dla formatu Cyrillic Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 
 %description cyrplain
 Cyrillic Plain format basic files.
@@ -870,7 +870,7 @@ Summary:	Cyrillic Plain format
 Summary(pl):	Format Cyrillic Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-cyrplain = %{epoch}:%{version}
+Requires:	%{name}-cyrplain = %{epoch}:%{version}-%{release}
 
 %description format-cyrplain
 Cyrillic Plain format.
@@ -883,7 +883,7 @@ Summary:	Cyrillic AMSTeX format
 Summary(pl):	Format Cyrillic AMSTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-cyramstex
 
 %description format-cyramstex
@@ -897,7 +897,7 @@ Summary:	Cyrillic TeXInfo format
 Summary(pl):	Format Cyrillic TeXInfo
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-cyrtexinfo
 
 %description format-cyrtexinfo
@@ -913,7 +913,7 @@ Summary:	EPlain format basic files
 Summary(pl):	Podstawowe pliki dla formatu EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-plain = %{epoch}:%{version}
+Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-etex
 
 %description eplain
@@ -927,7 +927,7 @@ Summary:	EPlain format
 Summary(pl):	Format EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-eplain = %{epoch}:%{version}
+Requires:	%{name}-eplain = %{epoch}:%{version}-%{release}
 
 %description format-eplain
 EPlain format.
@@ -942,7 +942,7 @@ Summary:	ConTeXt macro package basic files
 Summary(pl):	Podstawowe pliki pakietu makr ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-latex-context
 
 %define		_noautoreq	'perl(path_tre)'
@@ -964,7 +964,7 @@ Summary:	German ConTeXt format
 Summary(pl):	Niemiecka wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-context = %{epoch}:%{version}
+Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 
 %description format-context-de
 German ConTeXt format.
@@ -977,7 +977,7 @@ Summary:	English ConTeXt format
 Summary(pl):	Angielska wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-context = %{epoch}:%{version}
+Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 
 %description format-context-en
 English ConTeXt format.
@@ -990,7 +990,7 @@ Summary:	Dutch ConTeXt format
 Summary(pl):	Holenderska wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-context = %{epoch}:%{version}
+Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 
 %description format-context-nl
 Dutch ConTeXt format.
@@ -1005,10 +1005,10 @@ Summary:	LaTeX macro package basic files
 Summary(pl):	Podstawowe pliki pakietu makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-latex = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-latex = %{epoch}:%{version}-%{release}
 # for misc/eurosym:
-Requires:	%{name}-fonts-eurosym = %{epoch}:%{version}
+Requires:	%{name}-fonts-eurosym = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-koma-script
 Obsoletes:	tetex-latex-SIunits
 Obsoletes:	tetex-latex-caption
@@ -1067,8 +1067,8 @@ Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
 Summary(pl):	Wirtualne fonty dla plików PDF z fontami CMR o kodowaniu T1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-ae = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-ae = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-ae
 A set of virtual fonts which emulates T1 coded fonts using the
@@ -1088,8 +1088,8 @@ Summary:	AMS math facilities for LaTeX
 Summary(pl):	Udogodnienia matematyczne AMS dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-ams = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-latex-amscls
 Obsoletes:	tetex-latex-amsfonts
 Obsoletes:	tetex-latex-amsmath
@@ -1108,8 +1108,8 @@ Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Summary(pl):	Antykwa Pó³tawskiego - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-antp = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-antp = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-antp
 A replica of Antykwa Poltawskiego font in PostScript Type 1 format
@@ -1134,8 +1134,8 @@ Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Summary(pl):	Antykwa Turuñska - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-antt = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-antt = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-antt
 Antykwa Torunska is a serif font designed by the late Polish
@@ -1152,8 +1152,8 @@ Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
 Summary(pl):	Tablicowy wariant fontów Computer Modern z obs³ug± LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-bbm = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-bbm = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
@@ -1166,8 +1166,8 @@ Summary:	Sans serif blackboard bold for LaTeX
 Summary(pl):	Tablicowy t³usty font sans serif dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-bbold = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-bbold = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-bbold
 A geometric sans serif blackboard bold font, for use in mathematics.
@@ -1181,7 +1181,7 @@ Summary:	Bibliography management for LaTeX
 Summary(pl):	Zarz±dzenie bibliografi± dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex
 Obsoletes:	tetex-natbib
 Obsoletes:	tetex-rubibtex
@@ -1197,8 +1197,8 @@ Summary:	BibTeX style files for American Mathematical Society publications
 Summary(pl):	Pliki stylów BibTeXa do publikacji American Mathematical Society
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
-Requires:	%{name}-latex-ams = %{epoch}:%{version}
+Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex-ams = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-ams
 
 %description latex-bibtex-ams
@@ -1212,7 +1212,7 @@ Summary:	Polish bibliography management for LaTeX
 Summary(pl):	Polska wersja zarz±dzania bibliografi± dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
+Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-plbib
 
 %description latex-bibtex-pl
@@ -1226,7 +1226,7 @@ Summary:	German variants of standard BibTeX styles
 Summary(pl):	Niemieckie wersje standardowych stylów BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
+Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-germbib
 
 %description latex-bibtex-german
@@ -1240,7 +1240,7 @@ Summary:	BibTeX styles for REVTeX4
 Summary(pl):	Style BibTeXa dla REVTeX4
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-revtex4
 
 %description latex-bibtex-revtex4
@@ -1254,7 +1254,7 @@ Summary:	Extended BibTeX citation support for the humanities and legal texts
 Summary(pl):	Rozszerzona obs³uga cytowania BibTeXa do tekstów humanistycznych i prawniczych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-bibtex-jurabib
 
 %description latex-bibtex-jurabib
@@ -1269,7 +1269,7 @@ Summary:	Miscellaneous small packages by David Carlisle
 Summary(pl):	Ró¿ne ma³e pakiety autorstwa Davida Carlisle
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-carlisle
 Miscellaneous small packages by David Carlisle.
@@ -1282,7 +1282,7 @@ Summary:	Support for Concrete text and math fonts in LaTeX
 Summary(pl):	Obs³uga fontów tekstowych i matematycznych Concrete w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-ccfonts
 LaTeX font definition files for the Concrete fonts and a LaTeX package
@@ -1301,7 +1301,7 @@ Summary:	Supports compressed, sorted lists of numerical citations
 Summary(pl):	Obs³uga kompresowanych, sortowanych list numerowanych cytatów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-cite
 Supports compressed, sorted lists of numerical citations.
@@ -1314,8 +1314,8 @@ Summary:	Support for CM Bright fonts in LaTeX
 Summary(pl):	Obs³uga fontów CM Bright w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-cmbright = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-cmbright = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-cmbright
 A family of sans serif fonts for TeX and LaTeX, based on Donald
@@ -1336,8 +1336,8 @@ Summary:	LaTeX package and font definition files to access the Concrete math fon
 Summary(pl):	Pakiet LaTeXa i pliki definicji fontów udostêpniaj±ce fonty matematyczne Concrete
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-concmath = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-concmath = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-concmath
 LaTeX package and font definition files to access the Concrete math
@@ -1355,7 +1355,7 @@ Summary:	Customized BibTeX styles for LaTeX
 Summary(pl):	Dostosowywanie stylów BibTeXa dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-custom-bib
 Package generating customized BibTeX bibliography styles from a
@@ -1370,7 +1370,7 @@ Summary:	LaTeX Cyrillic support
 Summary(pl):	Obs³uga cyrylicy dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-cyrillic
 LaTeX Cyrillic support.
@@ -1383,8 +1383,8 @@ Summary:	LaTeX doublestroke font
 Summary(pl):	Podwójnie kre¶lony font dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-dstroke = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-dstroke = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-dstroke
 Doublestroke font for typesetting the mathematical symbols for the
@@ -1400,8 +1400,8 @@ Summary:	Miscellaneous packages by Joerg Knappen
 Summary(pl):	Ró¿ne pakiety autorstwa Joerga Knappena
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-jknappen = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-jknappen = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-jknappen
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
@@ -1416,7 +1416,7 @@ Summary:	Package to make Lucida Bright fonts usable with LaTeX
 Summary(pl):	Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-lucidabr
 Package to make Lucida Bright fonts usable with LaTeX.
@@ -1429,8 +1429,8 @@ Summary:	Use PostScript Palatino for typesetting maths
 Summary(pl):	U¿ywanie postscriptowych fontów Palatino do sk³adania wzorów matematycznych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-adobe = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-adobe = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-mathpple
 The package defines the PostScript font family `Palatino' (ppl) as the
@@ -1452,7 +1452,7 @@ Summary:	Mathtime fonts for LaTeX
 Summary(pl):	Fonty Mathtime dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-mathtime
 The Mathtime fonts have a number of characters remapped to positions
@@ -1473,8 +1473,8 @@ Summary:	LaTeX support for MetaFont and logo fonts
 Summary(pl):	Obs³uga LaTeXa dla MetaFonta i fontów logo
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-mflogo = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-mflogo = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-mflogo
 LaTeX package and font definition file to access the Knuthian `logo'
@@ -1491,7 +1491,7 @@ Summary:	Font description files to use extra fonts like yinit and ygoth
 Summary(pl):	Pliki opisów fontów udostêpniaj±ce dodatkowe fonty, jak yinit i ygoth
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-mfnfss
 Font description files to use extra fonts like yinit and ygoth.
@@ -1504,7 +1504,7 @@ Summary:	Produce a table of contents for each chapter
 Summary(pl):	Tworzenie spisów tre¶ci dla ka¿dego rozdzia³u
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-minitoc
 Produce a table of contents for each chapter.
@@ -1517,7 +1517,7 @@ Summary:	Support for MLTeX
 Summary(pl):	Wsparcie dla MLTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-mltex
 Support for MLTeX, the multilingual TeX extension from Michael J.
@@ -1532,7 +1532,7 @@ Summary:	Palatino + Computer Modern math fonts for LaTeX
 Summary(pl):	Fonty matematyczne Palatino i Computer Modern dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-palatcm
 Palatino + Computer Modern math fonts for LaTeX.
@@ -1545,8 +1545,8 @@ Summary:	LaTeX font support for common PostScript fonts
 Summary(pl):	Obs³uga popularnych fontów postscriptowych w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-adobe = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-adobe = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-latex-mathptm
 Obsoletes:	tetex-latex-mathptmx
 
@@ -1563,8 +1563,8 @@ Summary:	PX fonts LaTeX support
 Summary(pl):	Obs³uga fontów PX w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-px = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-px = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-pxfonts
 PX fonts LaTeX support.
@@ -1577,8 +1577,8 @@ Summary:	A collection of PostScript (Adobe Type 1) fonts in QX layout
 Summary(pl):	Zestaw fontów postscriptowych (Adobe Type 1) w uk³adzie QX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-qfonts
 A collection of Type 1 fonts; include QuasiBookman, QuasiChancery,
@@ -1601,8 +1601,8 @@ Summary:	TX fonts LaTeX support
 Summary(pl):	Obs³uga fontów TX w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-tx = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-tx = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-txfonts
 TX fonts LaTeX support.
@@ -1615,7 +1615,7 @@ Summary:	An interface to inputenc for using alternate input encodings
 Summary(pl):	Interfejs inputenc do u¿ywania alternatywnych kodowañ wej¶ciowych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-umlaute
 An interface to inputenc for using alternate input encodings.
@@ -1628,7 +1628,7 @@ Summary:	VNPS fonts for LaTeX
 Summary(pl):	Fonty VNPS dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-vnps
 VNPS fonts for LaTeX.
@@ -1641,8 +1641,8 @@ Summary:	VNR fonts for LaTeX
 Summary(pl):	Fonty VNR dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-vnr = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-vnr = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-vnr
 VNR fonts for LaTeX.
@@ -1655,8 +1655,8 @@ Summary:	Extra characters from the Waldis symbol fonts
 Summary(pl):	Dodatkowe znaki z fontów Waldis symbol
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-wasy = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-wasy = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-wasysym
 Makes some additional characters available that come from the wasy
@@ -1683,7 +1683,7 @@ Summary:	LaTeX macro package
 Summary(pl):	Pakiet makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Obsoletes:	hugelatex
 
 %description format-latex
@@ -1705,8 +1705,8 @@ Summary:	ELaTeX macro package
 Summary(pl):	Pakiet makr ELaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-eplain = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-eplain = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description format-elatex
 ELaTeX macro package.
@@ -1719,9 +1719,9 @@ Summary:	PDF LaTeX macro package
 Summary(pl):	Pakiet makr PDF LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}
-Requires:	%{name}-latex-psnfss = %{epoch}:%{version}
-Requires:	%{name}-pdftex = %{epoch}:%{version}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex-psnfss = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 
 %description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -1742,8 +1742,8 @@ Summary:	PDF ELaTeX macro package
 Summary(pl):	Pakiet makr PDF ELaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-format-pdfetex = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-format-pdfetex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description format-pdfelatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -1766,8 +1766,8 @@ Summary:	PLaTeX format basic files
 Summary(pl):	Podstawowe pliki dla formatu PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-pl = %{epoch}:%{version}
-Requires:	%{name}-latex = %{epoch}:%{version}
+Requires:	%{name}-fonts-pl = %{epoch}:%{version}-%{release}
+Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description platex
 PLaTeX format basic files.
@@ -1780,7 +1780,7 @@ Summary:	PLaTeX format
 Summary(pl):	Format PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-platex = %{epoch}:%{version}
+Requires:	%{name}-platex = %{epoch}:%{version}-%{release}
 
 %description format-platex
 PLaTeX format.
@@ -1793,9 +1793,9 @@ Summary:	PDF PLaTeX format
 Summary(pl):	Format PDF PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-type1-pl = %{epoch}:%{version}
-Requires:	%{name}-pdftex = %{epoch}:%{version}
-Requires:	%{name}-platex = %{epoch}:%{version}
+Requires:	%{name}-fonts-type1-pl = %{epoch}:%{version}-%{release}
+Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-platex = %{epoch}:%{version}-%{release}
 
 %description format-pdfplatex
 PDF PLaTeX format.
@@ -1812,7 +1812,7 @@ Summary:	Multilingual support for TeX
 Summary(pl):	Obs³uga wielu jêzyków dla TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-babel
 Multilingual support for TeX.
@@ -1825,7 +1825,7 @@ Summary:	Supports the new German orthography (neue deutsche Rechtschreibung)
 Summary(pl):	Obs³uga nowej ortografii niemieckiej (neue deutsche Rechtschreibung)
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-german
 Supports the new German orthography (neue deutsche Rechtschreibung).
@@ -1838,7 +1838,7 @@ Summary:	Macros which generate Metafont or Metapost for drawing pictures
 Summary(pl):	Makra generuj±ce Metafont lub Metapost do rysowania obrazków
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-mfpic
 Macros which generate Metafont or Metapost for drawing pictures.
@@ -1851,7 +1851,7 @@ Summary:	Miscellaneous TeX macros
 Summary(pl):	Ró¿ne makra TeXowe
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-tex-eijkhout
 
 %description tex-misc
@@ -1865,7 +1865,7 @@ Summary:	Picture drawing macros for TeX and LaTeX
 Summary(pl):	Makra do rysowania obrazków dla TeXa i LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-pictex
 Picture drawing macros for TeX and LaTeX.
@@ -1878,7 +1878,7 @@ Summary:	PostScript macros for TeX
 Summary(pl):	Makra postscriptowe dla TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-pstricks
 An extensive collection of PostScript macros that is compatible with
@@ -1902,8 +1902,8 @@ Summary:	QuasiPalatino and PX fonts typesetting support
 Summary(pl):	Wsparcie dla sk³adu fontami QuasiPalatino i PX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-qpx = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-qpx = %{epoch}:%{version}-%{release}-%{release}
 
 %description tex-qpx
 QuasiPalatino and PX fonts typesetting support.
@@ -1916,8 +1916,8 @@ Summary:	QuasiTimes and TX fonts typesetting support
 Summary(pl):	Wsparcie dla sk³adu fontami QuasiTimes i TX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-qtx = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-qtx = %{epoch}:%{version}-%{release}
 
 %description tex-qtx
 QuasiTimes and TX fonts typesetting support.
@@ -1930,7 +1930,7 @@ Summary:	Russian hyphenation
 Summary(pl):	Rosyjskie regu³y przenoszenia wyrazów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-ruhyphen
 A collection of Russian hyphenation patterns supporting a number of
@@ -1947,7 +1947,7 @@ Summary:	Various TeX related files for typesetting documents written in Spanish
 Summary(pl):	Ró¿ne pliki TeXowe s³u¿±ce do sk³adu dokumentów w jêzyku hiszpañskim
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	tetex-tex-spanishb
 
 %description tex-spanish
@@ -1963,7 +1963,7 @@ Summary:	Graphical macros, using embedded PostScript
 Summary(pl):	Makra graficzne u¿ywaj±ce osadzanego PostScriptu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-texdraw
 Graphical macros, using embedded PostScript.
@@ -1976,7 +1976,7 @@ Summary:	Thumbnails for PDFTeX and dvips/ps2pdf
 Summary(pl):	Ikonki dla PDFTeXa i dvips/ps2pdf
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-thumbpdf
 Provides support, using Perl, for thumbnails in pdfTeX and
@@ -1996,7 +1996,7 @@ Summary:	Ukranian hyphenation
 Summary(pl):	Ukraiñskie zasady przenoszenia wyrazów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-ukrhyph
 This package allows the use of different hyphenation patterns for the
@@ -2015,7 +2015,7 @@ Summary:	Vietnamese language support
 Summary(pl):	Wsparcie dla jêzyka wietnamskiego
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-vietnam
 Vietnamese language support.
@@ -2028,8 +2028,8 @@ Summary:	Package for typesetting a variety of graphs and diagrams with TeX
 Summary(pl):	Pakiet do sk³adania w TeXu ró¿nych wykresów i diagramów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	%{name}-fonts-xypic = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-xypic = %{epoch}:%{version}-%{release}
 
 %description tex-xypic
 A package for typesetting a variety of graphs and diagrams with TeX.
@@ -2537,8 +2537,8 @@ Summary:	Additional fonts for QPX package
 Summary(pl):	Dodatkowe fonty dla pakietu QPX
 Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}
-Requires:	%{name}-fonts-px = %{epoch}:%{version}
+Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-px = %{epoch}:%{version}-%{release}
 
 %description fonts-qpx
 Additional fonts for QPX package.
@@ -2551,8 +2551,8 @@ Summary:	Additional fonts for QTX package
 Summary(pl):	Dodatkowe fonty dla pakietu QTX
 Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}
-Requires:	%{name}-fonts-tx = %{epoch}:%{version}
+Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-tx = %{epoch}:%{version}-%{release}
 
 %description fonts-qtx
 Additional fonts for QTX package.
@@ -2867,7 +2867,7 @@ Summary:	Polish fonts
 Summary(pl):	Polskie fonty
 Group:		Fonts
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}
+Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-pl
 Polish fonts.
