@@ -1,12 +1,12 @@
-%define		texmf_ver	1.0
+%define		texmf_ver	1.0.1
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	1.0.6
-Release:	6
+Version:	1.0.7
+Release:	1
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
@@ -377,7 +377,7 @@ Requires:	%{name} = %{version}
 Kpathsea library filename lookup header files and documentation.
 	
 %prep
-%setup   -q -n teTeX-%{texmf_ver}
+%setup   -q -n teTeX-1.0
 %patch   -p1 
 %patch1  -p1 
 
@@ -398,6 +398,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 %build
 sh ./reautoconf
 LDFLAGS="-s"; export LDFLAGS
+CSSFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
@@ -1126,12 +1127,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/tex/amstex/base
 %{_datadir}/texmf/tex/amstex/config
 %{_datadir}/texmf/tex/plain/amsfonts
-%{_datadir}/texmf/bibtex/bst/amslatex
 
 %{_datadir}/texmf/source/amstex
 
 %doc %{_datadir}/texmf/doc/amstex
-%doc %{_datadir}/texmf/doc/latex/amslatex
 %doc %{_datadir}/texmf/doc/fonts/amsfonts
 
 %files fonts
