@@ -1823,7 +1823,7 @@ makra do kolorowania lub cieniowania komórek tabel.
 
 %package tex-qpx
 Summary:	QuasiPalatino and PX fonts typesetting support
-Summary(pl);	Wsparcie dla sk³adu fontami QuasiPalatino i PX
+Summary(pl):	Wsparcie dla sk³adu fontami QuasiPalatino i PX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
@@ -1979,7 +1979,7 @@ Fonty Adobe.
 
 %package fonts-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
-Summary(pl);	Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1
+Summary(pl):	Wirtualne fonty do plików PDF z fontami CMR o kodowaniu T1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 
