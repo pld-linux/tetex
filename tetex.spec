@@ -1,8 +1,6 @@
 # TODO:
 # error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
 # what with texinfo ?
-# error: tetex-odvips-1.0.7.beta_20020402-0.1: req tetex-omega = 1.0.7.beta_20020402 not found
-# (change to tetex-format-omega ?)
 # error: tetex-format-context-1.0.7.beta_20020402-0.1: req perl(path_tre) not found
 # _noautoreqdep perl(path_tre) ?
 
@@ -77,6 +75,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2 ; 
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ; 
 %define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ; 
+
+#define 	_noautoreqdep perl(path_tre)
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -2061,7 +2061,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
-Requires:	%{name}-omega = %{version}
+Requires:	%{name}-format-omega = %{version}
 
 %description odvips
 odvips
@@ -2528,78 +2528,1487 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %fixinfodir
 %texhash
 
+%post babel 
+%texhash
+
+%postun babel 
+%texhash
+
+
+%post bibtex 
+%texhash
+
+%postun bibtex 
+%texhash
+
+
+%post bibtex-ams 
+%texhash
+
+%postun bibtex-ams 
+%texhash
+
+
+%post bibtex-germbib 
+%texhash
+
+%postun bibtex-germbib 
+%texhash
+
+
+%post bibtex-koma-script 
+%texhash
+
+%postun bibtex-koma-script 
+%texhash
+
+
+%post bibtex-natbib 
+%texhash
+
+%postun bibtex-natbib 
+%texhash
+
+
+%post bibtex-plbib 
+%texhash
+
+%postun bibtex-plbib 
+%texhash
+
+
+%post bibtex-revtex4 
+%texhash
+
+%postun bibtex-revtex4 
+%texhash
+
+
+%post cslatex 
+%texhash
+
+%postun cslatex 
+%texhash
+
+
+%post csplain 
+%texhash
+
+%postun csplain 
+%texhash
+
+
+%post cyramstex 
+%texhash
+
+%postun cyramstex 
+%texhash
+
+
+%post cyrplain 
+%texhash
+
+%postun cyrplain 
+%texhash
+
+
+%post cyrtexinfo 
+%texhash
+
+%postun cyrtexinfo 
+%texhash
+
+
+%post doc 
+%texhash
+
+%postun doc 
+%texhash
+
+
+%post doc-Catalogue 
+%texhash
+
+%postun doc-Catalogue 
+%texhash
+
+
+%post doc-de-tex-faq 
+%texhash
+
+%postun doc-de-tex-faq 
+%texhash
+
+
+%post doc-latex2e-html 
+%texhash
+
+%postun doc-latex2e-html 
+%texhash
+
+
+%post doc-LaTeX-FAQ-francaise 
+%texhash
+
+%postun doc-LaTeX-FAQ-francaise 
+%texhash
+
+
+%post doc-uktug-faq 
+%texhash
+
+%postun doc-uktug-faq 
+%texhash
+
+
+%post dvilj 
+%texhash
+
+%postun dvilj 
+%texhash
+
+
+%post dvips 
+%fixinfodir
+%texhash
+
+%postun dvips 
+%fixinfodir
+%texhash
+
+
+%post eplain 
+%texhash
+
+%postun eplain 
+%texhash
+
+
+%post etex 
+%texhash
+
+%postun etex 
+%texhash
+
+
+%post fontinst 
+%texhash
+
+%postun fontinst 
+%texhash
+
+
+%post fontname 
+%texhash
+
+%postun fontname 
+%texhash
+
+
+%post fonts 
+%texhash
+
+%postun fonts 
+%texhash
+
+
+%post fonts-adobe 
+%texhash
+
+%postun fonts-adobe 
+%texhash
+
+
+%post fonts-ae 
+%texhash
+
+%postun fonts-ae 
+%texhash
+
+
+%post fonts-ams 
+%texhash
+
+%postun fonts-ams 
+%texhash
+
+
+%post fonts-antp 
+%texhash
+
+%postun fonts-antp 
+%texhash
+
+
+%post fonts-antt 
+%texhash
+
+%postun fonts-antt 
+%texhash
+
+
+%post fonts-bbm 
+%texhash
+
+%postun fonts-bbm 
+%texhash
+
+
+%post fonts-bbold 
+%texhash
+
+%postun fonts-bbold 
+%texhash
+
+
+%post fonts-bh 
+%texhash
+
+%postun fonts-bh 
+%texhash
+
+
+%post fonts-bitstrea 
+%texhash
+
+%postun fonts-bitstrea 
+%texhash
+
+
+%post fonts-cbgreek 
+%texhash
+
+%postun fonts-cbgreek 
+%texhash
+
+
+%post fonts-cc-pl 
+%texhash
+
+%postun fonts-cc-pl 
+%texhash
+
+
+%post fonts-cg 
+%texhash
+
+%postun fonts-cg 
+%texhash
+
+
+%post fonts-cm 
+%texhash
+
+%postun fonts-cm 
+%texhash
+
+
+%post fonts-cm-bold 
+%texhash
+
+%postun fonts-cm-bold 
+%texhash
+
+
+%post fonts-cmcyr 
+%texhash
+
+%postun fonts-cmcyr 
+%texhash
+
+
+%post fonts-cmextra 
+%texhash
+
+%postun fonts-cmextra 
+%texhash
+
+
+%post fonts-concmath 
+%texhash
+
+%postun fonts-concmath 
+%texhash
+
+
+%post fonts-concrete 
+%texhash
+
+%postun fonts-concrete 
+%texhash
+
+
+%post fonts-cs 
+%texhash
+
+%postun fonts-cs 
+%texhash
+
+
+%post fonts-dstroke 
+%texhash
+
+%postun fonts-dstroke 
+%texhash
+
+
+%post fonts-ecc 
+%texhash
+
+%postun fonts-ecc 
+%texhash
+
+
+%post fonts-euxm 
+%texhash
+
+%postun fonts-euxm 
+%texhash
+
+
+%post fonts-gothic 
+%texhash
+
+%postun fonts-gothic 
+%texhash
+
+
+%post fonts-hoekwater 
+%texhash
+
+%postun fonts-hoekwater 
+%texhash
+
+
+%post fonts-jknappen 
+%texhash
+
+%postun fonts-jknappen 
+%texhash
+
+
+%post fonts-latex 
+%texhash
+
+%postun fonts-latex 
+%texhash
+
+
+%post fonts-lh 
+%texhash
+
+%postun fonts-lh 
+%texhash
+
+
+%post fonts-marvosym 
+%texhash
+
+%postun fonts-marvosym 
+%texhash
+
+
+%post fonts-mathpple 
+%texhash
+
+%postun fonts-mathpple 
+%texhash
+
+
+%post fonts-mflogo 
+%texhash
+
+%postun fonts-mflogo 
+%texhash
+
+
+%post fonts-misc 
+%texhash
+
+%postun fonts-misc 
+%texhash
+
+
+%post fonts-monotype 
+%texhash
+
+%postun fonts-monotype 
+%texhash
+
+
+%post fonts-omega 
+%texhash
+
+%postun fonts-omega 
+%texhash
+
+
+%post fonts-pandora 
+%texhash
+
+%postun fonts-pandora 
+%texhash
+
+
+%post fonts-pazo 
+%texhash
+
+%postun fonts-pazo 
+%texhash
+
+
+%post fonts-pl 
+%texhash
+
+%postun fonts-pl 
+%texhash
+
+
+%post fonts-qfonts 
+%texhash
+
+%postun fonts-qfonts 
+%texhash
+
+
+%post fonts-rsfs 
+%texhash
+
+%postun fonts-rsfs 
+%texhash
+
+
+%post fonts-stmaryrd 
+%texhash
+
+%postun fonts-stmaryrd 
+%texhash
+
+
+%post fonts-type1-adobe 
+%texhash
+
+%postun fonts-type1-adobe 
+%texhash
+
+
+%post fonts-type1-antp 
+%texhash
+
+%postun fonts-type1-antp 
+%texhash
+
+
+%post fonts-type1-antt 
+%texhash
+
+%postun fonts-type1-antt 
+%texhash
+
+
+%post fonts-type1-belleek 
+%texhash
+
+%postun fonts-type1-belleek 
+%texhash
+
+
+%post fonts-type1-bitstrea 
+%texhash
+
+%postun fonts-type1-bitstrea 
+%texhash
+
+
+%post fonts-type1-bluesky 
+%texhash
+
+%postun fonts-type1-bluesky 
+%texhash
+
+
+%post fonts-type1-cmcyr 
+%texhash
+
+%postun fonts-type1-cmcyr 
+%texhash
+
+
+%post fonts-type1-cs 
+%texhash
+
+%postun fonts-type1-cs 
+%texhash
+
+
+%post fonts-type1-hoekwater 
+%texhash
+
+%postun fonts-type1-hoekwater 
+%texhash
+
+
+%post fonts-type1-marvosym 
+%texhash
+
+%postun fonts-type1-marvosym 
+%texhash
+
+
+%post fonts-type1-mathpazo 
+%texhash
+
+%postun fonts-type1-mathpazo 
+%texhash
+
+
+%post fonts-type1-omega 
+%texhash
+
+%postun fonts-type1-omega 
+%texhash
+
+
+%post fonts-type1-pl 
+%texhash
+
+%postun fonts-type1-pl 
+%texhash
+
+
+%post fonts-type1-qfonts 
+%texhash
+
+%postun fonts-type1-qfonts 
+%texhash
+
+
+%post fonts-type1-urw 
+%texhash
+
+%postun fonts-type1-urw 
+%texhash
+
+
+%post fonts-type1-xypic 
+%texhash
+
+%postun fonts-type1-xypic 
+%texhash
+
+
+%post fonts-urw 
+%texhash
+
+%postun fonts-urw 
+%texhash
+
+
+%post fonts-vcm 
+%texhash
+
+%postun fonts-vcm 
+%texhash
+
+
+%post fonts-vnr 
+%texhash
+
+%postun fonts-vnr 
+%texhash
+
+
+%post fonts-wasy 
+%texhash
+
+%postun fonts-wasy 
+%texhash
+
+
+%post fonts-xypic 
+%texhash
+
+%postun fonts-xypic 
+%texhash
+
+
+%post fonts-yandy 
+%texhash
+
+%postun fonts-yandy 
+%texhash
+
+
+%post format-amstex 
+%texhash
+
+%postun format-amstex 
+%texhash
+
+
+%post format-context 
+%texhash
+
+%postun format-context 
+%texhash
+
+
+%post format-elatex 
+%texhash
+
+%postun format-elatex 
+%texhash
+
+
 %post format-latex
 %fixinfodir
 %fmtutil -f latex
+
 %texhash
 
-%postun format-latex
+%postun format-latex 
 %fixinfodir
 %texhash
 
-%post latex
-%fixinfodir
-%fmtutil -f latex
-%texhash
 
-%postun latex
-%fixinfodir
-%texhash
-
-%post dvips
-%fixinfodir
-%texhash
-
-%postun dvips
-%fixinfodir
-%texhash
-
-%post dvilj
-%texhash
-
-%postun dvilj
-%texhash
-
-%post format-amstex
-%texhash
-
-%postun format-amstex
-%texhash
-
-%post format-omega
+%post format-omega 
 %fmtutil -f omega
 
 %texhash
 
-%postun format-omega
+%postun format-omega 
 %texhash
+
 
 %post format-omega-lambda
 %fmtutil -f lambda
 
 %texhash
 
-%postun format-omega-lambda
+%postun format-omega-lambda 
 %texhash
 
 
-%post fonts
+%post format-pdfamstex 
 %texhash
 
-%postun fonts
+%postun format-pdfamstex 
 %texhash
 
-%post fonts-type1-pl
+
+%post format-pdfelatex 
 %texhash
 
-%postun fonts-type1-pl
+%postun format-pdfelatex 
 %texhash
 
-%post fonts-type1-bluesky
+
+%post format-pdfemex 
 %texhash
 
-%postun fonts-type1-bluesky
+%postun format-pdfemex 
 %texhash
+
+
+%post format-pdfetex 
+%texhash
+
+%postun format-pdfetex 
+%texhash
+
+
+%post format-pdflatex 
+%texhash
+
+%postun format-pdflatex 
+%texhash
+
+
+%post format-pdfmex 
+%texhash
+
+%postun format-pdfmex 
+%texhash
+
+
+%post format-pdfplatex 
+%texhash
+
+%postun format-pdfplatex 
+%texhash
+
+
+%post format-pdftex 
+%texhash
+
+%postun format-pdftex 
+%texhash
+
+
+%post format-pdftex-context 
+%texhash
+
+%postun format-pdftex-context 
+%texhash
+
+
+%post format-platex 
+%texhash
+
+%postun format-platex 
+%texhash
+
+
+%post latex 
+%fixinfodir
+%texhash
+
+%postun latex 
+%fixinfodir
+%texhash
+
+
+%post latex-ae 
+%texhash
+
+%postun latex-ae 
+%texhash
+
+
+%post latex-algorith 
+%texhash
+
+%postun latex-algorith 
+%texhash
+
+
+%post latex-amscls 
+%texhash
+
+%postun latex-amscls 
+%texhash
+
+
+%post latex-amsfonts 
+%texhash
+
+%postun latex-amsfonts 
+%texhash
+
+
+%post latex-amsmath 
+%texhash
+
+%postun latex-amsmath 
+%texhash
+
+
+%post latex-antp 
+%texhash
+
+%postun latex-antp 
+%texhash
+
+
+%post latex-antt 
+%texhash
+
+%postun latex-antt 
+%texhash
+
+
+%post latex-bbm 
+%texhash
+
+%postun latex-bbm 
+%texhash
+
+
+%post latex-caption 
+%texhash
+
+%postun latex-caption 
+%texhash
+
+
+%post latex-carlisle 
+%texhash
+
+%postun latex-carlisle 
+%texhash
+
+
+%post latex-ccfonts 
+%texhash
+
+%postun latex-ccfonts 
+%texhash
+
+
+%post latex-cite 
+%texhash
+
+%postun latex-cite 
+%texhash
+
+
+%post latex-concmath 
+%texhash
+
+%postun latex-concmath 
+%texhash
+
+
+%post latex-context 
+%texhash
+
+%postun latex-context 
+%texhash
+
+
+%post latex-curves 
+%texhash
+
+%postun latex-curves 
+%texhash
+
+
+%post latex-custom-bib 
+%texhash
+
+%postun latex-custom-bib 
+%texhash
+
+
+%post latex-cyrillic 
+%texhash
+
+%postun latex-cyrillic 
+%texhash
+
+
+%post latex-dinbrief 
+%texhash
+
+%postun latex-dinbrief 
+%texhash
+
+
+%post latex-draftcopy 
+%texhash
+
+%postun latex-draftcopy 
+%texhash
+
+
+%post latex-dstroke 
+%texhash
+
+%postun latex-dstroke 
+%texhash
+
+
+%post latex-dvilj 
+%texhash
+
+%postun latex-dvilj 
+%texhash
+
+
+%post latex-eepic 
+%texhash
+
+%postun latex-eepic 
+%texhash
+
+
+%post latex-endfloat 
+%texhash
+
+%postun latex-endfloat 
+%texhash
+
+
+%post latex-fancyhdr 
+%texhash
+
+%postun latex-fancyhdr 
+%texhash
+
+
+%post latex-fancyheadings 
+%texhash
+
+%postun latex-fancyheadings 
+%texhash
+
+
+%post latex-fancyvrb 
+%texhash
+
+%postun latex-fancyvrb 
+%texhash
+
+
+%post latex-fp 
+%texhash
+
+%postun latex-fp 
+%texhash
+
+
+%post latex-g-brief 
+%texhash
+
+%postun latex-g-brief 
+%texhash
+
+
+%post latex-graphics 
+%texhash
+
+%postun latex-graphics 
+%texhash
+
+
+%post latex-hyperref 
+%texhash
+
+%postun latex-hyperref 
+%texhash
+
+
+%post latex-jknappen 
+%texhash
+
+%postun latex-jknappen 
+%texhash
+
+
+%post latex-koma-script 
+%texhash
+
+%postun latex-koma-script 
+%texhash
+
+
+%post latex-labels 
+%texhash
+
+%postun latex-labels 
+%texhash
+
+
+%post latex-listings 
+%texhash
+
+%postun latex-listings 
+%texhash
+
+
+%post latex-lucidabr 
+%texhash
+
+%postun latex-lucidabr 
+%texhash
+
+
+%post latex-mathpple 
+%texhash
+
+%postun latex-mathpple 
+%texhash
+
+
+%post latex-mathptm 
+%texhash
+
+%postun latex-mathptm 
+%texhash
+
+
+%post latex-mathptmx 
+%texhash
+
+%postun latex-mathptmx 
+%texhash
+
+
+%post latex-mathtime 
+%texhash
+
+%postun latex-mathtime 
+%texhash
+
+
+%post latex-mdwtools 
+%texhash
+
+%postun latex-mdwtools 
+%texhash
+
+
+%post latex-mflogo 
+%texhash
+
+%postun latex-mflogo 
+%texhash
+
+
+%post latex-mfnfss 
+%texhash
+
+%postun latex-mfnfss 
+%texhash
+
+
+%post latex-minitoc 
+%texhash
+
+%postun latex-minitoc 
+%texhash
+
+
+%post latex-misc 
+%texhash
+
+%postun latex-misc 
+%texhash
+
+
+%post latex-mltex 
+%texhash
+
+%postun latex-mltex 
+%texhash
+
+
+%post latex-ms 
+%texhash
+
+%postun latex-ms 
+%texhash
+
+
+%post latex-multirow 
+%texhash
+
+%postun latex-multirow 
+%texhash
+
+
+%post latex-mwcls 
+%texhash
+
+%postun latex-mwcls 
+%texhash
+
+
+%post latex-natbib 
+%texhash
+
+%postun latex-natbib 
+%texhash
+
+
+%post latex-ntgclass 
+%texhash
+
+%postun latex-ntgclass 
+%texhash
+
+
+%post latex-oberdiek 
+%texhash
+
+%postun latex-oberdiek 
+%texhash
+
+
+%post latex-palatcm 
+%texhash
+
+%postun latex-palatcm 
+%texhash
+
+
+%post latex-pb-diagram 
+%texhash
+
+%postun latex-pb-diagram 
+%texhash
+
+
+%post latex-psnfss 
+%texhash
+
+%postun latex-psnfss 
+%texhash
+
+
+%post latex-qfonts 
+%texhash
+
+%postun latex-qfonts 
+%texhash
+
+
+%post latex-revtex4 
+%texhash
+
+%postun latex-revtex4 
+%texhash
+
+
+%post latex-seminar 
+%texhash
+
+%postun latex-seminar 
+%texhash
+
+
+%post latex-SIunits 
+%texhash
+
+%postun latex-SIunits 
+%texhash
+
+
+%post latex-t2 
+%texhash
+
+%postun latex-t2 
+%texhash
+
+
+%post latex-titlesec 
+%texhash
+
+%postun latex-titlesec 
+%texhash
+
+
+%post latex-tools 
+%texhash
+
+%postun latex-tools 
+%texhash
+
+
+%post latex-umlaute 
+%texhash
+
+%postun latex-umlaute 
+%texhash
+
+
+%post latex-units 
+%texhash
+
+%postun latex-units 
+%texhash
+
+
+%post latex-vnps 
+%texhash
+
+%postun latex-vnps 
+%texhash
+
+
+%post latex-vnr 
+%texhash
+
+%postun latex-vnr 
+%texhash
+
+
+%post latex-wasysym 
+%texhash
+
+%postun latex-wasysym 
+%texhash
+
+
+%post makeindex 
+%texhash
+
+%postun makeindex 
+%texhash
+
+
+%post matapost 
+%texhash
+
+%postun matapost 
+%texhash
+
+
+%post metafont 
+%texhash
+
+%postun metafont 
+%texhash
+
+
+%post mex 
+%texhash
+
+%postun mex 
+%texhash
+
+
+%post -n kpathsea
+%texhash
+
+%postun -n kpathsea
+%texhash
+
+
+%post -n kpathsea-devel
+%texhash
+
+%postun -n kpathsea-devel
+%texhash
+
+
+%post -n xdvi
+%texhash
+
+%postun -n xdvi
+%texhash
+
+
+%post odvips 
+%texhash
+
+%postun odvips 
+%texhash
+
+
+%post omega-ocp 
+%texhash
+
+%postun omega-ocp 
+%texhash
+
+
+%post omega-otp 
+%texhash
+
+%postun omega-otp 
+%texhash
+
+
+%post oxdvi 
+%texhash
+
+%postun oxdvi 
+%texhash
+
+
+%post pdfcslatex 
+%texhash
+
+%postun pdfcslatex 
+%texhash
+
+
+%post pdfcsplain 
+%texhash
+
+%postun pdfcsplain 
+%texhash
+
+
+%post pdftex 
+%texhash
+
+%postun pdftex 
+%texhash
+
+
+%post plain 
+%texhash
+
+%postun plain 
+%texhash
+
+
+%post plain-amsfonts 
+%texhash
+
+%postun plain-amsfonts 
+%texhash
+
+
+%post plain-dvips 
+%texhash
+
+%postun plain-dvips 
+%texhash
+
+
+%post plain-mathtime 
+%texhash
+
+%postun plain-mathtime 
+%texhash
+
+
+%post plain-misc 
+%texhash
+
+%postun plain-misc 
+%texhash
+
+
+%post plain-plnfss 
+%texhash
+
+%postun plain-plnfss 
+%texhash
+
+
+%post platex 
+%texhash
+
+%postun platex 
+%texhash
+
+
+%post rubibtex 
+%texhash
+
+%postun rubibtex 
+%texhash
+
+
+%post rumakeindex 
+%texhash
+
+%postun rumakeindex 
+%texhash
+
+
+%post tex 
+%texhash
+
+%postun tex 
+%texhash
+
+
+%post texconfig 
+%texhash
+
+%postun texconfig 
+%texhash
+
+
+%post texdoctk 
+%texhash
+
+%postun texdoctk 
+%texhash
+
+
+%post tex-eijkhout 
+%texhash
+
+%postun tex-eijkhout 
+%texhash
+
+
+%post tex-german 
+%texhash
+
+%postun tex-german 
+%texhash
+
+
+%post tex-hyphen 
+%texhash
+
+%postun tex-hyphen 
+%texhash
+
+
+%post tex-mfpic 
+%texhash
+
+%postun tex-mfpic 
+%texhash
+
+
+%post tex-misc 
+%texhash
+
+%postun tex-misc 
+%texhash
+
+
+%post tex-pictex 
+%texhash
+
+%postun tex-pictex 
+%texhash
+
+
+%post tex-pstriks 
+%texhash
+
+%postun tex-pstriks 
+%texhash
+
+
+%post tex-ruhyphen 
+%texhash
+
+%postun tex-ruhyphen 
+%texhash
+
+
+%post tex-spanishb 
+%texhash
+
+%postun tex-spanishb 
+%texhash
+
+
+%post tex-texdraw 
+%texhash
+
+%postun tex-texdraw 
+%texhash
+
+
+%post tex-thumbpdf 
+%texhash
+
+%postun tex-thumbpdf 
+%texhash
+
+
+%post tex-ukrhyph 
+%texhash
+
+%postun tex-ukrhyph 
+%texhash
+
+
+%post tex-vietnam 
+%texhash
+
+%postun tex-vietnam 
+%texhash
+
+
+%post tex-xypic 
+%texhash
+
+%postun tex-xypic 
+%texhash
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
