@@ -771,6 +771,8 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Requires:	%{name}-fonts-latex = %{version}
+Obsoletes:	tetex-mwcls
+Obsoletes:	tetex-revtex4
 
 %description latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
