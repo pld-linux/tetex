@@ -12,7 +12,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _)
-Release:	10
+Release:	11
 License:	distributable
 Group:		Applications/Publishing/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
@@ -666,6 +666,9 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 # remove all *.dvi ? why ? /wiget
 #find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
@@ -740,9 +743,6 @@ exit 0
 %postun fonts
 [ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
 exit 0
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -1029,7 +1029,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/texmf/fonts/type1/public/belleek
 %{_datadir}/texmf/fonts/type1/public/cs
-%{_datadir}/texmf/ls-R
+%config %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex
 
 %dir %{_datadir}/texmf/metafont
@@ -1164,8 +1164,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/etex/latex/misc/etex.sty
 %{_datadir}/texmf/fonts/source/public/latex
 %{_datadir}/texmf/fonts/tfm/public/latex
-%{_datadir}/texmf/tex/generic/pictex/latexpicobjs.tex
-%{_datadir}/texmf/tex/generic/xypic/xylatex.ini
+# already in tetex
+#%{_datadir}/texmf/tex/generic/pictex/latexpicobjs.tex
+#%{_datadir}/texmf/tex/generic/xypic/xylatex.ini
 %{_datadir}/texmf/tex/latex
 
 %attr(755,root,root) %{_bindir}/latex
@@ -1331,11 +1332,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/texmf/dvips
 
-%{_datadir}/texmf/tex/generic/pstricks/dvipsone.con
-%{_datadir}/texmf/tex/generic/xypic/xydvips.tex
+# already in tetex
+#%{_datadir}/texmf/tex/generic/pstricks/dvipsone.con
+#%{_datadir}/texmf/tex/generic/xypic/xydvips.tex
 %{_datadir}/texmf/tex/plain/dvips
-%{_datadir}/texmf/tex/latex/graphics/*.def
-%{_datadir}/texmf/tex/latex/hyperref/*.def
+# already in tetex-latex
+#%{_datadir}/texmf/tex/latex/graphics/*.def
+#%{_datadir}/texmf/tex/latex/hyperref/*.def
 
 %attr(755,root,root)%{_bindir}/tetex-updmap
 %dir %attr(750,root,root)%{_sysconfdir}/sysconfig/tetex-updmap/
@@ -1350,7 +1353,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files dvilj
 %defattr(644,root,root,755)
-%{_datadir}/texmf/tex/latex/dvilj/*.sty
+# already in tetex-latex
+#%{_datadir}/texmf/tex/latex/dvilj/*.sty
 
 %attr(755,root,root) %{_bindir}/dvilj
 %attr(755,root,root) %{_bindir}/dvilj2p
@@ -1486,7 +1490,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdvi
 
 %{_mandir}/man1/xdvi.1.*
-%{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
+# already in tetex
+#%{_datadir}/texmf/tex/generic/xypic/xyxdvi.tex
 %dir %{_datadir}/texmf/xdvi
 %{_datadir}/texmf/xdvi/XDvi
 
