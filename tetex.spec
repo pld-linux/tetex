@@ -1,11 +1,11 @@
 #
 # TODO:
+# - context: review package splitting
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
-# - context: split into language packages (cz, de, en, etc.)
 #
 
 %define		_ver	beta-20021116
@@ -916,33 +916,44 @@ ca³kowicie obs³uguj±cy zaawansowane dokumenty interaktywne.
 
 Ten pakiet zawiera podstawowe pliki.
 
-%package format-context
-Summary:	ConTeXt format
-Summary(pl):	Format ConTeXt
+%package format-context-de
+Summary:	German ConTeXt format
+Summary(pl):	Niemiecka wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-context = %{version}
 
-%description format-context
-ConTeXt format.
+%description format-context-de
+German ConTeXt format.
 
-%description format-context -l pl
-Format ConTeXt.
+%description format-context-de -l pl
+Niemiecka wersja formatu ConTeXt.
 
-%package format-pdfcontext
-Summary:	PDF ConTeXt format
-Summary(pl):	Format PDF ConTeXt
+%package format-context-en
+Summary:	English ConTeXt format
+Summary(pl):	Angielska wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-pdftex = %{version}
 Requires:	%{name}-context = %{version}
-Obsoletes:	tetex-format-pdftex-context
 
-%description format-pdfcontext
-PDF ConTeXt format.
+%description format-context-en
+English ConTeXt format.
 
-%description format-pdfcontext -l pl
-Format PDF ConTeXt.
+%description format-context-en -l pl
+Angielska wersja formatu ConTeXt.
+
+%package format-context-nl
+Summary:	Dutch ConTeXt format
+Summary(pl):	Holenderska wersja formatu ConTeXt
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-context = %{version}
+
+%description format-context-nl
+Dutch ConTeXt format.
+
+%description format-context-nl -l pl
+Holenderska wersja formatu ConTeXt.
 
 # LaTeX format.
 
@@ -3183,23 +3194,33 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun format-eplain
 %texhash
 
+# ConTeXt format
+
 %post context
 %texhash
 
 %postun context
 %texhash
 
-%post format-context
+%post format-context-de
 %texhash
 
-%postun format-context
+%postun format-context-de
 %texhash
 
-%post format-pdfcontext
+%post format-context-en
 %texhash
 
-%postun format-pdfcontext
+%postun format-context-en
 %texhash
+
+%post format-context-nl
+%texhash
+
+%postun format-context-nl
+%texhash
+
+# LaTeX format.
 
 %post latex
 %fixinfodir
@@ -4673,6 +4694,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/generic/context
 %{texmf}/tex/latex/context
 %{texmf}/tex/context/base
+%{texmf}/pdftex/config/context
 
 %dir %{texmf}/tex/context
 %dir %{texmf}/tex/context/config
@@ -4684,30 +4706,43 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/metapost/context
 %{texmf}/dvips/config/context.map
 
-%files format-context
-%defattr(644,root,root,755)
-%{texmf}/tex/context/config/cont-cz.ini
-%{texmf}/tex/context/config/cont-de.ini
-%{texmf}/tex/context/config/cont-en.ini
-%{texmf}/tex/context/config/cont-it.ini
-%{texmf}/tex/context/config/cont-nl.ini
-%{texmf}/tex/context/config/cont-ro.ini
-%{texmf}/tex/context/config/cont-uk.ini
-
-%{_mandir}/man1/cont-de.1*
-%{_mandir}/man1/cont-en.1*
-%{_mandir}/man1/cont-nl.1*
-
+# no fmt, so commented out
+#%files format-context-cz
+#%defattr(644,root,root,755)
+#%{texmf}/tex/context/config/cont-cz.ini
 # does not build with beta 20021025
 #%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-cz.efmt
+
+%files format-context-de
+%defattr(644,root,root,755)
+%{texmf}/tex/context/config/cont-de.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
+%{_mandir}/man1/cont-de.1*
+
+%files format-context-en
+%defattr(644,root,root,755)
+%{texmf}/tex/context/config/cont-en.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
+%{_mandir}/man1/cont-en.1*
+# what is the difference betwen uk and en in this particular situation?
+%{texmf}/tex/context/config/cont-uk.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.efmt
 
-%files format-pdfcontext
+# no fmt, so commented out
+#%files format-context-it
+#%defattr(644,root,root,755)
+#%{texmf}/tex/context/config/cont-it.ini
+
+%files format-context-nl
 %defattr(644,root,root,755)
-%{texmf}/pdftex/config/context
+%{texmf}/tex/context/config/cont-nl.ini
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
+%{_mandir}/man1/cont-nl.1*
+
+# no fmt, so commented out
+#%files format-context-ro
+#%defattr(644,root,root,755)
+#%{texmf}/tex/context/config/cont-ro.ini
 
 %files latex
 %defattr(644,root,root,755)
