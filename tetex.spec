@@ -846,7 +846,7 @@ Requires:	%{name}-latex = %{version}
 Bibliography management for LaTeX.
 
 %package latex-bibtex-ams
-Summary:	Bibliography management for AMS LaTeX
+Summary:	BibTeX style files for American Meteorological Society publications
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
@@ -854,17 +854,17 @@ Requires:	%{name}-latex-ams = %{version}
 Requires:	%{name}-latex-bibtex = %{version}
 
 %description latex-bibtex-ams
-Bibliography management for AMS LaTeX.
+BibTeX style files for American Meteorological Society publications.
 
 %package latex-bibtex-pl
-Summary:	!!!fixme!!!
+Summary:	Polish bibliography management for LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{version}
 
 %description latex-bibtex-pl
-!!!fixme!!!
+Polish bibliography management for LaTeX.
 
 %package latex-bibtex-german
 Summary:	German variants of standard BibTeX styles
@@ -1072,14 +1072,14 @@ Requires:	%{name}-latex = %{version}
 Support for MLTeX, the multilingual TeX extension from Michael J. Ferguson.
 
 %package latex-palatcm
-Summary:	!!!fixme!!!
+Summary:	Palatino + Computer Modern math fonts for LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-palatcm
-!!!fixme!!!
+Palatino + Computer Modern math fonts for LaTeX.
 
 %package latex-psnfss
 Summary:	LaTeX font support for common PostScript fonts. 
@@ -1140,24 +1140,24 @@ Requires:	%{name}-latex = %{version}
 An interface to inputenc for using alternate input encodings.
 
 %package latex-vnps
-Summary:	!!!fixme!!!
+Summary:	VNPS fonts for LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-vnps
-!!!fixme!!!
+VNPS fonts for LaTeX.
 
 %package latex-vnr
-Summary:	!!!fixme!!!
+Summary:	VNPS fonts for LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 
 %description latex-vnr
-!!!fixme!!!
+VNR fonts for LaTeX.
 
 %package latex-wasysym
 Summary:	Extra characters from the Waldis symbol fonts
@@ -1391,14 +1391,14 @@ implementing traditional rules, modern rules, and combined
 English-Ukrainian hyphenation.
 
 %package tex-vietnam
-Summary:	!!!fixme!!!
+Summary:	Vietnamese language support
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
 %description tex-vietnam
-!!!fixme!!!
+Vietnamese language support.
 
 %package tex-xypic
 Summary:	Package for typesetting a variety of graphs and diagrams with TeX
