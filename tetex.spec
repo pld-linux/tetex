@@ -114,6 +114,14 @@ aygýtýndan baðýmsýz bir çýktý (DeVice Independent - DVI) oluþturur.
 TeX'in becerileri ve dizgi dili, dili geliþtiren Knuth'un 'The
 TeXbook' baþlýklý kitabýnda anlatýlmaktadýr.
 
+%package format-latex
+Summary:	format-latex
+Group:		Applications/Publishing/TeX
+Requires:	%{name}-latex = %{version}
+PreReq:		%{_bindir}/texhash
+
+%description format-latex
+
 %package latex
 Summary:	LaTeX macro package
 Summary(de):	LaTeX-Makropaket
@@ -281,7 +289,7 @@ denetim dili) komutlarýna çevirir ve böylece bir LaserJet+, HP
 LaserJet IIP (dvilj2p ile), HP LaserJet4 (dvilj4 ile) ve tam
 uyumlularýndan yazýcý çýktýsý alýnabilir.
 
-%package amstex
+%package format-amstex
 Summary:	LaTeX macro package
 Summary(de):	LaTeX-Makropaket
 Summary(fr):	Package de macros pour LaTeX
@@ -292,10 +300,10 @@ Requires:	%{name} = %{version}
 Obsoletes:	tetex-ams
 PreReq:		%{_bindir}/texhash
 
-%description amstex
+%description format-amstex
 American Mathematics Society macros for plainTeX.
 
-%description amstex -l pl
+%description format-amstex -l pl
 Makra American Mathematics Society do sk³adania publikacji
 matematycznych.
 
@@ -325,17 +333,17 @@ e-TeX: a 100%-compatible successor to TeX.
 %description etex -l pl
 e-TeX -- Pierwsza przymiarka do New Typesetting System.
 
-%package omega
+%package format-omega
 Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
-%description omega
+%description format-omega
 Omega is extended unicode TeX.
 
-%description omega -l pl
+%description format-omega -l pl
 Omega -- TeX ze wsparciem dla Unicode.
 
 %package oxdvi
@@ -355,13 +363,21 @@ Summary:	PDFtex
 Summary(pl):	PDFtex
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
-Requires:	tetex-babel = %{version}
 
 %description pdftex
 TeX generating PDFs instead DVI.
 
-%description pdftex -l pl
-PDFTeX generuje pliki PDF na podstawie plików DVI.
+%package format-pdftex
+Summary:	PDFTeX format
+Summary(pl):	Format PDFTeX
+Group:		Applications/Publishing/TeX
+Requires:	%{name}-pdftex = %{version}
+
+%description format-pdftex
+PDFTeX format.
+
+%description format-pdftex -l pl
+Format PDFTeX.
 
 %package -n xdvi
 Summary:	X11 previewer
@@ -1053,6 +1069,7 @@ Summary:	fonts-type1-pl
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description fonts-type1-pl
 fonts-type1-pl
@@ -1114,14 +1131,14 @@ Requires:	%{name} = %{version}
 %description matapost
 matapost
 
-%package omega-lambda
+%package format-omega-lambda
 Summary:	omega-lambda
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
-%description omega-lambda
+%description format-omega-lambda
 omega-lambda
 
 %package omega-ocp
@@ -1144,89 +1161,88 @@ Requires:	%{name} = %{version}
 %description omega-otp
 omega-otp
 
-%package pdfetex
+%package format-pdfetex
 Summary:	pdfetex
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdfetex
+%description format-pdfetex
 pdfetex
 
-%package pdfelatex
-Summary:	pdfelatex
+%package format-pdfelatex
+Summary:	format-pdfelatex
 Group:		Applications/Publishing/TeX
 Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdfelatex
+%description format-pdfelatex
 pdfelatex
 
-%package pdfemex
+%package format-pdfemex
 Summary:	pdfemex
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdfemex
+%description format-pdfemex
 pdfemex
 
-%package pdftex-amstex
+%package format-pdfamstex
 Summary:	pdftex-amstex
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdftex-amstex
+%description format-pdfamstex
 pdftex-amstex
 
-%package pdftex-context
+%package format-pdftex-context
 Summary:	pdftex-context
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdftex-context
+%description format-pdftex-context
 pdftex-context
 
-%package pdflatex
+%package format-pdflatex
 Summary:	pdflatex
 Group:		Applications/Publishing/TeX
 Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-latex = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdflatex
+%description format-pdflatex
 pdflatex
 
-%package pdfmex
+%package format-pdfmex
 Summary:	pdfmex
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-Requires:	tetex-mex = %{version}
-Requires:	tetex-fonts-type1-pl = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdfmex
+%description format-pdfmex
 pdfmex
 
-%package pdfplatex
+%package format-pdfplatex
 Summary:	pdfplatex
 Group:		Applications/Publishing/TeX
 Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-pdftex = %{version}
 
-%description pdfplatex
+%description format-pdfplatex
 pdfplatex
 
 %package tex
@@ -1249,14 +1265,14 @@ Requires:	%{name} = %{version}
 %description texconfig
 texconfig
 
-%package context
+%package format-context
 Summary:	context
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
-%description context
+%description format-context
 context
 
 %package csplain
@@ -1390,14 +1406,24 @@ Requires:	%{name} = %{version}
 doc-latex2e-html
 
 %package platex
+Summary:	platex base
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex = %{version}
+
+%description platex
+platex base
+
+%package format-platex
 Summary:	platex
 Group:		Applications/Publishing/TeX
 Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
+Requires:	%{name}-platex = %{version}
 
-%description platex
+%description format-platex
 platex
 
 %package plain-misc
@@ -2184,7 +2210,7 @@ Requires:	%{name} = %{version}
 %description eplain
 eplain
 
-%package elatex
+%package format-elatex
 Summary:	elatex
 Group:		Applications/Publishing/TeX
 Provides:	%{name}-latex
@@ -2192,7 +2218,7 @@ Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 
-%description elatex
+%description format-elatex
 elatex
 
 %package fontname
@@ -2491,10 +2517,18 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %fixinfodir
 %texhash
 
+%post format-latex
+%fixinfodir
+%fmtutil -f latex
+%texhash
+
+%postun format-latex
+%fixinfodir
+%texhash
+
 %post latex
 %fixinfodir
 %fmtutil -f latex
-
 %texhash
 
 %postun latex
@@ -2515,26 +2549,26 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %postun dvilj
 %texhash
 
-%post amstex
+%post format-amstex
 %texhash
 
-%postun amstex
+%postun format-amstex
 %texhash
 
-%post omega
+%post format-omega
 %fmtutil -f omega
 
 %texhash
 
-%postun omega
+%postun format-omega
 %texhash
 
-%post omega-lambda
+%post format-omega-lambda
 %fmtutil -f lambda
 
 %texhash
 
-%postun omega-lambda
+%postun format-omega-lambda
 %texhash
 
 
@@ -2542,6 +2576,18 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %texhash
 
 %postun fonts
+%texhash
+
+%post fonts-type1-pl
+%texhash
+
+%postun fonts-type1-pl
+%texhash
+
+%post fonts-type1-bluesky
+%texhash
+
+%postun fonts-type1-bluesky
 %texhash
 
 %clean
@@ -3410,7 +3456,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/web2c/mpost.mem
 %{_datadir}/texmf/web2c/mp.pool
 
-%files omega
+%files format-omega
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/omega
 %attr(755,root,root) %{_bindir}/mkocp
@@ -3438,7 +3484,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
 %{_datadir}/texmf/web2c/omega.pool
 
-%files omega-lambda
+%files format-omega-lambda
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lambda
 %{_mandir}/man1/lambda.1*
@@ -3464,7 +3510,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/omega/otp/omega
 %{texmf}/omega/otp/uni2char
 
-%files pdfetex
+%files format-pdfetex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdfetex
 %dir %{texmf}/pdfetex/tex
@@ -3477,14 +3523,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/web2c/pdfetex-pl.pool
 %{_datadir}/texmf/web2c/pdfetex.pool
 
-%files pdfelatex
+%files format-pdfelatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdfetex/latex
 %{texmf}/pdfetex/latex/config
 %attr(755,root,root) %{_bindir}/pdfelatex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
 
-%files pdfemex
+%files format-pdfemex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdfetex/mex
 %{texmf}/pdfetex/mex/config
@@ -3493,28 +3539,33 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfemex.efmt
 
 %files pdftex
-%defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
-%dir %{texmf}/pdftex
-%dir %{texmf}/pdftex/config
-%{texmf}/pdftex/config/cmttf.map
-%{texmf}/pdftex/config/pdftex.cfg
-%dir %{texmf}/pdftex/plain
-%{texmf}/pdftex/plain/config
-%{texmf}/pdftex/plain/misc
+
 %attr(755,root,root) %{_bindir}/epstopdf
-%{_mandir}/man1/epstopdf.1*
 %attr(755,root,root) %{_bindir}/pdftex
 %attr(755,root,root) %{_bindir}/pdfvirtex
 %attr(755,root,root) %{_bindir}/pdfinitex
+
+%dir %{texmf}/pdftex
+%dir %{texmf}/pdftex/config
+
+%{texmf}/pdftex/config/cmttf.map
+%{texmf}/pdftex/config/pdftex.cfg
+%{_mandir}/man1/epstopdf.1*
 %{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
 %{_mandir}/man1/pdfvirtex.1*
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
+
+%files format-pdftex
+%defattr(644,root,root,755)
+%dir %{texmf}/pdftex/plain
+%{texmf}/pdftex/plain/config
+%{texmf}/pdftex/plain/misc
 %{_datadir}/texmf/web2c/pdftex-pl.pool
 %{_datadir}/texmf/web2c/pdftex.pool
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
 
-%files pdftex-amstex
+%files format-pdfamstex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/amstex
 %dir %{texmf}/pdftex/amstex
@@ -3522,12 +3573,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfamstex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfamstex.fmt
 
-%files pdftex-context
+# format?
+%files format-pdftex-context
 %defattr(644,root,root,755)
 # zferyfikowac pliki z fontami
 %{texmf}/pdftex/config/context
 
-%files pdflatex
+%files format-pdflatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/latex
 %{texmf}/pdftex/latex/config
@@ -3535,19 +3587,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pdflatex.1*
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
 
-#%files pdfcslatex
+#%files format-pdfcslatex
 #%defattr(644,root,root,755)
 #%attr(755,root,root) %{_bindir}/pdfcslatex
 # jaki¶ problem z generowaniem
 #%config(noreplace) %verify(not md5 size mtime) /usr/share/texmf/web2c/pdfcslatex.fmt
 
-#%files pdfcsplain
+#%files format-pdfcsplain
 #%defattr(644,root,root,755)
 #%attr(755,root,root) %{_bindir}/pdfcsplain
 # jaki¶ problem z generowaniem
 #%config(noreplace) %verify(not md5 size mtime) /usr/share/texmf/web2c/pdfcstex.fmt
 
-%files pdfmex
+%files format-pdfmex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/mex
 %{texmf}/pdftex/mex/config
@@ -3555,14 +3607,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfmex-pl
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex.fmt
 
-%files pdfplatex
+%files format-pdfplatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/platex
 %{texmf}/pdftex/platex/config
 %attr(755,root,root) %{_bindir}/pdfplatex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfplatex.fmt
 
-%files amstex
+%files format-amstex
 %defattr(644,root,root,755)
 %dir %{texmf}/tex/amstex
 %attr(755,root,root) %{_bindir}/amstex
@@ -3581,7 +3633,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/texconfig
 %{_mandir}/man1/texconfig.1*
 
-%files context
+%files format-context
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cont-cz
 %attr(755,root,root) %{_bindir}/cont-de
@@ -3694,7 +3746,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/tetex.gif
 %{texmf}/doc/tetex.png
 
-
 %files platex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/platex
@@ -3724,6 +3775,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/platex/plprefix.sty
 %{texmf}/tex/latex/platex/polski.sty
 %{texmf}/tex/latex/platex/qxenc.def
+
+%files format-platex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex.fmt
 
 %files plain-misc
@@ -4920,6 +4973,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/context/m-metapo.sty
 %{texmf}/tex/latex/context/m-pictex.sty
 
+%files format-latex
+%attr(755,root,root) %{_bindir}/latex
+%attr(755,root,root) %{_bindir}/pslatex
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
+
 %files latex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/general
@@ -4928,10 +4986,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fi) %{_mandir}/fi/man1/latex.1*
 %lang(pl) %{_mandir}/pl/man1/latex.1*
 %{_mandir}/man1/latex.1*
-%attr(755,root,root) %{_bindir}/latex
-%attr(755,root,root) %{_bindir}/pslatex
 %{_mandir}/man1/pslatex.1*
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
 %dir %{texmf}/tex/latex/config
 %dir %{_datadir}/texmf/tex/latex
 %{texmf}/tex/latex/config/color.cfg
@@ -5253,7 +5308,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/web2c/etex-pl.pool
 
 
-%files elatex
+%files format-elatex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/elatex
 %{_mandir}/man1/elatex.1*
