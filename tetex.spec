@@ -2124,11 +2124,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc %{texmf}/ChangeLog
-%doc {texmf}/doc/README
-%doc {texmf}/doc/README.knuth
-%doc {texmf}/doc/tetex/teTeX-FAQ
-%doc {texmf}/doc/tetex.gif
-%doc {texmf}/doc/tetex.png
+%doc %{texmf}/doc/README
+%doc %{texmf}/doc/README.knuth
+%doc %{texmf}/doc/tetex/teTeX-FAQ
+%doc %{texmf}/doc/tetex.gif
+%doc %{texmf}/doc/tetex.png
 %doc %{texmf}/doc/fontinst
 %doc %{texmf}/doc/fonts/fontname
 
