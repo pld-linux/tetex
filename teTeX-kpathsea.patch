@@ -20,3 +20,14 @@
  
  ## $(client): xdvi-client.o my-vsnprintf.o
  ## 	   $(link_command) xdvi-client.o string-utils.o $(x_ldflags) -lX11
+--- tetex-src-2.0.2/texk/oxdvik/Makefile.in.orig	Sun Feb  2 19:53:12 2003
++++ tetex-src-2.0.2/texk/oxdvik/Makefile.in	Thu Jul 17 09:53:08 2003
+@@ -56,7 +56,7 @@
+ default all: $(program)
+ 
+ $(program): $(kpathsea) $(objects) $(LIBWWWDEP) $(LIBT1DEP)
+-	$(kpathsea_link) $(objects) $(x_link) $(LOADLIBES)
++	$(kpathsea_link) $(objects) $(LOADLIBES) $(x_link)
+ 
+ ## $(client): xdvi-client.o my-vsnprintf.o
+ ## 	   $(link_command) xdvi-client.o string-utils.o $(x_ldflags) -lX11
