@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	4
+Release:	5
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -1903,7 +1903,7 @@ Summary(pl):	Wsparcie dla sk³adu fontami QuasiPalatino i PX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	%{name}-fonts-qpx = %{epoch}:%{version}-%{release}-%{release}
+Requires:	%{name}-fonts-qpx = %{epoch}:%{version}-%{release}
 
 %description tex-qpx
 QuasiPalatino and PX fonts typesetting support.
