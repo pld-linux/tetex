@@ -1,6 +1,5 @@
 #
 # TODO:
-# - test installation of listings.sty, which is missing due to tetex 2.0.2 bug
 # - context: review package splitting
 # - omega: consider more splitting, check dependencies
 # - create new packages if there is a need: more latex splitting... others?
@@ -3049,7 +3048,7 @@ install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 # only for tetex 2.0.2, I hope
-install %{SOURCE8} $RPM_BUILD_ROOT%{texmf}/tex/latex/listings/
+install %{SOURCE8} $RPM_BUILD_ROOT%{texmf}/tex/latex/listings/listings.sty
 
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
