@@ -127,6 +127,25 @@ aygýtýndan baðýmsýz bir çýktý (DeVice Independent - DVI) oluþturur.
 TeX'in becerileri ve dizgi dili, dili geliþtiren Knuth'un 'The
 TeXbook' baþlýklý kitabýnda anlatýlmaktadýr.
 
+%package doc
+Summary:	The documentation files for the TeX text formatting system
+Summary(pl):	Pliki dokumentacji TeXa
+Group:		Applications/Publishing/TeX
+Requires:	%{name} = %{version}
+
+%description doc
+The tetex-doc package contains documentation for the TeX text
+formatting system.
+
+If you want to use TeX and you're not an expert at it, you should
+install the tetex-doc package. You'll also need to install the tetex
+package, tetex-afm (a PostScript font converter for TeX), tetex-dvilj
+(for converting .dvi files to HP PCL format for printing on HP and HP
+compatible printers), tetex-dvips (for converting .dvi files to
+PostScript format for printing on PostScript printers), tetex-latex (a
+higher level formatting package which provides an easier-to-use
+interface for TeX) and tetex-xdvi (for previewing .dvi files).
+
 #
 # libraries
 #
@@ -1102,29 +1121,6 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-jknappen
 fonts-jknappen
-
-%package doc
-Summary:	The documentation files for the TeX text formatting system
-Summary(pl):	Pliki dokumentacji TeXa
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
-
-%description doc
-The tetex-doc package contains documentation for the TeX text
-formatting system.
-
-If you want to use TeX and you're not an expert at it, you should
-install the tetex-doc package. You'll also need to install the tetex
-package, tetex-afm (a PostScript font converter for TeX), tetex-dvilj
-(for converting .dvi files to HP PCL format for printing on HP and HP
-compatible printers), tetex-dvips (for converting .dvi files to
-PostScript format for printing on PostScript printers), tetex-latex (a
-higher level formatting package which provides an easier-to-use
-interface for TeX) and tetex-xdvi (for previewing .dvi files).
-
-%description doc -l pl
-Dokumentacja do TeXa. Je¿eli chcesz korzystaæ z TeXa to powiniene¶
-zainstalowaæ ten pakiet.
 
 %package bibtex-ams
 Summary:	bibtex-ams
@@ -2554,6 +2550,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %{texmf}/tex/texinfo
 
+%files doc
+%defattr(644,root,root,755)
+%{texmf}/doc/README
+%{texmf}/doc/README.knuth
+%{texmf}/doc/tetex/teTeX-FAQ
+%dir %{texmf}/doc/tetex
+%{texmf}/doc/tetex.gif
+%{texmf}/doc/tetex.png
+
 %files -n kpathsea
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/kpathsea.dvi
@@ -3710,15 +3715,6 @@ rm -rf $RPM_BUILD_ROOT
 %files doc-latex2e-html
 %defattr(644,root,root,755)
 %{texmf}/doc/latex/latex2e-html
-
-%files doc
-%defattr(644,root,root,755)
-%{texmf}/doc/README
-%{texmf}/doc/README.knuth
-%{texmf}/doc/tetex/teTeX-FAQ
-%dir %{texmf}/doc/tetex
-%{texmf}/doc/tetex.gif
-%{texmf}/doc/tetex.png
 
 %files platex
 %defattr(644,root,root,755)
