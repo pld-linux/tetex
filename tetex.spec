@@ -3461,6 +3461,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-mathpazo
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/mathpazo
+%{texmf}/fonts/afm/public/mathpazo
 %{texmf}/fonts/type1/public/mathpazo
 
 %files fonts-type1-pl
