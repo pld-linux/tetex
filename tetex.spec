@@ -4124,11 +4124,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(hu) %{_mandir}/hu/man1/readlink.1*
 %lang(pl) %{_mandir}/pl/man1/access.1*
 %lang(pl) %{_mandir}/pl/man1/newer.1*
-%{_mandir}/man1/MakeTeXPK.1*
+#%{_mandir}/man1/MakeTeXPK.1*
 %{_mandir}/man1/access.1*
 %{_mandir}/man1/afm2tfm.1*
 %{_mandir}/man1/allcm.1*
-%{_mandir}/man1/allec.1*
+#%{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
 %{_mandir}/man1/dmp.1*
 %{_mandir}/man1/e2pall.1*
@@ -4139,7 +4139,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gftopk.1*
 %{_mandir}/man1/gftype.1*
 %{_mandir}/man1/gsftopk.1*
-%{_mandir}/man1/initex.1*
+#%{_mandir}/man1/initex.1*
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
 %{_mandir}/man1/mktexlsr.1*
@@ -4158,14 +4158,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
-%{_mandir}/man1/texhash.1*
+#%{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
 %{_mandir}/man1/texi2pdf.1*
 %{_mandir}/man1/texshow.1*
 %{_mandir}/man1/tftopl.1*
 %{_mandir}/man1/tie.1*
 %{_mandir}/man1/vftovp.1*
-%{_mandir}/man1/virtex.1*
+#%{_mandir}/man1/virtex.1*
 %{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/weave.1*
 %{_mandir}/man5/fmtutil.cnf.5*
@@ -4399,8 +4399,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/mf.1*
 %{_mandir}/man1/mft.1*
-%{_mandir}/man1/inimf.1*
-%{_mandir}/man1/virmf.1*
+#%{_mandir}/man1/inimf.1*
+#%{_mandir}/man1/virmf.1*
 %{_mandir}/man1/mktexmf.1*
 %{_mandir}/man1/mktexpk.1*
 %{_mandir}/man1/mktextfm.1*
@@ -4421,8 +4421,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/web2c/mp.pool
 %{_mandir}/man1/mpost.1*
 %{_mandir}/man1/mpto.1*
-%{_mandir}/man1/inimpost.1*
-%{_mandir}/man1/virmpost.1*
+#%{_mandir}/man1/inimpost.1*
+#%{_mandir}/man1/virmpost.1*
 
 %files mptopdf
 %defattr(644,root,root,755)
@@ -4469,9 +4469,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/pdftex/config/cmttf.map
 %{texmf}/pdftex/config/pdftex.cfg
 %{_mandir}/man1/epstopdf.1*
-%{_mandir}/man1/pdfinitex.1*
+#%{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
-%{_mandir}/man1/pdfvirtex.1*
+#%{_mandir}/man1/pdfvirtex.1*
 
 %files plain
 %defattr(644,root,root,755)
@@ -4651,10 +4651,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/evirtex
 %attr(755,root,root) %{_bindir}/einitex
 %attr(755,root,root) %{_bindir}/eplain
-%{_mandir}/man1/einitex.1*
+#%{_mandir}/man1/einitex.1*
 %{_mandir}/man1/eplain.1*
 %{_mandir}/man1/etex.1*
-%{_mandir}/man1/evirtex.1*
+#%{_mandir}/man1/evirtex.1*
 %dir %{texmf}/etex
 %dir %{texmf}/etex/plain
 %dir %{texmf}/etex/plain/base
@@ -4721,13 +4721,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-de.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
-%{_mandir}/man1/cont-de.1*
+#%{_mandir}/man1/cont-de.1*
 
 %files format-context-en
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-en.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
-%{_mandir}/man1/cont-en.1*
+#%{_mandir}/man1/cont-en.1*
 # what is the difference betwen uk and en in this particular situation?
 %{texmf}/tex/context/config/cont-uk.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.efmt
@@ -4741,7 +4741,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
-%{_mandir}/man1/cont-nl.1*
+#%{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
 #%files format-context-ro
@@ -4993,7 +4993,7 @@ rm -rf $RPM_BUILD_ROOT
 %files format-elatex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/elatex
-%{_mandir}/man1/elatex.1*
+#%{_mandir}/man1/elatex.1*
 %{texmf}/etex/latex/config
 %{texmf}/etex/latex/misc
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/elatex.efmt
@@ -5004,7 +5004,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/pdftex/latex
 %attr(755,root,root) %{_bindir}/pdflatex
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdflatex.fmt
-%{_mandir}/man1/pdflatex.1*
+#%{_mandir}/man1/pdflatex.1*
 
 %files format-pdfelatex
 %defattr(644,root,root,755)
