@@ -37,7 +37,7 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
-Source7:	%{name}-updmap
+#Source7:	%{name}-updmap
 # to be removed when next tetex version arrives
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
@@ -45,12 +45,13 @@ Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-info.patch
 Patch4:		teTeX-klibtool.patch
 Patch5:		teTeX-texmf-dvipsgeneric.patch
-Patch6:	teTeX-fmtutil.patch
-Patch7:	teTeX-grep.patch
-Patch8:	teTeX-tektronix.patch
-Patch9:	teTeX-trie_size_max.patch
+Patch6:		teTeX-fmtutil.patch
+Patch7:		teTeX-grep.patch
+Patch8:		teTeX-tektronix.patch
+Patch9:		teTeX-trie_size_max.patch
 Patch10:	teTeX-kpathsea.patch
 Patch11:	teTeX-locale.patch
+Patch12:	teTeX-texmfvar.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -93,6 +94,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2 ;
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ;
 %define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ;
+%define		_sysconfdir	/etc/texmf
+%define		_localstatedir	/var/lib/texmf
 
 %define 	_noautoreq 'perl(path_tre)'
 
@@ -3107,6 +3110,7 @@ tar xzf %{SOURCE1} -C texmf
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
@@ -3179,10 +3183,12 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	includedir=$RPM_BUILD_ROOT%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-	texmf=$RPM_BUILD_ROOT%{texmf}
+	texmf=$RPM_BUILD_ROOT%{texmf} \
+	texmfsysvar=$RPM_BUILD_ROOT%{_localstatedir} \
+	texmfsysconfig=$RPM_BUILD_ROOT%{_sysconfdir}
 
-install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
-touch $RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/maps.lst
+#install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
+#touch $RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/maps.lst
 
 #%{__make} init \
 #	prefix=$RPM_BUILD_ROOT%{_prefix} \
@@ -4381,7 +4387,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ps4pdf
 #%attr(755,root,root) %{_bindir}/t1mapper
 %attr(755,root,root) %{_bindir}/tangle
-%attr(755,root,root) %{_bindir}/tetex-updmap
+#%attr(755,root,root) %{_bindir}/tetex-updmap
 %attr(755,root,root) %{_bindir}/tex
 %attr(755,root,root) %{_bindir}/texdoc
 %attr(755,root,root) %{_bindir}/texhash
@@ -4400,10 +4406,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{texmf}/web2c/mktexdir
 %attr(755,root,root) %{texmf}/web2c/mktexupd
 
-%attr(750,root,root) %{_sysconfdir}/cron.daily/tetex
+%attr(750,root,root) /etc/cron.daily/tetex
 
-%dir /etc/sysconfig/tetex-updmap
-%verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
+#%dir /etc/sysconfig/tetex-updmap
+#%verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
 
 %ghost %{texmf}/ls-R
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
