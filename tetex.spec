@@ -12,9 +12,9 @@ Source0:	ftp://ftp.rrzn.uni-hannover.de/pub/local/misc/teTeX-beta/teTeX-src-%{ve
 Source1:	ftp://ftp.rrzn.uni-hannover.de/pub/local/misc/teTeX-beta/teTeX-texmf-%{version}.tar.gz
 Source2:	dvi-to-ps.fpi
 Source3:	tetex.cron
-Patch0:		tetex-rhconfig.patch  
-Patch1:		tetex-buildr.patch
-Patch2:		tetex-manpages.patch
+Patch0:		teTeX-rhconfig.patch  
+Patch1:		teTeX-buildr.patch
+Patch2:		teTeX-manpages.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -308,18 +308,16 @@ tar xzf %{SOURCE1} -C texk/share/texmf
 %build
 sh ./reautoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr \
+%configure \
 	--with-system-ncurses \
 	--with-system-zlib \
 	--with-system-pnglib \
 	--disable-multiplatform \
 	--without-dialog \
 	--with-texinfo \
-	--with-fonts-dir=/var/lib/texmf \
+	--with-fonts-dir=/var/cache/fonts \
 	--with-texmf-dir=../share/texmf \
-	--with-ncurses \
-	%{buildarch}-pld-`echo %{buildos} | tr A-Z a-z`
+	--with-ncurses
 make
 
 cd texk 
@@ -334,38 +332,62 @@ cd ../ps2pkm
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir} \
-	$RPM_BUILD_ROOT/var/lib/texmf \
+	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters \
 	$RPM_BUILD_ROOT/etc/cron.daily \
 	$RPM_BUILD_ROOT/etc/X11/wmconfig
 
 perl -pi \
 	-e "s|\.\./share/texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
-	-e "s|/var/lib/texmf|$RPM_BUILD_ROOT/var/lib/texmf|g;" \
+	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
 	texk/share/texmf/web2c/texmf.cnf
 
 cp -a texk/share/texmf  $RPM_BUILD_ROOT%{_datadir}/texmf
 
 make install prefix=$RPM_BUILD_ROOT/usr \
+	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	libdir=$RPM_BUILD_ROOT/%{_libdir} \
+	datadir=$RPM_BUILD_ROOT/%{_datadir} \
+	infodir=$RPM_BUILD_ROOT/%{_infodir} \
+	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd texk/tetex
 make install prefix=$RPM_BUILD_ROOT/usr \
+	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	libdir=$RPM_BUILD_ROOT/%{_libdir} \
+	datadir=$RPM_BUILD_ROOT/%{_datadir} \
+	infodir=$RPM_BUILD_ROOT/%{_infodir} \
+	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../ps2pkm 
 make install prefix=$RPM_BUILD_ROOT/usr \
+	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	libdir=$RPM_BUILD_ROOT/%{_libdir} \
+	datadir=$RPM_BUILD_ROOT/%{_datadir} \
+	infodir=$RPM_BUILD_ROOT/%{_infodir} \
+	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../..
 install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}	
 
 make init prefix=$RPM_BUILD_ROOT/usr \
+	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	libdir=$RPM_BUILD_ROOT/%{_libdir} \
+	datadir=$RPM_BUILD_ROOT/%{_datadir} \
+	infodir=$RPM_BUILD_ROOT/%{_infodir} \
+	includendir=$RPM_BUILD_ROOT/%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 perl -pi \
 	-e "s|\.\./share/texmf|%{_datadir}/texmf|g;" \
-	-e "s|$RPM_BUILD_ROOT/var/lib/texmf|/var/lib/texmf|g;" \
+	-e "s|$RPM_BUILD_ROOT/var/cache/fonts|/var/cache/fonts|g;" \
 	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
 # install the new magic print filter for converting dvi to ps
@@ -383,7 +405,7 @@ xdvi exec "xdvi &"
 xdvi group "Graphics/Viewers"
 EOF
 
-gzip $RPM_BUILD_ROOT/usr/{info/*info*,man/man1/*}
+gzip $RPM_BUILD_ROOT/usr/share/{info/*info*,man/man1/*}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -402,7 +424,7 @@ exit 0
 /sbin/install-info %{_infodir}/latex.info.gz /etc/info-dir
 exit 0
 
-%post xdvi
+%post -n xdvi
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
@@ -427,7 +449,7 @@ exit 0
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
-%postun xdvi
+%postun -n xdvi
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 2> /dev/null
 exit 0
 
@@ -462,7 +484,7 @@ fi
 %files 
 %defattr(644,root,root,755)
 
-%attr(1777,root,root) %dir /var/lib/texmf
+%attr(1777,root,root) %dir /var/cache/fonts
 
 %attr(750,root,root) %config /etc/cron.daily/tetex.cron
 #%config %{_datadir}/texmf/web2c/mktex.cnf
@@ -894,7 +916,7 @@ fi
 %attr(755,root,root) %{_bindir}/pdflatex 
 %doc %{_datadir}/texmf/doc/pdftex
 
-%files xdvi 
+%files -n xdvi 
 %defattr(644,root,root,755)
 
 %config /etc/X11/wmconfig/xdvi
@@ -975,6 +997,10 @@ fi
 %doc %{_datadir}/texmf/doc/fonts/ams
 
 %changelog
+* Thu Jun 17 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [1.0-1]
+- FHS 2.0
+
 * Thu Apr  1 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.9-17]
 - removed man group from man pages,
