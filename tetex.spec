@@ -26,7 +26,7 @@ URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
 Prereq:		/sbin/ldconfig
-Prereq:		/sbin/install-info
+Prereq:		/usr/sbin/fix-info-dir
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
@@ -75,7 +75,7 @@ Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
-Prereq:		/sbin/install-info
+Prereq:		/usr/sbin/fix-info-dir
 
 %description latex
 LaTeX is a TeX macro package. The LaTeX macros encourage writers to think
@@ -126,7 +126,7 @@ Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Requires:	%{name} = %{version}
-Prereq:		/sbin/install-info
+Prereq:		/usr/sbin/fix-info-dir
 
 %description dvips
 The program dvips takes a DVI file file[.dvi] produced by TeX (or by some
@@ -424,18 +424,14 @@ strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %post
-/sbin/install-info %{_infodir}/web2c.info.gz /etc/info-dir
-/sbin/install-info %{_infodir}/kpathsea.info.gz /etc/info-dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
 %preun
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/kpathsea.info.gz /etc/info-dir
-	/sbin/install-info --delete %{_infodir}/web2c.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 /sbin/ldconfig
@@ -444,28 +440,24 @@ fi
 exit 0
 
 %post latex
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
-/sbin/install-info %{_infodir}/latex.info.gz /etc/info-dir
 exit 0
 
 %preun latex
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/latex.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun latex
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
 %post dvips
-/sbin/install-info %{_infodir}/dvips.info.gz /etc/info-dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
 exit 0
 
 %preun dvips
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/dvips.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun dvips
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
