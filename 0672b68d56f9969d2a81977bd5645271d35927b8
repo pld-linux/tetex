@@ -1,0 +1,3 @@
+- missing tfm files of bitstream and adobe fonts are added to tetex package
+- requires texinfo to build
+- release up
