@@ -8,8 +8,8 @@
 # - context: split into language packages (cz, de, en, etc.)
 #
 
-%define		_ver	beta-20021025
-%define		texmf_ver	beta-20021025
+%define		_ver	beta-20021112
+%define		texmf_ver	beta-20021112
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -21,7 +21,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	6
+Release:	1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -2885,7 +2885,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 %{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	libdir=$RPM_BUILD_ROOT%{_libdir} \
 	datadir=$RPM_BUILD_ROOT%{_datadir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
@@ -2899,7 +2899,7 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 %{__make} init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	libdir=$RPM_BUILD_ROOT%{_libdir} \
 	datadir=$RPM_BUILD_ROOT%{_datadir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
@@ -4307,18 +4307,22 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/config/builtin35.map
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
 %{texmf}/dvips/config/download35.map
+%{texmf}/dvips/config/dvipdfm_dl14.map
+%{texmf}/dvips/config/dvipdfm_ndl14.map
 %{texmf}/dvips/config/psfonts_pk.map
 %{texmf}/dvips/config/config.generic
 %{texmf}/dvips/config/psfonts.map
 %{texmf}/dvips/config/psfonts_t1.map
 
 %{texmf}/dvips/tetex/config.*
+%{texmf}/dvips/tetex/dvipdfm35.map
 %{texmf}/dvips/tetex/dvips35.map
 %{texmf}/dvips/tetex/lucidabr.map
 %{texmf}/dvips/tetex/mathpple.map
 %{texmf}/dvips/tetex/mt-belleek.map
 %{texmf}/dvips/tetex/mt-plus.map
 %{texmf}/dvips/tetex/mt-yy.map
+%{texmf}/dvips/tetex/mtex.enc
 %{texmf}/dvips/tetex/pdftex35.map
 %{texmf}/dvips/tetex/ttcmex.map
 
@@ -4677,12 +4681,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-context
 %defattr(644,root,root,755)
-# does not build with beta 20021025
-#%attr(755,root,root) %{_bindir}/cont-cz
-%attr(755,root,root) %{_bindir}/cont-de
-%attr(755,root,root) %{_bindir}/cont-en
-%attr(755,root,root) %{_bindir}/cont-nl
-#%attr(755,root,root) %{_bindir}/cont-uk
 %{texmf}/tex/context/config/cont-cz.ini
 %{texmf}/tex/context/config/cont-de.ini
 %{texmf}/tex/context/config/cont-en.ini
