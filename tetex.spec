@@ -3978,10 +3978,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
-%doc %{texmf}/doc/tetex/CREDITS
-%doc %{texmf}/doc/tetex/FEATURES
-%doc %{texmf}/doc/tetex/NEWS
-%doc %{texmf}/doc/tetex/README
 %doc %{texmf}/doc/tetex/TETEXDOC.*
 %doc %{texmf}/doc/tetex/teTeX-FAQ
 %doc %{texmf}/doc/tetex.gif
@@ -4001,6 +3997,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/allneeded
 %attr(755,root,root) %{_bindir}/dmp
 %attr(755,root,root) %{_bindir}/e2pall
+%attr(755,root,root) %{_bindir}/ebb
 %attr(755,root,root) %{_bindir}/fdf2tan
 %attr(755,root,root) %{_bindir}/fmtutil
 %attr(755,root,root) %{_bindir}/fontexport
@@ -4139,6 +4136,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/allcm.1*
 #%{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
+%{_mandir}/man1/cweb.1*
 %{_mandir}/man1/dmp.1*
 %{_mandir}/man1/e2pall.1*
 %{_mandir}/man1/fontexport.1*
@@ -4260,7 +4258,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/styles/layman.dvi
 # removed due to license problems
 #%{texmf}/doc/latex/styles/listings.dvi
-%{texmf}/doc/latex/styles/lucidabr.txt
+#%{texmf}/doc/latex/styles/lucidabr.txt
 %{texmf}/doc/latex/styles/mathcomp.dvi
 %{texmf}/doc/latex/styles/moreverb.dvi
 %{texmf}/doc/latex/styles/paralist.dvi
@@ -4326,9 +4324,10 @@ rm -rf $RPM_BUILD_ROOT
 # dvi2fax requires ghostscript
 %attr(755,root,root) %{_bindir}/dvi2fax
 %{_infodir}/dvips.info*
-%{_mandir}/man1/dvips.1*
 %{_mandir}/man1/dvi2fax.1*
 %{_mandir}/man1/dvicopy.1*
+%{_mandir}/man1/dvipdfm.1*
+%{_mandir}/man1/dvips.1*
 %{_mandir}/man1/dvired.1*
 %{_mandir}/man1/dvitomp.1*
 %{_mandir}/man1/dvitype.1*
@@ -4338,6 +4337,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/gsftopk
 %{texmf}/dvips/psfrag
 %{texmf}/dvips/psnfss
+%{texmf}/dvips/psnfssx
 %{texmf}/dvips/config/builtin35.map
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
 %{texmf}/dvips/config/download35.map
@@ -4353,7 +4353,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/tetex/bsr.map
 %{texmf}/dvips/tetex/bsr-interpolated.map
 %{texmf}/dvips/tetex/dvips35.map
-%{texmf}/dvips/tetex/lucidabr.map
+%{texmf}/dvips/lucida
+%{texmf}/dvips/tetex/lucidabr*
+%{texmf}/dvips/tetex/lumath*
 %{texmf}/dvips/tetex/mathpple.map
 %{texmf}/dvips/tetex/mt-belleek.map
 %{texmf}/dvips/tetex/mt-plus.map
@@ -4361,6 +4363,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/tetex/mtex.enc
 %{texmf}/dvips/tetex/pdftex35.map
 %{texmf}/dvips/tetex/ttcmex.map
+%{texmf}/dvipdfm/config
 
 %files dvilj
 %defattr(644,root,root,755)
@@ -4460,7 +4463,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xdvi
 %attr(755,root,root) %{_bindir}/xdvi.bin
+%attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
+%{_mandir}/man1/xdvizilla.1*
 %{_applnkdir}/Graphics/Viewers/xdvi.desktop
 %{_pixmapsdir}/xdvi.png
 %dir %{texmf}/xdvi
@@ -4471,9 +4476,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
 %attr(755,root,root) %{_bindir}/epstopdf
-%attr(755,root,root) %{_bindir}/pdftex
-%attr(755,root,root) %{_bindir}/pdfvirtex
 %attr(755,root,root) %{_bindir}/pdfinitex
+%attr(755,root,root) %{_bindir}/pdftex
+%attr(755,root,root) %{_bindir}/pdftosrc
+%attr(755,root,root) %{_bindir}/pdfvirtex
 %{texmf}/dvips/config/pdftex.map
 %{texmf}/dvips/config/pdftex_dl14.map
 %{texmf}/dvips/config/pdftex_ndl14.map
@@ -4505,7 +4511,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files plain-mathtime
 %defattr(644,root,root,755)
-%{texmf}/tex/plain/mathtime
+#%{texmf}/tex/plain/mathtime
 
 %files plain-misc
 %defattr(644,root,root,755)
@@ -4925,8 +4931,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-lucidabr
 %defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/lucidabr
+#%doc %{texmf}/doc/fonts/lucidabr
 %{texmf}/tex/latex/lucidabr
+%{texmf}/tex/latex/lucida
 
 %files latex-mathpple
 %defattr(644,root,root,755)
@@ -4965,6 +4972,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/psnfss
 %{texmf}/tex/latex/psnfss
+%{texmf}/tex/latex/psnfssx
 
 %files latex-pxfonts
 %defattr(644,root,root,755)
@@ -5262,7 +5270,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-jknappen
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/jknappen
-%{texmf}/fonts/tfm/jknappen
+#%{texmf}/fonts/tfm/jknappen
 
 %files fonts-latex
 %defattr(644,root,root,755)
@@ -5386,7 +5394,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-type1-adobe
 %defattr(644,root,root,755)
-%{texmf}/fonts/type1/adobe
+#%{texmf}/fonts/type1/adobe
 
 %files fonts-type1-antp
 %defattr(644,root,root,755)
