@@ -8,7 +8,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	3
+Release:	4
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -578,7 +578,7 @@ perl -pi \
 # I don't know how to make it better now :( /klakier
 cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
 
-install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
 # temporary fix
 ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
@@ -663,7 +663,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(1777,root,root) %dir /var/cache/fonts
 
-%attr(750,root,root) %config /etc/cron.daily/tetex.cron
+%attr(750,root,root) %config /etc/cron.daily/tetex
 #%config %{_datadir}/texmf/web2c/mktex.cnf
 #%config %{_datadir}/texmf/web2c/texmf.cnf
 
