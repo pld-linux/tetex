@@ -1,0 +1,38 @@
+--- tetex-src-3.0/Makefile.in.pld	2005-02-11 22:35:41.429332378 +0100
++++ tetex-src-3.0/Makefile.in	2005-02-11 22:39:32.934385436 +0100
+@@ -24,6 +24,8 @@
+ bindir = @bindir@
+ scriptdir = $(bindir)
+ texmf = @texmfmain@
++texmfsysvar = $(texmf)
++texmfsysconfig = $(texmf)
+ INSTALL = @INSTALL@
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+@@ -65,21 +67,26 @@
+ 	$(srcdir)/selfautofix "$(bindir)" "$(texmf)/web2c"
+ 	- if test -f $(scriptdir)/mktexlsr; then \
+ 	  TEXMFMAIN=$(texmf) PATH=$(scriptdir):$(bindir):$(PATH) \
++	  TEXMFSYSVAR=$(texmfsysvar) TEXMFSYSCONFIG=$(texmfsysconfig) \
+ 	    $(scriptdir)/mktexlsr; \
+ 	else :; fi
+ 	- if test -f $(scriptdir)/fmtutil-sys; then \
+ 	  TEXMFMAIN=$(texmf) PATH=$(scriptdir):$(bindir):$(PATH) \
++	  TEXMFSYSVAR=$(texmfsysvar) TEXMFSYSCONFIG=$(texmfsysconfig) \
+ 	    $(scriptdir)/fmtutil-sys --all; \
+ 	else :; fi
+ 	- if test -f $(scriptdir)/texlinks; then \
+ 	  TEXMFMAIN=$(texmf) PATH=$(scriptdir):$(bindir):$(PATH) \
++	  TEXMFSYSVAR=$(texmfsysvar) TEXMFSYSCONFIG=$(texmfsysconfig) \
+ 	    $(scriptdir)/texlinks; \
+ 	else :; fi
+ 	- if test -f $(scriptdir)/updmap-sys \
+ 	  && TEXMFMAIN=$(texmf) PATH=$(scriptdir):$(bindir):$(PATH) \
++	  TEXMFSYSVAR=$(texmfsysvar) TEXMFSYSCONFIG=$(texmfsysconfig) \
+ 	       $(scriptdir)/kpsewhich --format='web2c files' updmap.cfg >/dev/null; \
+ 	then \
+ 	  TEXMFMAIN=$(texmf) PATH=$(scriptdir):$(bindir):$(PATH) \
++	  TEXMFSYSVAR=$(texmfsysvar) TEXMFSYSCONFIG=$(texmfsysconfig) \
+ 	    $(scriptdir)/updmap-sys; \
+ 	else :; fi
+ 
