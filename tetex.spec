@@ -1,4 +1,7 @@
 
+%define		tetex_stable_ver	1.0.7
+%define		texmf_stable_ver	1.0.2
+%define		texmfsrc_stable_ver	1.0.1
 %define		tetex_ver	beta-20001218
 %define		texmf_ver	beta-20000804
 %define		texmfsrc_ver	beta-20000804
@@ -11,13 +14,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _)
-Release:	12
+Version:	%{tetex_stable_ver}.%(echo %{tetex_ver}|tr -- - _)
+Release:	13
 License:	distributable
 Group:		Applications/Publishing/TeX
-Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
-Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
-Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
+# ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_stable_ver}.tar.gz
+Source0:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-src-%{tetex_ver}.tar.gz
+# ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_stable_ver}.tar.gz
+Source1:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmf-%{texmf_ver}.tar.gz
+# ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_stable_ver}.tar.gz
+Source2:	ftp://dante.ctan.org/pub/tex/systems/unix/teTeX-beta/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
