@@ -324,7 +324,7 @@ diff -Nru teTeX-1.0/texk/web2c/doc/web2c.texi teTeX-1.0.new/texk/web2c/doc/web2c
 +* gftype: (web2c)gftype.		GF to human-readable text
 +* inimf: (web2c)inimf.			Initial Metafont
 +* inimpost: (web2c)inimpost.		Initial MetaPost
-+* initex: (web2c)initex		Initial TeX
++* initex: (web2c)initex.		Initial TeX
 +* makempx: (web2c)makempx.		MetaPost label typesetting
 +* mf: (web2c)mf.			Creating typeface families
 +* mft: (web2c)mft.			Prettyprinting Metafont source
