@@ -83,6 +83,7 @@ PreReq:		sed
 PreReq:		sh-utils
 PreReq:		textutils
 Requires:	dialog
+Requires:	kpathsea = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-cm = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-misc = %{epoch}:%{version}-%{release}
 Requires:	tmpwatch
