@@ -510,6 +510,17 @@ Requires:	%{name} = %{version}
 %description bibtex-ams
 bibtex-ams
 
+%package bibtex-adrconv
+Summary:	bibtex-adrconv
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description bibtex-adrconv
+bibtex-adrconv
+
+
 %package bibtex-plbib
 Summary:	bibtex-plbib
 Group:		Applications/Publishing/TeX
@@ -2393,18 +2404,17 @@ tex-eijkhout
 
 %prep
 %setup  -q -n teTeX-src-%{_ver}
-%patch0 -p1
-%patch1 -p1
-
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
-#tar xzf %{SOURCE2} -C texmf
 
+%patch0  -p1
+%patch1  -p1
 %patch2  -p1
 %patch4  -p1
 %patch5  -p1
 %patch6  -p1
-%patch7  -p1
+# default values are OK
+#patch7  -p1
 %patch9  -p1
 %patch10 -p1
 %patch11 -p1
@@ -4157,14 +4167,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf/fonts
 %dir %{_datadir}/texmf/fonts/afm
 %dir %{_datadir}/texmf/fonts/afm/public
-%dir %{_datadir}/texmf/fonts/ofm
-%dir %{_datadir}/texmf/fonts/ofm/public
+#%dir %{_datadir}/texmf/fonts/ofm
+#%dir %{_datadir}/texmf/fonts/ofm/public
 %dir %{_datadir}/texmf/fonts/ovf
 %dir %{_datadir}/texmf/fonts/ovf/public
 %dir %{_datadir}/texmf/fonts/ovp
 %dir %{_datadir}/texmf/fonts/ovp/public
-%dir %{_datadir}/texmf/fonts/pfm
-%dir %{_datadir}/texmf/fonts/pfm/public
+#%dir %{_datadir}/texmf/fonts/pfm
+#%dir %{_datadir}/texmf/fonts/pfm/public
 %dir %{_datadir}/texmf/fonts/pk
 %dir %{_datadir}/texmf/fonts/source
 %dir %{_datadir}/texmf/fonts/source/public
@@ -4178,7 +4188,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/texmf
 %{_datadir}/texmf/aliases
 %{_datadir}/texmf/ChangeLog
-%dir %{_datadir}/texmf/source
+#%dir %{_datadir}/texmf/source
 %{_datadir}/texmf/web2c/metafun.mem
 %attr(1777,root,root) /var/cache/fonts
 
@@ -4235,22 +4245,26 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/fonts/lucidabr
 %{texmf}/doc/fonts/oldgerman
 %{texmf}/doc/fonts/polish/plpsfont
+%{texmf}/doc/fonts/polish/cc-plps
+%{texmf}/doc/fonts/polish/qpx
 %{texmf}/doc/fonts/pxfonts
 %{texmf}/doc/fonts/txfonts
 %{texmf}/doc/generic/multido
+%{texmf}/doc/generic/tap
 %{texmf}/doc/generic/nohyph
 %{texmf}/doc/generic/styles
 %{texmf}/doc/help/csname.txt
 %{texmf}/doc/help/ctan
 %dir %{texmf}/doc/help/faq
-%{texmf}/doc/help/faq/TeX-FAQ
-%{texmf}/doc/help/faq/UserGroups.html
-%{texmf}/doc/help/faq/dante-faq.html
-%{texmf}/doc/help/faq/index.html
+#%{texmf}/doc/help/faq/TeX-FAQ
+#%{texmf}/doc/help/faq/UserGroups.html
+#%{texmf}/doc/help/faq/dante-faq.html
+#%{texmf}/doc/help/faq/index.html
 %{texmf}/doc/help/tds.dvi
 %{texmf}/doc/help/unixtex.ftp
 %{texmf}/doc/helpfile
 %{texmf}/doc/helpindex.html
+#%{texmf}/doc/Catalogue-upd.sh
 %{texmf}/doc/images
 %{texmf}/doc/index.html
 %dir %{texmf}/doc/latex
@@ -4283,21 +4297,21 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/tetex/README
 %{texmf}/doc/tetex/TETEXDOC.dvi
 %{texmf}/doc/tetex/TETEXDOC.pdf
-%{texmf}/doc/tetex/body.tmp
-%{texmf}/doc/tetex/head.tmp
+#%{texmf}/doc/tetex/body.tmp
+#%{texmf}/doc/tetex/head.tmp
 %{texmf}/doc/tetex/eurotex98-te.pdf
 %dir /usr/share/texmf/fonts/pk/ljfour
-%dir /usr/share/texmf/fonts/pk/ljfour/jknappen
-/usr/share/texmf/fonts/pk/ljfour/jknappen/ec
+#%dir /usr/share/texmf/fonts/pk/ljfour/jknappen
+#/usr/share/texmf/fonts/pk/ljfour/jknappen/ec
 %dir /usr/share/texmf/fonts/pk/ljfour/lh
 /usr/share/texmf/fonts/pk/ljfour/lh/lh-lcy
-%dir /usr/share/texmf/fonts/pk/modeless
-%dir /usr/share/texmf/fonts/pk/modeless/adobe
-/usr/share/texmf/fonts/pk/modeless/adobe/times
-%dir /usr/share/texmf/fonts/pk/modeless/public
-/usr/share/texmf/fonts/pk/modeless/public/cm
-%dir /usr/share/texmf/fonts/pk/modeless/yandy
-/usr/share/texmf/fonts/pk/modeless/yandy/mathtime
+#%dir /usr/share/texmf/fonts/pk/modeless
+#%dir /usr/share/texmf/fonts/pk/modeless/adobe
+#/usr/share/texmf/fonts/pk/modeless/adobe/times
+#%dir /usr/share/texmf/fonts/pk/modeless/public
+#/usr/share/texmf/fonts/pk/modeless/public/cm
+#%dir /usr/share/texmf/fonts/pk/modeless/yandy
+#/usr/share/texmf/fonts/pk/modeless/yandy/mathtime
 /usr/share/texmf/fonts/source/public/cmbright
 %dir /usr/share/texmf/fonts/tfm/lh
 /usr/share/texmf/fonts/tfm/lh/lh-lcy
@@ -4341,6 +4355,79 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/texmf/web2c/mptopdf.efmt
 /usr/share/texmf/web2c/updmap.cfg
 
+#next part to move to proper subpackages
+/usr/share/texmf/fonts/afm/public/mathpazo/fplmb.afm
+/usr/share/texmf/fonts/afm/public/mathpazo/fplmbb.afm
+/usr/share/texmf/fonts/afm/public/mathpazo/fplmbi.afm
+/usr/share/texmf/fonts/afm/public/mathpazo/fplmr.afm
+/usr/share/texmf/fonts/afm/public/mathpazo/fplmri.afm
+/usr/share/texmf/fonts/tfm/public/qpx/qplrxc.tfm
+/usr/share/texmf/fonts/tfm/public/qpx/qpxbmi.tfm
+/usr/share/texmf/fonts/tfm/public/qpx/qpxmi.tfm
+/usr/share/texmf/fonts/tfm/public/qtx/qtmrxc.tfm
+/usr/share/texmf/fonts/tfm/public/qtx/qtxbmi.tfm
+/usr/share/texmf/fonts/tfm/public/qtx/qtxmi.tfm
+/usr/share/texmf/fonts/type1/public/cc-pl/pccsc10.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcmi10.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr10.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr5.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr6.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr7.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr8.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcr9.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcsl10.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcslc9.pfb
+/usr/share/texmf/fonts/type1/public/cc-pl/pcti10.pfb
+/usr/share/texmf/fonts/type1/public/tt2001/fmex7.pfb
+/usr/share/texmf/fonts/type1/public/tt2001/fmex8.pfb
+/usr/share/texmf/fonts/type1/public/tt2001/fmex9.pfb
+/usr/share/texmf/fonts/vf/public/qpx/qplrxc.vf
+/usr/share/texmf/fonts/vf/public/qpx/qpxbmi.vf
+/usr/share/texmf/fonts/vf/public/qpx/qpxmi.vf
+/usr/share/texmf/fonts/vf/public/qtx/qtmrxc.vf
+/usr/share/texmf/fonts/vf/public/qtx/qtxbmi.vf
+/usr/share/texmf/fonts/vf/public/qtx/qtxmi.vf
+/usr/share/texmf/tex/generic/qpx/amspbold.tex
+/usr/share/texmf/tex/generic/qpx/amsqpx.def
+/usr/share/texmf/tex/generic/qpx/amsqpx.tex
+/usr/share/texmf/tex/generic/qpx/qpxmath.sty
+/usr/share/texmf/tex/generic/qpx/qpxmath.tex
+/usr/share/texmf/tex/generic/qpx/qpxsc.tex
+/usr/share/texmf/tex/generic/qtx/amsqtx.def
+/usr/share/texmf/tex/generic/qtx/amsqtx.tex
+/usr/share/texmf/tex/generic/qtx/amstbold.tex
+/usr/share/texmf/tex/generic/qtx/qtxmath.sty
+/usr/share/texmf/tex/generic/qtx/qtxmath.tex
+/usr/share/texmf/tex/generic/qtx/qtxsc.tex
+/usr/share/texmf/tex/latex/adrconv/adrconv.tex
+/usr/share/texmf/tex/latex/adrconv/adrdir.cfg
+/usr/share/texmf/tex/latex/adrconv/adrdir.tex
+/usr/share/texmf/tex/latex/adrconv/adrfax.tex
+/usr/share/texmf/tex/latex/adrconv/adrplaner.cfg
+/usr/share/texmf/tex/latex/adrconv/adrsmall.cfg
+/usr/share/texmf/tex/latex/adrconv/birthday.tex
+/usr/share/texmf/tex/latex/adrconv/email.tex
+/usr/share/texmf/tex/latex/config/hyperref.cfg
+/usr/share/texmf/tex/latex/koma-script/DIN.lco
+/usr/share/texmf/tex/latex/koma-script/DINmtext.lco
+/usr/share/texmf/tex/latex/koma-script/KOMAold.lco
+/usr/share/texmf/tex/latex/koma-script/SN.lco
+/usr/share/texmf/tex/latex/koma-script/SNleft.lco
+/usr/share/texmf/tex/latex/koma-script/scrlfile.sty
+/usr/share/texmf/tex/latex/koma-script/scrlttr2.cls
+/usr/share/texmf/tex/latex/misc/booktabs.sty
+/usr/share/texmf/tex/latex/textmerg/textmerg.sty
+/usr/share/texmf/tex/latex/textmerg/textmerg.tex
+/usr/share/texmf/tex/plain/graphics/autopict.sty
+/usr/share/texmf/tex/plain/graphics/color.tex
+/usr/share/texmf/tex/plain/graphics/exmplcol.tex
+/usr/share/texmf/tex/plain/graphics/exmplgrf.tex
+/usr/share/texmf/tex/plain/graphics/exmplpfg.tex
+/usr/share/texmf/tex/plain/graphics/exmplpic.tex
+/usr/share/texmf/tex/plain/graphics/graphicx.tex
+/usr/share/texmf/tex/plain/graphics/miniltx.tex
+/usr/share/texmf/tex/plain/graphics/picture.tex
+/usr/share/texmf/tex/plain/graphics/psfrag.tex
 
 
 %files -n kpathsea-devel
@@ -4424,8 +4511,72 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/dvips/bluesky/psfonts.cm
 %{_datadir}/texmf/dvips/bluesky/psfonts.cmz
 %dir %{_datadir}/texmf/dvips/config
-%{_datadir}/texmf/dvips/config/antp.map
-%{_datadir}/texmf/dvips/config/antt.map
+/usr/share/texmf/dvips/antp/antp.map
+/usr/share/texmf/dvips/antp/config.antp
+/usr/share/texmf/dvips/antt/antt.map
+/usr/share/texmf/dvips/antt/config.antt
+/usr/share/texmf/dvips/bluesky/bsr-interpolated.map
+/usr/share/texmf/dvips/bluesky/bsr.map
+/usr/share/texmf/dvips/bluesky/config.ams
+/usr/share/texmf/dvips/bluesky/config.amz
+/usr/share/texmf/dvips/bluesky/config.cm
+/usr/share/texmf/dvips/bluesky/config.cmz
+/usr/share/texmf/dvips/cc-pl/cc-pl.enc
+/usr/share/texmf/dvips/cc-pl/ccpl.map
+/usr/share/texmf/dvips/config/builtin35.map
+/usr/share/texmf/dvips/config/config.generic
+/usr/share/texmf/dvips/config/config.ps
+/usr/share/texmf/dvips/config/context.map
+/usr/share/texmf/dvips/config/download35.map
+/usr/share/texmf/dvips/config/pdftex_dl14.map
+/usr/share/texmf/dvips/config/pdftex_ndl14.map
+/usr/share/texmf/dvips/config/ps2pk.map
+/usr/share/texmf/dvips/config/psfonts_pk.map
+/usr/share/texmf/dvips/config/psfonts_t1.map
+/usr/share/texmf/dvips/misc/cmcyr.map
+/usr/share/texmf/dvips/misc/config.mirr
+/usr/share/texmf/dvips/misc/cs.map
+/usr/share/texmf/dvips/misc/marvosym.map
+/usr/share/texmf/dvips/misc/mathpi.map
+/usr/share/texmf/dvips/misc/wolfram.map
+/usr/share/texmf/dvips/pl/config.pl
+/usr/share/texmf/dvips/pl/pl.map
+/usr/share/texmf/dvips/qfonts/config.qbk
+/usr/share/texmf/dvips/qfonts/config.qcr
+/usr/share/texmf/dvips/qfonts/config.qhv
+/usr/share/texmf/dvips/qfonts/config.qpl
+/usr/share/texmf/dvips/qfonts/config.qtm
+/usr/share/texmf/dvips/qfonts/config.qzc
+/usr/share/texmf/dvips/qfonts/qbk.map
+/usr/share/texmf/dvips/qfonts/qcr.map
+/usr/share/texmf/dvips/qfonts/qhv.map
+/usr/share/texmf/dvips/qfonts/qpl.map
+/usr/share/texmf/dvips/qfonts/qtm.map
+/usr/share/texmf/dvips/qfonts/qzc.map
+/usr/share/texmf/dvips/tetex/config.builtin35
+/usr/share/texmf/dvips/tetex/config.dfaxhigh
+/usr/share/texmf/dvips/tetex/config.dfaxlo
+/usr/share/texmf/dvips/tetex/config.download35
+/usr/share/texmf/dvips/tetex/config.gsftopk
+/usr/share/texmf/dvips/tetex/config.outline
+/usr/share/texmf/dvips/tetex/config.pdf
+/usr/share/texmf/dvips/tetex/config.pk
+/usr/share/texmf/dvips/tetex/config.www
+/usr/share/texmf/dvips/tetex/dvips35.map
+/usr/share/texmf/dvips/tetex/hoekwater.map
+/usr/share/texmf/dvips/tetex/lucidabr.map
+/usr/share/texmf/dvips/tetex/mathpple.map
+/usr/share/texmf/dvips/tetex/mt-belleek.map
+/usr/share/texmf/dvips/tetex/mt-plus.map
+/usr/share/texmf/dvips/tetex/mt-yy.map
+/usr/share/texmf/dvips/tetex/pdftex35.map
+/usr/share/texmf/dvips/tetex/ps2pk35.map
+/usr/share/texmf/dvips/tetex/pxfonts.map
+/usr/share/texmf/dvips/tetex/ttcmex.map
+/usr/share/texmf/dvips/tetex/txfonts.map
+/usr/share/texmf/dvips/xypic/xypic.map
+#%{_datadir}/texmf/dvips/config/antp.map
+#%{_datadir}/texmf/dvips/config/antt.map
 #%{_datadir}/texmf/dvips/config/ar-ext-adobe-bi.map
 #%{_datadir}/texmf/dvips/config/ar-ext-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/ar-ext-urw-kb.map
@@ -4434,45 +4585,45 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/texmf/dvips/config/ar-std-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/ar-std-urw-kb.map
 #%{_datadir}/texmf/dvips/config/ar-std-urw-urw.map
-%{_datadir}/texmf/dvips/config/bakoma-extra.map
-%{_datadir}/texmf/dvips/config/bsr-interpolated.map
-%{_datadir}/texmf/dvips/config/bsr.map
+#%{_datadir}/texmf/dvips/config/bakoma-extra.map
+#%{_datadir}/texmf/dvips/config/bsr-interpolated.map
+#%{_datadir}/texmf/dvips/config/bsr.map
 #%{_datadir}/texmf/dvips/config/charter.map
-%{_datadir}/texmf/dvips/config/cmcyr.map
-%{_datadir}/texmf/dvips/config/config.ams
-%{_datadir}/texmf/dvips/config/config.amz
-%{_datadir}/texmf/dvips/config/config.antp
-%{_datadir}/texmf/dvips/config/config.antt
-%{_datadir}/texmf/dvips/config/config.cm
-%{_datadir}/texmf/dvips/config/config.cmz
-%{_datadir}/texmf/dvips/config/config.dfaxhigh
-%{_datadir}/texmf/dvips/config/config.dfaxlo
-%{_datadir}/texmf/dvips/config/config.generic
-%{_datadir}/texmf/dvips/config/config.mirr
-%{_datadir}/texmf/dvips/config/config.pdf
-%{_datadir}/texmf/dvips/config/config.pl
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/dvips/config/config.ps
-%{_datadir}/texmf/dvips/config/config.qbk
-%{_datadir}/texmf/dvips/config/config.qcr
-%{_datadir}/texmf/dvips/config/config.qf
-%{_datadir}/texmf/dvips/config/config.qhv
-%{_datadir}/texmf/dvips/config/config.qpl
-%{_datadir}/texmf/dvips/config/config.qtm
-%{_datadir}/texmf/dvips/config/config.qzc
-%{_datadir}/texmf/dvips/config/config.www
-%{_datadir}/texmf/dvips/config/context.map
-%{_datadir}/texmf/dvips/config/cs.map
-%{_datadir}/texmf/dvips/config/hoekwater.map
-%{_datadir}/texmf/dvips/config/lucidabr.map
+#%{_datadir}/texmf/dvips/config/cmcyr.map
+#%{_datadir}/texmf/dvips/config/config.ams
+#%{_datadir}/texmf/dvips/config/config.amz
+#%{_datadir}/texmf/dvips/config/config.antp
+#%{_datadir}/texmf/dvips/config/config.antt
+#%{_datadir}/texmf/dvips/config/config.cm
+#%{_datadir}/texmf/dvips/config/config.cmz
+#%{_datadir}/texmf/dvips/config/config.dfaxhigh
+#%{_datadir}/texmf/dvips/config/config.dfaxlo
+#%{_datadir}/texmf/dvips/config/config.generic
+#%{_datadir}/texmf/dvips/config/config.mirr
+#%{_datadir}/texmf/dvips/config/config.pdf
+#%{_datadir}/texmf/dvips/config/config.pl
+#%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/dvips/config/config.ps
+#%{_datadir}/texmf/dvips/config/config.qbk
+#%{_datadir}/texmf/dvips/config/config.qcr
+#%{_datadir}/texmf/dvips/config/config.qf
+#%{_datadir}/texmf/dvips/config/config.qhv
+#%{_datadir}/texmf/dvips/config/config.qpl
+#%{_datadir}/texmf/dvips/config/config.qtm
+#%{_datadir}/texmf/dvips/config/config.qzc
+#%{_datadir}/texmf/dvips/config/config.www
+#%{_datadir}/texmf/dvips/config/context.map
+#%{_datadir}/texmf/dvips/config/cs.map
+#%{_datadir}/texmf/dvips/config/hoekwater.map
+#%{_datadir}/texmf/dvips/config/lucidabr.map
 #%{_datadir}/texmf/dvips/config/lw35extra-adobe-bi.map
 #%{_datadir}/texmf/dvips/config/lw35extra-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/lw35extra-urw-kb.map
 #%{_datadir}/texmf/dvips/config/lw35extra-urw-urw.map
-%{_datadir}/texmf/dvips/config/marvosym.map
-%{_datadir}/texmf/dvips/config/mathpi.map
-%{_datadir}/texmf/dvips/config/mathpple-ext.map
-%{_datadir}/texmf/dvips/config/mt-belleek.map
-%{_datadir}/texmf/dvips/config/mt-plus.map
+#%{_datadir}/texmf/dvips/config/marvosym.map
+#%{_datadir}/texmf/dvips/config/mathpi.map
+#%{_datadir}/texmf/dvips/config/mathpple-ext.map
+#%{_datadir}/texmf/dvips/config/mt-belleek.map
+#%{_datadir}/texmf/dvips/config/mt-plus.map
 #%{_datadir}/texmf/dvips/config/mtsupp-ext-adobe-bi.map
 #%{_datadir}/texmf/dvips/config/mtsupp-ext-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/mtsupp-ext-urw-kb.map
@@ -4481,32 +4632,32 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/texmf/dvips/config/mtsupp-std-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/mtsupp-std-urw-kb.map
 #%{_datadir}/texmf/dvips/config/mtsupp-std-urw-urw.map
-%{_datadir}/texmf/dvips/config/mt-yy.map
-%{_datadir}/texmf/dvips/config/omega.map
+#%{_datadir}/texmf/dvips/config/mt-yy.map
+#%{_datadir}/texmf/dvips/config/omega.map
 #%{_datadir}/texmf/dvips/config/pazo.map
-%{_datadir}/texmf/dvips/config/pdftex.map
+#%{_datadir}/texmf/dvips/config/pdftex.map
 #%{_datadir}/texmf/dvips/config/pl.cfg
-%{_datadir}/texmf/dvips/config/pl.map
-%{_datadir}/texmf/dvips/config/ps2pk.map
-%{_datadir}/texmf/dvips/config/psfonts.map
+#%{_datadir}/texmf/dvips/config/pl.map
+#%{_datadir}/texmf/dvips/config/ps2pk.map
+#%{_datadir}/texmf/dvips/config/psfonts.map
 #%{_datadir}/texmf/dvips/config/psnfss.map
-%{_datadir}/texmf/dvips/config/qbk.map
-%{_datadir}/texmf/dvips/config/qcr.map
-%{_datadir}/texmf/dvips/config/qhv.map
-%{_datadir}/texmf/dvips/config/qpl.map
-%{_datadir}/texmf/dvips/config/qtm.map
-%{_datadir}/texmf/dvips/config/qzc.map
-%{_datadir}/texmf/dvips/config/dvips35.map
-%{_datadir}/texmf/dvips/config/pdftex35.map
-%{_datadir}/texmf/dvips/config/ps2pk35.map
-%{_datadir}/texmf/dvips/config/psfonts_pk.map
-%{_datadir}/texmf/dvips/config/psfonts_t1.map
-%{_datadir}/texmf/dvips/config/pxfonts.map
-%{_datadir}/texmf/dvips/config/txfonts.map
-%{_datadir}/texmf/dvips/config/wolfram.map
-%{_datadir}/texmf/dvips/config/config.gsftopk
-%{_datadir}/texmf/dvips/config/config.outline
-%{_datadir}/texmf/dvips/config/config.pk
+#%{_datadir}/texmf/dvips/config/qbk.map
+#%{_datadir}/texmf/dvips/config/qcr.map
+#%{_datadir}/texmf/dvips/config/qhv.map
+#%{_datadir}/texmf/dvips/config/qpl.map
+#%{_datadir}/texmf/dvips/config/qtm.map
+#%{_datadir}/texmf/dvips/config/qzc.map
+#%{_datadir}/texmf/dvips/config/dvips35.map
+#%{_datadir}/texmf/dvips/config/pdftex35.map
+#%{_datadir}/texmf/dvips/config/ps2pk35.map
+#%{_datadir}/texmf/dvips/config/psfonts_pk.map
+#%{_datadir}/texmf/dvips/config/psfonts_t1.map
+#%{_datadir}/texmf/dvips/config/pxfonts.map
+#%{_datadir}/texmf/dvips/config/txfonts.map
+#%{_datadir}/texmf/dvips/config/wolfram.map
+#%{_datadir}/texmf/dvips/config/config.gsftopk
+#%{_datadir}/texmf/dvips/config/config.outline
+#%{_datadir}/texmf/dvips/config/config.pk
 #%{_datadir}/texmf/dvips/config/raw-ar-ext-adobe-bi.map
 #%{_datadir}/texmf/dvips/config/raw-ar-ext-adobe-kb.map
 #%{_datadir}/texmf/dvips/config/raw-ar-ext-urw-kb.map
@@ -4521,7 +4672,7 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/texmf/dvips/config/raw-lw35extra-urw-urw.map
 #%{_datadir}/texmf/dvips/config/updmap
 #%{_datadir}/texmf/dvips/config/utopia.map
-%{_datadir}/texmf/dvips/config/xypic.map
+#%{_datadir}/texmf/dvips/config/xypic.map
 %dir %{_datadir}/texmf/dvips/gsftopk
 %{_datadir}/texmf/dvips/gsftopk/render.ps
 %dir %{_datadir}/texmf/dvips/misc
@@ -4596,7 +4747,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdvi.bin
 %{_prefix}/X11R6/share/applnk/Graphics/Viewers/xdvi.desktop
 %dir %{texmf}/xdvi
-%{texmf}/xdvi/ps2pk.map
+#%{texmf}/xdvi/ps2pk.map
 %{texmf}/xdvi/XDvi
 %{texmf}/xdvi/xdvi.cfg
 
@@ -4619,6 +4770,10 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/bibtex/bib/ams
 %{texmf}/bibtex/bst/ams
 
+%files bibtex-adrconv
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bst/adrconv
+
 %files bibtex-plbib
 %defattr(644,root,root,755)
 %{texmf}/bibtex/bib/plbib
@@ -4628,9 +4783,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/bibtex/bst/germbib
 
-%files bibtex-koma-script
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bst/koma-script
+#%files bibtex-koma-script
+#%defattr(644,root,root,755)
+#%{texmf}/bibtex/bst/koma-script
 
 %files bibtex-natbib
 %defattr(644,root,root,755)
@@ -4670,13 +4825,13 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/afm/public/marvosym
 %{texmf}/fonts/tfm/public/marvosym
 
-%files fonts-omega
-%defattr(644,root,root,755)
-%{texmf}/fonts/afm/public/omega
-%{texmf}/fonts/ofm/public/omega
-%{texmf}/fonts/ovf/public/omega
-%{texmf}/fonts/ovp/public/omega
-%{texmf}/fonts/tfm/public/omega
+#%files fonts-omega
+#%defattr(644,root,root,755)
+#%{texmf}/fonts/afm/public/omega
+#%{texmf}/fonts/ofm/public/omega
+#%{texmf}/fonts/ovf/public/omega
+#%{texmf}/fonts/ovp/public/omega
+#%{texmf}/fonts/tfm/public/omega
 
 %files fonts-qfonts
 %defattr(644,root,root,755)
@@ -4687,7 +4842,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-xypic
 %defattr(644,root,root,755)
 %{texmf}/fonts/afm/public/xypic
-%{texmf}/fonts/pfm/public/xypic
+#%{texmf}/fonts/pfm/public/xypic
 %{texmf}/fonts/source/public/xypic
 %{texmf}/fonts/tfm/public/xypic
 
@@ -4930,9 +5085,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/mathpazo
 %{texmf}/fonts/type1/public/mathpazo
 
-%files fonts-type1-omega
-%defattr(644,root,root,755)
-%{texmf}/fonts/type1/public/omega
+#%files fonts-type1-omega
+#%defattr(644,root,root,755)
+#%{texmf}/fonts/type1/public/omega
 
 %files fonts-type1-pl
 %defattr(644,root,root,755)
@@ -5004,59 +5159,59 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/texmf/web2c/mpost.mem
 %{_datadir}/texmf/web2c/mp.pool
 
-%files format-omega
-%defattr(644,root,root,755)
-#%doc %{texmf}/doc/omega
-%attr(755,root,root) %{_bindir}/mkocp
-%attr(755,root,root) %{_bindir}/mkofm
-%attr(755,root,root) %{_bindir}/ofm2opl
-%attr(755,root,root) %{_bindir}/omega
-%attr(755,root,root) %{_bindir}/omfonts
-%attr(755,root,root) %{_bindir}/opl2ofm
-%attr(755,root,root) %{_bindir}/otangle
-%attr(755,root,root) %{_bindir}/otp2ocp
-%attr(755,root,root) %{_bindir}/outocp
-%attr(755,root,root) %{_bindir}/ovf2ovp
-%attr(755,root,root) %{_bindir}/ovp2ovf
-%attr(755,root,root) %{_bindir}/viromega
-%{_mandir}/man1/viromega.1*
-%attr(755,root,root) %{_bindir}/iniomega
-%{_mandir}/man1/iniomega.1*
-%{_mandir}/man1/omega.1*
-%dir %{texmf}/omega
-%{texmf}/omega/encodings
-#%files omega-plain
-%dir %{texmf}/omega/plain
-%{texmf}/omega/plain/base
-%{texmf}/omega/plain/config
-#%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
-%{_datadir}/texmf/web2c/omega.pool
+#%files format-omega
+#%defattr(644,root,root,755)
+##%doc %{texmf}/doc/omega
+#%attr(755,root,root) %{_bindir}/mkocp
+#%attr(755,root,root) %{_bindir}/mkofm
+#%attr(755,root,root) %{_bindir}/ofm2opl
+#%attr(755,root,root) %{_bindir}/omega
+#%attr(755,root,root) %{_bindir}/omfonts
+#%attr(755,root,root) %{_bindir}/opl2ofm
+#%attr(755,root,root) %{_bindir}/otangle
+#%attr(755,root,root) %{_bindir}/otp2ocp
+#%attr(755,root,root) %{_bindir}/outocp
+#%attr(755,root,root) %{_bindir}/ovf2ovp
+#%attr(755,root,root) %{_bindir}/ovp2ovf
+#%attr(755,root,root) %{_bindir}/viromega
+#%{_mandir}/man1/viromega.1*
+#%attr(755,root,root) %{_bindir}/iniomega
+#%{_mandir}/man1/iniomega.1*
+#%{_mandir}/man1/omega.1*
+#%dir %{texmf}/omega
+#%{texmf}/omega/encodings
+##%files omega-plain
+#%dir %{texmf}/omega/plain
+#%{texmf}/omega/plain/base
+#%{texmf}/omega/plain/config
+##%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
+#%{_datadir}/texmf/web2c/omega.pool
 
-%files format-omega-lambda
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/lambda
-%{_mandir}/man1/lambda.1*
-%dir %{texmf}/omega/lambda
-%{texmf}/omega/lambda/base
-%{texmf}/omega/lambda/config
-%{texmf}/omega/lambda/misc
-%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
+#%files format-omega-lambda
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/lambda
+#%{_mandir}/man1/lambda.1*
+#%dir %{texmf}/omega/lambda
+#%{texmf}/omega/lambda/base
+#%{texmf}/omega/lambda/config
+#%{texmf}/omega/lambda/misc
+#%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
 
-%files omega-ocp
-%defattr(644,root,root,755)
-%dir %{texmf}/omega/ocp
-%{texmf}/omega/ocp/char2uni
-%{texmf}/omega/ocp/misc
-%{texmf}/omega/ocp/omega
-%{texmf}/omega/ocp/uni2char
+#%files omega-ocp
+#%defattr(644,root,root,755)
+#%dir %{texmf}/omega/ocp
+#%{texmf}/omega/ocp/char2uni
+#%{texmf}/omega/ocp/misc
+#%{texmf}/omega/ocp/omega
+#%{texmf}/omega/ocp/uni2char
 
-%files omega-otp
-%defattr(644,root,root,755)
-%dir %{texmf}/omega/otp
-%{texmf}/omega/otp/char2uni
-%{texmf}/omega/otp/misc
-%{texmf}/omega/otp/omega
-%{texmf}/omega/otp/uni2char
+#%files omega-otp
+#%defattr(644,root,root,755)
+#%dir %{texmf}/omega/otp
+#%{texmf}/omega/otp/char2uni
+#%{texmf}/omega/otp/misc
+#%{texmf}/omega/otp/omega
+#%{texmf}/omega/otp/uni2char
 
 %files format-pdfetex
 %defattr(644,root,root,755)
@@ -5154,6 +5309,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfmex
 %attr(755,root,root) %{_bindir}/pdfmex-pl
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex-pl.fmt
 
 %files format-pdfplatex
 %defattr(644,root,root,755)
@@ -5193,9 +5349,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/cont-nl.1*
 %dir %{texmf}/doc/context
 %doc %{texmf}/doc/context/base
+%dir %{texmf}/doc/context/ppchtex
+%doc %{texmf}/doc/context/ppchtex/mp-ch-en.pdf
 %dir %{texmf}/context
 %dir %{texmf}/context/config
 %{texmf}/context/config/texexec.ini
+%{texmf}/context/config/texexec.rme
 %dir %{texmf}/context/data
 %{texmf}/context/data/conedt.ini
 %{texmf}/context/data/cont-cz.tws
@@ -5327,6 +5486,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files format-platex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex-pl.fmt
 
 %files plain-misc
 %defattr(644,root,root,755)
@@ -5407,6 +5567,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/mex/config/mexconf.tex
 %{texmf}/tex/mex/config/mex.ini
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex-pl.fmt
 
 %files latex-wasysym
 %defattr(644,root,root,755)
@@ -5822,7 +5983,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/draftcopy
 %doc %{texmf}/doc/latex/changebar
 %doc %{texmf}/doc/latex/ccaption
-#%doc %{texmf}/doc/latex/booktabs
+%doc %{texmf}/doc/latex/booktabs
+%doc %{texmf}/doc/latex/textmerg
 %doc %{texmf}/doc/latex/anysize
 %doc %{texmf}/doc/latex/aeguill
 %doc %{texmf}/doc/latex/acronym
@@ -6989,9 +7151,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files odvips
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/odvicopy
+#%attr(755,root,root) %{_bindir}/odvicopy
 %attr(755,root,root) %{_bindir}/odvips
-%attr(755,root,root) %{_bindir}/odvitype
+#%attr(755,root,root) %{_bindir}/odvitype
 
 %files cyramstex
 %defattr(644,root,root,755)
