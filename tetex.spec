@@ -21,7 +21,7 @@ Requires:	dialog
 Prereq:		/sbin/install-info
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
-Buildroot:	/tmp/%{name}-%{version}-buildroot
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 TeX formats a file of interspersed text and commands and outputs a
