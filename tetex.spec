@@ -4213,7 +4213,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /etc/sysconfig/tetex-updmap
 %verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
 
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/ls-R
+%ghost %{texmf}/ls-R
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.cnf
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.opt
