@@ -1,17 +1,18 @@
+%define		texmf_ver	1.0
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(fr):	Systéme de compostion TeX et formatteur de MetaFontes.
 Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont 
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	1.0
-Release:	1.3
+Version:	1.0.6
+Release:	0.1
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{version}.tar.gz
-Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{version}.tar.gz
-Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{version}.tar.gz
+Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
+Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmf_ver}.tar.gz
 Source3:	dvi-to-ps.fpi
 Source4:	tetex.cron
 Patch0:		teTeX-rhconfig.patch  
@@ -20,6 +21,7 @@ Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-arm.patch
 Patch4:		teTeX-info.patch
 Patch5:		teTeX-klibtool.patch
+Patch6:		teTeX-texi2html.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -287,7 +289,7 @@ TeX generating PDFs instead DVI.
 pdfTeX generuje zamiast DVI pliki PDF.
 
 %prep
-%setup -q -n teTeX-%{version}
+%setup -q -n teTeX-%{texmf_ver}
 %patch  -p1 
 %patch1 -p1 
 
@@ -299,6 +301,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 sh ./reautoconf
@@ -317,11 +320,25 @@ LDFLAGS="-s"; export LDFLAGS
 	--disable-static
 
 make
-(cd texk; make)
-(cd texk/tetex; make)
-(cd texk/dvipsk; makeinfo dvips.texi)
-(cd texk/kpathsea; makeinfo kpathsea.texi)
-(cd texk/web2c/doc; makeinfo web2c.texi)
+cd texk 
+make
+cd ..
+
+cd texk/tetex
+make
+cd ../..
+
+cd texk/dvipsk
+makeinfo dvips.texi
+cd ../..
+
+cd texk/kpathsea
+makeinfo kpathsea.texi
+cd ../..
+
+cd texk/web2c/doc
+makeinfo web2c.texi
+cd ../../..
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -361,8 +378,9 @@ make install \
 	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
+cd ../..
 
-cd ../ps2pkm 
+cd texk/ps2pkm 
 make install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
@@ -373,9 +391,9 @@ make install \
 	includedir=$RPM_BUILD_ROOT/%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-
 cd ../..
-install $RPM_BUILD_DIR/teTeX-%{version}/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
+
+install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
 make init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
