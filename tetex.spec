@@ -727,10 +727,10 @@ Obsoletes:	tetex-ams
 Obsoletes:	tetex-plain-amsfonts
 
 %description amstex
-American Mathematics Society macros for Plain TeX basic files.
+American Mathematical Society macros for Plain TeX basic files.
 
 %description amstex -l pl
-Podstawowe pliki makr AMS (American Mathematics Society) dla formatu
+Podstawowe pliki makr AMS (American Mathematical Society) dla formatu
 Plain TeX.
 
 %package format-amstex
@@ -742,10 +742,10 @@ Requires:	%{name}-amstex = %{epoch}:%{version}
 Obsoletes:	tetex-ams
 
 %description format-amstex
-American Mathematics Society macros for Plain TeX.
+American Mathematical Society macros for Plain TeX.
 
 %description format-amstex -l pl
-Makra AMS (American Mathematics Society) dla formatu Plain TeX.
+Makra AMS (American Mathematical Society) dla formatu Plain TeX.
 
 %package format-pdfamstex
 Summary:	AMS macros for PDFTeX
@@ -756,10 +756,10 @@ Requires:	%{name}-amstex = %{epoch}:%{version}
 Requires:	%{name}-pdftex = %{epoch}:%{version}
 
 %description format-pdfamstex
-American Mathematics Society macros for PDFTeX.
+American Mathematical Society macros for PDFTeX.
 
 %description format-pdfamstex -l pl
-Makra AMS (American Mathematics Society) dla formatu PDFTeX.
+Makra AMS (American Mathematical Society) dla formatu PDFTeX.
 
 # CSPlain format
 
@@ -1189,8 +1189,8 @@ Bibliography management for LaTeX.
 Zarz±dzanie bibliografi± dla LaTeXa.
 
 %package latex-bibtex-ams
-Summary:	BibTeX style files for American Meteorological Society publications
-Summary(pl):	Pliki stylów BibTeXa do publikacji American Meteorological Society
+Summary:	BibTeX style files for American Mathematical Society publications
+Summary(pl):	Pliki stylów BibTeXa do publikacji American Mathematical Society
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-ams = %{epoch}:%{version}
@@ -1198,10 +1198,10 @@ Requires:	%{name}-latex-bibtex = %{epoch}:%{version}
 Obsoletes:	tetex-bibtex-ams
 
 %description latex-bibtex-ams
-BibTeX style files for American Meteorological Society publications.
+BibTeX style files for American Mathematical Society publications.
 
 %description latex-bibtex-ams -l pl
-Pliki stylów BibTeXa do publikacji American Meteorological Society.
+Pliki stylów BibTeXa do publikacji American Mathematical Society.
 
 %package latex-bibtex-pl
 Summary:	Polish bibliography management for LaTeX
