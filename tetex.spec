@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	0.4
+Release:	0.5
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -4789,6 +4789,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files amstex
 %defattr(644,root,root,755)
+%dir %{texmf}/tex/amstex
 %{texmf}/tex/amstex/base
 %{texmf}/tex/amstex/config
 %{texmf}/tex/plain/amsfonts
