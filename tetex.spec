@@ -3661,694 +3661,418 @@ endif
 %texhash
 
 %post fonts-adobe
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-adobe
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-ae
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-ae
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-ams
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-ams
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-antp
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-antp
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-antt
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-antt
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-bbm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-bbm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-bbold
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-bbold
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-bh
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-bh
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-bitstrea
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-bitstrea
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cbgreek
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cbgreek
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cc-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cc-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cg
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cg
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cmbright
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cmbright
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cmcyr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cmcyr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cmextra
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cmextra
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-concmath
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-concmath
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-concrete
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-concrete
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-cs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-cs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-dstroke
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-dstroke
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-ecc
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-ecc
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-eurosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-eurosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-euxm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-euxm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-gothic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-gothic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-hoekwater
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-hoekwater
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-jknappen
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-jknappen
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-latex
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-latex
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-lh
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-lh
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-marvosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-marvosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-mflogo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-mflogo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-misc
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-misc
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-monotype
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-monotype
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-omega
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-omega
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-pandora
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-pandora
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-pazo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-pazo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-px
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-px
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-qfonts
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-qfonts
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-qpx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-qpx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-qtx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-qtx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-rsfs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-rsfs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-stmaryrd
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-stmaryrd
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-tx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-tx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-urw
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-urw
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-vcm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-vcm
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-vnr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-vnr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-wasy
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-wasy
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-xypic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-xypic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-yandy
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-yandy
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-adobe
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-adobe
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-antp
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-antp
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-antt
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-antt
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-belleek
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-belleek
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-bitstrea
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-bitstrea
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-bluesky
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-bluesky
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-cc-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-cc-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-cmcyr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-cmcyr
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-cs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-cs
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-eurosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-eurosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-hoekwater
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-hoekwater
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-marvosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-marvosym
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-mathpazo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-mathpazo
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-omega
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-omega
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-pl
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-px
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-px
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-qfonts
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-qfonts
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-tx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-tx
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-urw
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-urw
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %post fonts-type1-xypic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %postun fonts-type1-xypic
-if [ -f %{_bindir}/texhash
-	%texhash
-endif
+%texhash
 
 %files
 %defattr(644,root,root,755)
