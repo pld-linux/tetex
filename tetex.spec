@@ -1,7 +1,7 @@
 #
 # TODO:
 #
-# beta-20021017, rel. 1:
+# beta-20021022, rel. 1:
 # - testing
 #
 # later:
@@ -13,8 +13,8 @@
 # - context: split into language packages (cz, de, en, etc.)
 #
 
-%define		_ver	beta-20021017
-%define		texmf_ver	beta-20021017
+%define		_ver	beta-20021022
+%define		texmf_ver	beta-20021022
 
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
