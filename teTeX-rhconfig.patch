@@ -5,7 +5,7 @@
  
  # The directory used by varfonts.
 -vartexfonts = /var/tmp/texfonts
-+vartexfonts = @vartexfonts@
++vartexfonts = /var/cache/fonts
  
  # Regular input files.
  texinputdir = $(texmf)/tex
