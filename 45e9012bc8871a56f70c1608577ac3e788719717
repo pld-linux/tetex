@@ -1,0 +1,4 @@
+- release 1.1,
+- remove making group fonts,
+- some directories must also be included to the packages,
+- redirect all messages in %%post, %%postun scripts to stderr.
