@@ -1,0 +1,11 @@
+--- teTeX-1.0/texk/tetex/texi2html.bug	Fri Sep  3 00:26:15 1999
++++ teTeX-1.0/texk/tetex/texi2html	Fri Sep  3 00:26:34 1999
+@@ -1599,7 +1599,7 @@
+ 	}
+ 	if (/\@(\w+)/) {
+ 	    ($before, $match, $after) = ($`, $&, $');
+-	    if ($before =~ /\b[\w-]+$/ && $after =~ /^[\w-.]*\b/) { # e-mail address
++	    if ($before =~ /\b[\w-]+$/ && $after =~ /^[\w.-]*\b/) { # e-mail address
+ 		$seen{'e-mail address'}++;
+ 		$context{'e-mail address'} .= "> $_" if $verbose;
+ 	    } else {
