@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.4
+Release:	0.5
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -376,6 +376,7 @@ Summary(pl):	Przegl±darka DVI dla X11
 Summary(pt_BR):	Visualizador TeX X11
 Summary(tr):	X11 öngörüntüleyici
 Requires:	%{name} = %{version}
+Requires:	%{name}-metafont = %{version}
 Group:		Applications/Publishing/TeX
 Obsoletes:	tetex-xdvi
 
@@ -3286,11 +3287,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/makempx
 %attr(755,root,root) %{_bindir}/makempy
 %attr(755,root,root) %{_bindir}/mkfontdesc
-%attr(755,root,root) %{_bindir}/mktexfmt
-%attr(755,root,root) %{_bindir}/mktexlsr
-%attr(755,root,root) %{_bindir}/mktexmf
-%attr(755,root,root) %{_bindir}/mktexpk
-%attr(755,root,root) %{_bindir}/mktextfm
 %attr(755,root,root) %{_bindir}/newer
 %attr(755,root,root) %{_bindir}/patgen
 %attr(755,root,root) %{_bindir}/pfb2pfa
@@ -3369,6 +3365,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/tex/generic
 %dir %{texmf}/tex/generic/config
 %dir %{texmf}/web2c
+%dir %{texmf}/dvips
+%dir %{texmf}/dvips/config
+%dir %{texmf}/dvips/tetex
+
 
 %attr(1777,root,root) /var/cache/fonts
 
@@ -3384,6 +3384,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/web2c/metafun.mem
 %{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
+%{texmf}/dvips/config/ps2pk.map
+%{texmf}/dvips/tetex/ps2pk35.map
 
 %lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
 %lang(fi) %{_mandir}/fi/man1/allcm.1*
@@ -3606,7 +3608,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/config/builtin35.map
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
 %{texmf}/dvips/config/download35.map
-%{texmf}/dvips/config/ps2pk.map
 %{texmf}/dvips/config/psfonts_pk.map
 %{texmf}/dvips/config/config.generic
 %{texmf}/dvips/config/psfonts.map
@@ -3621,7 +3622,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/tetex/mt-plus.map
 %{texmf}/dvips/tetex/mt-yy.map
 %{texmf}/dvips/tetex/pdftex35.map
-%{texmf}/dvips/tetex/ps2pk35.map
 %{texmf}/dvips/tetex/ttcmex.map
 
 %files dvilj
@@ -3656,6 +3656,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mfw
 %attr(755,root,root) %{_bindir}/virmf
 %attr(755,root,root) %{_bindir}/inimf
+%attr(755,root,root) %{_bindir}/mktexfmt
+%attr(755,root,root) %{_bindir}/mktexlsr
+%attr(755,root,root) %{_bindir}/mktexmf
+%attr(755,root,root) %{_bindir}/mktexpk
+%attr(755,root,root) %{_bindir}/mktextfm
 %{texmf}/metafont
 %dir %{texmf}/mft
 %{texmf}/mft/cmbase.mft
