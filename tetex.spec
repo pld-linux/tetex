@@ -430,7 +430,7 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %build
 sh ./reautoconf
-CXXFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions"
+CXXFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -fno-rtti -fno-exceptions"
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
