@@ -1,15 +1,31 @@
 #
 # TODO:
-# - clean up: context, bibtex, omega, fonts
+#
+# beta-20020922, rel. 1:
+# - clean up: fonts
 # - move new files to proper subpackages
+#     - tetex-tex-qpx (R: fonts-qfonts and fonts-pxfonts)
+#     - tetex-tex-qtx (R: fonts-qfonts and fonts-txfonts)
+#     - fonts-cmbright
+#     - fonts-pxfonts
+#     - fonts-txfonts
+#     - fonts-type1-cc-pl
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
-# - split dvips configs and maps to fonts subpackages
+# - move dvips configs and maps to fonts subpackages
+# - find '!!!fixme!!!' string for unresolved issues and solve the problems
+# - check what is needed for texconfig to run and move appropriate files
+#   into package which owns texconfig (i.e. one file from xdvi package)
+# - tetex-doc-latex package: its size will be about 22MB uncompressed
+#
+# later:
+# - what happend to omega?
 # - create new packages if there is a need: texinfo, texconfig, more latex
 #   splitting... others?
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
-
+# - context: split into packages
+#
 
 %define		_ver	beta-20020922
 %define		texmf_ver	beta-20020922
@@ -125,25 +141,6 @@ aygýtýndan baðýmsýz bir çýktý (DeVice Independent - DVI) oluþturur.
 TeX'in becerileri ve dizgi dili, dili geliþtiren Knuth'un 'The
 TeXbook' baþlýklý kitabýnda anlatýlmaktadýr.
 
-%package doc
-Summary:	The documentation files for the TeX text formatting system
-Summary(pl):	Pliki dokumentacji TeXa
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
-
-%description doc
-The tetex-doc package contains documentation for the TeX text
-formatting system.
-
-If you want to use TeX and you're not an expert at it, you should
-install the tetex-doc package. You'll also need to install the tetex
-package, tetex-afm (a PostScript font converter for TeX), tetex-dvilj
-(for converting .dvi files to HP PCL format for printing on HP and HP
-compatible printers), tetex-dvips (for converting .dvi files to
-PostScript format for printing on PostScript printers), tetex-latex (a
-higher level formatting package which provides an easier-to-use
-interface for TeX) and tetex-xdvi (for previewing .dvi files).
-
 %package doc-Catalogue
 Summary:	TeX Catalogue
 Group:		Applications/Publishing/TeX
@@ -193,7 +190,7 @@ Summary(es):	Bibliotecas y archivos de inclusión para desarrollo TeX
 Summary(pl):	Pliki nag³ówkowe oraz dokumetacja kpathsea
 Summary(pt_BR):	Bibliotecas e headers para desenvolvimento TeX
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	kpathsea = %{version}
 
 %description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
@@ -343,6 +340,23 @@ Requires:	%{name} = %{version}
 
 %description metapost
 MetaPost.
+
+%package texdoctk
+Summary:	Easy access to TeX documentation
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description texdoctk
+A Perl/Tk-based GUI for easy access to package documentation for TeX on
+Unix platforms; the databases it uses are based on the texmf/doc subtrees
+of teTeX v.1.0.x, but database files for local configurations with
+modified/extended directories can be derived from them. Note that texdoctk
+is not a viewer itself, but an interface for finding documentation files
+and opening them with the appropriate viewer; so it relies on appropriate
+programs to be installed on the system. However, the choice of these
+programs can be configured by the sysadmin or user.
 
 %package -n xdvi
 Summary:	X11 previewer
@@ -695,6 +709,42 @@ Requires:	%{name}-eplain = %{version}
 %description format-eplain
 EPlain format.
 
+# ConTeXt format.
+
+%package context
+Summary:	ConTeXt macro package basic files
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description context
+A full featured, parameter driven macro package, which fully supports
+advanced interactive documents.
+
+This package contains basic files.
+
+%package format-context
+Summary:	ConTeXt format
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-context = %{version}
+
+%description format-context
+ConTeXt format.
+
+%package format-pdfcontext
+Summary:	PDF ConTeXt format
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-pdftex = %{version}
+Requires:	%{name}-context = %{version}
+
+%description format-pdfcontext
+PDF ConTeXt format.
+
 # LaTeX format.
 
 %package latex
@@ -786,6 +836,56 @@ Requires:	%{name}-fonts-bbm = %{version}
 
 %description latex-bbold
 A geometric sans serif blackboard bold font, for use in mathematics.
+
+%package latex-bibtex
+Summary:	Bibliography management for LaTeX
+Group:		Applications/Publishing/TeX
+PreReq:		%{_bindir}/texhash
+Requires:	%{name}-latex = %{version}
+
+%description latex-bibtex
+Bibliography management for LaTeX.
+
+%package latex-bibtex-ams
+Summary:	Bibliography management for AMS LaTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex-ams = %{version}
+Requires:	%{name}-latex-bibtex = %{version}
+
+%description latex-bibtex-ams
+Bibliography management for AMS LaTeX.
+
+%package latex-bibtex-pl
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex-bibtex = %{version}
+
+%description latex-bibtex-pl
+!!!fixme!!!
+
+%package latex-bibtex-german
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name}-latex-bibtex = %{version}
+
+%description latex-bibtex-german
+!!!fixme!!!
+
+%package latex-bibtex-revtex4
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description latex-bibtex-revtex4
+!!!fixme!!!
 
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
@@ -1091,7 +1191,6 @@ This package contains LaTeX format.
 %package format-elatex
 Summary:	ELaTeX macro package
 Group:		Applications/Publishing/TeX
-Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
@@ -1102,13 +1201,12 @@ ELaTeX macro package.
 %package format-pdflatex
 Summary:	PDF LaTeX macro package
 Group:		Applications/Publishing/TeX
-#Provides:	%{name}-format-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
 Requires:	%{name}-pdftex = %{version}
 
-%description format-latex
+%description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
 than TeX, LaTeX is essentially a set of TeX macros which provide
 convenient, predefined document formats for users.
@@ -1118,7 +1216,6 @@ This package contains PDF LaTeX format.
 %package format-pdfelatex
 Summary:	PDF ELaTeX macro package
 Group:		Applications/Publishing/TeX
-#Provides:	%{name}-format-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
@@ -1146,7 +1243,6 @@ PLaTeX format basic files.
 %package format-platex
 Summary:	PLaTeX format
 Group:		Applications/Publishing/TeX
-Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-platex = %{version}
@@ -1157,7 +1253,6 @@ PLaTeX format.
 %package format-pdfplatex
 Summary:	PDF PLaTeX format
 Group:		Applications/Publishing/TeX
-Provides:	%{name}-latex
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-pdftex = %{version}
@@ -1167,57 +1262,160 @@ Requires:	%{name}-platex = %{version}
 PDF PLaTeX format.
 
 #
-# Fonts packages
-#
-
-#
 # TeX generic macros
 #
 
+%package tex-babel
+Summary:	Multilingual support for TeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-babel
+Multilingual support for TeX.
+
+%package tex-german
+Summary:	Supports the new German orthography (neue deutsche Rechtschreibung)
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-german
+Supports the new German orthography (neue deutsche Rechtschreibung).
+
+%package tex-mfpic
+Summary:	Macros which generate Metafont or Metapost for drawing pictures
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-mfpic
+Macros which generate Metafont or Metapost for drawing pictures.
+
+%package tex-misc
+Summary:	Miscellaneous TeX macros
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-misc
+Miscellaneous TeX macros.
+
+%package tex-pictex
+Summary:	Picture drawing macros for TeX and LaTeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-pictex
+Picture drawing macros for TeX and LaTeX.
+
+%package tex-pstricks
+Summary:	PostScript macros for TeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-pstricks
+An extensive collection of PostScript macros that is compatible with most
+TeX macro packages, including Plain TeX, LaTeX, AMS-TeX, and AMS-LaTeX.
+Included are macros for color, graphics, pie charts, rotation, trees and
+overlays. It has many special features, including: a wide variety of
+graphics (picture drawing) macros, with a flexible interface and with color
+support. There are macros for coloring or shading the cells of tables.
+
+%package tex-ruhyphen
+Summary:	Russian hyphenation
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-ruhyphen
+A collection of Russian hyphenation patterns supporting a number of
+Cyrillic font encodings, including T2, UCY (Omega Unicode Cyrillic), LCY,
+LWN (OT2), and koi8-r.
+
+%package tex-spanish
+Summary:	Various TeX related files for typesetting documents written in Spanish
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-spanish
+Various TeX related files for typesetting documents written in Spanish,
+including hyphenation and dictionaries.
+
+%package tex-texdraw
+Summary:	Graphical macros, using embedded PostScript
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-texdraw
+Graphical macros, using embedded PostScript.
+
+%package tex-thumbpdf
+Summary:	Thumbnails for PDFTeX and dvips/ps2pdf.
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-thumbpdf
+Provides support, using Perl, for thumbnails in pdfTeX and dvips/ps2pdf,
+using ghostscript to generate the thumbnails which get represented in a TeX
+readable file that is read by the package thumbpdf.sty to automatically
+include the thumbnails.  Works with both plain TeX and LaTeX.
+
+%package tex-ukrhyph
+Summary:	Ukranian hyphenation
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-ukrhyph
+This package allows the use of different hyphenation patterns for the
+Ukrainian language for various Cyrillic font encodings. Contains packages
+implementing traditional rules, modern rules, and combined
+English-Ukrainian hyphenation.
+
+%package tex-vietnam
+Summary:	!!!fixme!!!
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-vietnam
+!!!fixme!!!
+
+%package tex-xypic
+Summary:	Package for typesetting a variety of graphs and diagrams with TeX
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description tex-xypic
+A package for typesetting a variety of graphs and diagrams with TeX. Xy-pic
+works with most formats (including LaTeX, AMS-LaTeX, AMS-TeX, and plain
+TeX), in particular Xy-pic is provided as a LaTeX2e `supported package'.
+
 #
-# bibtex
+# Fonts packages
 #
 
 # ------------------------
-
-%package bibtex
-Summary:	LaTeX macro package
-Summary(pl):	Dodatkowe makra dla LaTeXa
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
-PreReq:		%{_bindir}/texhash
-
-%description bibtex
-LaTeX macro package.
-
-%description bibtex -l pl
-Dodatkowe makra dla LaTeXa.
-
-%package format-omega
-Summary:	extended unicode TeX
-Summary(pl):	Rozszerzony unicode TeX
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
-PreReq:		%{_bindir}/texhash
-
-%description format-omega
-Omega is extended unicode TeX.
-
-%description format-omega -l pl
-Omega -- TeX ze wsparciem dla Unicode.
-
-%package oxdvi
-Summary:	xdvi viewer for Omega
-Summary(pl):	Przegl±darka xdvi dla Omegi
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{version}
-
-%description oxdvi
-xdvi viewer for Omega - extended unicode TeX.
-
-%description oxdvi -l pl
-Przegl±darka xdvi dla Omegi -- TeXa ze wsparciem dla Unicode.
-
 %package fonts-jknappen
 Summary:	fonts-jknappen
 Group:		Applications/Publishing/TeX
@@ -1226,77 +1424,6 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-jknappen
 fonts-jknappen
-
-%package bibtex-ams
-Summary:	bibtex-ams
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-ams
-bibtex-ams
-
-%package bibtex-adrconv
-Summary:	bibtex-adrconv
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-adrconv
-bibtex-adrconv
-
-
-%package bibtex-plbib
-Summary:	bibtex-plbib
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-plbib
-bibtex-plbib
-
-%package bibtex-germbib
-Summary:	bibtex-germbib
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-germbib
-bibtex-germbib
-
-%package bibtex-koma-script
-Summary:	bibtex-koma-script
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-koma-script
-bibtex-koma-script
-
-%package bibtex-natbib
-Summary:	bibtex-natbib
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-natbib
-bibtex-natbib
-
-%package bibtex-revtex4
-Summary:	bibtex-revtex4
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description bibtex-revtex4
-bibtex-revtex4
 
 %package fonts-adobe
 Summary:	fonts-adobe
@@ -1840,320 +1967,6 @@ Requires(postun):	/usr/bin/texhash
 %description fonts-type1-urw
 fonts-type1-urw
 
-%package format-omega-lambda
-Summary:	omega-lambda
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description format-omega-lambda
-omega-lambda
-
-%package omega-ocp
-Summary:	omega-ocp
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description omega-ocp
-omega-ocp
-
-%package omega-otp
-Summary:	omega-otp
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description omega-otp
-omega-otp
-
-%package format-pdftex-context
-Summary:	pdftex-context
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name}-pdftex = %{version}
-
-%description format-pdftex-context
-pdftex-context
-
-%description format-pdflatex
-pdflatex
-
-%package tex
-Summary:	tex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex
-tex
-
-%package format-context
-Summary:	context
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description format-context
-context
-
-%package rubibtex
-Summary:	rubibtex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description rubibtex
-rubibtex
-
-%package rumakeindex
-Summary:	rubibtex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description rumakeindex
-rumakeindex
-
-%package texdoctk
-Summary:	texdoctk
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description texdoctk
-texdoctk
-
-%package latex-oberdiek
-Summary:	latex-oberdiek
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-oberdiek
-latex-oberdiek
-
-%package latex-ntgclass
-Summary:	latex-ntgclass
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-ntgclass
-latex-ntgclass
-
-%package latex-natbib
-Summary:	latex-natbib
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-natbib
-latex-natbib
-
-%package latex-mwcls
-Summary:	latex-mwcls
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-mwcls
-latex-mwcls
-
-%package latex-dvilj
-Summary:	latex-dvilj
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-dvilj
-latex-dvilj
-
-%package latex-dinbrief
-Summary:	latex-dinbrief
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description latex-dinbrief
-latex-dinbrief
-
-%package odvips
-Summary:	odvips
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-Requires:	%{name}-format-omega = %{version}
-
-%description odvips
-odvips
-
-%package babel
-Summary:	babel
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description babel
-babel
-
-%package tex-misc
-Summary:	tex-misc
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-misc
-tex-misc
-
-%package tex-pstriks
-Summary:	tex-pstriks
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-pstriks
-tex-pstriks
-
-%package tex-pictex
-Summary:	tex-pictex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-pictex
-tex-pictex
-
-%package tex-ruhyphen
-Summary:	tex-ruhyphen
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-ruhyphen
-tex-ruhyphen
-
-%package tex-spanishb
-Summary:	tex-spanishb
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-spanishb
-tex-spanishb
-
-%package tex-texdraw
-Summary:	tex-texdraw
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-texdraw
-tex-texdraw
-
-%package tex-thumbpdf
-Summary:	tex-thumbpdf
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-thumbpdf
-tex-thumbpdf
-
-%package tex-ukrhyph
-Summary:	tex-ukrhyph
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-ukrhyph
-tex-ukrhyph
-
-%package tex-vietnam
-Summary:	tex-vietnam
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-vietnam
-tex-vietnam
-
-%package tex-xypic
-Summary:	tex-xypic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-xypic
-tex-xypic
-
-%package tex-mfpic
-Summary:	tex-mfpic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-mfpic
-tex-mfpic
-
-%package tex-hyphen
-Summary:	tex-hyphen
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-hyphen
-tex-hyphen
-
-%package tex-german
-Summary:	tex-german
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-german
-tex-german
-
-%package tex-eijkhout
-Summary:	tex-eijkhout
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
-
-%description tex-eijkhout
-tex-eijkhout
-
 %prep
 %setup  -q -n teTeX-src-%{_ver}
 install -d texmf
@@ -2291,6 +2104,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc %{texmf}/ChangeLog
+%doc {texmf}/doc/README
+%doc {texmf}/doc/README.knuth
+%doc {texmf}/doc/tetex/teTeX-FAQ
+%doc {texmf}/doc/tetex.gif
+%doc {texmf}/doc/tetex.png
 %doc %{texmf}/doc/fontinst
 %doc %{texmf}/doc/fonts/fontname
 
@@ -2366,12 +2184,13 @@ rm -rf $RPM_BUILD_ROOT
 %verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/ls-R
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/texmf.cnf
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.cnf
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.opt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktexdir.opt
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktexnam.opt
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/mktex.opt
-%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/fmtutil.cnf
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/texmf.cnf
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/updmap.cfg
 
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/fontmath.cfg
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/fonttext.cfg
@@ -2408,6 +2227,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/aliases
 %{texmf}/fontname
 %{texmf}/tex/fontinst
+%{texmf}/tex/generic/hyphen
 %{texmf}/tex/texinfo
 %{texmf}/texconfig
 %{texmf}/web2c/*.tcx
@@ -2479,15 +2299,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/mkfontdesc.8*
 %{_mandir}/man8/texlinks.8*
 
-%files doc
-%defattr(644,root,root,755)
-%dir %{texmf}/doc/tetex
-%{texmf}/doc/README
-%{texmf}/doc/README.knuth
-%{texmf}/doc/tetex/teTeX-FAQ
-%{texmf}/doc/tetex.gif
-%{texmf}/doc/tetex.png
-
 %files doc-Catalogue
 %defattr(644,root,root,755)
 %{texmf}/doc/help/Catalogue
@@ -2545,7 +2356,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/gsftopk
 %{texmf}/dvips/psfrag
 %{texmf}/dvips/psnfss
-%{texmf}/dvips/pstricks
 %dir %{texmf}/dvips/config
 %{texmf}/dvips/config/builtin35.map
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/dvips/config/config.ps
@@ -2553,7 +2363,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/config/ps2pk.map
 %{texmf}/dvips/config/psfonts_pk.map
 %{texmf}/dvips/config/config.generic
-%{texmf}/dvips/config/context.map
 %{texmf}/dvips/config/psfonts.map
 %{texmf}/dvips/config/psfonts_t1.map
 
@@ -2571,11 +2380,16 @@ rm -rf $RPM_BUILD_ROOT
 %files makeindex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/makeindex
+
 %attr(755,root,root) %{_bindir}/mkindex
 %attr(755,root,root) %{_bindir}/makeindex
+%attr(755,root,root) %{_bindir}/rumakeindex
+
 %{texmf}/makeindex
+
 %{_mandir}/man1/makeindex.1*
 %{_mandir}/man1/mkindex.1*
+%{_mandir}/man1/rumakeindex.1*
 
 %files metafont
 %defattr(644,root,root,755)
@@ -2614,13 +2428,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/metapost/config
 %{texmf}/metapost/mfpic
 %{texmf}/metapost/misc
-%{texmf}/metapost/context
 %{texmf}/web2c/mpost.mem
 %{texmf}/web2c/mp.pool
 %{_mandir}/man1/mpost.1*
 %{_mandir}/man1/mpto.1*
 %{_mandir}/man1/inimpost.1*
 %{_mandir}/man1/virmpost.1*
+
+%files texdoctk
+%doc %{texmf}/doc/texdoctk
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/texdoctk
+%{texmf}/texdoctk
+
+%{_mandir}/man1/texdoctk.1*
 
 %files -n xdvi
 %defattr(644,root,root,755)
@@ -2792,6 +2613,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/cstex/INSTALL.cslatex
 %doc %{texmf}/doc/cstex/README.cslatex
+%{texmf}/tex/cslatex
 %{texmf}/tex/latex/cslatex
 
 %files format-cslatex
@@ -2847,6 +2669,67 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/etex.efmt
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/eplain.fmt
+
+%files context
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/context
+%dir %{texmf}/context
+%dir %{texmf}/context/config
+%dir %{texmf}/context/data
+%{texmf}/context/config/texexec.ini
+%{texmf}/context/config/texexec.rme
+%{texmf}/context/data/conedt.ini
+%{texmf}/context/data/cont-cz.tws
+%{texmf}/context/data/cont-de.tws
+%{texmf}/context/data/cont-en.tws
+%{texmf}/context/data/cont-it.tws
+%{texmf}/context/data/cont-nl.tws
+%{texmf}/context/data/cont-ro.tws
+%{texmf}/context/data/type-buy.dat
+%{texmf}/context/data/type-tmf.dat
+%{texmf}/context/perltk
+%{texmf}/tex/generic/context
+%{texmf}/tex/latex/context
+%{texmf}/tex/context/base
+
+%dir %{texmf}/tex/context
+%dir %{texmf}/tex/context/config
+%{texmf}/tex/context/config/cont-usr.tex
+%{texmf}/tex/context/extra
+%{texmf}/tex/context/sample
+%{texmf}/tex/context/user
+
+%{texmf}/metapost/context
+%{texmf}/dvips/config/context.map
+
+%files format-context
+%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/cont-cz
+%attr(755,root,root) %{_bindir}/cont-de
+%attr(755,root,root) %{_bindir}/cont-en
+%attr(755,root,root) %{_bindir}/cont-nl
+#%attr(755,root,root) %{_bindir}/cont-uk
+%{texmf}/tex/context/config/cont-cz.ini
+%{texmf}/tex/context/config/cont-de.ini
+%{texmf}/tex/context/config/cont-en.ini
+%{texmf}/tex/context/config/cont-it.ini
+%{texmf}/tex/context/config/cont-nl.ini
+%{texmf}/tex/context/config/cont-ro.ini
+%{texmf}/tex/context/config/cont-uk.ini
+
+%{_mandir}/man1/cont-de.1*
+%{_mandir}/man1/cont-en.1*
+%{_mandir}/man1/cont-nl.1*
+
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-cz.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-de.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-en.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-nl.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-uk.efmt
+
+%files format-pdfcontext
+%defattr(644,root,root,755)
+%{texmf}/pdftex/config/context
 
 %files latex
 %defattr(644,root,root,755)
@@ -3001,6 +2884,46 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/styles/bbold.dvi
 %{texmf}/tex/latex/bbold
+
+%files latex-bibtex
+%defattr(644,root,root,755)
+%doc %{texmf}/bibtex/bib/README
+%doc %{texmf}/doc/bibtex/base
+
+%attr(755,root,root) %{_bindir}/bibtex
+%attr(755,root,root) %{_bindir}/rubibtex
+
+%dir %{texmf}/doc/bibtex
+%dir %{texmf}/bibtex
+%dir %{texmf}/bibtex/bib
+%dir %{texmf}/bibtex/bst
+
+%{texmf}/bibtex/bib/base
+%{texmf}/bibtex/bst/adrconv
+%{texmf}/bibtex/bst/base
+%{texmf}/bibtex/bst/misc
+%{texmf}/bibtex/bst/natbib
+
+%{_mandir}/man1/bibtex.1*
+%{_mandir}/man1/rubibtex.1*
+
+%files latex-bibtex-ams
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bib/ams
+%{texmf}/bibtex/bst/ams
+
+%files latex-bibtex-pl
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bib/plbib
+%{texmf}/bibtex/bst/plbib
+
+%files latex-bibtex-german
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bst/germbib
+
+%files latex-bibtex-revtex4
+%defattr(644,root,root,755)
+%{texmf}/bibtex/bst/revtex4
 
 %files latex-carlisle
 %defattr(644,root,root,755)
@@ -3166,52 +3089,79 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfplatex
 %config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfplatex.fmt
 
+%files tex-babel
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/babel
+%{texmf}/tex/generic/babel
+
+%files tex-german
+%defattr(644,root,root,755)
+%{texmf}/tex/generic/german
+
+%files tex-mfpic
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/mfpic
+%{texmf}/tex/generic/mfpic
+
+%files tex-misc
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/poligraf
+%doc %{texmf}/doc/generic/localloc
+%doc %{texmf}/doc/generic/cmyk-hax
+%doc %{texmf}/doc/generic/multido
+%doc %{texmf}/doc/generic/tap
+
+%{texmf}/tex/generic/eijkhout
+%{texmf}/tex/generic/multido
+%{texmf}/tex/generic/misc
+
+%files tex-pictex
+%defattr(644,root,root,755)
+%{texmf}/tex/generic/pictex
+
+%files tex-pstricks
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/pstricks
+%{texmf}/dvips/pstricks
+%{texmf}/tex/generic/pstricks
+
+%files tex-ruhyphen
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/ruhyphen
+%{texmf}/tex/generic/ruhyphen
+
+%files tex-spanish
+%defattr(644,root,root,755)
+%{texmf}/tex/generic/spanishb
+
+%files tex-texdraw
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/texdraw
+%{texmf}/tex/generic/texdraw
+
+%files tex-thumbpdf
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/thumbpdf
+%attr(755,root,root) %{_bindir}/thumbpdf
+%{texmf}/tex/generic/thumbpdf
+%{_mandir}/man1/thumbpdf.1*
+
+%files tex-ukrhyph
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/ukrhyph
+%{texmf}/tex/generic/ukrhyph
+
+%files tex-vietnam
+%defattr(644,root,root,755)
+%{texmf}/tex/generic/vietnam
+
+%files tex-xypic
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/xypic
+%{texmf}/tex/generic/xypic
+
 # ----------------------------
 
-
-%files bibtex
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/bibtex
-%{_mandir}/man1/bibtex.1*
-%dir %{texmf}/doc/bibtex
-%doc %{texmf}/doc/bibtex/base
-%dir %{texmf}/bibtex
-%dir %{texmf}/bibtex/bib
-%{texmf}/bibtex/bib/base
-%dir %{texmf}/bibtex/bst
-%doc %{texmf}/bibtex/bib/README
-%{texmf}/bibtex/bst/base
-%{texmf}/bibtex/bst/misc
-
-%files bibtex-ams
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bib/ams
-%{texmf}/bibtex/bst/ams
-
-%files bibtex-adrconv
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bst/adrconv
-
-%files bibtex-plbib
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bib/plbib
-%{texmf}/bibtex/bst/plbib
-
-%files bibtex-germbib
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bst/germbib
-
-#%files bibtex-koma-script
-#%defattr(644,root,root,755)
-#%{texmf}/bibtex/bst/koma-script
-
-%files bibtex-natbib
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bst/natbib
-
-%files bibtex-revtex4
-%defattr(644,root,root,755)
-%{texmf}/bibtex/bst/revtex4
 
 %files fonts-adobe
 %defattr(644,root,root,755)
@@ -3474,7 +3424,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-type1-hoekwater
 %defattr(644,root,root,755)
-# hmm, mo¿e jeszcze rozpisaæ?
 %{texmf}/fonts/type1/hoekwater
 
 %files fonts-type1-antp
@@ -3509,10 +3458,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/mathpazo
 %{texmf}/fonts/type1/public/mathpazo
 
-#%files fonts-type1-omega
-#%defattr(644,root,root,755)
-#%{texmf}/fonts/type1/public/omega
-
 %files fonts-type1-pl
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/pl
@@ -3529,227 +3474,3 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-urw
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/urw
-
-#%files format-omega
-#%defattr(644,root,root,755)
-##%doc %{texmf}/doc/omega
-#%attr(755,root,root) %{_bindir}/mkocp
-#%attr(755,root,root) %{_bindir}/mkofm
-#%attr(755,root,root) %{_bindir}/ofm2opl
-#%attr(755,root,root) %{_bindir}/omega
-#%attr(755,root,root) %{_bindir}/omfonts
-#%attr(755,root,root) %{_bindir}/opl2ofm
-#%attr(755,root,root) %{_bindir}/otangle
-#%attr(755,root,root) %{_bindir}/otp2ocp
-#%attr(755,root,root) %{_bindir}/outocp
-#%attr(755,root,root) %{_bindir}/ovf2ovp
-#%attr(755,root,root) %{_bindir}/ovp2ovf
-#%attr(755,root,root) %{_bindir}/viromega
-#%{_mandir}/man1/viromega.1*
-#%attr(755,root,root) %{_bindir}/iniomega
-#%{_mandir}/man1/iniomega.1*
-#%{_mandir}/man1/omega.1*
-#%dir %{texmf}/omega
-#%{texmf}/omega/encodings
-##%files omega-plain
-#%dir %{texmf}/omega/plain
-#%{texmf}/omega/plain/base
-#%{texmf}/omega/plain/config
-##%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
-#%{_datadir}/texmf/web2c/omega.pool
-
-#%files format-omega-lambda
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/lambda
-#%{_mandir}/man1/lambda.1*
-#%dir %{texmf}/omega/lambda
-#%{texmf}/omega/lambda/base
-#%{texmf}/omega/lambda/config
-#%{texmf}/omega/lambda/misc
-#%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
-
-#%files omega-ocp
-#%defattr(644,root,root,755)
-#%dir %{texmf}/omega/ocp
-#%{texmf}/omega/ocp/char2uni
-#%{texmf}/omega/ocp/misc
-#%{texmf}/omega/ocp/omega
-#%{texmf}/omega/ocp/uni2char
-
-#%files omega-otp
-#%defattr(644,root,root,755)
-#%dir %{texmf}/omega/otp
-#%{texmf}/omega/otp/char2uni
-#%{texmf}/omega/otp/misc
-#%{texmf}/omega/otp/omega
-#%{texmf}/omega/otp/uni2char
-
-# format?
-%files format-pdftex-context
-%defattr(644,root,root,755)
-# zferyfikowac pliki z fontami
-%{texmf}/pdftex/config/context
-
-%files format-context
-%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/cont-cz
-%attr(755,root,root) %{_bindir}/cont-de
-%attr(755,root,root) %{_bindir}/cont-en
-%attr(755,root,root) %{_bindir}/cont-nl
-#%attr(755,root,root) %{_bindir}/cont-uk
-%{_mandir}/man1/cont-de.1*
-%{_mandir}/man1/cont-en.1*
-%{_mandir}/man1/cont-nl.1*
-%dir %{texmf}/doc/context
-%doc %{texmf}/doc/context/base
-%dir %{texmf}/doc/context/ppchtex
-%doc %{texmf}/doc/context/ppchtex/mp-ch-en.pdf
-%dir %{texmf}/context
-%dir %{texmf}/context/config
-%{texmf}/context/config/texexec.ini
-%{texmf}/context/config/texexec.rme
-%dir %{texmf}/context/data
-%{texmf}/context/data/conedt.ini
-%{texmf}/context/data/cont-cz.tws
-%{texmf}/context/data/cont-de.tws
-%{texmf}/context/data/cont-en.tws
-%{texmf}/context/data/cont-it.tws
-%{texmf}/context/data/cont-nl.tws
-%{texmf}/context/data/cont-ro.tws
-%{texmf}/context/data/type-buy.dat
-%{texmf}/context/data/type-tmf.dat
-%{texmf}/context/perltk
-%{texmf}/tex/generic/context/
-%{texmf}/tex/latex/context/
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-cz.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-de.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-en.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-nl.efmt
-%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-uk.efmt
-
-
-%dir %{texmf}/tex/context
-%{texmf}/tex/context/base
-%dir %{texmf}/tex/context/config
-%{texmf}/tex/context/config/cont-cz.ini
-%{texmf}/tex/context/config/cont-de.ini
-%{texmf}/tex/context/config/cont-en.ini
-%{texmf}/tex/context/config/cont-it.ini
-%{texmf}/tex/context/config/cont-nl.ini
-%{texmf}/tex/context/config/cont-ro.ini
-%{texmf}/tex/context/config/cont-uk.ini
-%{texmf}/tex/context/config/cont-usr.tex
-%{texmf}/tex/context/extra
-%{texmf}/tex/context/sample
-%{texmf}/tex/context/user
-
-%files texdoctk
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/texdoctk
-%{_mandir}/man1/texdoctk.1*
-%doc %{texmf}/doc/texdoctk
-%{texmf}/texdoctk
-
-#%files doc-de-tex-faq
-#%defattr(644,root,root,755)
-#%{texmf}/doc/help/faq/de-tex-faq
-
-#%files doc-LaTeX-FAQ-francaise
-#%defattr(644,root,root,755)
-#%{texmf}/doc/help/faq/LaTeX-FAQ-francaise
-
-%files babel
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/babel
-%{texmf}/tex/generic/babel
-
-%files tex-misc
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/poligraf
-%doc %{texmf}/doc/generic/localloc
-%doc %{texmf}/doc/generic/cmyk-hax
-%doc %{texmf}/doc/generic/tap
-%dir %{texmf}/tex/generic/misc
-%{texmf}/tex/generic/misc
-
-%files tex-pstriks
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/pstricks
-%{texmf}/tex/generic/pstricks
-
-%files tex-pictex
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/pictex
-
-%files tex-ruhyphen
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/ruhyphen
-%{texmf}/tex/generic/ruhyphen
-
-%files tex-spanishb
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/spanishb
-
-%files tex-texdraw
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/texdraw
-%{texmf}/tex/generic/texdraw
-
-%files tex-thumbpdf
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/thumbpdf
-%attr(755,root,root) %{_bindir}/thumbpdf
-%{texmf}/tex/generic/thumbpdf
-%{_mandir}/man1/thumbpdf.1*
-
-%files tex-ukrhyph
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/ukrhyph
-%{texmf}/tex/generic/ukrhyph
-
-%files tex-vietnam
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/vietnam
-
-%files tex-xypic
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/xypic
-%{texmf}/tex/generic/xypic
-
-%files tex-mfpic
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/generic/mfpic
-%{texmf}/tex/generic/mfpic
-
-%files tex-hyphen
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/hyphen
-
-%files tex-german
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/german
-
-%files tex-eijkhout
-%defattr(644,root,root,755)
-%{texmf}/tex/generic/eijkhout
-
-%files oxdvi
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/oxdvi
-%attr(755,root,root) %{_bindir}/oxdvi.bin
-
-%files odvips
-%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/odvicopy
-%attr(755,root,root) %{_bindir}/odvips
-#%attr(755,root,root) %{_bindir}/odvitype
-
-%files rubibtex
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/rubibtex
-%{_mandir}/man1/rubibtex.1*
-
-%files rumakeindex
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/rumakeindex
-%{_mandir}/man1/rumakeindex.1*
