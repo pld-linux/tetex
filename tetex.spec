@@ -4026,7 +4026,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/help
 %dir %{texmf}/doc/cstex
-%doc %{texmf}/LICENSE.texmf
+%doc texmf/LICENSE.texmf
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
