@@ -2957,10 +2957,6 @@ tar xzf %{SOURCE1} -C texmf
 %patch21 -p1
 %patch22
 
-# This is a workaround till the sources get fixed... (the same hack is used in
-# debian so you can bite me :) -- mmazur
-cp texk/web2c/omegafonts/lex.yy.c-dist texk/web2c/omegafonts/lex.yy.c
-
 %build
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure2_13 \
