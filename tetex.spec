@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.2
+Release:	0.3
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -3244,6 +3244,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/help
+%dir %{texmf}/doc/cstex
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
@@ -3457,7 +3458,7 @@ rm -rf $RPM_BUILD_ROOT
 %files doc-latex
 %defattr(644,root,root,755)
 %dir %{texmf}/doc/latex
-%{texmf}/doc/latex/styles
+%dir %{texmf}/doc/latex/styles
 %{texmf}/doc/latex/SIunits
 %{texmf}/doc/latex/acronym
 %{texmf}/doc/latex/aeguill
@@ -3751,7 +3752,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files plain-mathtime
 %defattr(644,root,root,755)
-%doc %{texmf}/doc/latex/mathtime
 %{texmf}/tex/plain/mathtime
 
 %files plain-misc
@@ -3858,7 +3858,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files csplain
 %defattr(644,root,root,755)
-%doc %{texmf}/doc/cstex
+%doc %{texmf}/doc/cstex/README-cspsfont
+%doc %{texmf}/doc/cstex/cs-fonts.doc
+%doc %{texmf}/doc/cstex/cscorr.tab
+%doc %{texmf}/doc/cstex/csplain.doc
+%doc %{texmf}/doc/cstex/parpozn.tex
+%doc %{texmf}/doc/cstex/test8z.tex
+%doc %{texmf}/doc/cstex/testlat.tex
 %attr(755,root,root) %{_bindir}/csplain
 %{texmf}/tex/csplain
 
