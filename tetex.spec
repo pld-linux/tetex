@@ -1,7 +1,7 @@
 #
 # TODO:
 # - context: review package splitting
-# - omega
+# - omega: consider more splitting, check dependencies
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
 # - allow using Type1 fonts in others applications (symlink to
@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	0.2
+Release:	0.3
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -483,6 +483,18 @@ plików DVI, produkowanych przez TeXa i LaTeXa.
 xdvi é um programa que roda no sistema X Window. É usado para
 visualizar arquivos dvi, como os produzidos por tex e latex.
 
+%package oxdvi
+Summary:	xdvi viewer for Omega
+Summary(pl):	Przegl±darka xdvi dla Omegi
+Group:		Applications/Publishing/TeX
+Requires:	%{name} = %{version}
+
+%description oxdvi
+xdvi viewer for Omega - extended unicode TeX.
+
+%description oxdvi -l pl
+Przegl±darka xdvi dla Omegi - TeXa ze wsparciem dla unikodu.
+
 %package pdftex
 Summary:	TeX generating PDF files instead DVI
 Summary(pl):	TeX generuj±cy pliki PDF zamiast DVI
@@ -496,6 +508,23 @@ TeX generating PDF files instead DVI.
 
 %description pdftex -l pl
 TeX generuj±cy pliki PDF zamiast DVI.
+
+%package omega
+Summary:	Extended unicode TeX
+Summary(pl):	Omega - TeX ze wsparciem dla unikodu
+Group:		Applications/Publishing/TeX
+Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description omega
+Omega is a version of the TeX program modified for multilingual
+typesetting. It uses unicode, and has additional primitives for (among
+other things) bidirectional typesetting.
+
+%description omega -l pl
+Omega to wersja TeXa zmodyfikowana dla potrzeb sk³adu wielojêzycznego.
+U¿ywa unikodu i ma dodatkowe prymitywy do (miêdzy innymi) sk³adania
+tekstu pisanego w obu kierunkach.
 
 #
 # formats
@@ -3089,6 +3118,12 @@ rm -rf $RPM_BUILD_ROOT
 %postun pdftex
 %texhash
 
+%post omega
+%texhash
+
+%postun omega
+%texhash
+
 %post plain
 %texhash
 
@@ -4147,10 +4182,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/fonts
 %dir %{texmf}/fonts/afm
 %dir %{texmf}/fonts/afm/public
-%dir %{texmf}/fonts/ovf
-%dir %{texmf}/fonts/ovf/public
-%dir %{texmf}/fonts/ovp
-%dir %{texmf}/fonts/ovp/public
 %dir %{texmf}/fonts/pk
 %dir %{texmf}/fonts/source
 %dir %{texmf}/fonts/source/public
@@ -4205,11 +4236,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(hu) %{_mandir}/hu/man1/newer.1*
 %lang(pl) %{_mandir}/pl/man1/access.1*
 %lang(pl) %{_mandir}/pl/man1/newer.1*
-#%%{_mandir}/man1/MakeTeXPK.1*
+%{_mandir}/man1/MakeTeXPK.1*
 %{_mandir}/man1/access.1*
 %{_mandir}/man1/afm2tfm.1*
 %{_mandir}/man1/allcm.1*
-#%%{_mandir}/man1/allec.1*
+%{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
 %{_mandir}/man1/cweb.1*
 %{_mandir}/man1/dmp.1*
@@ -4221,7 +4252,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gftopk.1*
 %{_mandir}/man1/gftype.1*
 %{_mandir}/man1/gsftopk.1*
-#%%{_mandir}/man1/initex.1*
+%{_mandir}/man1/initex.1*
 %{_mandir}/man1/mag.1*
 %{_mandir}/man1/makempx.1*
 %{_mandir}/man1/mktexlsr.1*
@@ -4239,14 +4270,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
-#%%{_mandir}/man1/texhash.1*
+%{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
 %{_mandir}/man1/texi2pdf.1*
 %{_mandir}/man1/texshow.1*
 %{_mandir}/man1/tftopl.1*
 %{_mandir}/man1/tie.1*
 %{_mandir}/man1/vftovp.1*
-#%%{_mandir}/man1/virtex.1*
+%{_mandir}/man1/virtex.1*
 %{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/updmap.1*
 %{_mandir}/man1/weave.1*
@@ -4375,9 +4406,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpsewhich
 %attr(755,root,root) %{_bindir}/kpsexpand
 %attr(755,root,root) %{_libdir}/libkpathsea.so.*
+%{_mandir}/man1/kpsepath.1*
 %{_mandir}/man1/kpsestat.1*
 %{_mandir}/man1/kpsetool.1*
 %{_mandir}/man1/kpsewhich.1*
+%{_mandir}/man1/kpsexpand.1*
 
 %files -n kpathsea-devel
 %defattr(644,root,root,755)
@@ -4492,8 +4525,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/mf.1*
 %{_mandir}/man1/mft.1*
-#%%{_mandir}/man1/inimf.1*
-#%%{_mandir}/man1/virmf.1*
+%{_mandir}/man1/inimf.1*
+%{_mandir}/man1/virmf.1*
 %{_mandir}/man1/mktexmf.1*
 %{_mandir}/man1/mktexpk.1*
 %{_mandir}/man1/mktextfm.1*
@@ -4514,8 +4547,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/web2c/mp.pool
 %{_mandir}/man1/mpost.1*
 %{_mandir}/man1/mpto.1*
-#%%{_mandir}/man1/inimpost.1*
-#%%{_mandir}/man1/virmpost.1*
+%{_mandir}/man1/inimpost.1*
+%{_mandir}/man1/virmpost.1*
 
 %files mptopdf
 %defattr(644,root,root,755)
@@ -4549,6 +4582,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/xdvi/XDvi
 %{texmf}/xdvi/xdvi.cfg
 
+%files oxdvi
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/oxdvi
+%attr(755,root,root) %{_bindir}/oxdvi.bin
+
 %files pdftex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
@@ -4565,9 +4603,65 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/pdftex/config/cmttf.map
 %{texmf}/pdftex/config/pdftex.cfg
 %{_mandir}/man1/epstopdf.1*
-#%%{_mandir}/man1/pdfinitex.1*
+%{_mandir}/man1/pdfinitex.1*
 %{_mandir}/man1/pdftex.1*
-#%%{_mandir}/man1/pdfvirtex.1*
+%{_mandir}/man1/pdfvirtex.1*
+
+%files omega
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/omega
+%attr(755,root,root) %{_bindir}/lambda
+%attr(755,root,root) %{_bindir}/omega
+%attr(755,root,root) %{_bindir}/iniomega
+%attr(755,root,root) %{_bindir}/viromega
+%dir %{texmf}/dvips/omega
+%{texmf}/dvips/omega/config.omega
+%{texmf}/dvips/omega/omega.cfg
+%{texmf}/dvips/omega/omega.map
+%dir %{texmf}/omega
+%{texmf}/omega/encodings
+%{texmf}/omega/lambda
+%{texmf}/omega/ocp
+%{texmf}/omega/otp
+%{texmf}/omega/plain
+%{texmf}/web2c/lambda.oft
+%{texmf}/web2c/omega.oft
+%{texmf}/web2c/omega.pool
+%{_mandir}/man1/lambda.1*
+%{_mandir}/man1/omega.1*
+%{_mandir}/man1/iniomega.1*
+%{_mandir}/man1/viromega.1*
+
+# more split?
+%attr(755,root,root) %{_bindir}/mkocp
+%attr(755,root,root) %{_bindir}/mkofm
+%attr(755,root,root) %{_bindir}/odvicopy
+%attr(755,root,root) %{_bindir}/odvips
+%attr(755,root,root) %{_bindir}/odvitype
+%attr(755,root,root) %{_bindir}/ofm2opl
+%attr(755,root,root) %{_bindir}/omfonts
+%attr(755,root,root) %{_bindir}/opl2ofm
+%attr(755,root,root) %{_bindir}/otangle
+%attr(755,root,root) %{_bindir}/otp2ocp
+%attr(755,root,root) %{_bindir}/ovf2ovp
+%attr(755,root,root) %{_bindir}/ovp2ovf
+%attr(755,root,root) %{_bindir}/outocp
+
+%dir %{texmf}/fonts/ocp
+%dir %{texmf}/fonts/ocp/public
+%{texmf}/fonts/ocp/public/oinuit
+%dir %{texmf}/fonts/ofm
+%dir %{texmf}/fonts/ofm/public
+%{texmf}/fonts/ofm/public/*
+%dir %{texmf}/fonts/ovf
+%dir %{texmf}/fonts/ovf/public
+%{texmf}/fonts/ovf/public/*
+%dir %{texmf}/fonts/ovp
+%dir %{texmf}/fonts/ovp/public
+%{texmf}/fonts/ovp/public/*
+%{texmf}/fonts/afm/public/omega
+%{texmf}/fonts/tfm/public/omega
+%{texmf}/fonts/type1/public/omega
 
 %files plain
 %defattr(644,root,root,755)
@@ -4747,10 +4841,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/evirtex
 %attr(755,root,root) %{_bindir}/einitex
 %attr(755,root,root) %{_bindir}/eplain
-#%%{_mandir}/man1/einitex.1*
+%{_mandir}/man1/einitex.1*
 %{_mandir}/man1/eplain.1*
 %{_mandir}/man1/etex.1*
-#%%{_mandir}/man1/evirtex.1*
+%{_mandir}/man1/evirtex.1*
 %dir %{texmf}/etex
 %dir %{texmf}/etex/plain
 %dir %{texmf}/etex/plain/base
@@ -4817,13 +4911,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-de.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-de.efmt
-#%%{_mandir}/man1/cont-de.1*
+%{_mandir}/man1/cont-de.1*
 
 %files format-context-en
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-en.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-en.efmt
-#%%{_mandir}/man1/cont-en.1*
+%{_mandir}/man1/cont-en.1*
 # what is the difference betwen uk and en in this particular situation?
 %{texmf}/tex/context/config/cont-uk.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-uk.efmt
@@ -4837,7 +4931,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/tex/context/config/cont-nl.ini
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/cont-nl.efmt
-#%%{_mandir}/man1/cont-nl.1*
+%{_mandir}/man1/cont-nl.1*
 
 # no fmt, so commented out
 #%files format-context-ro
@@ -5095,7 +5189,7 @@ rm -rf $RPM_BUILD_ROOT
 %files format-elatex
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/elatex
-#%%{_mandir}/man1/elatex.1*
+%{_mandir}/man1/elatex.1*
 %{texmf}/etex/latex/config
 %{texmf}/etex/latex/misc
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/elatex.efmt
@@ -5106,7 +5200,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/pdftex/latex
 %attr(755,root,root) %{_bindir}/pdflatex
 %config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/pdflatex.fmt
-#%%{_mandir}/man1/pdflatex.1*
+%{_mandir}/man1/pdflatex.1*
 
 %files format-pdfelatex
 %defattr(644,root,root,755)
@@ -5409,9 +5503,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-px
 %defattr(644,root,root,755)
+%{texmf}/dvips/tetex/pxfonts.map
+%{texmf}/fonts/afm/public/pxfonts
 %{texmf}/fonts/tfm/public/pxfonts
 %{texmf}/fonts/vf/public/pxfonts
-%{texmf}/dvips/tetex/pxfonts.map
 
 %files fonts-qfonts
 %defattr(644,root,root,755)
@@ -5443,9 +5538,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-tx
 %defattr(644,root,root,755)
+%{texmf}/dvips/tetex/txfonts.map
+%{texmf}/fonts/afm/public/txfonts
 %{texmf}/fonts/tfm/public/txfonts
 %{texmf}/fonts/vf/public/txfonts
-%{texmf}/dvips/tetex/txfonts.map
 
 %files fonts-urw
 %defattr(644,root,root,755)
