@@ -2,7 +2,7 @@
 # TODO:
 #
 # beta-20020922, rel. 1:
-# - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
+# - testing
 #
 # later:
 # - create new packages if there is a need: more latex splitting... others?
@@ -24,7 +24,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{_ver}|tr -- - _)
-Release:	0.1
+Release:	0.2
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
@@ -51,6 +51,7 @@ Patch15:	teTeX-tektronix.patch
 Patch16:	teTeX-cx.patch
 Patch17:	teTeX-cpp_macros.patch
 Patch18:	teTeX-trie_size_max.patch
+Patch19:	teTeX-kpahtsea.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
@@ -2112,6 +2113,7 @@ tar xzf %{SOURCE1} -C texmf
 #%patch16 -p1
 #%patch17 -p1
 %patch18 -p1
+%patch19 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
