@@ -39,6 +39,8 @@ BuildRequires:	zlib-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ed
 BuildRequires:	texinfo
+BuildRequires:	flex
+BuildRequires:	bison
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
