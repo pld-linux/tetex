@@ -1,6 +1,6 @@
 diff -Nru teTeX-1.0/texk/kpathsea/bugs.texi teTeX-1.0.new/texk/kpathsea/bugs.texi
 --- teTeX-1.0/texk/kpathsea/bugs.texi	Thu Mar  5 18:24:24 1998
-+++ teTeX-1.0.new/texk/kpathsea/bugs.texi	Thu Jun 24 22:48:23 1999
++++ teTeX-1.0.new/texk/kpathsea/bugs.texi	Mon Jun 28 04:40:38 1999
 @@ -230,7 +230,7 @@
  
  @cindex Kpsewhich, and debugging
@@ -36,7 +36,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/bugs.texi teTeX-1.0.new/texk/kpathsea/bugs.tex
  
 diff -Nru teTeX-1.0/texk/kpathsea/install.texi teTeX-1.0.new/texk/kpathsea/install.texi
 --- teTeX-1.0/texk/kpathsea/install.texi	Fri Mar 26 20:04:56 1999
-+++ teTeX-1.0.new/texk/kpathsea/install.texi	Thu Jun 24 23:23:45 1999
++++ teTeX-1.0.new/texk/kpathsea/install.texi	Mon Jun 28 04:40:38 1999
 @@ -101,7 +101,7 @@
  @example
  0 0 * * * cd /usr/local/share/texmf && @var{/bindir}/mktexlsr
@@ -92,10 +92,13 @@ diff -Nru teTeX-1.0/texk/kpathsea/install.texi teTeX-1.0.new/texk/kpathsea/insta
  @cindex @file{mktex} scripts
 diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpathsea.texi
 --- teTeX-1.0/texk/kpathsea/kpathsea.texi	Sat May 29 21:46:08 1999
-+++ teTeX-1.0.new/texk/kpathsea/kpathsea.texi	Thu Jun 24 23:23:30 1999
-@@ -22,13 +22,13 @@
++++ teTeX-1.0.new/texk/kpathsea/kpathsea.texi	Mon Jun 28 04:41:23 1999
+@@ -20,15 +20,15 @@
+ @syncodeindex tp cp
+ @syncodeindex vr cp
  
- @dircategory TeX
+-@dircategory TeX
++@dircategory TeX:
  @direntry
 -* Kpathsea: (kpathsea).                       File lookup along search paths.
 -* kpsewhich: (kpathsea)Invoking kpsewhich.    TeX file searching.
@@ -105,7 +108,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpat
 -* mktextfm: (kpathsea)mktex scripts.          TeX font metric generation.
 -* mktexlsr: (kpathsea)Filename database.      Update ls-R.
 +* Kpathsea: (kpathsea)			File lookup along search paths
-+* kpsewhich: (kpathsea)Invoking		TeX file searching
++* kpsewhich: (kpathsea)kpsewhich	TeX file searching
 +* mktexmf: (kpathsea)mktex		MF source generation
 +* mktexpk: (kpathsea)mktex		PK bitmap generation
 +* mktextex: (kpathsea)mktex		TeX source generation
@@ -121,7 +124,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpat
 -* Filename database::           Using an externally-built list to search.
 -* Invoking kpsewhich::          Standalone path lookup.
 +* Filename::			Using an externally-built list to search.
-+* Invoking::			Standalone path lookup.
++* kpsewhich::			Standalone path lookup.
  @end menu
  
  
@@ -159,7 +162,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpat
  
  
 -@node Invoking kpsewhich
-+@node Invoking
++@node kpsewhich
  @section @code{kpsewhich}: Standalone path searching
  
  @pindex kpsewhich
@@ -201,7 +204,7 @@ diff -Nru teTeX-1.0/texk/kpathsea/kpathsea.texi teTeX-1.0.new/texk/kpathsea/kpat
  last-resort font (typically @samp{cmr10}).
 diff -Nru teTeX-1.0/texk/tetex/latex2e.texi teTeX-1.0.new/texk/tetex/latex2e.texi
 --- teTeX-1.0/texk/tetex/latex2e.texi	Sat Apr 11 08:36:28 1998
-+++ teTeX-1.0.new/texk/tetex/latex2e.texi	Thu Jun 24 22:10:59 1999
++++ teTeX-1.0.new/texk/tetex/latex2e.texi	Mon Jun 28 04:40:38 1999
 @@ -21,9 +21,9 @@
  @iftex
  @settitle @LaTeXe help 1.6
@@ -243,7 +246,7 @@ diff -Nru teTeX-1.0/texk/tetex/latex2e.texi teTeX-1.0.new/texk/tetex/latex2e.tex
  You may include other LaTeX commands between the @code{\documentclass}
 diff -Nru teTeX-1.0/texk/web2c/doc/install.texi teTeX-1.0.new/texk/web2c/doc/install.texi
 --- teTeX-1.0/texk/web2c/doc/install.texi	Mon Feb 16 19:42:58 1998
-+++ teTeX-1.0.new/texk/web2c/doc/install.texi	Thu Jun 24 22:32:36 1999
++++ teTeX-1.0.new/texk/web2c/doc/install.texi	Mon Jun 28 04:40:38 1999
 @@ -213,19 +213,19 @@
  @itemx install-fmts
  @cmindex fmts @r{Make target}
@@ -269,7 +272,7 @@ diff -Nru teTeX-1.0/texk/web2c/doc/install.texi teTeX-1.0.new/texk/web2c/doc/ins
  @itemx trip
 diff -Nru teTeX-1.0/texk/web2c/doc/web2c.texi teTeX-1.0.new/texk/web2c/doc/web2c.texi
 --- teTeX-1.0/texk/web2c/doc/web2c.texi	Fri May 14 08:07:39 1999
-+++ teTeX-1.0.new/texk/web2c/doc/web2c.texi	Thu Jun 24 22:31:09 1999
++++ teTeX-1.0.new/texk/web2c/doc/web2c.texi	Mon Jun 28 04:40:38 1999
 @@ -28,41 +28,41 @@
  @syncodeindex pg cp
  @syncodeindex vr cp
