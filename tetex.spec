@@ -15,10 +15,6 @@ Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _)
 Release:	9
 License:	distributable
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
@@ -119,10 +115,6 @@ Summary(pl):	Makro-pakiet LaTeX
 Summary(pt_BR):	Pacote de macros LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -190,10 +182,6 @@ Summary(pl):	Konwerter dvi do postscriptu
 Summary(pt_BR):	Conversor dvi para postscript
 Summary(tr):	dvi'dan postscript'e dönüþtürücü
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -242,10 +230,6 @@ Summary(pl):	Konwerter dvi do laserjet
 Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -296,10 +280,6 @@ Summary(pl):	afm (Adobe Font Metrics) czcionki i narzêdzia
 Summary(pt_BR):	Fontes afm (Adobe Font Metrics) e utilitários relacionados
 Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -358,10 +338,6 @@ Summary(fr):	Package de macros pour LaTeX
 Summary(pl):	Makra dla LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -376,10 +352,6 @@ matematycznych.
 Summary:	LaTeX macro package
 Summary(pl):	Dodatkowe makra dla LaTeXa
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -393,10 +365,6 @@ Dodatkowe makra dla LaTeXa.
 Summary:	e-TeX
 Summary(pl):	e-TeX
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -410,10 +378,6 @@ e-TeX -- Pierwsza przymiarka do New Typesetting System.
 Summary:	extended unicode TeX
 Summary(pl):	Rozszerzony unicode TeX
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
@@ -427,10 +391,6 @@ Omega -- TeX ze wsparciem dla Unicode.
 Summary:	xdvi viewer for Omega
 Summary(pl):	Przegl±darka xdvi dla Omegi
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description oxdvi
@@ -443,10 +403,6 @@ Przegl±darka xdvi dla Omegi -- TeXa ze wsparciem dla Unicode.
 Summary:	PDFtex
 Summary(pl):	PDFtex
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description pdftex
@@ -465,10 +421,6 @@ Summary(pt_BR):	Visualizador TeX X11
 Summary(tr):	X11 öngörüntüleyici
 Requires:	%{name} = %{version}
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Obsoletes:	tetex-xdvi
 
 %description -n xdvi
@@ -500,10 +452,6 @@ visualizar arquivos dvi, como os produzidos por tex e latex.
 Summary:	The font files for the TeX text formatting system
 Summary(pl):	Fonty dla TeXa
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 PreReq:		%{_bindir}/texhash
 
 %description fonts
@@ -523,10 +471,6 @@ zainstalowaæ ten pakiet.
 Summary:	The documentation files for the TeX text formatting system
 Summary(pl):	Pliki dokumentacji TeXa
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Requires:	%{name} = %{version}
 
 %description doc
@@ -552,13 +496,6 @@ Summary(es):	Bibliotecas y archivos de inclusión para desarrollo TeX
 Summary(pl):	Pliki nag³ówkowe oraz dokumetacja kpathsea
 Summary(pt_BR):	Bibliotecas e headers para desenvolvimento TeX
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description -n kpathsea-devel
