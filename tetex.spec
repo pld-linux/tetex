@@ -417,7 +417,6 @@ if [ "$1" = "0" ]; then
 fi
 
 %postun
-%{_bindir}/update-db
 /sbin/ldconfig
 
 [ -x %{_bindir}/texhash ] && /usr/bin/env - /usr/bin/texhash 1>&2
