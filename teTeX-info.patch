@@ -1035,3 +1035,23 @@ diff -Nru teTeX-1.0/texk/dvipsk/dvips.texi teTeX-1.0.new/texk/dvipsk/dvips.texi
  @end direntry
  
  @titlepage
+@@ -1047,9 +1047,7 @@
+ can use the @samp{-t} option twice, once for the paper type, and once
+ for @samp{landscape}.
+ 
+-@item -T @var{hsize,vsize}
+-@opindex -T @var{hsize,vsize}
+-Set the paper size to (@var{hsize},@var{vsize}), a comma-separated pair
++Set the paper size to (hsize, vsize), a comma-separated pair
+ of dimensions such as @samp{.1in,-.3cm} (@pxref{papersize special}).  It
+ overrides any paper size special in the DVI file.
+ 
+@@ -3236,7 +3236,7 @@
+ @end example
+ 
+ @item
+-Insert an entry for the font in @file{psfonts.map} (@xref{psfonts.map}):
++Insert an entry for the font in @file{psfonts.map} (@xref{psfonts.map}.):
+ @example
+ rptmr      Times-Roman                 <ptmr8a.pfa
+ @end example
