@@ -11,7 +11,6 @@
 #     - fonts-txfonts
 # - error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
 # - move dvips configs and maps to fonts subpackages
-# - find '!!!fixme!!!' string for unresolved issues and solve the problems
 # - check what is needed for texconfig to run and move appropriate files
 #   into package which owns texconfig (i.e. one file from xdvi package)
 # - tetex-doc-latex package: its size will be about 22MB uncompressed
@@ -1499,13 +1498,13 @@ Requires(postun):	/usr/bin/texhash
 Sans serif blackboard bold for LaTeX.
 
 %package fonts-bh
-Summary:	!!!fixme!!!
+Summary:	Bold & Heavy Fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-bh
-!!!fixme!!!
+Bold & Heavy Fonts.
 
 %package fonts-bitstrea
 Summary:	Bitstream fonts
@@ -1535,13 +1534,13 @@ Requires(postun):	/usr/bin/texhash
 Polish version of Computer Concrete fonts.
 
 %package fonts-cg
-Summary:	!!!fixme!!!
+Summary:	Compugraphic fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-cg
-!!!fixme!!!
+Compugraphic fonts.
 
 %package fonts-cm
 Summary:	Computer Modern fonts
@@ -1551,15 +1550,6 @@ Requires(postun):	/usr/bin/texhash
 
 %description fonts-cm
 Computer Modern fonts.
-
-%package fonts-cm-bold
-Summary:	!!!fixme!!!
-Group:	Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cm-bold
-!!!fixme!!!
 
 %package fonts-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
@@ -3261,15 +3251,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/cm
 %{texmf}/fonts/source/public/cm
 %{texmf}/fonts/tfm/public/cm
+%{texmf}/fonts/source/public/cm-bold
 
 %files fonts-cmcyr
 %defattr(644,root,root,755)
 %{texmf}/fonts/tfm/public/cmcyr
 %{texmf}/fonts/vf/public/cmcyr
-
-%files fonts-cm-bold
-%defattr(644,root,root,755)
-%{texmf}/fonts/source/public/cm-bold
 
 %files fonts-cmextra
 %defattr(644,root,root,755)
