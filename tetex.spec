@@ -6,7 +6,7 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Applications/Publishing/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
@@ -16,6 +16,8 @@ Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/
 Source3:	dvi-to-ps.fpi
 Source4:	tetex.cron
 Source5:	xdvi.desktop
+Source6:	teTeX-hugelatex.cnf
+
 Patch0:		teTeX-rhconfig.patch  
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -425,6 +427,10 @@ rm -f texk/{tetex,dvipsk}/*.info*
 (cd texk/dvipsk; makeinfo dvips.texi)
 (cd texk/tetex; makeinfo latex2e.texi)
 
+# enable polish hyphenation by default
+find -name language.dat -exec perl -pi -e 's/^%polish/polish/g' {} \;
+
+
 make
 cd texk 
 make
@@ -517,6 +523,13 @@ perl -pi \
 	-e "s|\.\./share/texmf|%{_datadir}/texmf|g;" \
 	-e "s|$RPM_BUILD_ROOT/var/cache/fonts|/var/cache/fonts|g;" \
 	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
+## temporary fix
+# prepare conf file to build hugelatex 
+# (required to build jadetex)
+# I don't know how to make it better now :( /klakier
+cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
+
+
 
 # install the new magic print filter for converting dvi to ps
 install %{SOURCE3} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
@@ -526,12 +539,13 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily
 # temporary fix
 ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
+
+
+
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
-
 find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
-
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/*info*,%{_mandir}/man1/*}
 
 %post
