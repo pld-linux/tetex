@@ -1,6 +1,5 @@
 #
 # TODO:
-# - xdvi links with installed instead of built kpathsea library
 # - omega
 # - create new packages if there is a need: more latex splitting... others?
 # - look at mktexfmt
@@ -76,10 +75,12 @@ Requires:	%{name}-fonts-cm = %{version}
 Requires:	%{name}-fonts-misc = %{version}
 Requires:	dialog
 Requires:	tmpwatch
+Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
 Obsoletes:	tetex-tex-hyphen
 Obsoletes:	tetex-fontname
 Obsoletes:	tetex-fontinst
+Obsoletes:	tetex-fonts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
@@ -872,6 +873,7 @@ Summary(pl):	Podstawowe pliki dla formatu EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Obsoletes:	tetex-etex
 
 %description eplain
 EPlain format basic files.
@@ -1632,6 +1634,7 @@ Summary:	ELaTeX macro package
 Summary(pl):	Pakiet makr ELaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-eplain = %{version}
 Requires:	%{name}-latex = %{version}
 
 %description format-elatex
@@ -1668,8 +1671,8 @@ Summary:	PDF ELaTeX macro package
 Summary(pl):	Pakiet makr PDF ELaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
+Requires:	%{name}-format-pdfetex = %{version}
 Requires:	%{name}-latex = %{version}
-Requires:	%{name}-pdftex = %{version}
 
 %description format-pdfelatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -2874,10 +2877,12 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT/etc/cron.daily\
 	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
 
-perl -pi \
-	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{texmf}|g;" \
-	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
-	texmf/web2c/texmf.cnf
+# commented out because of following (non-fatal) error:
+# Can't open texmf/web2c/texmf.cnf: No such file or directory.
+#perl -pi \
+#	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{texmf}|g;" \
+#	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
+#	texmf/web2c/texmf.cnf
 
 cp -a texmf $RPM_BUILD_ROOT%{texmf}
 
@@ -4069,7 +4074,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/dvips
 %dir %{texmf}/dvips/config
 %dir %{texmf}/dvips/tetex
-
 
 %attr(1777,root,root) /var/cache/fonts
 

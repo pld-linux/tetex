@@ -9,3 +9,14 @@
  
  # All the objects depend on the klibtool configuration file.
  $(objects): ../klibtool.config
+--- teTeX-src-beta-20021116/texk/xdvik/Makefile.in.orig	Wed Nov 13 22:16:15 2002
++++ teTeX-src-beta-20021116/texk/xdvik/Makefile.in	Tue Nov 26 21:00:20 2002
+@@ -55,7 +55,7 @@
+ default all: $(program) $(perlprog) xdvi.1 t1mapper.1
+ 
+ $(program): $(kpathsea) $(objects) $(LIBWWWDEP) $(LIBT1DEP)
+-	$(kpathsea_link) $(objects) $(x_link) $(LOADLIBES)
++	$(kpathsea_link) $(objects) $(LOADLIBES) $(x_link)
+ 
+ ## $(client): xdvi-client.o my-vsnprintf.o
+ ## 	   $(link_command) xdvi-client.o string-utils.o $(x_ldflags) -lX11
