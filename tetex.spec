@@ -740,24 +740,6 @@ fi
 %{_datadir}/texmf/fonts/vf/adobe/zapfchan/*
 %{_datadir}/texmf/fonts/vf/bitstrea/charter/*
 
-%doc %{_datadir}/texmf/lists/bibtex
-%doc %{_datadir}/texmf/lists/bibtex-doc
-%doc %{_datadir}/texmf/lists/fonts-doc
-%doc %{_datadir}/texmf/lists/general-doc
-%doc %{_datadir}/texmf/lists/generic-doc
-%doc %{_datadir}/texmf/lists/makeindex-doc
-%doc %{_datadir}/texmf/lists/metapost
-%doc %{_datadir}/texmf/lists/metapost-doc
-%doc %{_datadir}/texmf/lists/misc-fonts
-%doc %{_datadir}/texmf/lists/pictex
-%doc %{_datadir}/texmf/lists/postscript-fonts
-%doc %{_datadir}/texmf/lists/programs-doc
-%doc %{_datadir}/texmf/lists/pstricks
-%doc %{_datadir}/texmf/lists/sauter-fonts
-%doc %{_datadir}/texmf/lists/tetex-base
-%doc %{_datadir}/texmf/lists/texdraw
-%doc %{_datadir}/texmf/lists/xypic
-
 %{_datadir}/texmf/ls-R
 %{_datadir}/texmf/makeindex/*
 
@@ -828,8 +810,6 @@ fi
 %{_datadir}/texmf/etex/latex/misc/etex.sty
 %{_datadir}/texmf/fonts/source/public/latex/*
 %{_datadir}/texmf/fonts/tfm/public/latex/*
-%{_datadir}/texmf/lists/latex-doc
-%{_datadir}/texmf/lists/latex-extra
 %{_datadir}/texmf/tex/generic/pictex/latexpicobjs.tex
 %{_datadir}/texmf/tex/generic/xypic/xylatex.ini
 %{_datadir}/texmf/tex/latex/*
@@ -870,8 +850,6 @@ fi
 %{_mandir}/man1/etex.1.*
 %{_mandir}/man1/evirtex.1.*
 
-%doc %{_datadir}/texmf/lists/eplain
-%doc %{_datadir}/texmf/lists/eplain-doc
 %{_datadir}/texmf/tex/eplain/*
 
 %files omega 
@@ -988,10 +966,6 @@ fi
 %{_datadir}/texmf/fonts/tfm/ams/euler/*.tfm
 %{_datadir}/texmf/fonts/tfm/ams/symbols/*.tfm
 %{_datadir}/texmf/fonts/type1/bluesky/ams/*
-
-%doc %{_datadir}/texmf/lists/ams-doc
-%doc %{_datadir}/texmf/lists/ams-fonts
-%doc %{_datadir}/texmf/lists/amstex
 
 %{_datadir}/texmf/tex/amstex/base/*
 %{_datadir}/texmf/tex/amstex/config/*
