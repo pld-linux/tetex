@@ -1,5 +1,4 @@
 
-%include	/usr/lib/rpm/macros.perl
 
 %define		tetex_ver	beta-20001218
 %define		texmf_ver	beta-20000804
@@ -59,6 +58,7 @@ BuildRequires:	bison
 BuildRequires:	zlib-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	rpm-perlprov
+%include	/usr/lib/rpm/macros.perl
 Obsoletes:	tetex-texmf-src
 Obsoletes:	tetex-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
