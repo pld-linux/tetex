@@ -1,17 +1,76 @@
---- teTeX-1.0/texk/web2c/fmtutil.in.orig	Thu May 27 10:48:59 1999
-+++ teTeX-1.0/texk/web2c/fmtutil.in	Fri Jun 25 22:40:20 1999
-@@ -40,11 +40,11 @@
+--- teTeX-src-beta-20020208/texk/web2c/fmtutil.in.wiget	Thu Feb  7 21:57:08 2002
++++ teTeX-src-beta-20020208/texk/web2c/fmtutil.in	Wed Feb 20 23:21:20 2002
+@@ -49,48 +49,48 @@
  @OMEGA@lambda		omega		language.dat	lambda.ini
  
  # The amstex format:
--# amstex	@TEXBIN@		-		amstex.ini
-+amstex		@TEXBIN@		-		amstex.ini
+-#! amstex	@TEXBIN@		-		amstex.ini
++amstex	@TEXBIN@		-		amstex.ini
  
  # Variants of plain and amstex which allow to customize hyphenation:
--# bplain	@TEXBIN@		language.dat	bplain.ini
--# bamstex	@TEXBIN@		language.dat	bamstex.ini
-+bplain		@TEXBIN@		language.dat	bplain.ini
-+bamstex		@TEXBIN@		language.dat	bamstex.ini
+-#! bplain	@TEXBIN@		language.dat	bplain.ini
+-#! bamstex	@TEXBIN@		language.dat	bamstex.ini
+-#! pdfamstex	pdftex			language.dat	pdfamstex.ini
++bplain	@TEXBIN@		language.dat	bplain.ini
++bamstex	@TEXBIN@		language.dat	bamstex.ini
++pdfamstex	pdftex			language.dat	pdfamstex.ini
  
  # Context formats:
- # cont-de	pdfetex		cont-usr.tex	*cont-de.ini
+-#! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
+-#! cont-de	pdfetex		cont-usr.tex	*cont-de.ini
++cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
++cont-de	pdfetex		cont-usr.tex	*cont-de.ini
+ cont-en	pdfetex		cont-usr.tex	*cont-en.ini
+-#! cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
+-#! cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
++cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
++cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
+ 
+ # language-specific things:
+ 
+ # - Cyrillic:
+-#! cyrtex	tex		language.dat	cyrtex.ini
+-#! cyrtexinfo	tex		language.dat	cyrtxinf.ini
+-#! cyramstex	tex		language.dat	cyramstx.ini
++cyrtex	tex		language.dat	cyrtex.ini
++cyrtexinfo	tex		language.dat	cyrtxinf.ini
++cyramstex	tex		language.dat	cyramstx.ini
+ 
+ # - Polish:
+-#! platex		tex		language.dat	platex.ini
+-#! pdfplatex		pdftex		language.dat	pdfplatex.ini
+-#! mex		tex		mexconf.tex	mex.ini
+-#! pdfmex		pdftex		mexconf.tex	pdfmex.ini
+-#! pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
++platex		tex		language.dat	platex.ini
++pdfplatex		pdftex		language.dat	pdfplatex.ini
++mex		tex		mexconf.tex	mex.ini
++pdfmex		pdftex		mexconf.tex	pdfmex.ini
++pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
+ 
+ # - Polish with translated messages (experimental):
+-#! platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
+-#! mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
+-#! pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
+-#! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
++platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
++mex-pl		tex		mexconf.tex	nls=tex-pl,il2-pl mex.ini
++pdfmex-pl	pdftex		mexconf.tex	nls=pdftex-pl,il2-pl pdfmex.ini
++pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
+ 
+ # - Czech / Slovak:
+-#! csplain	tex		-		csplain.ini
+-#! cslatex	tex		language.dat	cslatex.ini
+-#! pdfcsplain	pdftex		-		csplain.ini
+-#! pdfcslatex	pdftex		language.dat    cslatex.ini
++csplain	tex		-		csplain.ini
++cslatex	tex		language.dat	cslatex.ini
++pdfcsplain	pdftex		-		csplain.ini
++pdfcslatex	pdftex		language.dat    cslatex.ini
+ 
+ # Other formats:
+-#! eplain	tex		language.dat	eplain.ini
++eplain	tex		language.dat	eplain.ini
+ 
+ # mptopdf utility
+ @PETEX@mptopdf		pdfetex		-		mptopdf.tex
