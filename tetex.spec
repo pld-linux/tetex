@@ -1426,539 +1426,539 @@ TeX), in particular Xy-pic is provided as a LaTeX2e `supported package'.
 # Fonts packages
 #
 
-# ------------------------
-%package fonts-jknappen
-Summary:	fonts-jknappen
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-jknappen
-fonts-jknappen
-
 %package fonts-adobe
-Summary:	fonts-adobe
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-adobe
-fonts-adobe
-
-%package fonts-bitstrea
-Summary:	fonts-bitstrea
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-bitstrea
-fonts-bitstrea
-
-%package fonts-antp
-Summary:	fonts-antp
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-antp
-fonts-antp
-
-%package fonts-antt
-Summary:	fonts-antt
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-antt
-fonts-antt
-
-%package fonts-marvosym
-Summary:	fonts-marvosym
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-marvosym
-fonts-marvosym
-
-%package fonts-qfonts
-Summary:	fonts-qfonts
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-qfonts
-fonts-qfonts
-
-%package fonts-xypic
-Summary:	fonts-xypic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-xypic
-fonts-xypic
-
-%package fonts-urw
-Summary:	fonts-urw
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-urw
-fonts-urw
-
-%package fonts-yandy
-Summary:	fonts-yandy
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-yandy
-fonts-yandy
-
-%package fonts-ams
-Summary:	fonts-ams
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-ams
-fonts-ams
-
-%package fonts-lh
-Summary:	fonts-lh
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-lh
-fonts-lh
-
-%package fonts-bbm
-Summary:	fonts-bbm
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-bbm
-fonts-bbm
-
-%package fonts-bbold
-Summary:	fonts-bbold
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-bbold
-fonts-bbold
-
-%package fonts-cbgreek
-Summary:	fonts-cbgreek
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cbgreek
-fonts-cbgreek
-
-%package fonts-cc-pl
-Summary:	fonts-cc-pl
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cc-pl
-fonts-cc-pl
-
-%package fonts-cm
-Summary:	fonts-cm
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cm
-fonts-cm
-
-%package fonts-cmcyr
-Summary:	fonts-cmcyr
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cmcyr
-fonts-cmcyr
-
-%package fonts-cm-bold
-Summary:	fonts-cm-bold
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cm-bold
-fonts-cm-bold
-
-%package fonts-cmextra
-Summary:	fonts-cmextra
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cmextra
-fonts-cmextra
-
-%package fonts-concmath
-Summary:	fonts-concmath
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-concmath
-fonts-concmath
-
-%package fonts-concrete
-Summary:	fonts-concrete
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-concrete
-fonts-concrete
-
-%package fonts-cs
-Summary:	fonts-cs
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cs
-fonts-cs
-
-%package fonts-dstroke
-Summary:	fonts-dstroke
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-dstroke
-fonts-dstroke
-
-%package fonts-ecc
-Summary:	fonts-ecc
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-ecc
-fonts-ecc
-
-%package fonts-euxm
-Summary:	fonts-euxm
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-euxm
-fonts-euxm
-
-%package fonts-gothic
-Summary:	fonts-gothic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-gothic
-fonts-gothic
-
-%package fonts-latex
-Summary:	fonts-latex
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-latex
-fonts-latex
-
-%package fonts-mflogo
-Summary:	fonts-mflogo
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-mflogo
-fonts-mflogo
-
-%package fonts-misc
-Summary:	fonts-misc
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-misc
-fonts-misc
-
-%package fonts-pandora
-Summary:	fonts-pandora
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-pandora
-fonts-pandora
-
-%package fonts-pl
-Summary:	fonts-pl
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-pl
-fonts-pl
-
-%package fonts-rsfs
-Summary:	fonts-rsfs
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-rsfs
-fonts-rsfs
-
-%package fonts-stmaryrd
-Summary:	fonts-stmaryrd
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-stmaryrd
-fonts-stmaryrd
-
-%package fonts-vnr
-Summary:	fonts-vnr
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-vnr
-fonts-vnr
-
-%package fonts-wasy
-Summary:	fonts-wasy
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-wasy
-fonts-wasy
-
-%package fonts-bh
-Summary:	fonts-bh
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-bh
-fonts-bh
-
-%package fonts-cg
-Summary:	fonts-cg
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-cg
-fonts-cg
-
-%package fonts-hoekwater
-Summary:	fonts-hoekwater
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-hoekwater
-fonts-hoekwater
-
-%package fonts-monotype
-Summary:	fonts-monotype
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-monotype
-fonts-monotype
+!!!fixme!!!
 
 %package fonts-ae
-Summary:	fonts-ae
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-ae
-fonts-ae
+!!!fixme!!!
+
+%package fonts-ams
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-ams
+!!!fixme!!!
+
+%package fonts-antp
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-antp
+!!!fixme!!!
+
+%package fonts-antt
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-antt
+!!!fixme!!!
+
+%package fonts-bbm
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-bbm
+!!!fixme!!!
+
+%package fonts-bbold
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-bbold
+!!!fixme!!!
+
+%package fonts-bh
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-bh
+!!!fixme!!!
+
+%package fonts-bitstrea
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-bitstrea
+!!!fixme!!!
+
+%package fonts-cbgreek
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cbgreek
+!!!fixme!!!
+
+%package fonts-cc-pl
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cc-pl
+!!!fixme!!!
+
+%package fonts-cg
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cg
+!!!fixme!!!
+
+%package fonts-cm
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cm
+!!!fixme!!!
+
+%package fonts-cm-bold
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cm-bold
+!!!fixme!!!
+
+%package fonts-cmcyr
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cmcyr
+!!!fixme!!!
+
+%package fonts-cmextra
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cmextra
+!!!fixme!!!
+
+%package fonts-concmath
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-concmath
+!!!fixme!!!
+
+%package fonts-concrete
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-concrete
+!!!fixme!!!
+
+%package fonts-cs
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-cs
+!!!fixme!!!
+
+%package fonts-dstroke
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-dstroke
+!!!fixme!!!
+
+%package fonts-ecc
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-ecc
+!!!fixme!!!
+
+%package fonts-euxm
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-euxm
+!!!fixme!!!
+
+%package fonts-gothic
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-gothic
+!!!fixme!!!
+
+%package fonts-hoekwater
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-hoekwater
+!!!fixme!!!
+
+%package fonts-jknappen
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-jknappen
+!!!fixme!!!
+
+%package fonts-latex
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-latex
+!!!fixme!!!
+
+%package fonts-lh
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-lh
+!!!fixme!!!
+
+%package fonts-marvosym
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-marvosym
+!!!fixme!!!
 
 %package fonts-mathpple
-Summary:	fonts-mathpple
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-mathpple
-fonts-mathpple
+!!!fixme!!!
+
+%package fonts-mflogo
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-mflogo
+!!!fixme!!!
+
+%package fonts-misc
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-misc
+!!!fixme!!!
+
+%package fonts-monotype
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-monotype
+!!!fixme!!!
+
+%package fonts-pandora
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-pandora
+!!!fixme!!!
 
 %package fonts-pazo
-Summary:	fonts-pazo
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-pazo
-fonts-pazo
+!!!fixme!!!
+
+%package fonts-pl
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-pl
+!!!fixme!!!
+
+%package fonts-qfonts
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-qfonts
+!!!fixme!!!
+
+%package fonts-rsfs
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-rsfs
+!!!fixme!!!
+
+%package fonts-stmaryrd
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-stmaryrd
+!!!fixme!!!
+
+%package fonts-urw
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-urw
+!!!fixme!!!
 
 %package fonts-vcm
-Summary:	fonts-vcm
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-vcm
-fonts-vcm
+!!!fixme!!!
+
+%package fonts-vnr
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-vnr
+!!!fixme!!!
+
+%package fonts-wasy
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-wasy
+!!!fixme!!!
+
+%package fonts-xypic
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-xypic
+!!!fixme!!!
+
+%package fonts-yandy
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-yandy
+!!!fixme!!!
 
 %package fonts-type1-adobe
-Summary:	fonts-type1-adobe
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-adobe
-fonts-type1-adobe
-
-%package fonts-type1-bitstrea
-Summary:	fonts-type1-bitstrea
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-type1-bitstrea
-fonts-type1-bitstrea
-
-%package fonts-type1-bluesky
-Summary:	fonts-type1-bluesky
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-type1-bluesky
-fonts-type1-bluesky
-
-%package fonts-type1-hoekwater
-Summary:	fonts-type1-hoekwater
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-type1-hoekwater
-fonts-type1-hoekwater
+!!!fixme!!!
 
 %package fonts-type1-antp
-Summary:	fonts-type1-antp
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-antp
-fonts-type1-antp
+!!!fixme!!!
 
 %package fonts-type1-antt
-Summary:	fonts-type1-antt
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-antt
-fonts-type1-antt
+!!!fixme!!!
 
 %package fonts-type1-belleek
-Summary:	fonts-type1-belleek
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-belleek
-fonts-type1-belleek
+!!!fixme!!!
+
+%package fonts-type1-bitstrea
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-bitstrea
+!!!fixme!!!
+
+%package fonts-type1-bluesky
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-bluesky
+!!!fixme!!!
 
 %package fonts-type1-cmcyr
-Summary:	fonts-type1-cmcyr
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-cmcyr
-fonts-type1-cmcyr
+!!!fixme!!!
 
 %package fonts-type1-cs
-Summary:	fonts-type1-cs
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-cs
-fonts-type1-cs
+!!!fixme!!!
+
+%package fonts-type1-hoekwater
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-hoekwater
+!!!fixme!!!
 
 %package fonts-type1-marvosym
-Summary:	fonts-type1-marvosym
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-marvosym
-fonts-type1-marvosym
+!!!fixme!!!
 
 %package fonts-type1-mathpazo
-Summary:	fonts-type1-mathpazo
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-mathpazo
-fonts-type1-mathpazo
+!!!fixme!!!
 
 %package fonts-type1-pl
-Summary:	fonts-type1-pl
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-type1-bluesky = %{version}
 
 %description fonts-type1-pl
-fonts-type1-pl
+!!!fixme!!!
 
 %package fonts-type1-qfonts
-Summary:	fonts-type1-qfonts
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-qfonts
-fonts-type1-qfonts
-
-%package fonts-type1-xypic
-Summary:	fonts-type1-xypic
-Group:		Applications/Publishing/TeX
-Requires(post):	/usr/bin/texhash
-Requires(postun):	/usr/bin/texhash
-
-%description fonts-type1-xypic
-fonts-type1-xypic
+!!!fixme!!!
 
 %package fonts-type1-urw
-Summary:	fonts-type1-urw
-Group:		Applications/Publishing/TeX
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-urw
-fonts-type1-urw
+!!!fixme!!!
+
+%package fonts-type1-xypic
+Summary:	!!!fixme!!!
+Group:	Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+
+%description fonts-type1-xypic
+!!!fixme!!!
+
+# ------------------------
 
 %prep
 %setup  -q -n teTeX-src-%{_ver}
@@ -3153,20 +3153,23 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/generic/xypic
 %{texmf}/tex/generic/xypic
 
-# ----------------------------
-
-
 %files fonts-adobe
 %defattr(644,root,root,755)
 %{texmf}/fonts/afm/adobe
 %{texmf}/fonts/tfm/adobe
 %{texmf}/fonts/vf/adobe
 
-%files fonts-bitstrea
+%files fonts-ae
 %defattr(644,root,root,755)
-%{texmf}/fonts/afm/bitstrea
-%{texmf}/fonts/tfm/bitstrea
-%{texmf}/fonts/vf/bitstrea
+%doc %{texmf}/doc/fonts/ae
+%{texmf}/fonts/tfm/public/ae
+%{texmf}/fonts/vf/public/ae
+
+%files fonts-ams
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/amsfonts
+%{texmf}/fonts/source/ams
+%{texmf}/fonts/tfm/ams
 
 %files fonts-antp
 %defattr(644,root,root,755)
@@ -3180,52 +3183,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/afm/public/antt
 %{texmf}/fonts/tfm/public/antt
 
-%files fonts-marvosym
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/marvosym
-%{texmf}/fonts/afm/public/marvosym
-%{texmf}/fonts/tfm/public/marvosym
-
-%files fonts-qfonts
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/polish/qfonts
-%{texmf}/dvips/qfonts/
-%{texmf}/fonts/afm/public/qfonts
-%{texmf}/fonts/tfm/public/qfonts
-
-%files fonts-xypic
-%defattr(644,root,root,755)
-%{texmf}/fonts/afm/public/xypic
-#%{texmf}/fonts/pfm/public/xypic
-%{texmf}/fonts/source/public/xypic
-%{texmf}/fonts/tfm/public/xypic
-
-%files fonts-urw
-%defattr(644,root,root,755)
-%{texmf}/fonts/afm/urw
-
-%files fonts-yandy
-%defattr(644,root,root,755)
-%{texmf}/fonts/afm/yandy
-%{texmf}/fonts/source/yandy
-%{texmf}/fonts/tfm/yandy
-%{texmf}/fonts/vf/yandy
-
-%files fonts-ams
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/amsfonts
-%{texmf}/fonts/source/ams
-%{texmf}/fonts/tfm/ams
-
-%files fonts-jknappen
-%defattr(644,root,root,755)
-%{texmf}/fonts/source/jknappen
-%{texmf}/fonts/tfm/jknappen
-
-%files fonts-lh
-%defattr(644,root,root,755)
-%{texmf}/fonts/source/lh
-
 %files fonts-bbm
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/bbm
@@ -3235,6 +3192,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/bbold
 %{texmf}/fonts/tfm/public/bbold
+
+%files fonts-bh
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/bh
+%{texmf}/fonts/vf/bh
+
+%files fonts-bitstrea
+%defattr(644,root,root,755)
+%{texmf}/fonts/afm/bitstrea
+%{texmf}/fonts/tfm/bitstrea
+%{texmf}/fonts/vf/bitstrea
 
 %files fonts-cbgreek
 %defattr(644,root,root,755)
@@ -3247,6 +3215,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/dvips/cc-pl
 %{texmf}/fonts/source/public/cc-pl
 %{texmf}/fonts/tfm/public/cc-pl
+
+%files fonts-cg
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/cg
+%{texmf}/fonts/vf/cg
 
 %files fonts-cm
 %defattr(644,root,root,755)
@@ -3304,10 +3277,30 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/gothic
 %{texmf}/fonts/tfm/public/gothic
 
+%files fonts-hoekwater
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/hoekwater
+%{texmf}/fonts/tfm/hoekwater
+
+%files fonts-jknappen
+%defattr(644,root,root,755)
+%{texmf}/fonts/source/jknappen
+%{texmf}/fonts/tfm/jknappen
+
 %files fonts-latex
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/latex
 %{texmf}/fonts/tfm/public/latex
+
+%files fonts-lh
+%defattr(644,root,root,755)
+%{texmf}/fonts/source/lh
+
+%files fonts-marvosym
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/marvosym
+%{texmf}/fonts/afm/public/marvosym
+%{texmf}/fonts/tfm/public/marvosym
 
 %files fonts-mflogo
 %defattr(644,root,root,755)
@@ -3319,10 +3312,20 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/misc
 %{texmf}/fonts/tfm/public/misc
 
+%files fonts-monotype
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/monotype
+%{texmf}/fonts/vf/monotype
+
 %files fonts-pandora
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/pandora
 %{texmf}/fonts/tfm/public/pandora
+
+%files fonts-pazo
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/pazo
+%{texmf}/fonts/vf/public/pazo
 
 %files fonts-pl
 %defattr(644,root,root,755)
@@ -3331,6 +3334,13 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/pl
 %{texmf}/fonts/afm/public/pl
 %{texmf}/fonts/tfm/public/pl
+
+%files fonts-qfonts
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/polish/qfonts
+%{texmf}/dvips/qfonts/
+%{texmf}/fonts/afm/public/qfonts
+%{texmf}/fonts/tfm/public/qfonts
 
 %files fonts-rsfs
 %defattr(644,root,root,755)
@@ -3342,6 +3352,15 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/stmaryrd
 %{texmf}/fonts/tfm/public/stmaryrd
 
+%files fonts-urw
+%defattr(644,root,root,755)
+%{texmf}/fonts/afm/urw
+
+%files fonts-vcm
+%defattr(644,root,root,755)
+%{texmf}/fonts/tfm/public/vcm
+%{texmf}/fonts/vf/public/vcm
+
 %files fonts-vnr
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/vnr
@@ -3352,64 +3371,22 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/public/wasy
 %{texmf}/fonts/tfm/public/wasy
 
-%files fonts-bh
+%files fonts-xypic
 %defattr(644,root,root,755)
-%{texmf}/fonts/tfm/bh
-%{texmf}/fonts/vf/bh
+%{texmf}/fonts/afm/public/xypic
+%{texmf}/fonts/source/public/xypic
+%{texmf}/fonts/tfm/public/xypic
 
-%files fonts-cg
+%files fonts-yandy
 %defattr(644,root,root,755)
-%{texmf}/fonts/tfm/cg
-%{texmf}/fonts/vf/cg
-
-%files fonts-hoekwater
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/hoekwater
-%{texmf}/fonts/tfm/hoekwater
-
-%files fonts-monotype
-%defattr(644,root,root,755)
-%{texmf}/fonts/tfm/monotype
-%{texmf}/fonts/vf/monotype
-
-%files fonts-ae
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/ae
-%{texmf}/fonts/tfm/public/ae
-%{texmf}/fonts/vf/public/ae
-
-#%files fonts-mathpple
-#%defattr(644,root,root,755)
-#%{texmf}/fonts/tfm/public/mathpple
-#%{texmf}/fonts/vf/public/mathpple
-
-%files fonts-pazo
-%defattr(644,root,root,755)
-%{texmf}/fonts/tfm/public/pazo
-%{texmf}/fonts/vf/public/pazo
-
-%files fonts-vcm
-%defattr(644,root,root,755)
-%{texmf}/fonts/tfm/public/vcm
-%{texmf}/fonts/vf/public/vcm
+%{texmf}/fonts/afm/yandy
+%{texmf}/fonts/source/yandy
+%{texmf}/fonts/tfm/yandy
+%{texmf}/fonts/vf/yandy
 
 %files fonts-type1-adobe
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/adobe
-
-%files fonts-type1-bitstrea
-%defattr(644,root,root,755)
-%{texmf}/fonts/type1/bitstrea
-
-%files fonts-type1-bluesky
-%defattr(644,root,root,755)
-%doc %{texmf}/doc/fonts/bluesky
-%{texmf}/dvips/bluesky
-%{texmf}/fonts/type1/bluesky
-
-%files fonts-type1-hoekwater
-%defattr(644,root,root,755)
-%{texmf}/fonts/type1/hoekwater
 
 %files fonts-type1-antp
 %defattr(644,root,root,755)
@@ -3426,6 +3403,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/fonts/belleek
 %{texmf}/fonts/type1/public/belleek
 
+%files fonts-type1-bitstrea
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/bitstrea
+
+%files fonts-type1-bluesky
+%defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/bluesky
+%{texmf}/dvips/bluesky
+%{texmf}/fonts/type1/bluesky
+
 %files fonts-type1-cmcyr
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/cmcyr
@@ -3433,6 +3420,10 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-cs
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/cs
+
+%files fonts-type1-hoekwater
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/hoekwater
 
 %files fonts-type1-marvosym
 %defattr(644,root,root,755)
@@ -3451,11 +3442,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/fonts/type1/public/qfonts
 
+%files fonts-type1-urw
+%defattr(644,root,root,755)
+%{texmf}/fonts/type1/urw
+
 %files fonts-type1-xypic
 %defattr(644,root,root,755)
 %{texmf}/dvips/xypic
 %{texmf}/fonts/type1/public/xypic
-
-%files fonts-type1-urw
-%defattr(644,root,root,755)
-%{texmf}/fonts/type1/urw
