@@ -903,6 +903,8 @@ Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
 Obsoletes:	tetex-latex-context
 
+%define         _noautoreq 'perl(path_tre)'
+
 %description context
 A full featured, parameter driven macro package, which fully supports
 advanced interactive documents.
