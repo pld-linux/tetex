@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Remove and TeX fonts not used in 10 days
 /usr/sbin/tmpwatch 2160 /var/cache/fonts
 exit 0
