@@ -676,7 +676,7 @@ fi
 %{_datadir}/texmf/fonts/source/public/misc/*
 %{_datadir}/texmf/fonts/source/public/pandora/*
 %{_datadir}/texmf/fonts/source/public/rsfs/*.mf
-%{_datadir}/texmf/fonts/source/public/stmary/*.mf
+%{_datadir}/texmf/fonts/source/public/stmaryrd/*.mf
 %{_datadir}/texmf/fonts/source/public/wasy/*.mf
 %{_datadir}/texmf/fonts/source/public/xypic/*.mf
 
@@ -718,7 +718,7 @@ fi
 %{_datadir}/texmf/fonts/type1/bluesky/cm/*
 %{_datadir}/texmf/fonts/type1/hoekwater/cm/*
 %{_datadir}/texmf/fonts/type1/hoekwater/rsfs/*
-%{_datadir}/texmf/fonts/type1/hoekwater/stmary/*
+%{_datadir}/texmf/fonts/type1/hoekwater/stmaryrd/*
 %{_datadir}/texmf/fonts/type1/hoekwater/wasy/*
 %{_datadir}/texmf/fonts/type1/public/xypic/*
 %{_datadir}/texmf/fonts/type1/urw/avantgar/*
@@ -755,12 +755,9 @@ fi
 
 %{_datadir}/texmf/tex/context/base/*
 %{_datadir}/texmf/tex/context/config/*
-%{_datadir}/texmf/tex/context/modules/*
 %{_datadir}/texmf/tex/context/ppchtex/*
 
-%{_datadir}/texmf/tex/fontinst/etx/*
-%{_datadir}/texmf/tex/fontinst/mtx/*
-%{_datadir}/texmf/tex/fontinst/tex/*
+%{_datadir}/texmf/tex/fontinst/base/*
 
 %{_datadir}/texmf/tex/french/base/*
 %{_datadir}/texmf/tex/french/config/*
@@ -829,7 +826,7 @@ fi
 %{_datadir}/texmf/bibtex/bib/*
 %{_datadir}/texmf/bibtex/bst/base/*
 %{_datadir}/texmf/bibtex/bst/germbib/*
-%{_datadir}/texmf/bibtex/bst/komascr/*
+%{_datadir}/texmf/bibtex/bst/koma-script/*
 %{_datadir}/texmf/bibtex/bst/natbib/*
 
 %doc %{_datadir}/texmf/doc/bibtex/
@@ -974,7 +971,7 @@ fi
 %doc %{_datadir}/texmf/doc/ams
 %doc %{_datadir}/texmf/doc/latex/amsfonts
 %doc %{_datadir}/texmf/doc/latex/amslatex
-%doc %{_datadir}/texmf/doc/fonts/ams
+%doc %{_datadir}/texmf/doc/fonts/amsfonts
 
 %changelog
 * Thu Jun 17 1999 Jan Rêkorajski <baggins@pld.org.pl>
