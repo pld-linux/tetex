@@ -1823,6 +1823,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-jknappen = %{version}
 
 %description latex-jknappen
 latex-jknappen
