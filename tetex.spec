@@ -280,7 +280,7 @@ olabileceði gibi baþka iþleyiciler tarafýndan da (GFtoDVI gibi)
 Summary:	DVI to PCL converter
 Summary(de):	Ein dvi-->Laserjet-Konvertierer
 Summary(es):	Convertidor dvi para laserjet
-Summary(fr):	convertisseur dvi vers laserjet.
+Summary(fr):	convertisseur dvi vers laserjet
 Summary(pl):	Konwerter plików DVI do jêzyka PCL
 Summary(pt_BR):	Conversor dvi para laserjet
 Summary(tr):	dvi'dan laserjet'e dönüþtürücü
