@@ -2566,8 +2566,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mktexlsr.1*
 %attr(755,root,root) %{_bindir}/tex
 %{_mandir}/man1/tex.1*
-%attr(755,root,root) %{_bindir}/texconfig
-%{_mandir}/man1/texconfig.1*
 %attr(755,root,root) %{_bindir}/texdoc
 %{_mandir}/man1/texdoc.1*
 %attr(755,root,root) %{_bindir}/texexec
@@ -3575,6 +3573,8 @@ rm -rf $RPM_BUILD_ROOT
 %files texconfig
 %defattr(644,root,root,755)
 %{texmf}/texconfig
+%attr(755,root,root) %{_bindir}/texconfig
+%{_mandir}/man1/texconfig.1*
 
 %files context
 %defattr(644,root,root,755)
