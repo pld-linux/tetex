@@ -423,7 +423,7 @@ gzip $RPM_BUILD_ROOT/usr/share/{info/*info*,man/man1/*}
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-%{_sbindir}/groupadd -g 60 fonts
+%{_sbindir}/groupadd -g 70 fonts
 %{_bindir}/update-db
 
 # make sure ls-R used by tetex is updated after an install
