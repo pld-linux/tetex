@@ -23,6 +23,7 @@
 -%! romanian	rohyphen.tex
 -%! russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
 -%! slovak	skhyph.tex      % depends on csplain being installed
+-%! slovene	sihyph23.tex
 -%! spanish	sphyph.tex
 -%! turkish	trhyph.tex
 +bahasa	inhyph.tex
@@ -44,6 +45,7 @@
 +romanian	rohyphen.tex
 +russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
 +slovak	skhyph.tex      % depends on csplain being installed
++slovene	sihyph23.tex
 +spanish	sphyph.tex
 +turkish	trhyph.tex
  
