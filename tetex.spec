@@ -397,7 +397,7 @@ perl -pi \
 # install the new magic print filter for converting dvi to ps
 install %{SOURCE2} $RPM_BUILD_ROOT%{_libdir}/rhs/rhs-printfilters
 
-install %{SOURCE10} $RPM_BUILD_ROOT/etc/cron.daily
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/cron.daily
 
 #wmconfig things
 
