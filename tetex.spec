@@ -3456,7 +3456,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc-latex
 %defattr(644,root,root,755)
-%{texmf}/doc/latex
+%dir %{texmf}/doc/latex
 %{texmf}/doc/latex/styles
 %{texmf}/doc/latex/SIunits
 %{texmf}/doc/latex/acronym
