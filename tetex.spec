@@ -553,11 +553,11 @@ Requires:	%{name} = %{version}
 %description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
 
-%description -l es devel
+%description -l es -n kpathsea-devel
 Bibliotecas, archivos de inclusión, etc, para que puedas desarrollar
 aplicaciones TeX.
 
-%description -l pt_BR devel
+%description -l pt_BR -n kpathsea-devel
 Bibliotecas, headers e outros componentes que podem ser utilizados
 para desenvolver aplicações TeX.
 
