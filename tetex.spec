@@ -4446,7 +4446,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdvi
 %attr(755,root,root) %{_bindir}/xdvi.bin
 %{_mandir}/man1/xdvi.1*
-%{_prefix}/X11R6/share/applnk/Graphics/Viewers/xdvi.desktop
+%{_applnkdir}/Graphics/Viewers/xdvi.desktop
 %{_pixmapsdir}/xdvi.png
 %dir %{texmf}/xdvi
 %{texmf}/xdvi/XDvi
