@@ -377,7 +377,7 @@ make install prefix=$RPM_BUILD_ROOT/usr \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 cd ../..
-install $RPM_BUILD_DIR/teTeX-0.9/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}	
+install $RPM_BUILD_DIR/%{name}-%{version}/texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
 
 make init prefix=$RPM_BUILD_ROOT/usr \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
