@@ -200,7 +200,7 @@ Summary:	afm (Adobe Font Metrics) fonts and utilities
 Summary(de):	Fonts und Dienstprogramme für afm (Adobe Font Metrics)
 Summary(fr):	Fontes afm (Adobe Font Metrics) et utilitaires
 Summary(tr):	afm yazýtipleri ve yardýmcý programlarý
-Summary(pl):	afm (Adobe Font Metrics) fonty i u¿ytki
+Summary(pl):	afm (Adobe Font Metrics) czcionki i narzêdzia
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
 
