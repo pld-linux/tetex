@@ -1,0 +1,3 @@
+- Added support for tetex-updmap for smooth adding ps maps.
+- For example how to use it look into tetex-arabtex.spec
+- Realase == 2
