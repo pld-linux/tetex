@@ -1,3 +1,6 @@
+# TODO:
+# error: libkpathsea.so is required by already marked tetex-dvips-1.0.7.beta_20020208-0.1
+# what with texinfo ?
 
 %define		_ver	beta-20020208
 %define		texmf_ver	beta-20020207
@@ -40,6 +43,8 @@ Patch17:	teTeX-cpp_macros.patch
 URL:		http://www.tug.org/teTeX/
 Requires:	tmpwatch
 Requires:	dialog
+Requires:	tetex-fonts-cm = %{version}
+Requires:	tetex-fonts-misc = %{version}
 PreReq:		/sbin/ldconfig
 PreReq:		sed
 PreReq:		awk
@@ -59,11 +64,12 @@ BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 %include	/usr/lib/rpm/macros.perl
-Obsoletes:	tetex-texmf-src
-Obsoletes:	tetex-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
+%define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2
+%define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%define		fmtutil(f:) [ ! \\\( -f %{texmf}/web2c/%{-f*}.fmt.rpmnew -o -f %{texmf}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{texmf}/web2c/%{-f*}.log for details" 1>&2 && exit 0
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -117,6 +123,8 @@ Summary(pt_BR):	Pacote de macros LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Requires:	%{name}-fonts-latex = %{version}
+Requires:	tetex-tex-hyphen = %{version}
 PreReq:		%{_bindir}/texhash
 
 %description latex
@@ -280,6 +288,7 @@ Summary(pl):	Makra dla LaTeX
 Summary(tr):	LaTeX makro paketi
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Obsoletes:	tetex-ams
 PreReq:		%{_bindir}/texhash
 
 %description amstex
@@ -345,6 +354,7 @@ Summary:	PDFtex
 Summary(pl):	PDFtex
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{version}
+Requires:	tetex-babel = %{version}
 
 %description pdftex
 TeX generating PDFs instead DVI.
@@ -538,7 +548,6 @@ Summary:	fonts-bitstrea
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-bitstrea
 fonts-bitstrea
@@ -548,7 +557,6 @@ Summary:	fonts-antp
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-antp
 fonts-antp
@@ -558,7 +566,6 @@ Summary:	fonts-antt
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-antt
 fonts-antt
@@ -568,7 +575,6 @@ Summary:	fonts-marvosym
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-marvosym
 fonts-marvosym
@@ -578,7 +584,6 @@ Summary:	fonts-omega
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-omega
 fonts-omega
@@ -588,7 +593,6 @@ Summary:	fonts-qfonts
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-qfonts
 fonts-qfonts
@@ -598,7 +602,6 @@ Summary:	fonts-xypic
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-xypic
 fonts-xypic
@@ -608,7 +611,6 @@ Summary:	fonts-urw
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-urw
 fonts-urw
@@ -618,7 +620,6 @@ Summary:	fonts-yandy
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-yandy
 fonts-yandy
@@ -628,7 +629,6 @@ Summary:	fonts-ams
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-ams
 fonts-ams
@@ -638,7 +638,6 @@ Summary:	fonts-jknappen
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-jknappen
 fonts-jknappen
@@ -648,7 +647,6 @@ Summary:	fonts-lh
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-lh
 fonts-lh
@@ -658,7 +656,6 @@ Summary:	fonts-bbm
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-bbm
 fonts-bbm
@@ -668,7 +665,6 @@ Summary:	fonts-bbold
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-bbold
 fonts-bbold
@@ -678,7 +674,6 @@ Summary:	fonts-cbgreek
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cbgreek
 fonts-cbgreek
@@ -688,7 +683,6 @@ Summary:	fonts-cc-pl
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cc-pl
 fonts-cc-pl
@@ -698,7 +692,6 @@ Summary:	fonts-cm
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cm
 fonts-cm
@@ -708,7 +701,6 @@ Summary:	fonts-cmcyr
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cmcyr
 fonts-cmcyr
@@ -718,7 +710,6 @@ Summary:	fonts-cm-bold
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cm-bold
 fonts-cm-bold
@@ -728,7 +719,6 @@ Summary:	fonts-cmextra
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cmextra
 fonts-cmextra
@@ -738,7 +728,6 @@ Summary:	fonts-concmath
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-concmath
 fonts-concmath
@@ -748,7 +737,6 @@ Summary:	fonts-concrete
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-concrete
 fonts-concrete
@@ -758,7 +746,6 @@ Summary:	fonts-cs
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cs
 fonts-cs
@@ -768,7 +755,6 @@ Summary:	fonts-dstroke
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-dstroke
 fonts-dstroke
@@ -778,7 +764,6 @@ Summary:	fonts-ecc
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-ecc
 fonts-ecc
@@ -788,7 +773,6 @@ Summary:	fonts-euxm
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-euxm
 fonts-euxm
@@ -798,7 +782,6 @@ Summary:	fonts-gothic
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-gothic
 fonts-gothic
@@ -808,7 +791,6 @@ Summary:	fonts-latex
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-latex
 fonts-latex
@@ -818,7 +800,6 @@ Summary:	fonts-mflogo
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-mflogo
 fonts-mflogo
@@ -828,7 +809,6 @@ Summary:	fonts-misc
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-misc
 fonts-misc
@@ -838,7 +818,6 @@ Summary:	fonts-pandora
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-pandora
 fonts-pandora
@@ -848,7 +827,6 @@ Summary:	fonts-pl
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-pl
 fonts-pl
@@ -858,7 +836,6 @@ Summary:	fonts-rsfs
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-rsfs
 fonts-rsfs
@@ -868,7 +845,6 @@ Summary:	fonts-stmaryrd
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-stmaryrd
 fonts-stmaryrd
@@ -878,7 +854,6 @@ Summary:	fonts-vnr
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-vnr
 fonts-vnr
@@ -888,7 +863,6 @@ Summary:	fonts-wasy
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-wasy
 fonts-wasy
@@ -898,7 +872,6 @@ Summary:	fonts-bh
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-bh
 fonts-bh
@@ -908,7 +881,6 @@ Summary:	fonts-cg
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-cg
 fonts-cg
@@ -918,7 +890,6 @@ Summary:	fonts-hoekwater
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-hoekwater
 fonts-hoekwater
@@ -928,7 +899,6 @@ Summary:	fonts-monotype
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-monotype
 fonts-monotype
@@ -938,7 +908,6 @@ Summary:	fonts-ae
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-ae
 fonts-ae
@@ -948,7 +917,6 @@ Summary:	fonts-mathpple
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-mathpple
 fonts-mathpple
@@ -958,7 +926,6 @@ Summary:	fonts-pazo
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-pazo
 fonts-pazo
@@ -968,7 +935,6 @@ Summary:	fonts-vcm
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-vcm
 fonts-vcm
@@ -978,7 +944,6 @@ Summary:	fonts-type1-adobe
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-adobe
 fonts-type1-adobe
@@ -988,7 +953,6 @@ Summary:	fonts-type1-bitstrea
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-bitstrea
 fonts-type1-bitstrea
@@ -998,7 +962,6 @@ Summary:	fonts-type1-bluesky
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-bluesky
 fonts-type1-bluesky
@@ -1008,7 +971,6 @@ Summary:	fonts-type1-hoekwater
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-hoekwater
 fonts-type1-hoekwater
@@ -1018,7 +980,6 @@ Summary:	fonts-type1-antp
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-antp
 fonts-type1-antp
@@ -1028,7 +989,6 @@ Summary:	fonts-type1-antt
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-antt
 fonts-type1-antt
@@ -1038,7 +998,6 @@ Summary:	fonts-type1-belleek
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-belleek
 fonts-type1-belleek
@@ -1048,7 +1007,6 @@ Summary:	fonts-type1-cmcyr
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-cmcyr
 fonts-type1-cmcyr
@@ -1058,7 +1016,6 @@ Summary:	fonts-type1-cs
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-cs
 fonts-type1-cs
@@ -1068,7 +1025,6 @@ Summary:	fonts-type1-marvosym
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-marvosym
 fonts-type1-marvosym
@@ -1078,7 +1034,6 @@ Summary:	fonts-type1-mathpazo
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-mathpazo
 fonts-type1-mathpazo
@@ -1088,7 +1043,6 @@ Summary:	fonts-type1-omega
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-omega
 fonts-type1-omega
@@ -1098,7 +1052,6 @@ Summary:	fonts-type1-pl
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-pl
 fonts-type1-pl
@@ -1108,7 +1061,6 @@ Summary:	fonts-type1-qfonts
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-qfonts
 fonts-type1-qfonts
@@ -1118,7 +1070,6 @@ Summary:	fonts-type1-xypic
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-xypic
 fonts-type1-xypic
@@ -1128,7 +1079,6 @@ Summary:	fonts-type1-urw
 Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
-Requires:	%{name} = %{version}
 
 %description fonts-type1-urw
 fonts-type1-urw
@@ -1259,6 +1209,8 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Requires:	tetex-mex = %{version}
+Requires:	tetex-fonts-type1-pl = %{version}
 
 %description pdfmex
 pdfmex
@@ -1322,6 +1274,46 @@ Requires:	%{name} = %{version}
 
 %description cyrplain
 cyrplain
+
+%package cyramstex
+Summary:	cyramstex
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description cyramstex
+cyramstex
+
+%package rubibtex
+Summary:	rubibtex
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description rubibtex
+rubibtex
+
+%package rumakeindex
+Summary:	rubibtex
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description rumakeindex
+rumakeindex
+
+%package cyrtexinfo
+Summary:	rubibtex
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description cyrtexinfo
+cyrtexinfo
 
 %package texdoctk
 Summary:	texdoctk
@@ -1469,6 +1461,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name} = %{version}
+Requires:	tetex-fonts-pl = %{version}
 
 %description mex
 mex
@@ -2003,6 +1996,37 @@ Requires:	%{name} = %{version}
 %description cslatex
 cslatex
 
+%package pdfcslatex
+Summary:	pdfcslatex
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description pdfcslatex
+pdfcslatex
+
+%package pdfcsplain
+Summary:	pdfcsplain
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+
+%description pdfcsplain
+pdfcsplain
+
+%package odvips
+Summary:	pdfcsplain
+Group:		Applications/Publishing/TeX
+Requires(post):	/usr/bin/texhash
+Requires(postun):	/usr/bin/texhash
+Requires:	%{name} = %{version}
+Requires:	%{name}-omega = %{version}
+
+%description odvips
+odvips
+
 %package latex-context
 Summary:	latex-context
 Group:		Applications/Publishing/TeX
@@ -2398,7 +2422,7 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/
 
 perl -pi \
-	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{_datadir}/texmf|g;" \
+	-e "s|\.\./\.\./texmf|$RPM_BUILD_ROOT%{texmf}|g;" \
 	-e "s|/var/cache/fonts|$RPM_BUILD_ROOT/var/cache/fonts|g;" \
 	texmf/web2c/texmf.cnf
 
@@ -2415,32 +2439,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	includedir=$RPM_BUILD_ROOT%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-
-#%{__make} -C texk/tetex install \
-#	prefix=$RPM_BUILD_ROOT%{_prefix} \
-#	bindir=$RPM_BUILD_ROOT%{_bindir} \
-#	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
-#	libdir=$RPM_BUILD_ROOT%{_libdir} \
-#	datadir=$RPM_BUILD_ROOT%{_datadir} \
-#	infodir=$RPM_BUILD_ROOT%{_infodir} \
-#	includedir=$RPM_BUILD_ROOT%{_includedir} \
-#	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-#	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-
-
-#%{__make} -C texk/ps2pkm install \
-#	prefix=$RPM_BUILD_ROOT%{_prefix} \
-#	bindir=$RPM_BUILD_ROOT%{_bindir} \
-#	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
-#	libdir=$RPM_BUILD_ROOT%{_libdir} \
-#	datadir=$RPM_BUILD_ROOT%{_datadir} \
-#	infodir=$RPM_BUILD_ROOT%{_infodir} \
-#	includedir=$RPM_BUILD_ROOT%{_includedir} \
-#	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-#	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
-
-#install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
+	texmf=$RPM_BUILD_ROOT%{texmf}
 
 install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
 touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
@@ -2454,101 +2453,301 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	includedir=$RPM_BUILD_ROOT%{_includedir} \
 	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
+	texmf=$RPM_BUILD_ROOT%{texmf}
 
 perl -pi \
 	-e "s|$RPM_BUILD_ROOT||g;" \
-	$RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
-## temporary fix
-# prepare conf file to build hugelatex
-# (required to build jadetex)
-# I don't know how to make it better now :( /klakier
-#cat %{SOURCE6} >> $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/texmf.cnf
+	$RPM_BUILD_ROOT%{texmf}/web2c/texmf.cnf
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
-
-# temporary fix
-#ln -sf libkpathsea.so.3.3.7 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-# remove all *.dvi ? why ? /wiget
-#find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
+# remove all *.log
+#rm -f $RPM_BUILD_ROOT%{texmf}/web2c/*.log
 
 %post
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%fixinfodir
 /sbin/ldconfig
-/usr/bin/fmtutil --all >/dev/null 2>&1
-
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+#jakie formaty trzzeba przegenerowaæ ?
+%fmtutil -f tex
+#%fmtutil -f bplain
+%texhash
 
 %postun
 /sbin/ldconfig
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fixinfodir
+%texhash
 
 %post latex
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fixinfodir
+%fmtutil -f latex
+%texhash
 
 %postun latex
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fixinfodir
+%texhash
 
 %post dvips
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fixinfodir
+%texhash
 
 %postun dvips
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fixinfodir
+%texhash
 
 %post dvilj
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %postun dvilj
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %post amstex
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %postun amstex
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %post omega
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%fmtutil -f omega
+%texhash
 
 %postun omega
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
+
+%post omega-lambda
+%fmtutil -f lambda
+%texhash
+
+%postun omega-lambda
+%texhash
+
 
 %post fonts
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %postun fonts
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash 1>&2
-exit 0
+%texhash
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+# czy to jest ci±gle potrzebne ?
+%dir /etc/sysconfig/tetex-updmap
+%verify(not size md5 mtime) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
+/etc/cron.daily/tetex
+#do czego jest bplain ?
+%attr(755,root,root) %{_bindir}/bplain
+%attr(755,root,root) %{_bindir}/fmtutil
+%{_mandir}/man5/fmtutil.cnf.5*
+%{_mandir}/man8/fmtutil.8*
+# do czego jest fontexport, fontimport i fontinst ?
+%attr(755,root,root) %{_bindir}/fontexport
+%{_mandir}/man1/fontexport.1*
+%attr(755,root,root) %{_bindir}/fontimport
+%{_mandir}/man1/fontimport.1*
+%attr(755,root,root) %{_bindir}/fontinst
+%{_mandir}/man1/fontinst.1*
+%attr(755,root,root) %{_bindir}/initex
+%{_mandir}/man1/initex.1*
+%attr(755,root,root) %{_bindir}/texhash
+%{_mandir}/man1/texhash.1*
+%attr(755,root,root) %{_bindir}/mktexlsr
+%{_mandir}/man1/mktexlsr.1*
+%attr(755,root,root) %{_bindir}/tex
+%{_mandir}/man1/tex.1*
+%attr(755,root,root) %{_bindir}/texconfig
+%{_mandir}/man1/texconfig.1*
+%attr(755,root,root) %{_bindir}/texdoc
+%{_mandir}/man1/texdoc.1*
+%attr(755,root,root) %{_bindir}/texexec
+%{_mandir}/man1/texexec.1*
+%attr(755,root,root) %{_bindir}/texfind
+%attr(755,root,root) %{_bindir}/texfont
+%attr(755,root,root) %{_bindir}/texutil
+%{_mandir}/man1/texutil.1*
+%attr(755,root,root) %{_bindir}/virtex
+%{_mandir}/man1/virtex.1*
+
+# do przej¿enia
+%attr(755,root,root) %{_bindir}/access
+%{_mandir}/man1/access.1*
+%lang(fr) %{_mandir}/fr/man1/access.1*
+%lang(hu) %{_mandir}/hu/man1/access.1*
+%lang(pl) %{_mandir}/pl/man1/access.1*
+%attr(755,root,root) %{_bindir}/afm2tfm
+%lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
+%{_mandir}/man1/afm2tfm.1*
+%attr(755,root,root) %{_bindir}/allcm
+%{_mandir}/man1/allcm.1*
+%lang(fi) %{_mandir}/fi/man1/allcm.1*
+%attr(755,root,root) %{_bindir}/allec
+%{_mandir}/man1/allec.1*
+%attr(755,root,root) %{_bindir}/allneeded
+%{_mandir}/man1/allneeded.1*
+%lang(fi) %{_mandir}/fi/man1/allneeded.1*
+%attr(755,root,root) %{_bindir}/dmp
+%{_mandir}/man1/dmp.1*
+%attr(755,root,root) %{_bindir}/e2pall
+%{_mandir}/man1/e2pall.1*
+%attr(755,root,root) %{_bindir}/fdf2tan
+%attr(755,root,root) %{_bindir}/gftodvi
+%{_mandir}/man1/gftodvi.1*
+%attr(755,root,root) %{_bindir}/gftopk
+%{_mandir}/man1/gftopk.1*
+%attr(755,root,root) %{_bindir}/gftype
+%{_mandir}/man1/gftype.1*
+%attr(755,root,root) %{_bindir}/gsftopk
+%{_mandir}/man1/gsftopk.1*
+%attr(755,root,root) %{_bindir}/mag
+%{_mandir}/man1/mag.1*
+%attr(755,root,root) %{_bindir}/makempx
+%{_mandir}/man1/makempx.1*
+%attr(755,root,root) %{_bindir}/makempy
+%attr(755,root,root) %{_bindir}/MakeTeXPK
+%{_mandir}/man1/MakeTeXPK.1*
+%attr(755,root,root) %{_bindir}/metafun
+%attr(755,root,root) %{_bindir}/mkfontdesc
+%{_mandir}/man8/mkfontdesc.8*
+%attr(755,root,root) %{_bindir}/mktexmf
+%{_mandir}/man1/mktexmf.1*
+%attr(755,root,root) %{_bindir}/mktexpk
+%{_mandir}/man1/mktexpk.1*
+%attr(755,root,root) %{_bindir}/mktextfm
+%{_mandir}/man1/mktextfm.1*
+%attr(755,root,root) %{_bindir}/pfb2pfa
+%{_mandir}/man1/pfb2pfa.1*
+%attr(755,root,root) %{_bindir}/pk2bm
+%{_mandir}/man1/pk2bm.1*
+%attr(755,root,root) %{_bindir}/pktogf
+%{_mandir}/man1/pktogf.1*
+%attr(755,root,root) %{_bindir}/pktype
+%{_mandir}/man1/pktype.1*
+%attr(755,root,root) %{_bindir}/pltotf
+%{_mandir}/man1/pltotf.1*
+%attr(755,root,root) %{_bindir}/pooltype
+%{_mandir}/man1/pooltype.1*
+%attr(755,root,root) %{_bindir}/ps2frag
+%{_mandir}/man1/ps2frag.1*
+%attr(755,root,root) %{_bindir}/ps2pk
+%{_mandir}/man1/ps2pk.1*
+%attr(755,root,root) %{_bindir}/readlink
+%{_mandir}/man1/readlink.1*
+%lang(hu) %{_mandir}/hu/man1/readlink.1*
+%attr(755,root,root) %{_bindir}/t1mapper
+%{_mandir}/man1/t1mapper.1*
+%attr(755,root,root) %{_bindir}/tangle
+%{_mandir}/man1/tangle.1*
+%attr(755,root,root) %{_bindir}/texshow
+%{_mandir}/man1/texshow.1*
+%attr(755,root,root) %{_bindir}/texlinks
+%{_mandir}/man8/texlinks.8*
+%attr(755,root,root) %{_bindir}/tftopl
+%{_mandir}/man1/tftopl.1*
+%attr(755,root,root) %{_bindir}/ttf2afm
+%attr(755,root,root) %{_bindir}/vftovp
+%{_mandir}/man1/vftovp.1*
+%attr(755,root,root) %{_bindir}/vptovf
+%{_mandir}/man1/vptovf.1*
+%attr(755,root,root) %{_bindir}/newer
+%{_mandir}/man1/newer.1*
+%lang(pl) %{_mandir}/pl/man1/newer.1*
+%lang(hu) %{_mandir}/hu/man1/newer.1*
+%attr(755,root,root) %{_bindir}/patgen
+%{_mandir}/man1/patgen.1*
+# a mo¿e do podpakietu ?
+%attr(755,root,root) %{_bindir}/texi2html
+%{_mandir}/man1/texi2html.1*
+%attr(755,root,root) %{_bindir}/texi2pdf
+%{_mandir}/man1/texi2pdf.1*
+
+# czy to jest jeszvze potrzebne ?
+%attr(755,root,root) %{_bindir}/tetex-updmap
+# do programowania w web2c
+%attr(755,root,root) %{_bindir}/weave
+%{_mandir}/man1/weave.1*
+%attr(755,root,root) %{_bindir}/tie
+%{_mandir}/man1/tie.1*
+
 %{_datadir}/info/web2c.info*
+%{_datadir}/texmf/updates.dat
+
+%dir %{_datadir}/texmf/fonts
+%dir %{_datadir}/texmf/fonts/afm
+%dir %{_datadir}/texmf/fonts/afm/public
+%dir %{_datadir}/texmf/fonts/ofm
+%dir %{_datadir}/texmf/fonts/ofm/public
+%dir %{_datadir}/texmf/fonts/ovf
+%dir %{_datadir}/texmf/fonts/ovf/public
+%dir %{_datadir}/texmf/fonts/ovp
+%dir %{_datadir}/texmf/fonts/ovp/public
+%dir %{_datadir}/texmf/fonts/pfm
+%dir %{_datadir}/texmf/fonts/pfm/public
+%dir %{_datadir}/texmf/fonts/pk
+%dir %{_datadir}/texmf/fonts/source
+%dir %{_datadir}/texmf/fonts/source/public
+%dir %{_datadir}/texmf/fonts/tfm
+%dir %{_datadir}/texmf/fonts/tfm/public
+%dir %{_datadir}/texmf/fonts/type1
+%dir %{_datadir}/texmf/fonts/type1/public
+%dir %{_datadir}/texmf/fonts/vf
+%dir %{_datadir}/texmf/fonts/vf/public
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/ls-R
+%dir %{_datadir}/texmf
+%{_datadir}/texmf/aliases
+%{_datadir}/texmf/ChangeLog
+%dir %{_datadir}/texmf/source
+%{_datadir}/texmf/web2c/metafun.mem
+%attr(1777,root,root) /var/cache/fonts
+
+#%files plain
+#%defattr(644,root,root,755)
+%dir %{texmf}/tex/plain/config
+# bplain tu czy mo¿e gdzie¶ indziej?
+%{texmf}/tex/plain/config/bplain.ini
+%{texmf}/tex/plain/config/tex.ini
+%dir %{texmf}/tex/plain/base
+%{texmf}/tex/plain/base/gkpmac.tex
+%{texmf}/tex/plain/base/letter.tex
+%{texmf}/tex/plain/base/logmac.tex
+%{texmf}/tex/plain/base/manmac.tex
+%{texmf}/tex/plain/base/mftmac.tex
+%{texmf}/tex/plain/base/mptmac.tex
+%{texmf}/tex/plain/base/picmac.tex
+%{texmf}/tex/plain/base/plain.tex
+%{texmf}/tex/plain/base/story.tex
+%{texmf}/tex/plain/base/testfont.tex
+%{texmf}/tex/plain/base/webmac.tex
+%dir %{_datadir}/texmf/web2c
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/tex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/plain.fmt
+%{_datadir}/texmf/web2c/plain.mem
+%{_datadir}/texmf/web2c/plain.base
+%{_datadir}/texmf/web2c/tex-pl.pool
+%{_datadir}/texmf/web2c/tex.pool
+%{_datadir}/texmf/web2c/*.tcx
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/texmf.cnf
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/mktex.cnf
+%attr(755,root,root) %{_datadir}/texmf/web2c/mktexdir
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/mktexdir.opt
+%attr(755,root,root) %{_datadir}/texmf/web2c/mktexnam
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/mktexnam.opt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/mktex.opt
+%attr(755,root,root) %{_datadir}/texmf/web2c/mktexupd
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/fmtutil.cnf
+#%files tex
+#%defattr(644,root,root,755)
+%dir %{texmf}/tex
+%dir %{texmf}/tex/generic
+%dir %{texmf}/tex/generic/config
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/fontmath.cfg
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/fonttext.cfg
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/language.dat
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/preload.cfg
+
 
 %files -n kpathsea-devel
 %defattr(644,root,root,755)
@@ -2560,16 +2759,229 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/kpathsea.dvi
 %doc %{texmf}/doc/programs/kpathsea.pdf
+%attr(755,root,root) %{_bindir}/kpsepath
+%attr(755,root,root) %{_bindir}/kpsestat
+%attr(755,root,root) %{_bindir}/kpsetool
+%attr(755,root,root) %{_bindir}/kpsewhich
+%attr(755,root,root) %{_bindir}/kpsexpand
+%{_mandir}/man1/kpsestat.1*
+%{_mandir}/man1/kpsetool.1*
+%{_mandir}/man1/kpsewhich.1*
 %{_libdir}/libkpathsea.so.3.3.7
 
 %files dvips
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
 %attr(755,root,root) %{_bindir}/dvips
+%attr(755,root,root) %{_bindir}/dvired
+%attr(755,root,root) %{_bindir}/dvitomp
+%attr(755,root,root) %{_bindir}/dvitype
+%attr(755,root,root) %{_bindir}/dvicopy
+# dvi2fax wymaga gs-a
+%attr(755,root,root) %{_bindir}/dvi2fax
 %{_infodir}/dvips.info*
 %lang(fi) %{_mandir}/fi/man1/dvips.1*
 %{_mandir}/man1/dvips.1*
+%{_mandir}/man1/dvi2fax.1*
+%{_mandir}/man1/dvicopy.1*
+%{_mandir}/man1/dvired.1*
+%{_mandir}/man1/dvitomp.1*
+%{_mandir}/man1/dvitype.1*
 %dir %{texmf}/dvips
+# rozpisaæ
+%dir %{_datadir}/texmf/dvips/antp
+%{_datadir}/texmf/dvips/antp/antp.enc
+%dir %{_datadir}/texmf/dvips/antt
+%{_datadir}/texmf/dvips/antt/antt.enc
+%dir %{_datadir}/texmf/dvips/base
+%{_datadir}/texmf/dvips/base/8a.enc
+%{_datadir}/texmf/dvips/base/8r.enc
+%{_datadir}/texmf/dvips/base/ad.enc
+%{_datadir}/texmf/dvips/base/asex.enc
+%{_datadir}/texmf/dvips/base/asexp.enc
+%{_datadir}/texmf/dvips/base/color.pro
+%{_datadir}/texmf/dvips/base/cork.enc
+%{_datadir}/texmf/dvips/base/crop.pro
+%{_datadir}/texmf/dvips/base/dc.enc
+%{_datadir}/texmf/dvips/base/dvips.enc
+%{_datadir}/texmf/dvips/base/EC.enc
+%{_datadir}/texmf/dvips/base/extex.enc
+%{_datadir}/texmf/dvips/base/finclude.pro
+%{_datadir}/texmf/dvips/base/funky.enc
+%{_datadir}/texmf/dvips/base/hps.pro
+%{_datadir}/texmf/dvips/base/mh2scr.enc
+%{_datadir}/texmf/dvips/base/mtex.enc
+%{_datadir}/texmf/dvips/base/psfonts.map
+%{_datadir}/texmf/dvips/base/special.pro
+%{_datadir}/texmf/dvips/base/tex256.enc
+%{_datadir}/texmf/dvips/base/texc.pro
+%{_datadir}/texmf/dvips/base/texmext.enc
+%{_datadir}/texmf/dvips/base/texmital.enc
+%{_datadir}/texmf/dvips/base/texmsym.enc
+%{_datadir}/texmf/dvips/base/texnansi.enc
+%{_datadir}/texmf/dvips/base/texnansx.enc
+%{_datadir}/texmf/dvips/base/tex.pro
+%{_datadir}/texmf/dvips/base/texps.pro
+%{_datadir}/texmf/dvips/base/xl2.enc
+%{_datadir}/texmf/dvips/base/xt2.enc
+%dir %{_datadir}/texmf/dvips/bluesky
+%{_datadir}/texmf/dvips/bluesky/psfonts.ams
+%{_datadir}/texmf/dvips/bluesky/psfonts.amz
+%{_datadir}/texmf/dvips/bluesky/psfonts.cm
+%{_datadir}/texmf/dvips/bluesky/psfonts.cmz
+%dir %{_datadir}/texmf/dvips/config
+%{_datadir}/texmf/dvips/config/antp.cfg
+%{_datadir}/texmf/dvips/config/antp.map
+%{_datadir}/texmf/dvips/config/antt.cfg
+%{_datadir}/texmf/dvips/config/antt.map
+%{_datadir}/texmf/dvips/config/ar-ext-adobe-bi.map
+%{_datadir}/texmf/dvips/config/ar-ext-adobe-kb.map
+%{_datadir}/texmf/dvips/config/ar-ext-urw-kb.map
+%{_datadir}/texmf/dvips/config/ar-ext-urw-urw.map
+%{_datadir}/texmf/dvips/config/ar-std-adobe-bi.map
+%{_datadir}/texmf/dvips/config/ar-std-adobe-kb.map
+%{_datadir}/texmf/dvips/config/ar-std-urw-kb.map
+%{_datadir}/texmf/dvips/config/ar-std-urw-urw.map
+%{_datadir}/texmf/dvips/config/bakoma-extra.map
+%{_datadir}/texmf/dvips/config/bsr-interpolated.map
+%{_datadir}/texmf/dvips/config/bsr.map
+%{_datadir}/texmf/dvips/config/charter.map
+%{_datadir}/texmf/dvips/config/cmcyr.map
+%{_datadir}/texmf/dvips/config/config.ams
+%{_datadir}/texmf/dvips/config/config.amz
+%{_datadir}/texmf/dvips/config/config.antp
+%{_datadir}/texmf/dvips/config/config.antt
+%{_datadir}/texmf/dvips/config/config.cm
+%{_datadir}/texmf/dvips/config/config.cmz
+%{_datadir}/texmf/dvips/config/config.dfaxhigh
+%{_datadir}/texmf/dvips/config/config.dfaxlo
+%{_datadir}/texmf/dvips/config/config.generic
+%{_datadir}/texmf/dvips/config/config.mirr
+%{_datadir}/texmf/dvips/config/config.pdf
+%{_datadir}/texmf/dvips/config/config.pl
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/dvips/config/config.ps
+%{_datadir}/texmf/dvips/config/config.qbk
+%{_datadir}/texmf/dvips/config/config.qcr
+%{_datadir}/texmf/dvips/config/config.qf
+%{_datadir}/texmf/dvips/config/config.qhv
+%{_datadir}/texmf/dvips/config/config.qpl
+%{_datadir}/texmf/dvips/config/config.qtm
+%{_datadir}/texmf/dvips/config/config.qzc
+%{_datadir}/texmf/dvips/config/config.www
+%{_datadir}/texmf/dvips/config/context.map
+%{_datadir}/texmf/dvips/config/cs.map
+%{_datadir}/texmf/dvips/config/hoekwater.map
+%{_datadir}/texmf/dvips/config/lucidabr.map
+%{_datadir}/texmf/dvips/config/lw35extra-adobe-bi.map
+%{_datadir}/texmf/dvips/config/lw35extra-adobe-kb.map
+%{_datadir}/texmf/dvips/config/lw35extra-urw-kb.map
+%{_datadir}/texmf/dvips/config/lw35extra-urw-urw.map
+%{_datadir}/texmf/dvips/config/marvosym.map
+%{_datadir}/texmf/dvips/config/mathpi.map
+%{_datadir}/texmf/dvips/config/mathpple-ext.map
+%{_datadir}/texmf/dvips/config/mt-belleek.map
+%{_datadir}/texmf/dvips/config/mt-plus.map
+%{_datadir}/texmf/dvips/config/mtsupp-ext-adobe-bi.map
+%{_datadir}/texmf/dvips/config/mtsupp-ext-adobe-kb.map
+%{_datadir}/texmf/dvips/config/mtsupp-ext-urw-kb.map
+%{_datadir}/texmf/dvips/config/mtsupp-ext-urw-urw.map
+%{_datadir}/texmf/dvips/config/mtsupp-std-adobe-bi.map
+%{_datadir}/texmf/dvips/config/mtsupp-std-adobe-kb.map
+%{_datadir}/texmf/dvips/config/mtsupp-std-urw-kb.map
+%{_datadir}/texmf/dvips/config/mtsupp-std-urw-urw.map
+%{_datadir}/texmf/dvips/config/mt-yy.map
+%{_datadir}/texmf/dvips/config/omega.map
+%{_datadir}/texmf/dvips/config/pazo.map
+%{_datadir}/texmf/dvips/config/pdftex.map
+%{_datadir}/texmf/dvips/config/pl.cfg
+%{_datadir}/texmf/dvips/config/pl.map
+%{_datadir}/texmf/dvips/config/ps2pk.map
+%{_datadir}/texmf/dvips/config/psfonts.map
+%{_datadir}/texmf/dvips/config/psnfss.map
+%{_datadir}/texmf/dvips/config/qbk.map
+%{_datadir}/texmf/dvips/config/qcr.map
+%{_datadir}/texmf/dvips/config/qhv.map
+%{_datadir}/texmf/dvips/config/qpl.map
+%{_datadir}/texmf/dvips/config/qtm.map
+%{_datadir}/texmf/dvips/config/qzc.map
+%{_datadir}/texmf/dvips/config/raw-ar-ext-adobe-bi.map
+%{_datadir}/texmf/dvips/config/raw-ar-ext-adobe-kb.map
+%{_datadir}/texmf/dvips/config/raw-ar-ext-urw-kb.map
+%{_datadir}/texmf/dvips/config/raw-ar-ext-urw-urw.map
+%{_datadir}/texmf/dvips/config/raw-ar-std-adobe-bi.map
+%{_datadir}/texmf/dvips/config/raw-ar-std-adobe-kb.map
+%{_datadir}/texmf/dvips/config/raw-ar-std-urw-kb.map
+%{_datadir}/texmf/dvips/config/raw-ar-std-urw-urw.map
+%{_datadir}/texmf/dvips/config/raw-lw35extra-adobe-bi.map
+%{_datadir}/texmf/dvips/config/raw-lw35extra-adobe-kb.map
+%{_datadir}/texmf/dvips/config/raw-lw35extra-urw-kb.map
+%{_datadir}/texmf/dvips/config/raw-lw35extra-urw-urw.map
+%{_datadir}/texmf/dvips/config/updmap
+%{_datadir}/texmf/dvips/config/utopia.map
+%{_datadir}/texmf/dvips/config/xypic.map
+%dir %{_datadir}/texmf/dvips/gsftopk
+%{_datadir}/texmf/dvips/gsftopk/render.ps
+%dir %{_datadir}/texmf/dvips/misc
+%{_datadir}/texmf/dvips/misc/alt-rule.pro
+%{_datadir}/texmf/dvips/misc/mirr.hd
+%{_datadir}/texmf/dvips/misc/pspicture.ps
+%{_datadir}/texmf/dvips/misc/resolution400.ps
+%dir %{_datadir}/texmf/dvips/pl
+%{_datadir}/texmf/dvips/pl/plin.enc
+%{_datadir}/texmf/dvips/pl/plit.enc
+%{_datadir}/texmf/dvips/pl/plitt.enc
+%{_datadir}/texmf/dvips/pl/plme.enc
+%{_datadir}/texmf/dvips/pl/plmi.enc
+%{_datadir}/texmf/dvips/pl/plms.enc
+%{_datadir}/texmf/dvips/pl/plrm.enc
+%{_datadir}/texmf/dvips/pl/plsc.enc
+%{_datadir}/texmf/dvips/pl/plte.enc
+%{_datadir}/texmf/dvips/pl/pltt.enc
+%dir %{_datadir}/texmf/dvips/psfrag
+%{_datadir}/texmf/dvips/psfrag/psfrag.pro
+%dir %{_datadir}/texmf/dvips/pstricks
+%{_datadir}/texmf/dvips/pstricks/pst-blur.pro
+%{_datadir}/texmf/dvips/pstricks/pst-coil.pro
+%{_datadir}/texmf/dvips/pstricks/pst-dots.pro
+%{_datadir}/texmf/dvips/pstricks/pst-ghsb.pro
+%{_datadir}/texmf/dvips/pstricks/pst-grad.pro
+%{_datadir}/texmf/dvips/pstricks/pst-node.pro
+%{_datadir}/texmf/dvips/pstricks/pstricks.pro
+%{_datadir}/texmf/dvips/pstricks/pst-slpe.pro
+%{_datadir}/texmf/dvips/pstricks/pst-text.pro
+%dir %{_datadir}/texmf/dvips/qfonts
+%{_datadir}/texmf/dvips/qfonts/config.qbk
+%{_datadir}/texmf/dvips/qfonts/config.qcr
+%{_datadir}/texmf/dvips/qfonts/config.qhv
+%{_datadir}/texmf/dvips/qfonts/config.qpl
+%{_datadir}/texmf/dvips/qfonts/config.qtm
+%{_datadir}/texmf/dvips/qfonts/config.qzc
+%{_datadir}/texmf/dvips/qfonts/qbk.enc
+%{_datadir}/texmf/dvips/qfonts/qbk.map
+%{_datadir}/texmf/dvips/qfonts/qcr.enc
+%{_datadir}/texmf/dvips/qfonts/qcr.map
+%{_datadir}/texmf/dvips/qfonts/qhv.enc
+%{_datadir}/texmf/dvips/qfonts/qhv.map
+%{_datadir}/texmf/dvips/qfonts/qpl.enc
+%{_datadir}/texmf/dvips/qfonts/qpl.map
+%{_datadir}/texmf/dvips/qfonts/qtm.enc
+%{_datadir}/texmf/dvips/qfonts/qtm.map
+%{_datadir}/texmf/dvips/qfonts/qzc.enc
+%{_datadir}/texmf/dvips/qfonts/qzc.map
+%dir %{_datadir}/texmf/dvips/xypic
+%{_datadir}/texmf/dvips/xypic/xy36dict.pro
+%{_datadir}/texmf/dvips/xypic/xy37dict.pro
+
+%files dvilj
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/dvihp
+%attr(755,root,root) %{_bindir}/dvilj
+%attr(755,root,root) %{_bindir}/dvilj2p
+%attr(755,root,root) %{_bindir}/dvilj4
+%attr(755,root,root) %{_bindir}/dvilj4l
+%attr(755,root,root) %{_bindir}/dvilj6
+%{_mandir}/man1/dvihp.1*
+%{_mandir}/man1/dvilj.1*
 
 %files -n xdvi
 %defattr(644,root,root,755)
@@ -2584,6 +2996,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files bibtex
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/bibtex
+%{_mandir}/man1/bibtex.1*
 %dir %{texmf}/doc/bibtex
 %doc %{texmf}/doc/bibtex/base
 %dir %{texmf}/bibtex
@@ -2933,14 +3347,42 @@ rm -rf $RPM_BUILD_ROOT
 %files makeindex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/makeindex
+%attr(755,root,root) %{_bindir}/mkindex
+%attr(755,root,root) %{_bindir}/makeindex
 %{texmf}/makeindex
+%{_mandir}/man1/makeindex.1*
+%{_mandir}/man1/mkindex.1*
 
 %files metafont
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/mf
+%attr(755,root,root) %{_bindir}/mft
+%attr(755,root,root) %{_bindir}/mfw
+%attr(755,root,root) %{_bindir}/virmf
+%attr(755,root,root) %{_bindir}/inimf
 %{texmf}/metafont
+%dir %{_datadir}/texmf/mft
+%{_datadir}/texmf/mft/cmbase.mft
+%{_datadir}/texmf/mft/e.mft
+%{_datadir}/texmf/mft/mplain.mft
+%{_datadir}/texmf/mft/plain.mft
+%{_datadir}/texmf/mft/pl.mft
+%{_mandir}/man1/mf.1*
+%{_mandir}/man1/mft.1*
+%{_mandir}/man1/inimf.1*
+%{_mandir}/man1/virmf.1*
+%{_datadir}/texmf/web2c/mf.base
+%{_datadir}/texmf/web2c/mf-nowin.base
+%{_datadir}/texmf/web2c/mf.pool
+%{_datadir}/texmf/web2c/mfw.base
 
 %files matapost
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/mpost
+%attr(755,root,root) %{_bindir}/mpto
+%attr(755,root,root) %{_bindir}/mptopdf
+%attr(755,root,root) %{_bindir}/virmpost
+%attr(755,root,root) %{_bindir}/inimpost
 %doc %{texmf}/doc/metapost
 %dir %{texmf}/metapost
 %{texmf}/metapost/base
@@ -2949,23 +3391,50 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/metapost/misc
 #%files metapost-context
 %{texmf}/metapost/context
+%{_mandir}/man1/mpost.1*
+%{_mandir}/man1/mpto.1*
+%{_mandir}/man1/inimpost.1*
+%{_mandir}/man1/virmpost.1*
+%{_datadir}/texmf/web2c/mpost.mem
+%{_datadir}/texmf/web2c/mp.pool
 
 %files omega
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/omega
+%attr(755,root,root) %{_bindir}/mkocp
+%attr(755,root,root) %{_bindir}/mkofm
+%attr(755,root,root) %{_bindir}/ofm2opl
+%attr(755,root,root) %{_bindir}/omega
+%attr(755,root,root) %{_bindir}/omfonts
+%attr(755,root,root) %{_bindir}/opl2ofm
+%attr(755,root,root) %{_bindir}/otangle
+%attr(755,root,root) %{_bindir}/otp2ocp
+%attr(755,root,root) %{_bindir}/outocp
+%attr(755,root,root) %{_bindir}/ovf2ovp
+%attr(755,root,root) %{_bindir}/ovp2ovf
+%attr(755,root,root) %{_bindir}/viromega
+%{_mandir}/man1/viromega.1*
+%attr(755,root,root) %{_bindir}/iniomega
+%{_mandir}/man1/iniomega.1*
+%{_mandir}/man1/omega.1*
 %dir %{texmf}/omega
 %{texmf}/omega/encodings
 #%files omega-plain
 %dir %{texmf}/omega/plain
 %{texmf}/omega/plain/base
 %{texmf}/omega/plain/config
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/omega.fmt
+%{_datadir}/texmf/web2c/omega.pool
 
 %files omega-lambda
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/lambda
+%{_mandir}/man1/lambda.1*
 %dir %{texmf}/omega/lambda
 %{texmf}/omega/lambda/base
 %{texmf}/omega/lambda/config
 %{texmf}/omega/lambda/misc
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/lambda.fmt
 
 %files omega-ocp
 %defattr(644,root,root,755)
@@ -2988,16 +3457,28 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/pdfetex
 %dir %{texmf}/pdfetex/tex
 %{texmf}/pdfetex/tex/config
+%attr(755,root,root) %{_bindir}/pdfetex
+%attr(755,root,root) %{_bindir}/pdfevirtex
+%attr(755,root,root) %{_bindir}/pdfeinitex
+%{_mandir}/man1/pdfetex.1*
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfetex.efmt
+%{_datadir}/texmf/web2c/pdfetex-pl.pool
+%{_datadir}/texmf/web2c/pdfetex.pool
 
 %files pdfelatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdfetex/latex
 %{texmf}/pdfetex/latex/config
+%attr(755,root,root) %{_bindir}/pdfelatex
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfelatex.efmt
 
 %files pdfemex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdfetex/mex
 %{texmf}/pdfetex/mex/config
+%attr(755,root,root) %{_bindir}/pdfemex
+%attr(755,root,root) %{_bindir}/pdfemex-pl
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfemex.efmt
 
 %files pdftex
 %defattr(644,root,root,755)
@@ -3009,12 +3490,27 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/pdftex/plain
 %{texmf}/pdftex/plain/config
 %{texmf}/pdftex/plain/misc
+%attr(755,root,root) %{_bindir}/epstopdf
+%{_mandir}/man1/epstopdf.1*
+%attr(755,root,root) %{_bindir}/pdftex
+%attr(755,root,root) %{_bindir}/pdfvirtex
+%attr(755,root,root) %{_bindir}/pdfinitex
+%{_mandir}/man1/pdfinitex.1*
+%{_mandir}/man1/pdftex.1*
+%{_mandir}/man1/pdfvirtex.1*
+%attr(755,root,root) %{_bindir}/thumbpdf
+%{_mandir}/man1/thumbpdf.1*
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdftex.fmt
+%{_datadir}/texmf/web2c/pdftex-pl.pool
+%{_datadir}/texmf/web2c/pdftex.pool
 
 %files pdftex-amstex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/amstex
 %dir %{texmf}/pdftex/amstex
 %{texmf}/pdftex/amstex/config
+%attr(755,root,root) %{_bindir}/pdfamstex
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfamstex.fmt
 
 %files pdftex-context
 %defattr(644,root,root,755)
@@ -3025,34 +3521,49 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/latex
 %{texmf}/pdftex/latex/config
+%attr(755,root,root) %{_bindir}/pdflatex
+%{_mandir}/man1/pdflatex.1*
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdflatex.fmt
+
+#%files pdfcslatex
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/pdfcslatex
+# jaki¶ problem z generowaniem
+#%config(noreplace) %verify(not md5 size mtime) /usr/share/texmf/web2c/pdfcslatex.fmt
+
+#%files pdfcsplain
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/pdfcsplain
+# jaki¶ problem z generowaniem
+#%config(noreplace) %verify(not md5 size mtime) /usr/share/texmf/web2c/pdfcstex.fmt
 
 %files pdfmex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/mex
 %{texmf}/pdftex/mex/config
+%attr(755,root,root) %{_bindir}/pdfmex
+%attr(755,root,root) %{_bindir}/pdfmex-pl
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfmex.fmt
 
 %files pdfplatex
 %defattr(644,root,root,755)
 %dir %{texmf}/pdftex/platex
 %{texmf}/pdftex/platex/config
-
-%files tex
-%defattr(644,root,root,755)
-%dir %{texmf}/tex
-%dir %{texmf}/tex/generic
-%dir %{texmf}/tex/generic/config
-%{texmf}/tex/generic/config/fontmath.cfg
-%{texmf}/tex/generic/config/fonttext.cfg
-%{texmf}/tex/generic/config/language.dat
-%{texmf}/tex/generic/config/preload.cfg
+%attr(755,root,root) %{_bindir}/pdfplatex
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/pdfplatex.fmt
 
 %files amstex
 %defattr(644,root,root,755)
 %dir %{texmf}/tex/amstex
+%attr(755,root,root) %{_bindir}/amstex
+%{_mandir}/man1/amstex.1*
+%lang(fi) %{_mandir}/fi/man1/amstex.1*
+# do czego jest bamstex ?
+%attr(755,root,root) %{_bindir}/bamstex
 %{texmf}/tex/amstex/base
 %{texmf}/tex/amstex/config
-%{texmf}/web2c/amstex.fmt
-%{texmf}/web2c/bamstex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/amstex.fmt
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/bamstex.fmt
 
 %files texconfig
 %defattr(644,root,root,755)
@@ -3060,6 +3571,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files context
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/cont-cz
+%attr(755,root,root) %{_bindir}/cont-de
+%attr(755,root,root) %{_bindir}/cont-en
+%attr(755,root,root) %{_bindir}/cont-nl
+%attr(755,root,root) %{_bindir}/cont-uk
+%{_mandir}/man1/cont-de.1*
+%{_mandir}/man1/cont-en.1*
+%{_mandir}/man1/cont-nl.1*
 %dir %{texmf}/doc/context
 %doc %{texmf}/doc/context/base
 %dir %{texmf}/context
@@ -3077,6 +3596,11 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/context/data/type-tmf.dat
 %{texmf}/context/perltk
 %{texmf}/tex/generic/context
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-cz.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-de.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-en.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-nl.efmt
+%config(noreplace) %verify(not size md5 mtime) %{_datadir}/texmf/web2c/cont-uk.efmt
 
 
 %dir %{texmf}/tex/context
@@ -3104,6 +3628,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/cstex/README-cspsfont
 %doc %{texmf}/doc/cstex/test8z.tex
 %doc %{texmf}/doc/cstex/testlat.tex
+%attr(755,root,root) %{_bindir}/csplain
 
 %{texmf}/tex/csplain
 
@@ -3113,9 +3638,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/tex/cyrplain
 %{texmf}/tex/cyrplain/base
 %{texmf}/tex/cyrplain/config
+%attr(755,root,root) %{_bindir}/cyrtex
 
 %files texdoctk
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/texdoctk
+%{_mandir}/man1/texdoctk.1*
 %doc %{texmf}/doc/texdoctk
 %{texmf}/texdoctk
 
@@ -3150,7 +3678,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/doc/README
 %{texmf}/doc/tetex/teTeX-FAQ
-%{texmf}/doc/tetex
+%dir %{texmf}/doc/tetex
 %{texmf}/doc/tetex.gif
 %{texmf}/doc/tetex.png
 
@@ -3158,6 +3686,8 @@ rm -rf $RPM_BUILD_ROOT
 %files platex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/platex
+%attr(755,root,root) %{_bindir}/platex
+%attr(755,root,root) %{_bindir}/platex-pl
 %dir %{texmf}/tex/platex
 %dir %{texmf}/tex/platex/config
 %{texmf}/tex/platex/config/hyphen.cfg
@@ -3182,6 +3712,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/platex/plprefix.sty
 %{texmf}/tex/latex/platex/polski.sty
 %{texmf}/tex/latex/platex/qxenc.def
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/platex.fmt
 
 %files plain-misc
 %defattr(644,root,root,755)
@@ -3233,7 +3764,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files plain-dvips
 %defattr(644,root,root,755)
-%{texmf}/tex/plain/dvips
+%dir %{texmf}/tex/plain/dvips
 %{texmf}/tex/plain/dvips/blackdvi.tex
 %{texmf}/tex/plain/dvips/colordvi.tex
 %{texmf}/tex/plain/dvips/dvipsmac.tex
@@ -3241,30 +3772,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/plain/dvips/rotate.tex
 %{texmf}/tex/plain/dvips/rotsample.tex
 
-%files plain
-%defattr(644,root,root,755)
-%dir %{texmf}/tex/plain/config
-# bplain tu czy mo¿e gdzie¶ indziej?
-%{texmf}/tex/plain/config/bplain.ini
-%{texmf}/tex/plain/config/tex.ini
-%dir %{texmf}/tex/plain/base
-%{texmf}/tex/plain/base/gkpmac.tex
-%{texmf}/tex/plain/base/letter.tex
-%{texmf}/tex/plain/base/logmac.tex
-%{texmf}/tex/plain/base/manmac.tex
-%{texmf}/tex/plain/base/mftmac.tex
-%{texmf}/tex/plain/base/mptmac.tex
-%{texmf}/tex/plain/base/picmac.tex
-%{texmf}/tex/plain/base/plain.tex
-%{texmf}/tex/plain/base/story.tex
-%{texmf}/tex/plain/base/testfont.tex
-%{texmf}/tex/plain/base/webmac.tex
-%{texmf}/web2c/bplain.fmt
-
 %files plain-amsfonts
 %defattr(644,root,root,755)
-%dir %{texmf}/tex/plain
-%{texmf}/tex/plain/amsfonts
+%dir %{texmf}/tex/plain/amsfonts
 %{texmf}/tex/plain/amsfonts/amssym.def
 %{texmf}/tex/plain/amsfonts/amssym.tex
 %{texmf}/tex/plain/amsfonts/cyracc.def
@@ -3272,14 +3782,17 @@ rm -rf $RPM_BUILD_ROOT
 %files mex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/polish/mex
+%attr(755,root,root) %{_bindir}/mex
+%attr(755,root,root) %{_bindir}/mex-pl
 %dir %{texmf}/tex/mex
-%{texmf}/tex/mex/base
+%dir %{texmf}/tex/mex/base
 %{texmf}/tex/mex/base/mex1.tex
 %{texmf}/tex/mex/base/mex2.tex
 %{texmf}/tex/mex/base/mex.tex
 %dir %{texmf}/tex/mex/config
 %{texmf}/tex/mex/config/mexconf.tex
 %{texmf}/tex/mex/config/mex.ini
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/mex.fmt
 
 %files latex-wasysym
 %defattr(644,root,root,755)
@@ -3398,7 +3911,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-t2
 %defattr(644,root,root,755)
-%{texmf}/tex/latex/t2
+%dir %{texmf}/tex/latex/t2
 %{texmf}/tex/latex/t2/citehack.sty
 %{texmf}/tex/latex/t2/mathtext.sty
 %{texmf}/tex/latex/t2/misccorr.sty
@@ -3434,7 +3947,7 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-revtex4
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/revtex4
-%{texmf}/tex/latex/revtex4
+%dir %{texmf}/tex/latex/revtex4
 %{texmf}/tex/latex/revtex4/10pt.rtx
 %{texmf}/tex/latex/revtex4/11pt.rtx
 %{texmf}/tex/latex/revtex4/12pt.rtx
@@ -4359,6 +4872,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/cstex/INSTALL.cslatex
 %doc %{texmf}/doc/cstex/README.cslatex
+%attr(755,root,root) %{_bindir}/cslatex
 %{texmf}/tex/cslatex
 %dir %{texmf}/tex/latex/cslatex
 %{texmf}/tex/latex/cslatex/cspsfont.il2
@@ -4403,7 +4917,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pl) %{_mandir}/pl/man1/latex.1*
 %{_mandir}/man1/latex.1*
 %attr(755,root,root) %{_bindir}/latex
+%attr(755,root,root) %{_bindir}/pslatex
+%{_mandir}/man1/pslatex.1*
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/latex.fmt
 %dir %{texmf}/tex/latex/config
+%dir %{_datadir}/texmf/tex/latex
 %{texmf}/tex/latex/config/color.cfg
 %{texmf}/tex/latex/config/draftcopy.cfg
 %{texmf}/tex/latex/config/geometry.cfg
@@ -4699,6 +5217,14 @@ rm -rf $RPM_BUILD_ROOT
 %files eplain
 %defattr(644,root,root,755)
 # mo¿e texmf/etex do jakiego¶ wspólnego pakietu?
+%attr(755,root,root) %{_bindir}/etex
+%attr(755,root,root) %{_bindir}/evirtex
+%attr(755,root,root) %{_bindir}/einitex
+%attr(755,root,root) %{_bindir}/eplain
+%{_mandir}/man1/einitex.1*
+%{_mandir}/man1/eplain.1*
+%{_mandir}/man1/etex.1*
+%{_mandir}/man1/evirtex.1*
 %dir %{texmf}/etex
 %doc %{texmf}/doc/etex
 %doc %{texmf}/doc/eplain
@@ -4710,15 +5236,21 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/etex/plain/config/etex.ini
 %{texmf}/etex/plain/config/language.def
 %{texmf}/tex/eplain
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/etex.efmt
+%{_datadir}/texmf/web2c/etex.pool
+%{_datadir}/texmf/web2c/etex-pl.pool
 
 
 %files elatex
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/elatex
+%{_mandir}/man1/elatex.1*
 %dir %{texmf}/etex/latex
 %dir %{texmf}/etex/latex/config
 %{texmf}/etex/latex/config/elatex.ini
 %dir %{texmf}/etex/latex/misc
 %{texmf}/etex/latex/misc/etex.sty
+%config(noreplace) %verify(not md5 size mtime) %{_datadir}/texmf/web2c/elatex.efmt
 
 %files fontname
 %defattr(644,root,root,755)
@@ -4771,6 +5303,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/generic/misc/tap.tex
 %{texmf}/tex/generic/misc/texnames.sty
 %{texmf}/tex/generic/misc/trans.tex
+%config(noreplace) %verify(not size md5 mtime) %{texmf}/web2c/bplain.fmt
 
 %files tex-pstriks
 %defattr(644,root,root,755)
@@ -4830,3 +5363,32 @@ rm -rf $RPM_BUILD_ROOT
 %files tex-eijkhout
 %defattr(644,root,root,755)
 %{texmf}/tex/generic/eijkhout
+
+%files oxdvi
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/oxdvi
+%attr(755,root,root) %{_bindir}/oxdvi.bin
+
+%files odvips
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/odvicopy
+%attr(755,root,root) %{_bindir}/odvips
+%attr(755,root,root) %{_bindir}/odvitype
+
+%files cyramstex
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/cyramstex
+
+%files cyrtexinfo
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/cyrtexinfo
+
+%files rubibtex
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/rubibtex
+%{_mandir}/man1/rubibtex.1*
+
+%files rumakeindex
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/rumakeindex
+%{_mandir}/man1/rumakeindex.1*
