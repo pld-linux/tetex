@@ -561,6 +561,7 @@ Obsoletes:	tetex-ams
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-plain = %{version}
+Requires:	%{name}-fonts-ams = %{version}
 
 %description amstex
 American Mathematics Society macros for Plain TeX basic files.
@@ -775,6 +776,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
+Requires:	%{name}-fonts-ae = %{version}
 
 %description latex-ae
 A set of virtual fonts which emulates T1 coded fonts using the standard CM
@@ -839,7 +841,7 @@ Group:		Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{version}
-Requires:	%{name}-fonts-bbm = %{version}
+Requires:	%{name}-fonts-bbold = %{version}
 
 %description latex-bbold
 A geometric sans serif blackboard bold font, for use in mathematics.
@@ -1427,67 +1429,67 @@ TeX), in particular Xy-pic is provided as a LaTeX2e `supported package'.
 #
 
 %package fonts-adobe
-Summary:	!!!fixme!!!
+Summary:	Adobe fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-adobe
-!!!fixme!!!
+Adobe fonts.
 
 %package fonts-ae
-Summary:	!!!fixme!!!
+Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-ae
-!!!fixme!!!
+Virtual fonts for PDF-files with T1 encoded CMR-fonts.
 
 %package fonts-ams
-Summary:	!!!fixme!!!
+Summary:	AMS fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-ams
-!!!fixme!!!
+AMS fonts.
 
 %package fonts-antp
-Summary:	!!!fixme!!!
+Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-antp
-!!!fixme!!!
+Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
 %package fonts-antt
-Summary:	!!!fixme!!!
+Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-antt
-!!!fixme!!!
+Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
 %package fonts-bbm
-Summary:	!!!fixme!!!
+Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-bbm
-!!!fixme!!!
+Blackboard variant fonts for Computer Modern, with LaTeX support.
 
 %package fonts-bbold
-Summary:	!!!fixme!!!
+Summary:	Sans serif blackboard bold for LaTeX
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-bbold
-!!!fixme!!!
+Sans serif blackboard bold for LaTeX.
 
 %package fonts-bh
 Summary:	!!!fixme!!!
@@ -1823,31 +1825,31 @@ Requires(postun):	/usr/bin/texhash
 !!!fixme!!!
 
 %package fonts-type1-adobe
-Summary:	!!!fixme!!!
+Summary:	Adobe Type1 fonts
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-adobe
-!!!fixme!!!
+Adobe Type1 fonts.
 
 %package fonts-type1-antp
-Summary:	!!!fixme!!!
+Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-antp
-!!!fixme!!!
+Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
 %package fonts-type1-antt
-Summary:	!!!fixme!!!
+Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
 Group:	Applications/Publishing/TeX
 Requires(post):	/usr/bin/texhash
 Requires(postun):	/usr/bin/texhash
 
 %description fonts-type1-antt
-!!!fixme!!!
+Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
 %package fonts-type1-belleek
 Summary:	!!!fixme!!!
