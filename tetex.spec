@@ -397,8 +397,9 @@ tar xzf %{SOURCE2} -C texk/share/texmf
 
 %build
 sh ./reautoconf
-LDFLAGS="-s"; export LDFLAGS
-CSSFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+LDFLAGS="-s"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+export LDFLAGS CXXFLAGS
 %configure \
 	--with-system-ncurses \
 	--with-system-zlib \
