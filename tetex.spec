@@ -13,7 +13,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	6
+Release:	7
 License:	distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -23,6 +23,7 @@ Group(pt_BR):	Aplicações/Editoração/TeX
 Source0:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-src-%{tetex_ver}.tar.gz
 Source1:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmf-%{texmf_ver}.tar.gz
 Source2:	ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/teTeX-texmfsrc-%{texmfsrc_ver}.tar.gz
+Source3:	%{name}-non-english-man-pages.tar.bz2
 Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	teTeX-hugelatex.cnf
@@ -711,6 +712,7 @@ install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 ln -sf libkpathsea.so.3.3.1 $RPM_BUILD_ROOT%{_libdir}/libkpathsea.so
 
 install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
+bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 # remove all *.dvi ? why ? /wiget
 #find $RPM_BUILD_ROOT%{_datadir}/texmf -name \*.dvi -exec rm -f {} \;
@@ -891,7 +893,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/allcm.1*
 %{_mandir}/man1/allec.1*
 %{_mandir}/man1/allneeded.1*
-
 %{_mandir}/man1/dvi2fax.1*
 %{_mandir}/man1/dvihp.1*
 %{_mandir}/man1/dvitomp.1*
@@ -946,6 +947,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/virtex.1*
 %{_mandir}/man1/vptovf.1*
 %{_mandir}/man1/weave.1*
+
+%lang(fi) %{_mandir}/fi/man1/allcm.1*
+%lang(fi) %{_mandir}/fi/man1/allneeded.1*
+
+%lang(fr) %{_mandir}/fr/man1/access.1*
+
+%lang(hu) %{_mandir}/hu/man1/access.1*
+%lang(hu) %{_mandir}/hu/man1/newer.1*
+%lang(hu) %{_mandir}/hu/man1/readlink.1*
+
+%lang(pl) %{_mandir}/pl/man1/access.1*
+%lang(pl) %{_mandir}/pl/man1/newer.1*
 
 %dir %{_datadir}/texmf
 
@@ -1203,6 +1216,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/latex.1*
 %{_mandir}/man1/pdflatex.1*
+%lang(fi) %{_mandir}/fi/man1/latex.1*
+%lang(pl) %{_mandir}/pl/man1/latex.1*
 
 %{_infodir}/latex.info*
 
@@ -1372,6 +1387,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/dvips
 %{_mandir}/man1/dvips.1*
+%lang(fi) %{_mandir}/fi/man1/dvips.1*
 
 %{_infodir}/dvips.info*
 
@@ -1392,12 +1408,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/afm2tfm
 %{_mandir}/man1/afm2tfm.1*
+%lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
 
 %files ams 
 %defattr(644,root,root,755)
 
 %attr(755,root,root) %{_bindir}/amstex
 %{_mandir}/man1/amstex.1*
+%lang(fi) %{_mandir}/fi/man1/amstex.1*
 
 %dir %{_datadir}/texmf/fonts/source/ams
 %{_datadir}/texmf/fonts/source/ams/cmextra
