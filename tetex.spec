@@ -354,10 +354,10 @@ Requires:	%{name} = %{version}
 PreReq:		%{_bindir}/texhash
 
 %description ams
-American Mathematics Society macros for plainTeX and LaTeX.
+American Mathematical Society macros for plainTeX and LaTeX.
 
 %description ams -l pl
-Makra American Mathematics Society do sk³adania publikacji
+Makra American Mathematical Society do sk³adania publikacji
 matematycznych.
 
 %package bibtex
