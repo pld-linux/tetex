@@ -10,7 +10,7 @@
 #   /usr/share/fonts/Type1 ?)
 #
 
-%define tversion 2.96.5.20040711
+%define tversion 2.99.1.20041026
 
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -21,16 +21,16 @@ Summary(pl):	System sk³adu publikacji TeX oraz formater fontów MetaFont
 Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
-Version:	2.96.7.20040721
-Release:	0.2
+Version:	2.99.1.20041026
+Release:	0.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
 # Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
 Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-src-beta-%{version}.tar.gz
-# Source0-md5:	16bc502d5270d79cab73a5f3f3ff1b63
+# Source0-md5:	5f3d46a777ccb746c60e0d4b588c62bf
 Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX-beta/%{name}-texmf-beta-%{tversion}.tar.gz
-# Source1-md5:	a02189f0cb478272de17f24fbc6401ac
+# Source1-md5:	099935025a9585b95b38a0ef1ac8278b
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
