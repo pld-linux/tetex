@@ -3001,7 +3001,7 @@ cd ../../..
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir} \
-	$RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers \
+	$RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
@@ -3049,7 +3049,7 @@ perl -pi \
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/cron.daily/tetex
 
-install %{SOURCE5} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/Viewers
+install %{SOURCE5} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 # only for tetex 2.0.2, I hope
@@ -4635,7 +4635,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
 %{_mandir}/man1/xdvizilla.1*
-%{_applnkdir}/Graphics/Viewers/xdvi.desktop
+%{_desktopdir}/xdvi.desktop
 %{_pixmapsdir}/xdvi.png
 %dir %{texmf}/xdvi
 %{texmf}/xdvi/XDvi
