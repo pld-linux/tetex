@@ -14,7 +14,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	1.0.7.%(echo %{tetex_ver}|tr -- - _) 
-Release:	5
+Release:	6
 License:	Distributable
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -648,36 +648,36 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
 %{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT/%{_libdir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir} \
-	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includedir=$RPM_BUILD_ROOT/%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir} \
+	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	libdir=$RPM_BUILD_ROOT%{_libdir} \
+	datadir=$RPM_BUILD_ROOT%{_datadir} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	includedir=$RPM_BUILD_ROOT%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 %{__make} -C texk/tetex install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT/%{_libdir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir} \
-	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includedir=$RPM_BUILD_ROOT/%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir} \
+	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	libdir=$RPM_BUILD_ROOT%{_libdir} \
+	datadir=$RPM_BUILD_ROOT%{_datadir} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	includedir=$RPM_BUILD_ROOT%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 
 %{__make} -C texk/ps2pkm install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT/%{_libdir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir} \
-	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includedir=$RPM_BUILD_ROOT/%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir} \
+	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	libdir=$RPM_BUILD_ROOT%{_libdir} \
+	datadir=$RPM_BUILD_ROOT%{_datadir} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	includedir=$RPM_BUILD_ROOT%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
         texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 install texk/tetex/texconfig $RPM_BUILD_ROOT%{_bindir}
@@ -687,13 +687,13 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tetex-updmap/maps.lst
 
 %{__make} init \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	mandir=$RPM_BUILD_ROOT/%{_mandir}/man1 \
-	libdir=$RPM_BUILD_ROOT/%{_libdir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir} \
-	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	includedir=$RPM_BUILD_ROOT/%{_includedir} \
-	sbindir=$RPM_BUILD_ROOT/%{_sbindir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir} \
+	mandir=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	libdir=$RPM_BUILD_ROOT%{_libdir} \
+	datadir=$RPM_BUILD_ROOT%{_datadir} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	includedir=$RPM_BUILD_ROOT%{_includedir} \
+	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{_datadir}/texmf
 
 perl -pi \
@@ -1111,13 +1111,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/texmf/tex/texinfo
 
-%doc %{_datadir}/texmf/texconfig/README
-
-%dir %{_datadir}/texmf/texconfig
-%{_datadir}/texmf/texconfig/g*
-%{_datadir}/texmf/texconfig/v*
-%{_datadir}/texmf/texconfig/x*
-
 %{_datadir}/texmf/updates.dat
 
 %dir %{_datadir}/texmf/web2c
@@ -1188,7 +1181,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_datadir}/texmf/doc/newhelpindex.html
 %doc %{_datadir}/texmf/doc/programs
 %doc %{_datadir}/texmf/doc/tetex
-%doc %{_datadir}/texmf/source/info
 
 %doc %{_datadir}/texmf/source/README
 %dir %{_datadir}/texmf/source
