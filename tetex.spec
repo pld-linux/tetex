@@ -71,6 +71,7 @@ BuildRequires:	texinfo
 BuildRequires:	w3c-libwww-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
+BuildRequires:	openssl-devel
 %include	/usr/lib/rpm/macros.perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
