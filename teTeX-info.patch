@@ -1016,3 +1016,22 @@ diff -Nru teTeX-1.0/texk/web2c/doc/web2c.texi teTeX-1.0.new/texk/web2c/doc/web2c
  @section VPtoVF: Virtual property lists to virtual font
  
  @pindex vptovf
+diff -Nru teTeX-1.0/texk/dvipsk/dvips.texi teTeX-1.0.new/texk/dvipsk/dvips.texi
+--- teTeX-1.0/texk/dvipsk/dvips.texi	Sun Nov  1 04:45:06 1998
++++ teTeX-1.0.new/texk/dvipsk/dvips.texi	Thu Oct  7 21:57:52 1999
+@@ -19,11 +19,11 @@
+ 
+ @ifclear INSTALLONLY
+ 
+-@dircategory TeX
++@dircategory TeX:
+ @direntry
+-* DVI-to-Postscript: (dvips).        Translating TeX DVI files to PostScript.
+-* afm2tfm: (dvips)Invoking afm2tfm.  Making Type 1 fonts available to TeX.
+-* dvips: (dvips)Invoking Dvips.      DVI-to-PostScript translator.
++* DVI-to-Postscript: (dvips).		Translating TeX DVI files to PostScript
++* afm2tfm: (dvips)Invoking afm2tfm.	Making Type 1 fonts available to TeX
++* dvips: (dvips)Invoking Dvips.		DVI-to-PostScript translator
+ @end direntry
+ 
+ @titlepage
