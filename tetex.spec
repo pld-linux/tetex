@@ -18,7 +18,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	2.0.2
-Release:	6
+Release:	7
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -1056,8 +1056,6 @@ Obsoletes:	tetex-latex-tools
 Obsoletes:	tetex-latex-units
 Obsoletes:	tetex-mwcls
 Obsoletes:	tetex-revtex4
-# FIXME: I can't find files from this packages in any subpackage in new tetex
-Obsoletes:	tetex-latex-algorith
 Obsoletes:	tetex-latex-draftcopy
 
 %description latex
