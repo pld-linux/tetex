@@ -3088,7 +3088,7 @@ rm -rf $RPM_BUILD_ROOT
 %fixinfodir
 if [ $1 = 1 ]
 	%texhash
-endif
+fi
 
 %post doc-Catalogue
 %texhash
