@@ -4314,6 +4314,12 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-type1-xypic
 %texhash
 
+%post -n texconfig
+%texhash
+
+%postun -n texconfig
+%texhash
+
 %files
 %defattr(644,root,root,755)
 %docdir %{texmf}/doc
