@@ -1,17 +1,16 @@
 #
 # TODO:
-# - review etex/eplain/pdfetex stuff
-# - add missing files
-# - context: review package splitting
+# - move config files to /etc
+# - obsoletes
+# - remove empty packages
+#
+# not so painful todo:
+# - context: consider more splitting, check dependencies
 # - omega: consider more splitting, check dependencies
-# - create new packages if there is a need: more latex splitting... others?
-# - look at mktexfmt
+# - tdphp: is it really useful?
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
-# - add esint fonts  
-
-%define tversion 3.0
-
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
@@ -26,10 +25,9 @@ Release:	0.4
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
-# Release sources at ftp://sunsite.informatik.rwth-aachen.de/pub/comp/tex/teTeX/1.0/distrib/sources/
 Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-src-%{version}.tar.gz
 # Source0-md5:	944a4641e79e61043fdaf8f38ecbb4b3
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-texmf-%{tversion}.tar.gz
+Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-texmf-%{version}.tar.gz
 # Source1-md5:	11aa15c8d3e28ee7815e0d5fcdf43fd4
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
@@ -1654,33 +1652,6 @@ An interface to inputenc for using alternate input encodings.
 %description latex-umlaute -l pl
 Interfejs inputenc do u¿ywania alternatywnych kodowañ wej¶ciowych.
 
-%package latex-vnps
-Summary:	VNPS fonts for LaTeX
-Summary(pl):	Fonty VNPS dla LaTeXa
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-
-%description latex-vnps
-VNPS fonts for LaTeX.
-
-%description latex-vnps -l pl
-Fonty VNPS dla LaTeXa.
-
-%package latex-vnr
-Summary:	VNR fonts for LaTeX
-Summary(pl):	Fonty VNR dla LaTeXa
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-fonts-vnr = %{epoch}:%{version}-%{release}
-Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-
-%description latex-vnr
-VNR fonts for LaTeX.
-
-%description latex-vnr -l pl
-Fonty VNR dla LaTeXa.
-
 %package latex-wasysym
 Summary:	Extra characters from the Waldis symbol fonts
 Summary(pl):	Dodatkowe znaki z fontów Waldis symbol
@@ -3207,13 +3178,24 @@ rm -rf $RPM_BUILD_ROOT%{texmf}/tex/latex/{beamer,pgf,xcolor}
 rm -rf $RPM_BUILD_ROOT%{texmf}/doc/latex/{beamer,pgf,xcolor}
 
 # not included in package
-rm -f $RPM_BUILD_ROOT%{texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
-rm -f $RPM_BUILD_ROOT%{texmf}/doc/programs/texinfo.*
-rm -f $RPM_BUILD_ROOT%{texmf}/release-tetex-{src,texmf}.txt
 rm -f $RPM_BUILD_ROOT%{texmf}/doc/fonts/oldgerman/COPYING
 rm -f $RPM_BUILD_ROOT%{texmf}/doc/Makefile
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/programs/texinfo.*
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/helpfile
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/helpindex.html
+rm -f $RPM_BUILD_ROOT%{texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
+rm -f $RPM_BUILD_ROOT%{texmf}/release-tetex-{src,texmf}.txt
+rm -f $RPM_BUILD_ROOT%{texmf}/scripts/uniqleaf/uniqleaf.pl
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/help/Catalogue-upd.sh
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/help/faq/uktug-faq-upd.sh
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/mkhtml*
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/index.html
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/index.php
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir.gz
 rm -f $RPM_BUILD_ROOT%{_mandir}/{README.*,hu/man1/readlink.1*}
+rm -f $RPM_BUILD_ROOT%{_datadir}/texinfo/html/texi2html.html
+# installed in bindir
+rm -f $RPM_BUILD_ROOT%{texmf}/scripts/pdfcrop/pdfcrop.pl
 
 # move format logs to BUILD, so $RPM_BUILD_ROOT is not polluted
 # and we can still analyze them
@@ -3712,18 +3694,6 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun latex-umlaute
-%texhash
-
-%post latex-vnps
-%texhash
-
-%postun latex-vnps
-%texhash
-
-%post latex-vnr
-%texhash
-
-%postun latex-vnr
 %texhash
 
 %post latex-wasysym
@@ -4331,10 +4301,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/generic/nohyph
 %doc %{texmf}/doc/generic/tex-ps
 %dir %{texmf}/doc/help
-%doc %{texmf}/doc/help/tds.dvi
+%doc %{texmf}/doc/help/csname.txt
 %doc %{texmf}/doc/help/ctan
+%doc %{texmf}/doc/help/tds.dvi
+%doc %{texmf}/doc/help/unixtex.ftp
 %doc %{texmf}/doc/images
 %dir %{texmf}/doc/latex
+%dir %{texmf}/doc/polish
+%doc %{texmf}/doc/polish/*.html
 %dir %{texmf}/doc/programs
 %doc %{texmf}/doc/programs/web2c*
 %doc %{texmf}/doc/programs/cwebman.dvi
@@ -4614,6 +4588,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/endfloat
 %{texmf}/doc/latex/enumitem
 %{texmf}/doc/latex/eo/
+%{texmf}/doc/latex/esint/
 %{texmf}/doc/latex/eso-pic/
 %{texmf}/doc/latex/euler
 %{texmf}/doc/latex/eulervm
@@ -4909,9 +4884,11 @@ rm -rf $RPM_BUILD_ROOT
 %files pdftex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
+%doc %{texmf}/doc/programs/pdfcrop.txt
 %attr(755,root,root) %{_bindir}/epstopdf
 %attr(755,root,root) %{_bindir}/pdftex
 %attr(755,root,root) %{_bindir}/pdfxtex
+%attr(755,root,root) %{_bindir}/pdfcrop
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/pdftexconfig.tex
 %{_localstatedir}/fonts/map/pdftex/
 %{texmf}/fonts/map/pdftex/cmttf/cmttf.map
@@ -5002,7 +4979,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mex
 %{texmf}/tex/mex/config/mex.ini
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/mex.fmt
-%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/utf8mex.fmt
 
 %files format-pdfmex
 %defattr(644,root,root,755)
@@ -5023,7 +4999,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/utf8mex
 #%doc %{texmf}/doc/mex/utf8mex
 %{texmf}/tex/mex/utf8mex
-#%config(noreplace) %verify(not md5 size mtime) %{texmf}/web2c/utf8mex.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/utf8mex.fmt
 
 %files amstex
 %defattr(644,root,root,755)
@@ -5124,6 +5100,7 @@ rm -rf $RPM_BUILD_ROOT
 %files context
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/context
+%doc %{texmf}/doc/polish/context
 %dir %{texmf}/context
 %dir %{texmf}/context/config
 %dir %{texmf}/tex/context
@@ -5250,6 +5227,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/eo/
 %{texmf}/tex/latex/eso-pic/
 %{texmf}/tex/latex/etex/
+%{texmf}/tex/latex/esint/
 %{texmf}/tex/latex/euler/
 %{texmf}/tex/latex/eulervm/
 %{texmf}/tex/latex/eurosym/
@@ -5517,6 +5495,7 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-jknappen
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/latex/jknappen
+%doc %{texmf}/doc/fonts/ec
 %{texmf}/tex/latex/jknappen
 
 %files latex-lm
@@ -5613,15 +5592,6 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-urwvn
 %defattr(644,root,root,755)
 %{texmf}/tex/latex/urwvn
-
-%files latex-vnps
-%defattr(644,root,root,755)
-#%{texmf}/tex/latex/vnps
-
-%files latex-vnr
-%defattr(644,root,root,755)
-#%{texmf}/tex/latex/vnr
-%{texmf}/fonts/map/dvips/vntex/vnr.map
 
 %files latex-wasysym
 %defattr(644,root,root,755)
@@ -5753,6 +5723,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-vietnam
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/vntex
 %{texmf}/tex/latex/vietnam
 
 %files tex-xypic
@@ -5818,6 +5789,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-bitstrea
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/charter
 %{texmf}/fonts/afm/bitstrea
 %{texmf}/fonts/tfm/bitstrea
 %{texmf}/fonts/vf/bitstrea
@@ -5874,6 +5846,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-cs
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/fonts/cs
 %{texmf}/fonts/source/public/cs
 %{texmf}/fonts/tfm/public/cs
 
@@ -5926,6 +5899,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/fonts/source/public/latex
 %{texmf}/fonts/tfm/public/latex
+%{texmf}/fonts/source/public/esint
 
 %files fonts-lh
 %defattr(644,root,root,755)
@@ -6057,6 +6031,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fonts-vnr
 %defattr(644,root,root,755)
+%{texmf}/fonts/map/dvips/vntex
 %{texmf}/fonts/source/public/vnr
 %{texmf}/fonts/tfm/public/vnr
 
