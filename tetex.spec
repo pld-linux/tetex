@@ -9,7 +9,6 @@
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
 # - add esint fonts  
-# - add format-lamed
 
 %define tversion 3.0
 
@@ -23,7 +22,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	0.3
+Release:	0.4
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -183,19 +182,6 @@ Basic LaTeX packages documentation.
 
 %description doc-latex -l pl
 Podstawowa dokumentacja do pakietów LaTeXa.
-
-%package doc-latex2e-html
-Summary:	HTML LaTeX2e documentation
-Summary(pl):	Dokumentacja LaTeX2e w formacie HTML
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-
-%description doc-latex2e-html
-HTML LaTeX2e documentation.
-
-%description doc-latex2e-html -l pl
-Dokumentacja LaTeX2e w formacie HTML.
 
 #
 # libraries
@@ -3127,6 +3113,7 @@ CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 	--without-dialog \
 	--without-texinfo \
 	--without-t1utils \
+	--with-xdvi-x-toolkit=xaw \
 	--with-fonts-dir=/var/cache/fonts \
 	--with-texmf-dir=../../texmf \
 	--with-ncurses \
@@ -3223,8 +3210,15 @@ rm -rf $RPM_BUILD_ROOT%{texmf}/doc/latex/{beamer,pgf,xcolor}
 rm -f $RPM_BUILD_ROOT%{texmf}/fonts/pk/ljfour/lh/lh-lcy/*.600pk
 rm -f $RPM_BUILD_ROOT%{texmf}/doc/programs/texinfo.*
 rm -f $RPM_BUILD_ROOT%{texmf}/release-tetex-{src,texmf}.txt
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/fonts/oldgerman/COPYING
+rm -f $RPM_BUILD_ROOT%{texmf}/doc/Makefile
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir.gz
 rm -f $RPM_BUILD_ROOT%{_mandir}/{README.*,hu/man1/readlink.1*}
+
+# move format logs to BUILD, so $RPM_BUILD_ROOT is not polluted
+# and we can still analyze them
+install -d format-logs
+mv -fv $RPM_BUILD_ROOT%{fmtdir}/*.log format-logs/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -3247,12 +3241,6 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun doc-tug-faq
-%texhash
-
-%post doc-latex2e-html
-%texhash
-
-%postun doc-latex2e-html
 %texhash
 
 %post -n kpathsea
@@ -4324,11 +4312,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %docdir %{texmf}/doc
 %dir %{texmf}/doc
-%doc texmf/LICENSE.texmf
+%doc %{texmf}/LICENSE.texmf
 %doc %{texmf}/ChangeLog
 %doc %{texmf}/doc/README
 %doc %{texmf}/doc/README.knuth
 %dir %{texmf}/doc/tetex
+%doc %{texmf}/doc/tetex/eurotex98-te.pdf
 %doc %{texmf}/doc/tetex/TETEXDOC.*
 %doc %{texmf}/doc/tetex/teTeX-FAQ
 %doc %{texmf}/doc/tetex.gif
@@ -4340,12 +4329,16 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{texmf}/doc/fonts/polish
 %dir %{texmf}/doc/generic
 %doc %{texmf}/doc/generic/nohyph
+%doc %{texmf}/doc/generic/tex-ps
 %dir %{texmf}/doc/help
 %doc %{texmf}/doc/help/tds.dvi
+%doc %{texmf}/doc/help/ctan
 %doc %{texmf}/doc/images
 %dir %{texmf}/doc/latex
 %dir %{texmf}/doc/programs
 %doc %{texmf}/doc/programs/web2c*
+%doc %{texmf}/doc/programs/cwebman.dvi
+%doc %{texmf}/doc/programs/dvipng.*
 %doc %{texmf}/doc/knuth
 
 #%attr(755,root,root) %{_bindir}/MakeTeXPK
@@ -4593,13 +4586,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc-latex
 %defattr(644,root,root,755)
-%{texmf}/doc/latex/SIunits
+%{texmf}/doc/latex/abstract
 %{texmf}/doc/latex/acronym
 %{texmf}/doc/latex/adrconv/
 %{texmf}/doc/latex/aeguill
 %{texmf}/doc/latex/anysize
+%{texmf}/doc/latex/appendix
+%{texmf}/doc/latex/bar/
 %{texmf}/doc/latex/base
 %{texmf}/doc/latex/beton/
+%{texmf}/doc/latex/bezos/
 %{texmf}/doc/latex/booktabs
 %{texmf}/doc/latex/caption
 %{texmf}/doc/latex/carlisle/
@@ -4613,18 +4609,29 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/curves
 %{texmf}/doc/latex/dinbrief
 %{texmf}/doc/latex/draftcopy
+%{texmf}/doc/latex/eclbip/
 %{texmf}/doc/latex/eepic
 %{texmf}/doc/latex/endfloat
+%{texmf}/doc/latex/enumitem
+%{texmf}/doc/latex/eo/
+%{texmf}/doc/latex/eso-pic/
 %{texmf}/doc/latex/euler
+%{texmf}/doc/latex/eulervm
 %{texmf}/doc/latex/exam
 %{texmf}/doc/latex/extsizes
 %{texmf}/doc/latex/fancybox
+%{texmf}/doc/latex/fancyhdr/
+%{texmf}/doc/latex/fancyvrb/
+%{texmf}/doc/latex/filecontents/
 %{texmf}/doc/latex/float
+%{texmf}/doc/latex/floatflt/
 %{texmf}/doc/latex/footmisc
 %{texmf}/doc/latex/footnpag
 %{texmf}/doc/latex/fp
+%{texmf}/doc/latex/g-brief/
 %{texmf}/doc/latex/general
 %{texmf}/doc/latex/geometry
+%{texmf}/doc/latex/germbib/
 %{texmf}/doc/latex/graphics
 %{texmf}/doc/latex/hyperref
 %{texmf}/doc/latex/hyphenat
@@ -4635,11 +4642,18 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/lastpage
 %{texmf}/doc/latex/layouts
 %{texmf}/doc/latex/leftidx
+%{texmf}/doc/latex/lettrine/
 %{texmf}/doc/latex/listings
+%{texmf}/doc/latex/ltabptch/
 %{texmf}/doc/latex/mathcomp
 %{texmf}/doc/latex/mdwtools
+%{texmf}/doc/latex/memoir/
+%{texmf}/doc/latex/mh
 %{texmf}/doc/latex/moreverb
+%{texmf}/doc/latex/mparhack/
 %{texmf}/doc/latex/ms
+%{texmf}/doc/latex/mt11p/
+%{texmf}/doc/latex/multibib/
 %{texmf}/doc/latex/mwcls
 %{texmf}/doc/latex/natbib
 %{texmf}/doc/latex/nomencl
@@ -4652,9 +4666,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/pdfpages
 %{texmf}/doc/latex/picinpar
 %{texmf}/doc/latex/picins
+%{texmf}/doc/latex/pict2e/
 %{texmf}/doc/latex/placeins
 %{texmf}/doc/latex/preprint
+%{texmf}/doc/latex/preview/
 %{texmf}/doc/latex/program
+%{texmf}/doc/latex/ps4pdf/
 %{texmf}/doc/latex/psfrag
 %{texmf}/doc/latex/pslatex
 %{texmf}/doc/latex/revtex4
@@ -4663,29 +4680,33 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/scale
 %{texmf}/doc/latex/sectsty
 %{texmf}/doc/latex/seminar
+%{texmf}/doc/latex/shapepar/
 %{texmf}/doc/latex/showlabels
 %{texmf}/doc/latex/sidecap
+%{texmf}/doc/latex/SIunits
 %{texmf}/doc/latex/slashbox
 %{texmf}/doc/latex/soul
 %{texmf}/doc/latex/stdclsdv
+%{texmf}/doc/latex/subfig/
 %{texmf}/doc/latex/subfigure
 %{texmf}/doc/latex/supertab
+%{texmf}/doc/latex/tex-refs
 %{texmf}/doc/latex/textfit
 %{texmf}/doc/latex/textmerg
+%{texmf}/doc/latex/textpos/
 %{texmf}/doc/latex/titlesec
 %{texmf}/doc/latex/tocbibind
 %{texmf}/doc/latex/tocloft
 %{texmf}/doc/latex/tools
+%{texmf}/doc/latex/totpages/
 %{texmf}/doc/latex/treesvr
 %{texmf}/doc/latex/type1cm
 %{texmf}/doc/latex/units
 %{texmf}/doc/latex/vmargin
+%{texmf}/doc/latex/was/
+%{texmf}/doc/latex/wrapfig/
 %{texmf}/doc/latex/xtab
 %{texmf}/doc/latex/yfonts
-
-#%files doc-latex2e-html
-#%defattr(644,root,root,755)
-#%{texmf}/doc/latex/latex2e-html
 
 %files -n kpathsea
 %defattr(644,root,root,755)
@@ -4713,7 +4734,9 @@ rm -rf $RPM_BUILD_ROOT
 %files dvips
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/programs/dvips.dvi
+%doc %{texmf}/doc/programs/dvips.pdf
 %doc %{texmf}/doc/programs/dvipdfm.dvi
+%doc %{texmf}/doc/programs/dvipdfm.pdf
 %doc %{texmf}/doc/latex/psnfssx
 %attr(755,root,root) %{_bindir}/dvips
 %attr(755,root,root) %{_bindir}/dvired
@@ -4869,8 +4892,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -n xdvi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xdvi
-#%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
-%attr(755,root,root) %{_bindir}/xdvi-motif.bin
+%attr(755,root,root) %{_bindir}/xdvi-xaw.bin
+#%attr(755,root,root) %{_bindir}/xdvi-motif.bin
 %attr(755,root,root) %{_bindir}/xdvizilla
 %{_mandir}/man1/xdvi.1*
 %{_mandir}/man1/xdvizilla.1*
@@ -4940,6 +4963,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/aleph.fmt
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/lambda.fmt
+%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/lamed.fmt
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/omega.fmt
 
 %files plain
@@ -5109,6 +5133,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/texfont
 %attr(755,root,root) %{_bindir}/texshow
 %attr(755,root,root) %{_bindir}/texutil
+%{_mandir}/man1/fdf2tex.1*
 %{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texfind.1*
 %{_mandir}/man1/texfont.1*
@@ -5121,7 +5146,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/map/dvips/context
 %{texmf}/metapost/context
 %{texmf}/scripts/context
+%{texmf}/tex/latex/context
 %{texmf}/tex/context/base
+%{texmf}/tex/context/bib
 %{texmf}/tex/context/config/cont-usr.tex
 %{texmf}/tex/context/extra
 %{texmf}/tex/context/foxet
@@ -5130,6 +5157,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/context/sample
 %{texmf}/tex/context/user
 %{texmf}/tex/generic/context
+%{texmf}/bibtex/bst/context
 
 # no fmt, so commented out
 #%files format-context-cz
@@ -5182,22 +5210,15 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/SIunits
 %{texmf}/tex/latex/a4wide
 %{texmf}/tex/latex/abstract
-%doc %{texmf}/doc/latex/abstract
 %{texmf}/tex/latex/acronym
 %{texmf}/tex/latex/adrconv
 %{texmf}/tex/latex/aeguill
 %{texmf}/tex/latex/anysize
 %{texmf}/tex/latex/appendix
-%doc %{texmf}/doc/latex/appendix
 %{texmf}/tex/latex/bar/
-%doc %{texmf}/doc/latex/bar/
 %{texmf}/tex/latex/base
 %{texmf}/tex/latex/beton/
 %{texmf}/tex/latex/bezos/
-%doc %{texmf}/doc/latex/bezos/
-%{texmf}/tex/latex/bibunits/
-%doc %{texmf}/doc/latex/bibunits/
-%{texmf}/tex/latex/bibtopic/
 %{texmf}/tex/latex/bold-extra/
 %{texmf}/tex/latex/booktabs/
 %{texmf}/tex/latex/boxedminipage/
@@ -5222,15 +5243,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/dvilj
 %{texmf}/tex/latex/dvipdfm/
 %{texmf}/tex/latex/eclbip/
-%doc %{texmf}/doc/latex/eclbip/
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
 %{texmf}/tex/latex/endnotes/
 %{texmf}/tex/latex/enumitem/
 %{texmf}/tex/latex/eo/
-%doc %{texmf}/doc/latex/eo/
 %{texmf}/tex/latex/eso-pic/
-%doc %{texmf}/doc/latex/eso-pic/
 %{texmf}/tex/latex/etex/
 %{texmf}/tex/latex/euler/
 %{texmf}/tex/latex/eulervm/
@@ -5240,24 +5258,19 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/extsizes
 %{texmf}/tex/latex/fancybox/
 %{texmf}/tex/latex/fancyhdr/
-%doc %{texmf}/doc/latex/fancyhdr/
 %{texmf}/tex/latex/fancyheadings/
 %{texmf}/tex/latex/fancyvrb/
-%doc %{texmf}/doc/latex/fancyvrb/
 %{texmf}/tex/latex/fguill/
 %{texmf}/tex/latex/filecontents/
 %{texmf}/tex/latex/float/
 %{texmf}/tex/latex/floatflt/
-%doc %{texmf}/doc/latex/floatflt/
 %{texmf}/tex/latex/fnpara/
 %{texmf}/tex/latex/fontinst/
-%{texmf}/tex/latex/footbib/
 %{texmf}/tex/latex/footmisc/
 %{texmf}/tex/latex/footnpag/
 %{texmf}/tex/latex/fp
 %{texmf}/tex/latex/framed/
 %{texmf}/tex/latex/g-brief/
-%doc %{texmf}/doc/latex/g-brief/
 %{texmf}/tex/latex/geometry/
 %{texmf}/tex/latex/germbib/
 %{texmf}/tex/latex/gletter/
@@ -5275,23 +5288,17 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/layouts/
 %{texmf}/tex/latex/leftidx/
 %{texmf}/tex/latex/lettrine/
-%doc %{texmf}/doc/latex/lettrine/
 %{texmf}/tex/latex/listings/
 %{texmf}/tex/latex/ltabptch/
 %{texmf}/tex/latex/mathcomp/
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
-%doc %{texmf}/doc/latex/memoir/
 %{texmf}/tex/latex/mh
-%doc %{texmf}/doc/latex/mh
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
-%doc %{texmf}/doc/latex/mparhack/
 %{texmf}/tex/latex/ms
 %{texmf}/tex/latex/mt11p/
-%doc %{texmf}/doc/latex/mt11p/
 %{texmf}/tex/latex/multibib/
-%doc %{texmf}/doc/latex/multibib/
 %{texmf}/tex/latex/multibox/
 %{texmf}/tex/latex/multind/
 %{texmf}/tex/latex/multirow
@@ -5311,15 +5318,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/picinpar/
 %{texmf}/tex/latex/picins/
 %{texmf}/tex/latex/pict2e/
-%doc %{texmf}/doc/latex/pict2e/
 %{texmf}/tex/latex/placeins/
 %{texmf}/tex/latex/portland/
 %{texmf}/tex/latex/preprint
 %{texmf}/tex/latex/preview/
-%doc %{texmf}/doc/latex/preview/
 %{texmf}/tex/latex/program/
 %{texmf}/tex/latex/ps4pdf/
-%doc %{texmf}/doc/latex/ps4pdf/
 %{texmf}/tex/latex/psboxit/
 %{texmf}/tex/latex/psfrag/
 %{texmf}/tex/latex/pslatex/
@@ -5335,7 +5339,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/setspace/
 %{texmf}/tex/latex/shadow/
 %{texmf}/tex/latex/shapepar/
-%doc %{texmf}/doc/latex/shapepar/
 %{texmf}/tex/latex/showdim/
 %{texmf}/tex/latex/showlabels/
 %{texmf}/tex/latex/showtags/
@@ -5345,7 +5348,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/stdclsdv/
 %{texmf}/tex/latex/stmaryrd/
 %{texmf}/tex/latex/subfig/
-%doc %{texmf}/doc/latex/subfig/
 %{texmf}/tex/latex/subfigure/
 %{texmf}/tex/latex/supertabular/
 %{texmf}/tex/latex/t2
@@ -5354,14 +5356,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/textfit/
 %{texmf}/tex/latex/textmerg
 %{texmf}/tex/latex/textpos/
-%doc %{texmf}/doc/latex/textpos/
 %{texmf}/tex/latex/threeparttable/
 %{texmf}/tex/latex/titlesec
 %{texmf}/tex/latex/tocbibind/
 %{texmf}/tex/latex/tocloft/
 %{texmf}/tex/latex/tools
 %{texmf}/tex/latex/totpages/
-%doc %{texmf}/doc/latex/totpages/
 %{texmf}/tex/latex/treesvr/
 %{texmf}/tex/latex/type1cm/
 %{texmf}/tex/latex/ulem/
@@ -5371,9 +5371,7 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/vmargin/
 %{texmf}/tex/latex/vpage/
 %{texmf}/tex/latex/was/
-%doc %{texmf}/doc/latex/was/
 %{texmf}/tex/latex/wrapfig/
-%doc %{texmf}/doc/latex/wrapfig/
 %{texmf}/tex/latex/xkeyval/
 %{texmf}/tex/latex/xtab/
 %{texmf}/tex/latex/yfonts/
@@ -5393,9 +5391,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/amscls
 %doc %{texmf}/doc/latex/amsmath
 %doc %{texmf}/doc/latex/amsfonts
+%doc %{texmf}/doc/latex/onlyamsmath/
 %{texmf}/tex/latex/amscls
 %{texmf}/tex/latex/amsmath
 %{texmf}/tex/latex/amsfonts
+%{texmf}/tex/latex/onlyamsmath/
 
 %files latex-antp
 %defattr(644,root,root,755)
@@ -5418,6 +5418,10 @@ rm -rf $RPM_BUILD_ROOT
 %files latex-bibtex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/bibtex/base
+%doc %{texmf}/bibtex/bib/README
+%doc %{texmf}/doc/latex/bibtopic
+%doc %{texmf}/doc/latex/bibunits/
+%doc %{texmf}/doc/latex/footbib
 %dir %{texmf}/doc/bibtex
 %dir %{texmf}/bibtex
 %dir %{texmf}/bibtex/bib
@@ -5426,12 +5430,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/bibtex
 %attr(755,root,root) %{_bindir}/rubibtex
 
-
 %{texmf}/bibtex/bib/base
 %{texmf}/bibtex/bst/adrconv
 %{texmf}/bibtex/bst/base
 %{texmf}/bibtex/bst/misc
 %{texmf}/bibtex/bst/natbib
+%{texmf}/tex/latex/bibtopic
+%{texmf}/tex/latex/bibunits/
+%{texmf}/tex/latex/footbib/
 
 %{_mandir}/man1/bibtex.1*
 %{_mandir}/man1/rubibtex.1*
@@ -5461,13 +5467,9 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/bibtex/bst/jurabib
 %{texmf}/tex/latex/jurabib
 
-# latex or context ?
-#%files latex-bibtex-context
-#%defattr(644,root,root,755)
-#%{texmf}/bibtex/bst/context
-
 %files latex-bibtex-dk
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/latex/dk-bib/
 %{texmf}/bibtex/bst/dk-bib
 %{texmf}/tex/latex/dk-bib
 
@@ -5683,6 +5685,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files tex-german
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/german
 %{texmf}/tex/generic/german
 
 %files tex-mfpic
@@ -5692,9 +5695,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files tex-misc
 %defattr(644,root,root,755)
-#%doc %{texmf}/doc/generic/poligraf
 %doc %{texmf}/doc/generic/localloc
-#%doc %{texmf}/doc/generic/cmyk-hax
 %doc %{texmf}/doc/generic/multido
 %doc %{texmf}/doc/generic/tap
 
@@ -5729,6 +5730,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files tex-spanish
 %defattr(644,root,root,755)
+%doc %{texmf}/doc/generic/spanish
 %{texmf}/tex/generic/spanishb
 
 %files tex-texdraw
@@ -6135,6 +6137,7 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-type1-fpl
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/fpl
+%{texmf}/fonts/afm/public/fpl
 %{texmf}/fonts/type1/public/fpl
 
 %files fonts-type1-lm
