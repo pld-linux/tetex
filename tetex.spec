@@ -3122,7 +3122,7 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 	$RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT/var/cache/fonts \
 	$RPM_BUILD_ROOT/etc/cron.daily\
-	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/
+	$RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap
 
 # commented out because of following (non-fatal) error:
 # Can't open texmf/web2c/texmf.cnf: No such file or directory.
@@ -3148,7 +3148,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	texmfsysvar=$RPM_BUILD_ROOT%{_localstatedir} \
 	texmfsysconfig=$RPM_BUILD_ROOT%{_sysconfdir}
 
-#install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}/
+#install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}
 #touch $RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/maps.lst
 
 #%{__make} init \
@@ -3200,7 +3200,7 @@ rm -f $RPM_BUILD_ROOT%{texmf}/scripts/pdfcrop/pdfcrop.pl
 # move format logs to BUILD, so $RPM_BUILD_ROOT is not polluted
 # and we can still analyze them
 install -d format-logs
-mv -fv $RPM_BUILD_ROOT%{fmtdir}/*.log format-logs/
+mv -fv $RPM_BUILD_ROOT%{fmtdir}/*.log format-logs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -4562,17 +4562,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{texmf}/doc/latex/abstract
 %{texmf}/doc/latex/acronym
-%{texmf}/doc/latex/adrconv/
+%{texmf}/doc/latex/adrconv
 %{texmf}/doc/latex/aeguill
 %{texmf}/doc/latex/anysize
 %{texmf}/doc/latex/appendix
-%{texmf}/doc/latex/bar/
+%{texmf}/doc/latex/bar
 %{texmf}/doc/latex/base
-%{texmf}/doc/latex/beton/
-%{texmf}/doc/latex/bezos/
+%{texmf}/doc/latex/beton
+%{texmf}/doc/latex/bezos
 %{texmf}/doc/latex/booktabs
 %{texmf}/doc/latex/caption
-%{texmf}/doc/latex/carlisle/
+%{texmf}/doc/latex/carlisle
 %{texmf}/doc/latex/ccaption
 %{texmf}/doc/latex/changebar
 %{texmf}/doc/latex/chappg
@@ -4583,30 +4583,30 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/curves
 %{texmf}/doc/latex/dinbrief
 %{texmf}/doc/latex/draftcopy
-%{texmf}/doc/latex/eclbip/
+%{texmf}/doc/latex/eclbip
 %{texmf}/doc/latex/eepic
 %{texmf}/doc/latex/endfloat
 %{texmf}/doc/latex/enumitem
-%{texmf}/doc/latex/eo/
-%{texmf}/doc/latex/esint/
-%{texmf}/doc/latex/eso-pic/
+%{texmf}/doc/latex/eo
+%{texmf}/doc/latex/esint
+%{texmf}/doc/latex/eso-pic
 %{texmf}/doc/latex/euler
 %{texmf}/doc/latex/eulervm
 %{texmf}/doc/latex/exam
 %{texmf}/doc/latex/extsizes
 %{texmf}/doc/latex/fancybox
-%{texmf}/doc/latex/fancyhdr/
-%{texmf}/doc/latex/fancyvrb/
-%{texmf}/doc/latex/filecontents/
+%{texmf}/doc/latex/fancyhdr
+%{texmf}/doc/latex/fancyvrb
+%{texmf}/doc/latex/filecontents
 %{texmf}/doc/latex/float
-%{texmf}/doc/latex/floatflt/
+%{texmf}/doc/latex/floatflt
 %{texmf}/doc/latex/footmisc
 %{texmf}/doc/latex/footnpag
 %{texmf}/doc/latex/fp
-%{texmf}/doc/latex/g-brief/
+%{texmf}/doc/latex/g-brief
 %{texmf}/doc/latex/general
 %{texmf}/doc/latex/geometry
-%{texmf}/doc/latex/germbib/
+%{texmf}/doc/latex/germbib
 %{texmf}/doc/latex/graphics
 %{texmf}/doc/latex/hyperref
 %{texmf}/doc/latex/hyphenat
@@ -4617,18 +4617,18 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/lastpage
 %{texmf}/doc/latex/layouts
 %{texmf}/doc/latex/leftidx
-%{texmf}/doc/latex/lettrine/
+%{texmf}/doc/latex/lettrine
 %{texmf}/doc/latex/listings
-%{texmf}/doc/latex/ltabptch/
+%{texmf}/doc/latex/ltabptch
 %{texmf}/doc/latex/mathcomp
 %{texmf}/doc/latex/mdwtools
-%{texmf}/doc/latex/memoir/
+%{texmf}/doc/latex/memoir
 %{texmf}/doc/latex/mh
 %{texmf}/doc/latex/moreverb
-%{texmf}/doc/latex/mparhack/
+%{texmf}/doc/latex/mparhack
 %{texmf}/doc/latex/ms
-%{texmf}/doc/latex/mt11p/
-%{texmf}/doc/latex/multibib/
+%{texmf}/doc/latex/mt11p
+%{texmf}/doc/latex/multibib
 %{texmf}/doc/latex/mwcls
 %{texmf}/doc/latex/natbib
 %{texmf}/doc/latex/nomencl
@@ -4641,12 +4641,12 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/pdfpages
 %{texmf}/doc/latex/picinpar
 %{texmf}/doc/latex/picins
-%{texmf}/doc/latex/pict2e/
+%{texmf}/doc/latex/pict2e
 %{texmf}/doc/latex/placeins
 %{texmf}/doc/latex/preprint
-%{texmf}/doc/latex/preview/
+%{texmf}/doc/latex/preview
 %{texmf}/doc/latex/program
-%{texmf}/doc/latex/ps4pdf/
+%{texmf}/doc/latex/ps4pdf
 %{texmf}/doc/latex/psfrag
 %{texmf}/doc/latex/pslatex
 %{texmf}/doc/latex/revtex4
@@ -4655,31 +4655,31 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/doc/latex/scale
 %{texmf}/doc/latex/sectsty
 %{texmf}/doc/latex/seminar
-%{texmf}/doc/latex/shapepar/
+%{texmf}/doc/latex/shapepar
 %{texmf}/doc/latex/showlabels
 %{texmf}/doc/latex/sidecap
 %{texmf}/doc/latex/SIunits
 %{texmf}/doc/latex/slashbox
 %{texmf}/doc/latex/soul
 %{texmf}/doc/latex/stdclsdv
-%{texmf}/doc/latex/subfig/
+%{texmf}/doc/latex/subfig
 %{texmf}/doc/latex/subfigure
 %{texmf}/doc/latex/supertab
 %{texmf}/doc/latex/tex-refs
 %{texmf}/doc/latex/textfit
 %{texmf}/doc/latex/textmerg
-%{texmf}/doc/latex/textpos/
+%{texmf}/doc/latex/textpos
 %{texmf}/doc/latex/titlesec
 %{texmf}/doc/latex/tocbibind
 %{texmf}/doc/latex/tocloft
 %{texmf}/doc/latex/tools
-%{texmf}/doc/latex/totpages/
+%{texmf}/doc/latex/totpages
 %{texmf}/doc/latex/treesvr
 %{texmf}/doc/latex/type1cm
 %{texmf}/doc/latex/units
 %{texmf}/doc/latex/vmargin
-%{texmf}/doc/latex/was/
-%{texmf}/doc/latex/wrapfig/
+%{texmf}/doc/latex/was
+%{texmf}/doc/latex/wrapfig
 %{texmf}/doc/latex/xtab
 %{texmf}/doc/latex/yfonts
 
@@ -4890,7 +4890,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfxtex
 %attr(755,root,root) %{_bindir}/pdfcrop
 %config(noreplace) %verify(not size md5 mtime) %{texmf}/tex/generic/config/pdftexconfig.tex
-%{_localstatedir}/fonts/map/pdftex/
+%{_localstatedir}/fonts/map/pdftex
 %{texmf}/fonts/map/pdftex/cmttf/cmttf.map
 %{texmf}/web2c/pdfetex-pl.pool
 %{texmf}/web2c/pdfetex.pool
@@ -5064,7 +5064,7 @@ rm -rf $RPM_BUILD_ROOT
 %files cyrplain
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/cyrplain
-%{texmf}/tex/cyrplain/
+%{texmf}/tex/cyrplain
 
 %files format-cyrplain
 %defattr(644,root,root,755)
@@ -5118,7 +5118,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/texshow.1*
 %{texmf}/context/config/texexec.ini
 %{texmf}/context/config/texexec.rme
-%{texmf}/context/data/
+%{texmf}/context/data
 %{texmf}/fonts/enc/dvips/context
 %{texmf}/fonts/map/dvips/context
 %{texmf}/metapost/context
@@ -5192,168 +5192,168 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/tex/latex/aeguill
 %{texmf}/tex/latex/anysize
 %{texmf}/tex/latex/appendix
-%{texmf}/tex/latex/bar/
+%{texmf}/tex/latex/bar
 %{texmf}/tex/latex/base
-%{texmf}/tex/latex/beton/
-%{texmf}/tex/latex/bezos/
-%{texmf}/tex/latex/bold-extra/
-%{texmf}/tex/latex/booktabs/
-%{texmf}/tex/latex/boxedminipage/
-%{texmf}/tex/latex/calrsfs/
-%{texmf}/tex/latex/cancel/
-%{texmf}/tex/latex/capt-of/
+%{texmf}/tex/latex/beton
+%{texmf}/tex/latex/bezos
+%{texmf}/tex/latex/bold-extra
+%{texmf}/tex/latex/booktabs
+%{texmf}/tex/latex/boxedminipage
+%{texmf}/tex/latex/calrsfs
+%{texmf}/tex/latex/cancel
+%{texmf}/tex/latex/capt-of
 %{texmf}/tex/latex/caption
-%{texmf}/tex/latex/ccaption/
-%{texmf}/tex/latex/changebar/
-%{texmf}/tex/latex/chappg/
-%{texmf}/tex/latex/chngpage/
-%{texmf}/tex/latex/citesort/
-%{texmf}/tex/latex/cmap/
-%{texmf}/tex/latex/comment/
-%{texmf}/tex/latex/concrete/
+%{texmf}/tex/latex/ccaption
+%{texmf}/tex/latex/changebar
+%{texmf}/tex/latex/chappg
+%{texmf}/tex/latex/chngpage
+%{texmf}/tex/latex/citesort
+%{texmf}/tex/latex/cmap
+%{texmf}/tex/latex/comment
+%{texmf}/tex/latex/concrete
 %{texmf}/tex/latex/config
-%{texmf}/tex/latex/crop/
-%{texmf}/tex/latex/currvita/
+%{texmf}/tex/latex/crop
+%{texmf}/tex/latex/currvita
 %{texmf}/tex/latex/curves
 %{texmf}/tex/latex/dinbrief
-%{texmf}/tex/latex/draftcopy/
+%{texmf}/tex/latex/draftcopy
 %{texmf}/tex/latex/dvilj
-%{texmf}/tex/latex/dvipdfm/
-%{texmf}/tex/latex/eclbip/
+%{texmf}/tex/latex/dvipdfm
+%{texmf}/tex/latex/eclbip
 %{texmf}/tex/latex/eepic
 %{texmf}/tex/latex/endfloat
-%{texmf}/tex/latex/endnotes/
-%{texmf}/tex/latex/enumitem/
-%{texmf}/tex/latex/eo/
-%{texmf}/tex/latex/eso-pic/
-%{texmf}/tex/latex/etex/
-%{texmf}/tex/latex/esint/
-%{texmf}/tex/latex/euler/
-%{texmf}/tex/latex/eulervm/
-%{texmf}/tex/latex/eurosym/
-%{texmf}/tex/latex/exam/
-%{texmf}/tex/latex/example/
+%{texmf}/tex/latex/endnotes
+%{texmf}/tex/latex/enumitem
+%{texmf}/tex/latex/eo
+%{texmf}/tex/latex/eso-pic
+%{texmf}/tex/latex/etex
+%{texmf}/tex/latex/esint
+%{texmf}/tex/latex/euler
+%{texmf}/tex/latex/eulervm
+%{texmf}/tex/latex/eurosym
+%{texmf}/tex/latex/exam
+%{texmf}/tex/latex/example
 %{texmf}/tex/latex/extsizes
-%{texmf}/tex/latex/fancybox/
-%{texmf}/tex/latex/fancyhdr/
-%{texmf}/tex/latex/fancyheadings/
-%{texmf}/tex/latex/fancyvrb/
-%{texmf}/tex/latex/fguill/
-%{texmf}/tex/latex/filecontents/
-%{texmf}/tex/latex/float/
-%{texmf}/tex/latex/floatflt/
-%{texmf}/tex/latex/fnpara/
-%{texmf}/tex/latex/fontinst/
-%{texmf}/tex/latex/footmisc/
-%{texmf}/tex/latex/footnpag/
+%{texmf}/tex/latex/fancybox
+%{texmf}/tex/latex/fancyhdr
+%{texmf}/tex/latex/fancyheadings
+%{texmf}/tex/latex/fancyvrb
+%{texmf}/tex/latex/fguill
+%{texmf}/tex/latex/filecontents
+%{texmf}/tex/latex/float
+%{texmf}/tex/latex/floatflt
+%{texmf}/tex/latex/fnpara
+%{texmf}/tex/latex/fontinst
+%{texmf}/tex/latex/footmisc
+%{texmf}/tex/latex/footnpag
 %{texmf}/tex/latex/fp
-%{texmf}/tex/latex/framed/
-%{texmf}/tex/latex/g-brief/
-%{texmf}/tex/latex/geometry/
-%{texmf}/tex/latex/germbib/
-%{texmf}/tex/latex/gletter/
-%{texmf}/tex/latex/graphics/
-%{texmf}/tex/latex/greek/
-%{texmf}/tex/latex/hangcaption/
-%{texmf}/tex/latex/here/
+%{texmf}/tex/latex/framed
+%{texmf}/tex/latex/g-brief
+%{texmf}/tex/latex/geometry
+%{texmf}/tex/latex/germbib
+%{texmf}/tex/latex/gletter
+%{texmf}/tex/latex/graphics
+%{texmf}/tex/latex/greek
+%{texmf}/tex/latex/hangcaption
+%{texmf}/tex/latex/here
 %{texmf}/tex/latex/hyperref
-%{texmf}/tex/latex/hyphenat/
-%{texmf}/tex/latex/import/
-%{texmf}/tex/latex/index/
+%{texmf}/tex/latex/hyphenat
+%{texmf}/tex/latex/import
+%{texmf}/tex/latex/index
 %{texmf}/tex/latex/koma-script
 %{texmf}/tex/latex/labels
-%{texmf}/tex/latex/lastpage/
-%{texmf}/tex/latex/layouts/
-%{texmf}/tex/latex/leftidx/
-%{texmf}/tex/latex/lettrine/
-%{texmf}/tex/latex/listings/
-%{texmf}/tex/latex/ltabptch/
-%{texmf}/tex/latex/mathcomp/
+%{texmf}/tex/latex/lastpage
+%{texmf}/tex/latex/layouts
+%{texmf}/tex/latex/leftidx
+%{texmf}/tex/latex/lettrine
+%{texmf}/tex/latex/listings
+%{texmf}/tex/latex/ltabptch
+%{texmf}/tex/latex/mathcomp
 %{texmf}/tex/latex/mdwtools
 %{texmf}/tex/latex/memoir
 %{texmf}/tex/latex/mh
 %{texmf}/tex/latex/moreverb
 %{texmf}/tex/latex/mparhack
 %{texmf}/tex/latex/ms
-%{texmf}/tex/latex/mt11p/
-%{texmf}/tex/latex/multibib/
-%{texmf}/tex/latex/multibox/
-%{texmf}/tex/latex/multind/
+%{texmf}/tex/latex/mt11p
+%{texmf}/tex/latex/multibib
+%{texmf}/tex/latex/multibox
+%{texmf}/tex/latex/multind
 %{texmf}/tex/latex/multirow
 %{texmf}/tex/latex/mwcls
 %{texmf}/tex/latex/natbib
-%{texmf}/tex/latex/nextpage/
-%{texmf}/tex/latex/ntheorem/
-%{texmf}/tex/latex/nomencl/
+%{texmf}/tex/latex/nextpage
+%{texmf}/tex/latex/ntheorem
+%{texmf}/tex/latex/nomencl
 %{texmf}/tex/latex/ntgclass
 %{texmf}/tex/latex/oberdiek
-%{texmf}/tex/latex/optional/
-%{texmf}/tex/latex/overpic/
-%{texmf}/tex/latex/paralist/
-%{texmf}/tex/latex/parskip/
+%{texmf}/tex/latex/optional
+%{texmf}/tex/latex/overpic
+%{texmf}/tex/latex/paralist
+%{texmf}/tex/latex/parskip
 %{texmf}/tex/latex/pb-diagram
-%{texmf}/tex/latex/pdfpages/
-%{texmf}/tex/latex/picinpar/
-%{texmf}/tex/latex/picins/
-%{texmf}/tex/latex/pict2e/
-%{texmf}/tex/latex/placeins/
-%{texmf}/tex/latex/portland/
+%{texmf}/tex/latex/pdfpages
+%{texmf}/tex/latex/picinpar
+%{texmf}/tex/latex/picins
+%{texmf}/tex/latex/pict2e
+%{texmf}/tex/latex/placeins
+%{texmf}/tex/latex/portland
 %{texmf}/tex/latex/preprint
-%{texmf}/tex/latex/preview/
-%{texmf}/tex/latex/program/
-%{texmf}/tex/latex/ps4pdf/
-%{texmf}/tex/latex/psboxit/
-%{texmf}/tex/latex/psfrag/
-%{texmf}/tex/latex/pslatex/
+%{texmf}/tex/latex/preview
+%{texmf}/tex/latex/program
+%{texmf}/tex/latex/ps4pdf
+%{texmf}/tex/latex/psboxit
+%{texmf}/tex/latex/psfrag
+%{texmf}/tex/latex/pslatex
 %{texmf}/tex/latex/pstricks
-%{texmf}/tex/latex/relsize/
+%{texmf}/tex/latex/relsize
 %{texmf}/tex/latex/revtex4
-%{texmf}/tex/latex/rotating/
-%{texmf}/tex/latex/rotfloat/
-%{texmf}/tex/latex/scale/
-%{texmf}/tex/latex/sectsty/
-%{texmf}/tex/latex/selectp/
+%{texmf}/tex/latex/rotating
+%{texmf}/tex/latex/rotfloat
+%{texmf}/tex/latex/scale
+%{texmf}/tex/latex/sectsty
+%{texmf}/tex/latex/selectp
 %{texmf}/tex/latex/seminar
-%{texmf}/tex/latex/setspace/
-%{texmf}/tex/latex/shadow/
-%{texmf}/tex/latex/shapepar/
-%{texmf}/tex/latex/showdim/
-%{texmf}/tex/latex/showlabels/
-%{texmf}/tex/latex/showtags/
-%{texmf}/tex/latex/sidecap/
-%{texmf}/tex/latex/slashbox/
-%{texmf}/tex/latex/soul/
-%{texmf}/tex/latex/stdclsdv/
-%{texmf}/tex/latex/stmaryrd/
-%{texmf}/tex/latex/subfig/
-%{texmf}/tex/latex/subfigure/
-%{texmf}/tex/latex/supertabular/
+%{texmf}/tex/latex/setspace
+%{texmf}/tex/latex/shadow
+%{texmf}/tex/latex/shapepar
+%{texmf}/tex/latex/showdim
+%{texmf}/tex/latex/showlabels
+%{texmf}/tex/latex/showtags
+%{texmf}/tex/latex/sidecap
+%{texmf}/tex/latex/slashbox
+%{texmf}/tex/latex/soul
+%{texmf}/tex/latex/stdclsdv
+%{texmf}/tex/latex/stmaryrd
+%{texmf}/tex/latex/subfig
+%{texmf}/tex/latex/subfigure
+%{texmf}/tex/latex/supertabular
 %{texmf}/tex/latex/t2
-%{texmf}/tex/latex/tabls/
+%{texmf}/tex/latex/tabls
 %{texmf}/tex/latex/texmacs
-%{texmf}/tex/latex/textfit/
+%{texmf}/tex/latex/textfit
 %{texmf}/tex/latex/textmerg
-%{texmf}/tex/latex/textpos/
-%{texmf}/tex/latex/threeparttable/
+%{texmf}/tex/latex/textpos
+%{texmf}/tex/latex/threeparttable
 %{texmf}/tex/latex/titlesec
-%{texmf}/tex/latex/tocbibind/
-%{texmf}/tex/latex/tocloft/
+%{texmf}/tex/latex/tocbibind
+%{texmf}/tex/latex/tocloft
 %{texmf}/tex/latex/tools
-%{texmf}/tex/latex/totpages/
-%{texmf}/tex/latex/treesvr/
-%{texmf}/tex/latex/type1cm/
-%{texmf}/tex/latex/ulem/
+%{texmf}/tex/latex/totpages
+%{texmf}/tex/latex/treesvr
+%{texmf}/tex/latex/type1cm
+%{texmf}/tex/latex/ulem
 %{texmf}/tex/latex/units
-%{texmf}/tex/latex/upquote/
-%{texmf}/tex/latex/url/
-%{texmf}/tex/latex/vmargin/
-%{texmf}/tex/latex/vpage/
-%{texmf}/tex/latex/was/
-%{texmf}/tex/latex/wrapfig/
-%{texmf}/tex/latex/xkeyval/
-%{texmf}/tex/latex/xtab/
-%{texmf}/tex/latex/yfonts/
-%{texmf}/tex/latex/version/
+%{texmf}/tex/latex/upquote
+%{texmf}/tex/latex/url
+%{texmf}/tex/latex/vmargin
+%{texmf}/tex/latex/vpage
+%{texmf}/tex/latex/was
+%{texmf}/tex/latex/wrapfig
+%{texmf}/tex/latex/xkeyval
+%{texmf}/tex/latex/xtab
+%{texmf}/tex/latex/yfonts
+%{texmf}/tex/latex/version
 
 %files latex-algorithms
 %defattr(644,root,root,755)
@@ -5369,11 +5369,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/latex/amscls
 %doc %{texmf}/doc/latex/amsmath
 %doc %{texmf}/doc/latex/amsfonts
-%doc %{texmf}/doc/latex/onlyamsmath/
+%doc %{texmf}/doc/latex/onlyamsmath
 %{texmf}/tex/latex/amscls
 %{texmf}/tex/latex/amsmath
 %{texmf}/tex/latex/amsfonts
-%{texmf}/tex/latex/onlyamsmath/
+%{texmf}/tex/latex/onlyamsmath
 
 %files latex-antp
 %defattr(644,root,root,755)
@@ -5398,7 +5398,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{texmf}/doc/bibtex/base
 %doc %{texmf}/bibtex/bib/README
 %doc %{texmf}/doc/latex/bibtopic
-%doc %{texmf}/doc/latex/bibunits/
+%doc %{texmf}/doc/latex/bibunits
 %doc %{texmf}/doc/latex/footbib
 %dir %{texmf}/doc/bibtex
 %dir %{texmf}/bibtex
@@ -5414,8 +5414,8 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/bibtex/bst/misc
 %{texmf}/bibtex/bst/natbib
 %{texmf}/tex/latex/bibtopic
-%{texmf}/tex/latex/bibunits/
-%{texmf}/tex/latex/footbib/
+%{texmf}/tex/latex/bibunits
+%{texmf}/tex/latex/footbib
 
 %{_mandir}/man1/bibtex.1*
 %{_mandir}/man1/rubibtex.1*
@@ -5447,7 +5447,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files latex-bibtex-dk
 %defattr(644,root,root,755)
-%doc %{texmf}/doc/latex/dk-bib/
+%doc %{texmf}/doc/latex/dk-bib
 %{texmf}/bibtex/bst/dk-bib
 %{texmf}/tex/latex/dk-bib
 
@@ -5979,9 +5979,9 @@ rm -rf $RPM_BUILD_ROOT
 %files fonts-qfonts
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/polish/qfonts
-%{texmf}/fonts/enc/dvips/qfonts/
-%{texmf}/fonts/map/dvips/qfonts/
-%{texmf}/dvips/qfonts/
+%{texmf}/fonts/enc/dvips/qfonts
+%{texmf}/fonts/map/dvips/qfonts
+%{texmf}/dvips/qfonts
 %{texmf}/fonts/afm/public/qfonts
 %{texmf}/fonts/tfm/public/qfonts
 
