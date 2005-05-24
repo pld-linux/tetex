@@ -1,7 +1,6 @@
 #
 # TODO:
 # - move config files to /etc
-# - obsoletes
 #
 # not so painful todo:
 # - context: consider more splitting, check dependencies
@@ -76,14 +75,29 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	tmpwatch
 Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
+Obsoletes:	tetex-doc-latex2e-html
 Obsoletes:	tetex-fontinst
 Obsoletes:	tetex-fontname
 Obsoletes:	tetex-fonts
+Obsoletes:	tetex-fonts-pandora
+Obsoletes:	tetex-fonts-vcm
+Obsoletes:	tetex-format-elatex
+Obsoletes:	tetex-format-pdfelatex
+Obsoletes:	tetex-format-pdfemex
+Obsoletes:	tetex-latex-vnps
+Obsoletes:	tetex-latex-vnr
+Obsoletes:	tetex-oxdvi
+Obsoletes:	tetex-oxdvi
+Obsoletes:	tetex-plain-dvips
+Obsoletes:	tetex-plain-dvips
+Obsoletes:	tetex-plain-mathtime
 Obsoletes:	tetex-plain-mathtime
 Obsoletes:	tetex-plain-misc
+Obsoletes:	tetex-plain-misc
+Obsoletes:	tetex-plain-plnfss
 Obsoletes:	tetex-plain-plnfss
 Obsoletes:	tetex-tex-hyphen
-Obsoletes:	tetex-plain-dvips
+Obsoletes:	tetex-tex-vietnam
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
