@@ -2,7 +2,6 @@
 # TODO:
 # - move config files to /etc
 # - obsoletes
-# - remove empty packages
 #
 # not so painful todo:
 # - context: consider more splitting, check dependencies
@@ -478,18 +477,6 @@ plików DVI, produkowanych przez TeXa i LaTeXa.
 xdvi é um programa que roda no sistema X Window. É usado para
 visualizar arquivos dvi, como os produzidos por tex e latex.
 
-%package oxdvi
-Summary:	xdvi viewer for Omega
-Summary(pl):	Przegl±darka xdvi dla Omegi
-Group:		Applications/Publishing/TeX
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-
-%description oxdvi
-xdvi viewer for Omega - extended unicode TeX.
-
-%description oxdvi -l pl
-Przegl±darka xdvi dla Omegi - TeXa ze wsparciem dla unikodu.
-
 %package pdftex
 Summary:	TeX generating PDF files instead DVI
 Summary(pl):	TeX generuj±cy pliki PDF zamiast DVI
@@ -626,20 +613,6 @@ PDFMeX Plain Format.
 
 %description format-pdfmex -l pl
 Format PDFMeX Plain.
-
-%package format-pdfemex
-Summary:	PDFMeX EPlain Format
-Summary(pl):	Format PDFMeX EPlain
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
-Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
-
-%description format-pdfemex
-PDFMeX EPlain Format.
-
-%description format-pdfemex -l pl
-Format PDFMeX EPlain.
 
 %package format-utf8mex
 Summary:	MeX Plain Format with UTF-8 encoded source files
@@ -1702,20 +1675,6 @@ daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
 
 Ten pakiet zawiera format LaTeX.
 
-%package format-elatex
-Summary:	ELaTeX macro package
-Summary(pl):	Pakiet makr ELaTeX
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-eplain = %{epoch}:%{version}-%{release}
-Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-
-%description format-elatex
-ELaTeX macro package.
-
-%description format-elatex -l pl
-Pakiet makr ELaTeX.
-
 %package format-pdflatex
 Summary:	PDF LaTeX macro package
 Summary(pl):	Pakiet makr PDF LaTeX
@@ -1738,28 +1697,6 @@ LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
 daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
 
 Ten pakiet zawiera format PDF LaTeX.
-
-%package format-pdfelatex
-Summary:	PDF ELaTeX macro package
-Summary(pl):	Pakiet makr PDF ELaTeX
-Group:		Applications/Publishing/TeX
-Requires(post,postun):	/usr/bin/texhash
-Requires:	%{name}-format-pdfetex = %{epoch}:%{version}-%{release}
-Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-
-%description format-pdfelatex
-LaTeX is a front end for the TeX text formatting system. Easier to use
-than TeX, LaTeX is essentially a set of TeX macros which provide
-convenient, predefined document formats for users.
-
-This package contains PDF ELaTeX format.
-
-%description format-pdfelatex -l pl
-LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
-³atwiejszy w u¿yciu ni¿ TeX. Jest w³a¶ciwie zestawem makr TeXowych,
-daj±cych u¿ytkownikom wygodne, predefiniowane formaty dokumentów.
-
-Ten pakiet zawiera format PDF ELaTeX.
 
 # PLaTeX format
 
@@ -2522,18 +2459,6 @@ Fonts for Omega - extended unicode TeX.
 %description fonts-omega -l pl
 Fonty dla Omegi - TeXa ze wsparciem dla unikodu.
 
-%package fonts-pandora
-Summary:	The Pandora font family
-Summary(pl):	Rodzina fontów Pandora
-Group:		Fonts
-Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
-
-%description fonts-pandora
-The Pandora font family.
-
-%description fonts-pandora -l pl
-Rodzina fontów Pandora.
-
 %package fonts-pazo
 Summary:	Pazo fonts
 Summary(pl):	Fonty Pazo
@@ -2673,18 +2598,6 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 %description fonts-urwvn
 URWVN fonts.
 
-%package fonts-vcm
-Summary:	VCM fonts
-Summary(pl):	Fonty VCM
-Group:		Fonts
-Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
-
-%description fonts-vcm
-VCM fonts.
-
-%description fonts-vcm -l pl
-Fonty VCM.
-
 %package fonts-vnr
 Summary:	VNR fonts
 Summary(pl):	Fonty VNR
@@ -2732,18 +2645,6 @@ European Modern fonts from Y&Y.
 
 %description fonts-yandy -l pl
 Fonty European Modern od Y&Y.
-
-%package fonts-type1-adobe
-Summary:	Adobe Type1 fonts
-Summary(pl):	Fonty Type1 Adobe
-Group:		Fonts
-Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
-
-%description fonts-type1-adobe
-Adobe Type1 fonts.
-
-%description fonts-type1-adobe -l pl
-Fonty Type1 Adobe.
 
 %package fonts-type1-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
@@ -3345,12 +3246,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun format-pdfmex
 %texhash
 
-%post format-pdfemex
-%texhash
-
-%postun format-pdfemex
-%texhash
-
 %postun format-utf8mex
 %texhash
 
@@ -3708,23 +3603,11 @@ rm -rf $RPM_BUILD_ROOT
 %postun format-latex
 %texhash
 
-#%post format-elatex
-#%texhash
-
-#%postun format-elatex
-#%texhash
-
 %post format-pdflatex
 %texhash
 
 %postun format-pdflatex
 %texhash
-
-#%post format-pdfelatex
-#%texhash
-
-#%postun format-pdfelatex
-#%texhash
 
 %post platex
 %texhash
@@ -4038,12 +3921,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-omega
 %texhash
 
-%post fonts-pandora
-%texhash
-
-%postun fonts-pandora
-%texhash
-
 %post fonts-pazo
 %texhash
 
@@ -4104,12 +3981,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun fonts-urw
 %texhash
 
-%post fonts-vcm
-%texhash
-
-%postun fonts-vcm
-%texhash
-
 %post fonts-vnr
 %texhash
 
@@ -4132,12 +4003,6 @@ rm -rf $RPM_BUILD_ROOT
 %texhash
 
 %postun fonts-yandy
-%texhash
-
-%post fonts-type1-adobe
-%texhash
-
-%postun fonts-type1-adobe
 %texhash
 
 %post fonts-type1-antp
@@ -4876,11 +4741,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/xdvi.png
 %{texmf}/xdvi
 
-%files oxdvi
-%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/oxdvi
-#%attr(755,root,root) %{_bindir}/oxdvi.bin
-
 %files pdftex
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/pdftex
@@ -4985,14 +4845,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdfmex
 %{texmf}/tex/mex/config/pdfmex.ini
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfmex.fmt
-
-#%files format-pdfemex
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/pdfemex
-#%attr(755,root,root) %{_bindir}/pdfemex-pl
-#%dir %{texmf}/pdfetex/mex
-#%{texmf}/pdfetex/mex/config
-#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfemex.efmt
 
 %files format-utf8mex
 %defattr(644,root,root,755)
@@ -5604,14 +5456,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pslatex
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/latex.fmt
 
-#%files format-elatex
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/elatex
-#%{_mandir}/man1/elatex.1*
-#%{texmf}/etex/latex/config
-#%{texmf}/etex/latex/misc
-#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/elatex.efmt
-
 %files format-pdflatex
 %defattr(644,root,root,755)
 #%{texmf}/pdftex/latex/config
@@ -5619,13 +5463,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pdflatex
 %config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdflatex.fmt
 #%{_mandir}/man1/pdflatex.1*
-
-#%files format-pdfelatex
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/pdfelatex
-#%dir %{texmf}/pdfetex/latex
-#%{texmf}/pdfetex/latex/config
-#%config(noreplace) %verify(not md5 size mtime) %{fmtdir}/pdfelatex.efmt
 
 %files platex
 %defattr(644,root,root,755)
@@ -5949,11 +5786,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/afm/public/omega
 %{texmf}/fonts/tfm/public/omega
 
-%files fonts-pandora
-%defattr(644,root,root,755)
-#%{texmf}/fonts/source/public/pandora
-#%{texmf}/fonts/tfm/public/pandora
-
 %files fonts-pazo
 %defattr(644,root,root,755)
 %{texmf}/fonts/tfm/public/pazo
@@ -6024,11 +5856,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/type1/public/urwvn
 %{texmf}/fonts/vf/public/urwvn
 
-%files fonts-vcm
-%defattr(644,root,root,755)
-#!#%{texmf}/fonts/tfm/public/vcm
-#!#%{texmf}/fonts/vf/public/vcm
-
 %files fonts-vnr
 %defattr(644,root,root,755)
 %{texmf}/fonts/map/dvips/vntex
@@ -6053,11 +5880,6 @@ rm -rf $RPM_BUILD_ROOT
 %{texmf}/fonts/source/yandy
 %{texmf}/fonts/tfm/yandy
 %{texmf}/fonts/vf/yandy
-
-# Adobe Utopia fonts removed - "the fonts are not free software"
-#%files fonts-type1-adobe
-#%defattr(644,root,root,755)
-#%%{texmf}/fonts/type1/adobe
 
 %files fonts-type1-antp
 %defattr(644,root,root,755)
