@@ -3086,7 +3086,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 %fixinfodir
-if [ $1 = 1 ]
+if [ $1 = 1 ]; then
 	%texhash
 fi
 
