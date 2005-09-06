@@ -19,7 +19,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	0.4
+Release:	0.5
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -3018,9 +3018,7 @@ cd texk/tetex
 makeinfo latex2e.texi
 cd ../..
 
-%{__make} \
-	texmfsysvar=%{_localstatedir} \
-	texmfsysconfig=%{_sysconfdir}
+%{__make}
 
 cd texk/kpathsea
 makeinfo kpathsea.texi
