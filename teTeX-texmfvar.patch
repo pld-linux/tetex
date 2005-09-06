@@ -4,8 +4,8 @@
  bindir = @bindir@
  scriptdir = $(bindir)
  texmf = @texmfmain@
-+texmfsysvar = $(texmf)
-+texmfsysconfig = $(texmf)
++texmfsysvar = @sysconfdir@
++texmfsysconfig = @localstatedir@
  INSTALL = @INSTALL@
  INSTALL_PROGRAM = @INSTALL_PROGRAM@
  INSTALL_SCRIPT = @INSTALL_SCRIPT@
