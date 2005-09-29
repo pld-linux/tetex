@@ -4,8 +4,8 @@
  bindir = @bindir@
  scriptdir = $(bindir)
  texmf = @texmfmain@
-+texmfsysvar = $(texmf)
-+texmfsysconfig = $(texmf)
++texmfsysvar = @sysconfdir@
++texmfsysconfig = @localstatedir@
  INSTALL = @INSTALL@
  INSTALL_PROGRAM = @INSTALL_PROGRAM@
  INSTALL_SCRIPT = @INSTALL_SCRIPT@
@@ -36,3 +36,33 @@
  	    $(scriptdir)/updmap-sys; \
  	else :; fi
  
+--- tetex-src-3.0/texk/kpathsea/texmf.in.orig	2005-02-15 12:14:54.000000000 +0100
++++ tetex-src-3.0/texk/kpathsea/texmf.in	2005-02-15 12:15:44.000000000 +0100
+@@ -72,7 +72,7 @@
+ %   TEXMFSYSVAR = $TEXMFMAIN
+ % For using a separate tree:
+ %   TEXMFSYSVAR = @texmf@-var
+-TEXMFSYSVAR = @texmf@-var
++TEXMFSYSVAR = @texmfsysvar@
+ 
+ % TEXMFSYSCONFIG, where texconfig-sys stores configuration data.
+ % With teTeX-3.0 or later, this must be set.
+@@ -80,7 +80,7 @@
+ %   TEXMFSYSCONFIG = $TEXMFMAIN
+ % For using a separate tree:
+ %   TEXMFSYSCONFIG = @texmf@-config
+-TEXMFSYSCONFIG = @texmf@-config
++TEXMFSYSCONFIG = @texmfsysconfig@
+ 
+ % User texmf trees can be catered for like this...
+ % This used to be HOMETEXMF.
+--- tetex-src-3.0/texk/make/makevars.mk.orig	2005-02-15 12:54:00.004501016 +0100
++++ tetex-src-3.0/texk/make/makevars.mk	2005-02-15 12:54:02.824072376 +0100
+@@ -6,6 +6,7 @@
+   datadir=$(datadir) infodir=$(infodir) includedir=$(includedir) \
+   mandir=$(mandir) manext=$(manext) man1dir=$(man1dir) \
+   texmf=$(texmf) web2cdir=$(web2cdir) vartexfonts=$(vartexfonts)\
++  texmfsysvar=$(texmfsysvar) texmfsysconfig=$(texmfsysconfig) \
+   texinputdir=$(texinputdir) mfinputdir=$(mfinputdir) mpinputdir=$(mpinputdir)\
+   fontdir=$(fontdir) fmtdir=$(fmtdir) basedir=$(basedir) memdir=$(memdir) \
+   texpooldir=$(texpooldir) mfpooldir=$(mfpooldir) mppooldir=$(mppooldir) \

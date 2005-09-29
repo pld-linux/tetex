@@ -1,88 +1,83 @@
---- tetex-src-2.0/texk/web2c/fmtutil.in	Sun Jan 26 23:24:30 2003
-+++ tetex-src-2.0/texk/web2c/fmtutil.in.new	Tue Feb  4 22:20:16 2003
-@@ -39,7 +39,7 @@
+--- tetex-src-3.0/texk/web2c/fmtutil.in.wiget	2005-02-06 01:27:46.000000000 +0100
++++ tetex-src-3.0/texk/web2c/fmtutil.in	2005-02-07 14:19:18.162313703 +0100
+@@ -38,10 +38,10 @@
  
  # Change "tex.ini -> bplain.ini" and "- -> language.dat"
  # if you want babel support in tex:
--tex		@TEXBIN@		-		tex.ini
-+tex		@TEXBIN@		language.dat	bplain.ini
- # Change "tex -> etex" and "latex.ini -> *latex.ini" to get an
- # eTeX-2 enabled LaTeX format named latex. Or, don't change anything
- # and use elatex which is just the same.
-@@ -48,7 +48,7 @@
- @ETEX@elatex		etex		language.dat	*elatex.ini
- # Change "pdftex.ini -> pdfbplain.ini" and "- -> language.dat"
- # if you want babel support in pdftex:
--@PTEX@pdftex		pdftex		-	pdftex.ini
-+@PTEX@pdftex		pdftex		language.dat	pdfbplain.ini
- @PTEX@pdflatex	pdftex		language.dat	pdflatex.ini
- @PETEX@pdfetex		pdfetex		language.def	*pdfetex.ini
- @PETEX@pdfelatex	pdfetex		language.dat	*pdfelatex.ini
-@@ -59,32 +59,32 @@
+-tex		tex		-		-translate-file=cp227.tcx tex.ini
++tex		tex		language.dat		-translate-file=cp227.tcx bplain.ini
+ @PETEX@latex		pdfetex		language.dat	-translate-file=cp227.tcx *latex.ini
+ @PETEX@etex		pdfetex		language.def	-translate-file=cp227.tcx *etex.ini
+-@PETEX@pdftex		pdfetex		-	-translate-file=cp227.tcx *pdftex.ini
++@PETEX@pdftex		pdfetex		language.dat	-translate-file=cp227.tcx *pdfbplain.ini
+ @PETEX@pdflatex	pdfetex		language.dat	-translate-file=cp227.tcx *pdflatex.ini
+ @PETEX@pdfetex		pdfetex		language.def	-translate-file=cp227.tcx *pdfetex.ini
+ #! pdfxlatex	pdfxtex		language.dat	-translate-file=cp227.tcx *pdfxlatex.ini
+@@ -55,32 +55,32 @@
  
  # Change "amstex.ini -> bamstex.ini" and "- -> language.dat"
  # if you want babel support in amstex:
--#! amstex	@TEXBIN@		-		amstex.ini
-+amstex	@TEXBIN@		language.dat	bamstex.ini
+-#! amstex	pdfetex		-		-translate-file=cp227.tcx *amstex.ini
++amstex	pdfetex		language.dat		-translate-file=cp227.tcx *bamstex.ini
  
  # Change "pdfamstex.ini -> pdfbamstex.ini" and "- -> language.dat"
  # if you want babel support in pdfamstex:
--#! pdfamstex	pdftex			-	pdfamstex.ini
-+pdfamstex	pdftex		language.dat	pdfbamstex.ini
+-#! pdfamstex	pdfetex			-	-translate-file=cp227.tcx *pdfamstex.ini
++pdfamstex	pdfetex			language.dat	-translate-file=cp227.tcx *pdfbamstex.ini
  
  # Context formats:
- #! cont-cz	pdfetex		cont-usr.tex	*cont-cz.ini
--#! cont-de	pdfetex		cont-usr.tex	*cont-de.ini
-+cont-de	pdfetex		cont-usr.tex	*cont-de.ini
- @PETEX@cont-en	pdfetex		cont-usr.tex	*cont-en.ini
--#! cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
--#! cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
-+cont-nl	pdfetex		cont-usr.tex	*cont-nl.ini
-+cont-uk	pdfetex		cont-usr.tex	*cont-uk.ini
+ #! cont-cz	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-cz.ini
+-#! cont-de	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-de.ini
++cont-de	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-de.ini
+ @PETEX@cont-en	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-en.ini
+-#! cont-nl	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-nl.ini
+-#! cont-uk	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-uk.ini
++cont-nl	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-nl.ini
++cont-uk	pdfetex		cont-usr.tex	-translate-file=cp227.tcx *cont-uk.ini
  
  # language-specific things:
  
  # - Cyrillic:
--#! cyrtex	tex		language.dat	cyrtex.ini
--#! cyrtexinfo	tex		language.dat	cyrtxinf.ini
--#! cyramstex	tex		language.dat	cyramstx.ini
-+cyrtex	tex		language.dat	cyrtex.ini
-+cyrtexinfo	tex		language.dat	cyrtxinf.ini
-+cyramstex	tex		language.dat	cyramstx.ini
+-#! cyrtex	pdfetex		language.dat	-translate-file=cp227.tcx *cyrtex.ini
+-#! cyrtexinfo	pdfetex		language.dat	-translate-file=cp227.tcx *cyrtxinf.ini
+-#! cyramstex	pdfetex		language.dat	-translate-file=cp227.tcx *cyramstx.ini
++cyrtex	pdfetex		language.dat	-translate-file=cp227.tcx *cyrtex.ini
++cyrtexinfo	pdfetex		language.dat	-translate-file=cp227.tcx *cyrtxinf.ini
++cyramstex	pdfetex		language.dat	-translate-file=cp227.tcx *cyramstx.ini
  
  # - Polish:
--#! platex		tex		language.dat	platex.ini
--#! pdfplatex		pdftex		language.dat	pdfplatex.ini
--#! mex		tex		mexconf.tex	mex.ini
--#! pdfmex		pdftex		mexconf.tex	pdfmex.ini
--#! pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
-+platex		tex		language.dat	platex.ini
-+pdfplatex		pdftex		language.dat	pdfplatex.ini
-+mex		tex		mexconf.tex	mex.ini
-+pdfmex		pdftex		mexconf.tex	pdfmex.ini
-+pdfemex		pdfetex		mexconf.tex	*pdfemex.ini
+-#! platex		pdfetex		language.dat	-translate-file=cp227.tcx *platex.ini
+-#! pdfplatex		pdfetex		language.dat	-translate-file=cp227.tcx *pdfplatex.ini
+-#! mex		pdfetex		mexconf.tex	-translate-file=cp227.tcx *mex.ini
+-#! pdfmex		pdfetex		mexconf.tex	-translate-file=cp227.tcx *pdfmex.ini
+-#! utf8mex		pdfetex		mexconf.tex	-enc *utf8mex.ini
++platex		pdfetex		language.dat	-translate-file=cp227.tcx *platex.ini
++pdfplatex		pdfetex		language.dat	-translate-file=cp227.tcx *pdfplatex.ini
++mex		pdfetex		mexconf.tex	-translate-file=cp227.tcx *mex.ini
++pdfmex		pdfetex		mexconf.tex	-translate-file=cp227.tcx *pdfmex.ini
++utf8mex		pdfetex		mexconf.tex	-enc *utf8mex.ini
  
  # - Polish with translated messages (experimental):
- #! platex-pl	tex		-		nls=tex-pl,il2-pl platex.ini
-@@ -93,16 +93,16 @@
- #! pdfemex-pl		pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfemex.ini
+ #! platex-pl	pdfetex		-		nls=pdfetex-pl,il2-pl *platex.ini
+@@ -88,16 +88,16 @@
+ #! pdfmex-pl	pdfetex		mexconf.tex	nls=pdfetex-pl,il2-pl *pdfmex.ini
  
  # - Czech / Slovak:
--#! csplain	tex		-		csplain.ini
--#! cslatex	tex		-	cslatex.ini
--#! pdfcsplain	pdftex		-		csplain.ini
--#! pdfcslatex	pdftex		-    cslatex.ini
-+csplain	tex		-		csplain.ini
-+cslatex	tex		-	cslatex.ini
-+pdfcsplain	pdftex		-		csplain.ini
-+pdfcslatex	pdftex		-    cslatex.ini
+-#! csplain	pdfetex		-		-translate-file=cp227.tcx *csplain.ini
+-#! cslatex	pdfetex		-	-translate-file=cp227.tcx *cslatex.ini
+-#! pdfcsplain	pdfetex		-		-translate-file=cp227.tcx *csplain.ini
+-#! pdfcslatex	pdfetex		-    -translate-file=cp227.tcx *cslatex.ini
++csplain	pdfetex		-		-translate-file=cp227.tcx *csplain.ini
++cslatex	pdfetex		-	-translate-file=cp227.tcx *cslatex.ini
++pdfcsplain	pdfetex		-		-translate-file=cp227.tcx *csplain.ini
++pdfcslatex	pdfetex		-    -translate-file=cp227.tcx *cslatex.ini
  
  # Other formats:
  
  # Change "eplain.ini -> ebplain.ini" and "- -> language.dat"
  # if you want babel support in eplain:
--#! eplain	tex		-	eplain.ini
-+eplain	tex		language.dat	ebplain.ini
+-#! eplain	pdfetex		-	-translate-file=cp227.tcx *eplain.ini
++eplain	pdfetex		language.dat	-translate-file=cp227.tcx *ebplain.ini
  
  
  # mptopdf utility
