@@ -1,11 +1,17 @@
 #
 # TODO:
-# - move config files to /etc
 # - context: consider more splitting, check dependencies
 # - omega: consider more splitting, check dependencies
 # - tdphp: is it really useful?
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
+#
+# FHS TODO:
+# - merge rhconfig patch to texmfsysvar patch
+# - texmfsysvar patch: change fmtutil and web2cdir variables instead
+#   of creating texmfsys{config,var} variables?
+# - move config files to /etc
+# - merge all above with configure swith "--enable-fhs" and send it to TE
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
@@ -17,7 +23,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	0.6
+Release:	1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
