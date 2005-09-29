@@ -66,3 +66,14 @@
    texinputdir=$(texinputdir) mfinputdir=$(mfinputdir) mpinputdir=$(mpinputdir)\
    fontdir=$(fontdir) fmtdir=$(fmtdir) basedir=$(basedir) memdir=$(memdir) \
    texpooldir=$(texpooldir) mfpooldir=$(mfpooldir) mppooldir=$(mppooldir) \
+--- tetex-src-3.0/texk/make/paths.mk.orig	2005-09-29 14:06:00.000000000 +0100
++++ tetex-src-3.0/texk/make/paths.mk	2005-09-29 14:10:08.000000000 +0100
+@@ -45,6 +45,8 @@
+ 
+ # The root of the main tree.
+ texmf = @texmfmain@
++texmfsysvar = @sysconfdir@
++texmfsysconfig = @localstatedir@
+ 
+ # The directory used by varfonts.
+ vartexfonts = /var/cache/fonts
