@@ -7,11 +7,11 @@
 #   /usr/share/fonts/Type1 ?)
 #
 # FHS TODO:
-# - merge rhconfig patch to texmfsysvar patch
+# - merge rhconfig and texmfsysvar patches
 # - texmfsysvar patch: change fmtutil and web2cdir variables instead
 #   of creating texmfsys{config,var} variables?
 # - move config files to /etc
-# - merge all above with configure swith "--enable-fhs" and send it to TE
+# - merge all above with configure switch "--enable-fhs" and send it to TE
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
