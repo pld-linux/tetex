@@ -64,7 +64,6 @@ BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-perlprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
-BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 PreReq:		/sbin/ldconfig
 PreReq:		awk
@@ -633,13 +632,16 @@ Format PDFMeX Plain.
 
 %package format-utf8mex
 Summary:	MeX Plain Format with UTF-8 encoded source files
-Summary(pl):	Format MeX Plain
+Summary(pl):	Format MeX Plain z plikami ¼ród³owymi kodowanymi UTF-8
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
 
 %description format-utf8mex
 MeX Plain Format with UTF-8 encoded source files.
+
+%description format-utf8mex -l pl
+Format MeX Plain z plikami ¼ród³owymi kodowanymi UTF-8.
 
 # AMS TeX format
 
@@ -1005,13 +1007,18 @@ bitmapowych fontów EC.
 
 %package latex-algorithms
 Summary:	Floating algorithm environment
+Summary(pl):	P³ywaj±ce ¶rodowisko dla algorytmów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-algorithms
-Defines a floating algorithm environment designed to work with the algorithmic
-package.
+Defines a floating algorithm environment designed to work with the
+algorithmic package.
+
+%description latex-algorithms -l pl
+Pakiet definiuj±cy p³ywaj±ce ¶rodowisko dla algorytmów zaprojektowane
+do pracy z pakietem algorithmic.
 
 %package latex-ams
 Summary:	AMS math facilities for LaTeX
@@ -1139,23 +1146,35 @@ Pliki stylów BibTeXa do publikacji American Mathematical Society.
 
 %package latex-bibtex-dk
 Summary:	Danish variants of the standard BibTeX styles
+Summary(pl):	Duñskie warianty standardowych stylów BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 
 %description latex-bibtex-dk
-Dk-bib is a translation of the four standard BibTeX style files (abbrv, alpha,
-plain and unsrt) into Danish. The files have been extended with ISBN, ISSN and
-URL fields which can be enabled through a LaTeX style file.
+Dk-bib is a translation of the four standard BibTeX style files
+(abbrv, alpha, plain and unsrt) into Danish. The files have been
+extended with ISBN, ISSN and URL fields which can be enabled through a
+LaTeX style file.
+
+%description latex-bibtex-dk -l pl
+Dk-bib to t³umaczenie czterech standardowych plików stylów BibTeXa
+(abbrv, alpha, plain i unsrt) na jêzyk duñski. Pliki zosta³y
+rozszerzone o pola ISBN, ISSN i URL, które mo¿na w³±czyæ poprzez plik
+stylu LaTeXa.
 
 %package latex-bibtex-nor
 Summary:	Norwegian variants of the standard BibTeX styles
+Summary(pl):	Norweskie warianty standardowych stylów BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 
 %description latex-bibtex-nor
 Norwegian variants of the standard BibTeX styles.
+
+%description latex-bibtex-nor -l pl
+Norweskie warianty standardowych stylów BibTeXa.
 
 %package latex-bibtex-pl
 Summary:	Polish bibliography management for LaTeX
@@ -1363,45 +1382,75 @@ Knappena. Zawiera sgmlcmpt.
 
 %package latex-lm
 Summary:	LaTeX styles for Latin Modern family fonts
+Summary(pl):	Style LaTeXa dla fontów z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-lm = %{epoch}:%{version}-%{release}
 
 %description latex-lm
-Latin Modern family of fonts, based on the Computer Modern fonts released
-into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
-additional characters, mainly accented ones, but not only. There is a one
-set of PostScript fonts and four sets of TeX Font Metric files,
-corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
-TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
-fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
-to do with all these files. The author is Bugoslaw Jackowski.
+Latin Modern family of fonts, based on the Computer Modern fonts
+released into public domain by AMS (copyright (C) 1997 AMS). Contain a
+lot of additional characters, mainly accented ones, but not only.
+There is a one set of PostScript fonts and four sets of TeX Font
+Metric files, corresponding to: Cork encoding (cork-*.tfm); QX
+encoding (qx-*.tfm); TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and
+Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
+potential user knows what to do with all these files. The author is
+Boguslaw Jackowski.
+
+%description latex-lm -l pl
+Rodzina fontów Latin Modern, oparta na fontach Computer Modern
+przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
+Zawiera wiele dodatkowych znaków, g³ównie z akcentami, ale nie tylko.
+Jest jeden zbiór fontów postscriptowych oraz cztery zbiory plików TeX
+Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak¿e LY1
+(texnansi-*.tfm); oraz Text Companion dla fontów EC zwanemu tak¿e TS1
+(ts1-*.tfm). Zak³ada siê, ¿e potencjalny u¿ytkownik wie, co zrobiæ z
+tymi wszystkimi plikami. Autorem jest Bogus³aw Jackowski.
 
 %package latex-lineno
-Summary:	Lline numbers on paragraphs
+Summary:	Line numbers on paragraphs
+Summary(pl):	Numery linii dla paragrafów
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-lineno
-The LaTeX package lineno.sty provides line numbers on paragraphs. After TeX has
-broken a paragraph into lines there will be line numbers attached to them, with
-the possibility to make references through the LaTeX \ref, \pageref cross
-reference mechanism.
+The LaTeX package lineno.sty provides line numbers on paragraphs.
+After TeX has broken a paragraph into lines there will be line numbers
+attached to them, with the possibility to make references through the
+LaTeX \ref, \pageref cross reference mechanism.
+
+%description latex-lineno -l pl
+Pakiet LaTeXa lineno.sty daje numery linii dla paragrafów. Po podziale
+paragrafu na linie przez TeXa do linii do³±czane s± ich numery z
+mo¿liwo¶ci± tworzenia odno¶ników poprzez mechanizm odno¶ników LaTeXa
+\ref i \pageref.
 
 %package latex-microtype
 Summary:	An interface to the micro-typographic extensions of pdfTeX
+Summary(pl):	Interfejs do rozszerzeñ mikrotypograficznych pdfTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-microtype
-The `microtype' package provides a LaTeX interface to pdfTeX's micro-
-typographic extensions: character protrusion and font expansion. It allows to
-restrict character protrusion and/or font expansion to a definable set of
-fonts, and to configure micro-typographic aspects of the fonts in a
-straight-forward and flexible way. Settings for various fonts are provided.
+The `microtype' package provides a LaTeX interface to pdfTeX's
+micro-typographic extensions: character protrusion and font expansion.
+It allows to restrict character protrusion and/or font expansion to a
+definable set of fonts, and to configure micro-typographic aspects of
+the fonts in a straight-forward and flexible way. Settings for various
+fonts are provided.
+
+%description latex-microtype -l pl
+Pakiet microtype dodaje do LaTeXa mechanizm do rozszerzeñ
+mikrotypograficznych pdfTeXa: wysuwania znaków i rozszerzania fontów.
+Pozwala ograniczyæ wysuwanie znaku i/lub rozszerzanie fontu do
+okre¶lonego zbioru fontów oraz skonfigurowaæ mikrotypograficzne
+aspekty fontów w prosty i elastyczny sposób. Dostarczone s± ustawienia
+dla ró¿nych fontów.
 
 %package latex-lucidabr
 Summary:	Package to make Lucida Bright fonts usable with LaTeX
@@ -1417,7 +1466,8 @@ Package to make Lucida Bright fonts usable with LaTeX.
 Pakiet umo¿liwiaj±cy u¿ywanie fontów Lucida Bright w LaTeXu.
 
 %package latex-marvosym
-Summary:	Styles for Martin Vogels Symbole (marvosym) font.
+Summary:	Styles for Martin Vogel's Symbol (marvosym) font
+Summary(pl):	Style dla fontu Symbol Martina Vogela (marvosym)
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-marvosym = %{epoch}:%{version}-%{release}
@@ -1426,9 +1476,18 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-marvosym
 Martin Vogel's Symbol (marvosym) font is a font containing: the Euro
 currency symbol as defined by the European commission; Euro currency
-symbols in typefaces Times, Helvetica and Courier; Symbols fur structural
-engineering; Symbols for steel cross-sections; Astronomy signs (Sun, Moon,
-planets); The 12 signs of the zodiac; Scissor symbols; CE sign and others.
+symbols in typefaces Times, Helvetica and Courier; Symbols for
+structural engineering; Symbols for steel cross-sections; Astronomy
+signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
+symbols; CE sign and others.
+
+%description latex-marvosym -l pl
+Font Martin Vogel's Symbol (marvosym) to font zawieraj±cy: symbol
+waluty Euro zdefiniowany przez Komisjê Europejsk±; symbole Euro w
+krojach Times, Helvetica i Courier; symbole do in¿ynierii
+strukturalnej; symbole do przekrojów stalowych; znaki astronomiczne
+(S³oñce, Ksiê¿yc, planety); 12 znaków Zodiaku; symbole no¿yczek; znak
+CE i inne.
 
 %package latex-mathpple
 Summary:	Use PostScript Palatino for typesetting maths
@@ -1604,13 +1663,17 @@ TeXu, zachowuj±c przydatno¶æ dla aplikacji windowsowych.
 
 %package latex-urwvn
 Summary:	URWVN fonts
+Summary(pl):	Fonty URWVN
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-urwvn = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 
 %description latex-urwvn
-URWVN fonts
+URWVN fonts.
+
+%description latex-urwvn -l pl
+Fonty URWVN.
 
 %package latex-txfonts
 Summary:	TX fonts LaTeX support
@@ -1998,12 +2061,16 @@ w szczególno¶ci jest do³±czany jako "wspierany pakiet" LaTeX2e.
 
 %package tex-xkeyval
 Summary:	Extension to keyval package
+Summary(pl):	Rozszerzenie do pakietu keyval
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tex-xkeyval
 Extension to keyval package.
+
+%description tex-xkeyval -l pl
+Rozszerzenie do pakietu keyval.
 
 %package dirs-fonts
 Summary:	TeX font directories
@@ -2299,15 +2366,23 @@ ró¿nych kszta³tów (normalnego, pochylonego, t³ustego, szkicowanego).
 
 %package fonts-eulervm
 Summary:	The Virtual Euler Math fonts
+Summary(pl):	Fonty Virtual Euler Math
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-eulervm
-Euler-VM is a set of _virtual_ math fonts based on Euler and
-CM.  This approach has several advantages over immediately
-using the _real_ Euler fonts:  Most noticeably, less TeX
-resources are consumed, the quality of various math symbols
-is improved, and a usable \hslash symbol can be provided.
+Euler-VM is a set of _virtual_ math fonts based on Euler and CM. This
+approach has several advantages over immediately using the _real_
+Euler fonts: Most noticeably, less TeX resources are consumed, the
+quality of various math symbols is improved, and a usable \hslash
+symbol can be provided.
+
+%description fonts-eulervm -l pl
+Euler-VM to zbiór _wirtualnych_ fontów matematycznych opartych na
+fontach Euler i CM. Podej¶cie to ma ró¿ne zalety nad bezpo¶rednim
+u¿ywaniem _prawdziwych_ fontów Euler: najbardziej zauwa¿alnie,
+u¿ywane jest mniej zasobów TeXa, poprawiona jest jako¶æ ró¿nych
+symboli matematycznych i mo¿e byæ dostêpny u¿ywalny symbol \hslash.
 
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
@@ -2391,18 +2466,31 @@ Fonty lh dla kodowañ `T2'/X2 (dla jêzyków zapisywanych cyrylic±).
 
 %package fonts-lm
 Summary:	Latin Modern family fonts
+Summary(pl):	Fonty z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-lm
-Latin Modern family of fonts, based on the Computer Modern fonts released
-into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
-additional characters, mainly accented ones, but not only. There is a one
-set of PostScript fonts and four sets of TeX Font Metric files,
-corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
-TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
-fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
-to do with all these files. The author is Bugoslaw Jackowski.
+Latin Modern family of fonts, based on the Computer Modern fonts
+released into public domain by AMS (copyright (C) 1997 AMS). Contain a
+lot of additional characters, mainly accented ones, but not only.
+There is a one set of PostScript fonts and four sets of TeX Font
+Metric files, corresponding to: Cork encoding (cork-*.tfm); QX
+encoding (qx-*.tfm); TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and
+Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
+potential user knows what to do with all these files. The author is
+Boguslaw Jackowski.
+
+%description fonts-lm -l pl
+Rodzina fontów Latin Modern, oparta na fontach Computer Modern
+przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
+Zawiera wiele dodatkowych znaków, g³ównie z akcentami, ale nie tylko.
+Jest jeden zbiór fontów postscriptowych oraz cztery zbiory plików TeX
+Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak¿e LY1
+(texnansi-*.tfm); oraz Text Companion dla fontów EC zwanemu tak¿e TS1
+(ts1-*.tfm). Zak³ada siê, ¿e potencjalny u¿ytkownik wie, co zrobiæ z
+tymi wszystkimi plikami. Autorem jest Bogus³aw Jackowski.
 
 %package fonts-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
@@ -2606,12 +2694,15 @@ Fonty URW.
 
 %package fonts-urwvn
 Summary:	URWVN fonts
-Summary(pl):	Fonty URWV
+Summary(pl):	Fonty URWVN
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-urwvn
 URWVN fonts.
+
+%description fonts-urwvn -l pl
+Fonty URWVN.
 
 %package fonts-vnr
 Summary:	VNR fonts
@@ -2760,12 +2851,16 @@ Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jêzyków
 czeskiego i s³owackiego.
 
 %package fonts-type1-dstroke
-Summary:	Doublestroke type1 font for typesetting the mathematical symbols
+Summary:	Doublestroke Type1 font for typesetting the mathematical symbols
+Summary(pl):	Podwójnie kre¶lony font Type1 do sk³adania symboli matematycznych
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-dstroke
-Doublestroke type1 font for typesetting the mathematical symbols
+Doublestroke Type1 font for typesetting the mathematical symbols.
+
+%description fonts-type1-dstroke -l pl
+Podwójnie kre¶lony font Type1 do sk³adania symboli matematycznych.
 
 %package fonts-type1-eurosym
 Summary:	The new European currency symbol for the Euro
@@ -2799,44 +2894,76 @@ PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
 stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-type1-fpl
-Summary:	SC/OsF for URW Palladio L
+Summary:	SC/OsF fonts for URW Palladio L
+Summary(pl):	Fonty SC/OsF dla URW Palladio L
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-fpl
-The FPL Fonts provide a set of SC/OsF fonts for URW Palladio L which are
-compatible with respect to metrics with the Palatino SC/OsF fonts from
-Adobe. Note that it is not my aim to exactly reproduce the outlines of
-the original Adobe fonts. The SC and OsF in the FPL Fonts were designed
-with the glyphs from URW Palladio L as starting point. For some glyphs
-(eg 'o') I got the best result by scaling and boldening. For others (eg
-'h') shifting selected portions of the character gave more satisfying
-results. All this was done using the free font editor FontForge
-<URL:http://fontforge.sf.net>. The kerning data in these fonts comes
-from Walter Schmidt's improved Palatino metrics.
+The FPL Fonts provide a set of SC/OsF fonts for URW Palladio L which
+are compatible with respect to metrics with the Palatino SC/OsF fonts
+from Adobe. Note that it is not the author's aim to exactly reproduce
+the outlines of the original Adobe fonts. The SC and OsF in the FPL
+Fonts were designed with the glyphs from URW Palladio L as starting
+point. For some glyphs (eg 'o') the author got the best result by
+scaling and boldening. For others (eg 'h') shifting selected portions
+of the character gave more satisfying results. All this was done using
+the free font editor FontForge <http://fontforge.sf.net/>. The kerning
+data in these fonts comes from Walter Schmidt's improved Palatino
+metrics.
+
+%description fonts-type1-fpl -l pl
+Fonty FPL dostarczaj± zbiór fontów SC/OsF dla URW Palladio L, które s±
+kompatybilne co do metryk z fontami Palatino SC/OsF firmy Adobe.
+Nale¿y jednak zaznaczyæ, ¿e celem autora nie jest dok³adne odtworzenie
+kszta³tów oryginalnych fontów Adobe. SC i OsF w fontach FPL by³y
+projektowane w oparciu o glify z URW Palladio L. Dla niektórych glifów
+(np. 'o') autor uzyska³ najlepszy wynik poprzez skalowanie i
+pogrubianie. Dla innych (np. 'h') przesuwanie wybranych czê¶ci znaku
+da³o lepsze wyniki. Wszystko to zosta³o zrobione przy u¿yciu
+wolnodostêpnego edytora fontów FontForge <http://fontforge.sf.net/>.
+Dane dla kerningu w tych fontach pochodz± z ulepszonych metryk
+Palatino Waltera Schmidta.
 
 %package fonts-type1-tt2001
-Summary:	Type 1 tt2001 family fonts
+Summary:	Type1 tt2001 family fonts
+Summary(pl):	Fonty Type1 z rodziny tt2001
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-tt2001
-Type1 tt2001 famliy fonts
+Type1 tt2001 famliy fonts.
+
+%description fonts-type1-tt2001 -l pl
+Fonty Type1 z rodziny tt2001.
 
 %package fonts-type1-lm
-Summary:	Type 1 Latin Modern family fonts
+Summary:	Type1 Latin Modern family fonts
+Summary(pl):	Fonty Type1 z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-lm
-Latin Modern family of fonts, based on the Computer Modern fonts released
-into public domain by AMS (copyright (C) 1997 AMS). Contain a lot of
-additional characters, mainly accented ones, but not only. There is a one
-set of PostScript fonts and four sets of TeX Font Metric files,
-corresponding to: Cork encoding (cork-*.tfm); QX encoding (qx-*.tfm);
-TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and Text Companion for EC
-fonts aka TS1 (ts1-*.tfm). It is presumed that a potential user knows what
-to do with all these files. The author is Bugoslaw Jackowski.
+Latin Modern family of fonts, based on the Computer Modern fonts
+released into public domain by AMS (copyright (C) 1997 AMS). Contain a
+lot of additional characters, mainly accented ones, but not only.
+There is a one set of PostScript fonts and four sets of TeX Font
+Metric files, corresponding to: Cork encoding (cork-*.tfm); QX
+encoding (qx-*.tfm); TeX'n'ANSI aka LY1 encoding (texnansi-*.tfm); and
+Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
+potential user knows what to do with all these files. The author is
+Boguslaw Jackowski.
+
+%description fonts-type1-lm -l pl
+Rodzina fontów Latin Modern, oparta na fontach Computer Modern
+przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
+Zawiera wiele dodatkowych znaków, g³ównie z akcentami, ale nie tylko.
+Jest jeden zbiór fontów postscriptowych oraz cztery zbiory plików TeX
+Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak¿e LY1
+(texnansi-*.tfm); oraz Text Companion dla fontów EC zwanemu tak¿e TS1
+(ts1-*.tfm). Zak³ada siê, ¿e potencjalny u¿ytkownik wie, co zrobiæ z
+tymi wszystkimi plikami. Autorem jest Bogus³aw Jackowski.
 
 %package fonts-type1-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
@@ -2947,12 +3074,16 @@ URW fonts.
 Fonty URW.
 
 %package fonts-type1-vnr
-Summary:	Type 1 VNR fonts
+Summary:	Type1 VNR fonts
+Summary(pl):	Fonty Type1 VNR
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-vnr
-Type 1 VNR fonts.
+Type1 VNR fonts.
+
+%description fonts-type1-vnr -l pl
+Fonty Type1 VNR.
 
 %package fonts-type1-xypic
 Summary:	Xy-pic fonts
