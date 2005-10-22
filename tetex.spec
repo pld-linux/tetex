@@ -4415,10 +4415,6 @@ fi
 %config(noreplace) %verify(not md5 mtime size) %{texmf}/tex/generic/config/language.dat
 %config(noreplace) %verify(not md5 mtime size) %{texmf}/tex/generic/config/preload.cfg
 
-%dir %{texmf}/tex
-%dir %{texmf}/tex/generic
-%dir %{texmf}/tex/generic/config
-%dir %{texmf}/web2c
 %dir %{texmf}/dvips
 %dir %{texmf}/dvips/config
 %dir %{texmf}/dvips/tetex
@@ -4433,8 +4429,11 @@ fi
 #%{texmf}/updates.dat
 
 %{texmf}/aliases
+%dir %{texmf}/tex
 %{texmf}/tex/fontinst
+%dir %{texmf}/tex/generic
 %{texmf}/tex/generic/bghyph
+%dir %{texmf}/tex/generic/config
 %{texmf}/tex/generic/encodings
 %doc %{texmf}/doc/generic/enctex
 %{texmf}/tex/generic/enctex
@@ -4450,13 +4449,20 @@ fi
 %{texmf}/tex/generic/tex-ps
 %{texmf}/tex/generic/texnames
 %{texmf}/tex/texinfo
+%dir %{texmf}/web2c
 %{texmf}/web2c/*.tcx
 %{fmtdir}/metafun.mem
 #%{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
+%dir %{texmf}/fonts/map
+%dir %{texmf}/fonts/map/dvips
 #%{texmf}/fonts/map/dvips/updmap/ps2pk.map
+%dir %{texmf}/fonts/map/dvips/tetex
 %{texmf}/fonts/map/dvips/tetex/ps2pk35.map
 %{texmf}/fonts/map/fontname
+%dir %{texmf}/fonts/enc
+%dir %{texmf}/fonts/enc/dvips
+%dir %{texmf}/fonts/enc/dvips/tetex
 %{texmf}/fonts/enc/dvips/tetex/09fbbfac.enc
 %{texmf}/fonts/enc/dvips/tetex/0ef0afca.enc
 %{texmf}/fonts/enc/dvips/tetex/10037936.enc
@@ -4469,9 +4475,12 @@ fi
 %{texmf}/fonts/enc/dvips/tetex/d9b29452.enc
 %{texmf}/fonts/enc/dvips/tetex/f7b6d320.enc
 
+%dir %{texmf}/fonts/enc/dvips/vntex
 %{texmf}/fonts/enc/dvips/vntex/t5.enc
+
 %{texmf}/fonts/map/dvips/tetex/contnav.map
 %{texmf}/fonts/map/dvips/tetex/lumath-o.map
+%dir %{texmf}/fonts/map/dvips/urwvn
 %{texmf}/fonts/map/dvips/urwvn/urwvn.map
 
 %lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
@@ -4896,6 +4905,8 @@ fi
 %attr(755,root,root) %{_bindir}/pdfcrop
 %config(noreplace) %verify(not md5 mtime size) %{texmf}/tex/generic/config/pdftexconfig.tex
 %{_localstatedir}/fonts/map/pdftex
+%dir %{texmf}/fonts/map/pdftex
+%dir %{texmf}/fonts/map/pdftex/cmttf
 %{texmf}/fonts/map/pdftex/cmttf/cmttf.map
 %{texmf}/web2c/pdfetex-pl.pool
 %{texmf}/web2c/pdfetex.pool
