@@ -60,7 +60,6 @@ BuildRequires:	gd-devel >= 2.0.33
 BuildRequires:	libpng-devel >= 1.2.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-perlprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
