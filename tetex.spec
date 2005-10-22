@@ -56,15 +56,15 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
 BuildRequires:	flex
-BuildRequires:	libpng-devel >= 1.0.8
+BuildRequires:	gd-devel >= 2.0.33
+BuildRequires:	libpng-devel >= 1.2.8
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtiff-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-perlprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
-BuildRequires:	zlib-devel
+BuildRequires:	zlib-devel >= 1.2.1
 PreReq:		/sbin/ldconfig
 PreReq:		awk
 PreReq:		sed
@@ -3121,25 +3121,24 @@ tar xzf %{SOURCE1} -C texmf
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure2_13 \
-	--with-system-ncurses \
-	--with-system-zlib \
-	--with-system-pnglib \
-	--with-system-tifflib \
-	--with-system-wwwlib \
-	--with-system-t1lib \
 	--disable-multiplatform \
-	--without-dialog \
-	--without-texinfo \
-	--without-t1utils \
-	--with-xdvi-x-toolkit=xaw \
-	--with-fonts-dir=/var/cache/fonts \
-	--with-texmf-dir=../../texmf \
-	--with-ncurses \
-	--enable-shared \
-	--enable-gf \
+	--disable-static \
 	--enable-a4 \
+	--enable-gf \
 	--enable-ipc \
-	--disable-static
+	--enable-shared \
+	--with-fonts-dir=/var/cache/fonts \
+	--with-ncurses \
+	--with-system-gd \
+	--with-system-ncurses \
+	--with-system-pnglib \
+	--with-system-t1lib \
+	--with-system-zlib \
+	--with-texmf-dir=../../texmf \
+	--with-xdvi-x-toolkit=xaw \
+	--without-dialog \
+	--without-t1utils \
+	--without-texinfo
 
 rm -f texk/{tetex,dvipsk}/*.info*
 cd texk/dvipsk
