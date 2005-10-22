@@ -4400,6 +4400,9 @@ fi
 #%verify(not md5 mtime size) %config(noreplace) /etc/sysconfig/tetex-updmap/maps.lst
 
 %ghost %{texmf}/ls-R
+%dir %{_localstatedir}
+%dir %{_localstatedir}/fonts
+%dir %{_localstatedir}/fonts/map
 %ghost %{_localstatedir}/ls-R
 
 %config(noreplace) %verify(not md5 mtime size) %{texmf}/web2c/fmtutil.cnf
@@ -4418,8 +4421,6 @@ fi
 %dir %{texmf}/dvips
 %dir %{texmf}/dvips/config
 %dir %{texmf}/dvips/tetex
-%dir %{_localstatedir}/fonts
-%dir %{_localstatedir}/fonts/map
 
 %attr(1777,root,root) /var/cache/fonts
 
@@ -4451,6 +4452,7 @@ fi
 %{texmf}/tex/texinfo
 %dir %{texmf}/web2c
 %{texmf}/web2c/*.tcx
+%dir %{fmtdir}
 %{fmtdir}/metafun.mem
 #%{texmf}/web2c/tex-pl.pool
 %{texmf}/web2c/tex.pool
