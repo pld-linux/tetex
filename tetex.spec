@@ -4377,6 +4377,7 @@ fi
 #%attr(755,root,root) %{_bindir}/tetex-updmap
 %attr(755,root,root) %{_bindir}/tex
 %attr(755,root,root) %{_bindir}/texdoc
+%attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texhash
 %attr(755,root,root) %{_bindir}/texi2html
 %attr(755,root,root) %{_bindir}/texlinks
@@ -4529,6 +4530,7 @@ fi
 %{_mandir}/man1/tangle.1*
 %{_mandir}/man1/tex.1*
 %{_mandir}/man1/texdoc.1*
+%{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texlinks.1*
 #%{_mandir}/man1/texhash.1*
 %{_mandir}/man1/texi2html.1*
@@ -5101,13 +5103,11 @@ fi
 %dir %{texmf}/context/config
 %dir %{texmf}/tex/context
 %dir %{texmf}/tex/context/config
-%attr(755,root,root) %{_bindir}/texexec
 %attr(755,root,root) %{_bindir}/texfind
 %attr(755,root,root) %{_bindir}/texfont
 %attr(755,root,root) %{_bindir}/texshow
 %attr(755,root,root) %{_bindir}/texutil
 %{_mandir}/man1/fdf2tex.1*
-%{_mandir}/man1/texexec.1*
 %{_mandir}/man1/texfind.1*
 %{_mandir}/man1/texfont.1*
 %{_mandir}/man1/texutil.1*
