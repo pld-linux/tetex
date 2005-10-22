@@ -41,15 +41,13 @@ Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
 Patch3:		teTeX-info.patch
-Patch4:		teTeX-klibtool.patch
-Patch5:		teTeX-texmf-dvipsgeneric.patch
-Patch6:		teTeX-fmtutil.patch
-Patch7:		teTeX-grep.patch
-Patch8:		teTeX-tektronix.patch
-Patch9:		teTeX-trie_size_max.patch
-Patch10:	teTeX-kpathsea.patch
-Patch11:	teTeX-locale.patch
-Patch12:	teTeX-texmfvar.patch
+Patch4:		teTeX-texmf-dvipsgeneric.patch
+Patch5:		teTeX-fmtutil.patch
+Patch6:		teTeX-grep.patch
+Patch7:		teTeX-trie_size_max.patch
+Patch8:		teTeX-kpathsea.patch
+Patch9:		teTeX-locale.patch
+Patch10:	teTeX-texmfvar.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	XFree86-devel
 BuildRequires:	automake
@@ -3104,17 +3102,14 @@ tar xzf %{SOURCE1} -C texmf
 %patch0  -p1
 #%patch1  -p1
 %patch2  -p1
-#fixme:%patch3  -p1
-#%patch4  -p0 # there is no klibtool
-%patch5  -p1
-%patch6 -p1 -b .wiget
+%patch3  -p1
+%patch4  -p1
+%patch5 -p1
+%patch6 -p1
 %patch7 -p1
-# dvips.tex moved?
-#patch8 -p1
+%patch8 -p1
 %patch9 -p1
 %patch10 -p1
-%patch11 -p1
-%patch12 -p1
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
