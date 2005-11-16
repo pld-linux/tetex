@@ -562,6 +562,8 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
+# for epstopdf to work
+Requires:	ghostscript
 
 %description format-pdftex
 PDFTeX Plain format.
@@ -1757,6 +1759,8 @@ Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex-psnfss = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
+Requires:	%{name}-fonts-jknappen
+Requires:	%{name}-metafont
 
 %description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
