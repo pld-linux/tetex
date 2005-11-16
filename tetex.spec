@@ -1756,11 +1756,11 @@ Summary:	PDF LaTeX macro package
 Summary(pl):	Pakiet makr PDF LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
+Requires:	%{name}-fonts-jknappen = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex-psnfss = %{epoch}:%{version}-%{release}
+Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
-Requires:	%{name}-fonts-jknappen
-Requires:	%{name}-metafont
 
 %description format-pdflatex
 LaTeX is a front end for the TeX text formatting system. Easier to use
