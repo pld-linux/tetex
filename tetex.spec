@@ -23,7 +23,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	1
+Release:	1.1
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -3254,7 +3254,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 %fixinfodir
-if [ $1 = 1 ]; then
+if [ "$1" = "1" ]; then
 	%texhash
 fi
 
