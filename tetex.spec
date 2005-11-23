@@ -59,6 +59,7 @@ BuildRequires:	libpng-devel >= 1.2.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	rpm-perlprov
+BuildRequires:	rpm-pythonprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
 BuildRequires:	zlib-devel >= 1.2.1
