@@ -5,6 +5,8 @@
 # - tdphp: is it really useful?
 # - allow using Type1 fonts in others applications (symlink to
 #   /usr/share/fonts/Type1 ?)
+# - fix package removal:
+#   /usr/bin/texhash[77]: kpsewhich: not found
 #
 # FHS TODO:
 # - merge rhconfig and texmfsysvar patches
@@ -102,7 +104,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
 %define		fmtdir	/var/lib/texmf/web2c
-%define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2 ;
+%define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2;
 %define		_sysconfdir	/etc/texmf
 %define		_localstatedir	/var/lib/texmf
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ;
