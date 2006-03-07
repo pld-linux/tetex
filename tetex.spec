@@ -4433,6 +4433,7 @@ fi
 #%{texmf}/updates.dat
 
 %{texmf}/aliases
+%dir %{texmf}/scripts
 %dir %{texmf}/tex
 %{texmf}/tex/fontinst
 %dir %{texmf}/tex/generic
