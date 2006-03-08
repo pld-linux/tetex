@@ -63,8 +63,8 @@
  
  # The root of the main tree.
  texmf = @texmfmain@
-+texmfsysvar = @sysconfdir@
-+texmfsysconfig = @localstatedir@
++texmfsysvar = @localstatedir@
++texmfsysconfig = @sysconfdir@
  
  # The directory used by varfonts.
  vartexfonts = /var/cache/fonts
