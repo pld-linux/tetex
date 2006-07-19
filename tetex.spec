@@ -25,7 +25,7 @@ Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr):	TeX dizgi sistemi ve MetaFont yazýtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	3
+Release:	4
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -51,7 +51,8 @@ Patch8:		teTeX-kpathsea.patch
 Patch9:		teTeX-locale.patch
 Patch10:	teTeX-texmfvar.patch
 URL:		http://www.tug.org/teTeX/
-BuildRequires:	XFree86-devel
+# some app is required, there's no x libs dependencies in resulting packages
+#BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
