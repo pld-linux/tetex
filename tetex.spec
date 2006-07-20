@@ -51,8 +51,6 @@ Patch8:		teTeX-kpathsea.patch
 Patch9:		teTeX-locale.patch
 Patch10:	teTeX-texmfvar.patch
 URL:		http://www.tug.org/teTeX/
-# some app is required, there's no x libs dependencies in resulting packages
-#BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
@@ -65,6 +63,7 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	rpm-pythonprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
+BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	zlib-devel >= 1.2.1
 PreReq:		/sbin/ldconfig
 PreReq:		awk
