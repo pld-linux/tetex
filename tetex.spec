@@ -500,7 +500,6 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
-Requires:	texconfig = %{epoch}:%{version}-%{release}
 
 %description pdftex
 TeX generating PDF files instead DVI.
