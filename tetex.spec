@@ -17,12 +17,12 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
-Summary(de):	TeX-Satzherstellungssystem und MetaFont-Formatierung
-Summary(es):	Sistema de typesetting TeX y formateador de fuentes MetaFont
-Summary(fr):	SystÈme de compostion TeX et formatteur de MetaFontes
-Summary(pl):	System sk≥adu publikacji TeX oraz formater fontÛw MetaFont
-Summary(pt_BR):	Sistema de typesetting TeX e formatador de fontes MetaFont
-Summary(tr):	TeX dizgi sistemi ve MetaFont yaz˝tipi biÁimlendiricisi
+Summary(de.UTF-8):   TeX-Satzherstellungssystem und MetaFont-Formatierung
+Summary(es.UTF-8):   Sistema de typesetting TeX y formateador de fuentes MetaFont
+Summary(fr.UTF-8):   Syst√©me de compostion TeX et formatteur de MetaFontes
+Summary(pl.UTF-8):   System sk≈Çadu publikacji TeX oraz formater font√≥w MetaFont
+Summary(pt_BR.UTF-8):   Sistema de typesetting TeX e formatador de fontes MetaFont
+Summary(tr.UTF-8):   TeX dizgi sistemi ve MetaFont yazƒ±tipi bi√ßimlendiricisi
 Name:		tetex
 Version:	3.0
 Release:	4
@@ -120,43 +120,43 @@ Usually, TeX is used in conjunction with a higher level formatting
 package like LaTeX or PlainTeX, since TeX by itself is not very
 user-friendly.
 
-%description -l es
-Tex formata archivos de texto y Ûrdenes para una salida independiente
+%description -l es.UTF-8
+Tex formata archivos de texto y √≥rdenes para una salida independiente
 de dispositivo (que se llama DVI - DeVice Independent). En The TeXbook
 de Knut se describen las capacidades y el lenguaje TeX.
 
-%description -l de
-TeX formatiert eine Datei, die abwechselnd Text und Befehle enth‰lt
-und gibt eine ger‰teunabh‰ngige Datei aus (DVI genannt, Abk. f¸r
+%description -l de.UTF-8
+TeX formatiert eine Datei, die abwechselnd Text und Befehle enth√§lt
+und gibt eine ger√§teunabh√§ngige Datei aus (DVI genannt, Abk. f√ºr
 DeVice Independent). Die Funktionen und Sprache von TeX werden in The
 TeXbook von Knuth beschrieben.
 
-%description -l fr
-TeX formate un fichier de commandes et de texte mÈlandÈs, et produit
-un fichier de indÈpendant de toute plate-forme (appelÈ DVI, qui est un
-raccourci pour Device Independant). Les possibilitÈs de TeX et son
-langage sont dÈcrites dans l'ouvrage TeXbook, de Knuth.
+%description -l fr.UTF-8
+TeX formate un fichier de commandes et de texte m√©land√©s, et produit
+un fichier de ind√©pendant de toute plate-forme (appel√© DVI, qui est un
+raccourci pour Device Independant). Les possibilit√©s de TeX et son
+langage sont d√©crites dans l'ouvrage TeXbook, de Knuth.
 
-%description -l pl
-TeX formatuje przygotowany tekst oraz komendy i produkuje niezaleøny
-od urz±dzenia plik wynikowy (tzw. DVI -- skrÛt od DeVice Independent).
-Moøliwo∂ci TeXa, oraz jego jÍzyk zosta≥y opisane w ,,The TeXbook''
+%description -l pl.UTF-8
+TeX formatuje przygotowany tekst oraz komendy i produkuje niezale≈ºny
+od urzƒÖdzenia plik wynikowy (tzw. DVI -- skr√≥t od DeVice Independent).
+Mo≈ºliwo≈õci TeXa, oraz jego jƒôzyk zosta≈Çy opisane w ,,The TeXbook''
 Donalda E. Knutha.
 
-%description -l pt_BR
-Tex formata arquivos de texto e comandos para uma saÌda independente
+%description -l pt_BR.UTF-8
+Tex formata arquivos de texto e comandos para uma sa√≠da independente
 de dispositivo (chamado DVI - DeVice Independent). As capacidades e a
-linguagem TeX s„o descritas no The TeXbook, de Knuth.
+linguagem TeX s√£o descritas no The TeXbook, de Knuth.
 
-%description -l tr
-TeX, iÁinde metin ve komutlar˝n yer ald˝˝ bir dosyay˝ okur ve dizgi
-ayg˝t˝ndan ba˝ms˝z bir Á˝kt˝ (DeVice Independent - DVI) olu˛turur.
-TeX'in becerileri ve dizgi dili, dili geli˛tiren Knuth'un 'The
-TeXbook' ba˛l˝kl˝ kitab˝nda anlat˝lmaktad˝r.
+%description -l tr.UTF-8
+TeX, i√ßinde metin ve komutlarƒ±n yer aldƒ±ƒüƒ± bir dosyayƒ± okur ve dizgi
+aygƒ±tƒ±ndan baƒüƒ±msƒ±z bir √ßƒ±ktƒ± (DeVice Independent - DVI) olu≈üturur.
+TeX'in becerileri ve dizgi dili, dili geli≈ütiren Knuth'un 'The
+TeXbook' ba≈ülƒ±klƒ± kitabƒ±nda anlatƒ±lmaktadƒ±r.
 
 %package doc-Catalogue
 Summary:	TeX Catalogue
-Summary(pl):	Katalog TeXa
+Summary(pl.UTF-8):   Katalog TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -164,12 +164,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description doc-Catalogue
 TeX Catalogue.
 
-%description doc-Catalogue -l pl
+%description doc-Catalogue -l pl.UTF-8
 Katalog TeXa.
 
 %package doc-tug-faq
 Summary:	TeX User Group FAQ
-Summary(pl):	FAQ Grupy UøytkownikÛw TeXa
+Summary(pl.UTF-8):   FAQ Grupy U≈ºytkownik√≥w TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -180,12 +180,12 @@ Obsoletes:	tetex-doc-uktug-faq
 %description doc-tug-faq
 TeX User Group FAQ.
 
-%description doc-tug-faq -l pl
-FAQ Grupy UøytkownikÛw TeXa.
+%description doc-tug-faq -l pl.UTF-8
+FAQ Grupy U≈ºytkownik√≥w TeXa.
 
 %package doc-latex
 Summary:	Basic LaTeX packages documentation
-Summary(pl):	Podstawowa dokumentacja do pakietÛw LaTeXa
+Summary(pl.UTF-8):   Podstawowa dokumentacja do pakiet√≥w LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -193,15 +193,15 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description doc-latex
 Basic LaTeX packages documentation.
 
-%description doc-latex -l pl
-Podstawowa dokumentacja do pakietÛw LaTeXa.
+%description doc-latex -l pl.UTF-8
+Podstawowa dokumentacja do pakiet√≥w LaTeXa.
 
 #
 # libraries
 #
 %package -n kpathsea
 Summary:	File name lookup library
-Summary(pl):	Biblioteka szukaj±ca nazw plikÛw
+Summary(pl.UTF-8):   Biblioteka szukajƒÖca nazw plik√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -209,42 +209,42 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description -n kpathsea
 File name lookup library.
 
-%description -n kpathsea -l pl
-Biblioteka szukaj±ca nazw plikÛw.
+%description -n kpathsea -l pl.UTF-8
+Biblioteka szukajƒÖca nazw plik√≥w.
 
 %package -n kpathsea-devel
 Summary:	Kpathsea library filename lookup header files and documentation
-Summary(es):	Bibliotecas y archivos de inclusiÛn para desarrollo TeX
-Summary(pl):	Pliki nag≥Ûwkowe oraz dokumetacja kpathsea
-Summary(pt_BR):	Bibliotecas e headers para desenvolvimento TeX
+Summary(es.UTF-8):   Bibliotecas y archivos de inclusi√≥n para desarrollo TeX
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe oraz dokumetacja kpathsea
+Summary(pt_BR.UTF-8):   Bibliotecas e headers para desenvolvimento TeX
 Group:		Development/Libraries
 Requires:	kpathsea = %{epoch}:%{version}-%{release}
 
 %description -n kpathsea-devel
 Kpathsea library filename lookup header files and documentation.
 
-%description -n kpathsea-devel -l es
-Bibliotecas, archivos de inclusiÛn, etc, para que puedas desarrollar
+%description -n kpathsea-devel -l es.UTF-8
+Bibliotecas, archivos de inclusi√≥n, etc, para que puedas desarrollar
 aplicaciones TeX.
 
-%description -n kpathsea-devel -l pl
-Pliki nag≥Ûwkowe oraz dokumentacja biblioteki kpathsea.
+%description -n kpathsea-devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe oraz dokumentacja biblioteki kpathsea.
 
-%description -n kpathsea-devel -l pt_BR
+%description -n kpathsea-devel -l pt_BR.UTF-8
 Bibliotecas, headers e outros componentes que podem ser utilizados
-para desenvolver aplicaÁıes TeX.
+para desenvolver aplica√ß√µes TeX.
 
 #
 # programs
 #
 %package dvips
 Summary:	DVI to PostScript converter
-Summary(de):	dvi-Postscript-Konvertierungsprogramm
-Summary(es):	Convertidor dvi para postscript
-Summary(fr):	Convertisseur dvi vers PostScript
-Summary(pl):	Konwerter plikÛw DVI do PostScriptu
-Summary(pt_BR):	Conversor dvi para postscript
-Summary(tr):	dvi'dan postscript'e dˆn¸˛t¸r¸c¸
+Summary(de.UTF-8):   dvi-Postscript-Konvertierungsprogramm
+Summary(es.UTF-8):   Convertidor dvi para postscript
+Summary(fr.UTF-8):   Convertisseur dvi vers PostScript
+Summary(pl.UTF-8):   Konwerter plik√≥w DVI do PostScriptu
+Summary(pt_BR.UTF-8):   Conversor dvi para postscript
+Summary(tr.UTF-8):   dvi'dan postscript'e d√∂n√º≈üt√ºr√ºc√º
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -254,45 +254,45 @@ The program dvips takes a DVI file file[.dvi] produced by TeX (or by
 some other processor such as GFtoDVI) and converts it to PostScript,
 normally sending the result directly to the laserprinter.
 
-%description dvips -l de
+%description dvips -l de.UTF-8
 Das dvips-Programm nimmt eine dvi-Datei ([.dvi]), die von TeX bzw.
 durch einen anderen Prozessor wie GFtoDVI) erzeugt wurde, und
 konvertiert diese in PostScript, wobei das Ergebnis in der Regel
 direkt an einen Laserdrucker gesandt wird.
 
-%description dvips -l es
+%description dvips -l es.UTF-8
 El programa dvips coge un archivo DVI (.dvi) producido por TeX (o por
 otro procesador como GFtoDVI) y lo convierte a PostScript, normalmente
-enviando el resultado directamente a la impresora l·ser.
+enviando el resultado directamente a la impresora l√°ser.
 
-%description dvips -l fr
+%description dvips -l fr.UTF-8
 Le programme dvips convertit les fichiers DVI en PostScript, en
-envoyant normalement le rÈsultat directement sur une imprimante Laser.
+envoyant normalement le r√©sultat directement sur une imprimante Laser.
 
-%description dvips -l pl
-Program dvips bierze plik DVI wygenerowany przez TeXa (lub jaki∂ inny
-program, jak na przyk≥ad GFtoDVI) i konwertuje go do PostScriptu.
-Domy∂lnie wynik jest wysy≥any bezpo∂rednio do drukarki.
+%description dvips -l pl.UTF-8
+Program dvips bierze plik DVI wygenerowany przez TeXa (lub jaki≈õ inny
+program, jak na przyk≈Çad GFtoDVI) i konwertuje go do PostScriptu.
+Domy≈õlnie wynik jest wysy≈Çany bezpo≈õrednio do drukarki.
 
-%description dvips -l pt_BR
+%description dvips -l pt_BR.UTF-8
 O programa dvips toma um arquivo DVI (.dvi) produzido pelo TeX (ou por
 outro processador como o GFtoDVI) e o converte para PostScript,
 normalmente enviando o resultado diretamente para a impressora laser.
 
-%description dvips -l tr
-dvips program˝, dvi biÁiminde bir girdi dosyas˝ al˝r ve onu
-PostScript'e dˆn¸˛t¸r¸r. Kaynak dosya TeX taraf˝ndan olu˛turulmu˛
-olabilecei gibi ba˛ka i˛leyiciler taraf˝ndan da (GFtoDVI gibi)
-¸retilmi˛ olabilir.
+%description dvips -l tr.UTF-8
+dvips programƒ±, dvi bi√ßiminde bir girdi dosyasƒ± alƒ±r ve onu
+PostScript'e d√∂n√º≈üt√ºr√ºr. Kaynak dosya TeX tarafƒ±ndan olu≈üturulmu≈ü
+olabileceƒüi gibi ba≈üka i≈üleyiciler tarafƒ±ndan da (GFtoDVI gibi)
+√ºretilmi≈ü olabilir.
 
 %package dvilj
 Summary:	DVI to PCL converter
-Summary(de):	Ein dvi-->Laserjet-Konvertierer
-Summary(es):	Convertidor dvi para laserjet
-Summary(fr):	convertisseur dvi vers laserjet
-Summary(pl):	Konwerter plikÛw DVI do jÍzyka PCL
-Summary(pt_BR):	Conversor dvi para laserjet
-Summary(tr):	dvi'dan laserjet'e dˆn¸˛t¸r¸c¸
+Summary(de.UTF-8):   Ein dvi-->Laserjet-Konvertierer
+Summary(es.UTF-8):   Convertidor dvi para laserjet
+Summary(fr.UTF-8):   convertisseur dvi vers laserjet
+Summary(pl.UTF-8):   Konwerter plik√≥w DVI do jƒôzyka PCL
+Summary(pt_BR.UTF-8):   Conversor dvi para laserjet
+Summary(tr.UTF-8):   dvi'dan laserjet'e d√∂n√º≈üt√ºr√ºc√º
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -305,48 +305,48 @@ LaserJet+ and fully compatible printers. With dvilj2p, you can print
 to HP LaserJet IIP and fully compatible printers. And with dvilj4, you
 can print to HP LaserJet4 and fully compatible printers.
 
-%description dvilj -l de
-Dvilj und Gebr¸der konvertieren TeX-Ausgabe-.dvi-Dateien in HP PCL (HP
+%description dvilj -l de.UTF-8
+Dvilj und Gebr√ºder konvertieren TeX-Ausgabe-.dvi-Dateien in HP PCL (HP
 Printer Control Language) Befehle zum Drucken auf HP LaserJet+, HP
-LaserJet IIP (mit dvilj2p), HP LaserJet 4 (mit dvilj4) und vollst‰ndig
+LaserJet IIP (mit dvilj2p), HP LaserJet 4 (mit dvilj4) und vollst√§ndig
 kompatiblen Druckern.
 
-%description dvilj -l es
+%description dvilj -l es.UTF-8
 Dvilj y semejantes convierten archivos de salida TeX.dvi en comandos
 HP PCL (i.e. Lenguaje de Control de Impresoras HP) adecuados a
-impresiÛn de impresoras HP LaserJEt+, HP LaserJet IIP (usando
+impresi√≥n de impresoras HP LaserJEt+, HP LaserJet IIP (usando
 dvilj2p), HP LaserJet 4 (usando dvilj4) y compatibles.
 
-%description dvilj -l fr
+%description dvilj -l fr.UTF-8
 dvilj et ses cousins convertissent les fichiers dvi en commandes HPPCL
 (le langage des imprimantes HP) pour les imprimer sur HP LaserJet+, HP
 LaserJet IIP (avec dvilj2p), HP LaserJet 4 (avec dvilj4), et autres
 imprimantes totalement compatibles.
 
-%description dvilj -l pl
-dvilj oraz pokrewne narzÍdzia (za≥±czone w tym pakiecie) konwertuj±
-pliki wyj∂ciowe .dvi systemu formatuj±cego tekst TeX na polecenia
-HP PCL (HP Printer Control Language). Przy uøyciu dvilj moøna drukowaÊ
-pliki TeXa na drukarkach HP LaserJet+ i w pe≥ni kompatybilnych. Przy
-uøyciu dvilj2p moøna drukowaÊ na drukarkach HP LaserJet IIP i w pe≥ni
-kompatybilnych. Przy uøyciu dvilj4 moøna drukowaÊ na drukarkach HP
-LaserJet4 i w pe≥ni kompatybilnych.
+%description dvilj -l pl.UTF-8
+dvilj oraz pokrewne narzƒôdzia (za≈ÇƒÖczone w tym pakiecie) konwertujƒÖ
+pliki wyj≈õciowe .dvi systemu formatujƒÖcego tekst TeX na polecenia
+HP PCL (HP Printer Control Language). Przy u≈ºyciu dvilj mo≈ºna drukowaƒá
+pliki TeXa na drukarkach HP LaserJet+ i w pe≈Çni kompatybilnych. Przy
+u≈ºyciu dvilj2p mo≈ºna drukowaƒá na drukarkach HP LaserJet IIP i w pe≈Çni
+kompatybilnych. Przy u≈ºyciu dvilj4 mo≈ºna drukowaƒá na drukarkach HP
+LaserJet4 i w pe≈Çni kompatybilnych.
 
-%description dvilj -l pt_BR
-Dvilj e semelhantes convertem arquivos de saÌda TeX .dvi em comandos
+%description dvilj -l pt_BR.UTF-8
+Dvilj e semelhantes convertem arquivos de sa√≠da TeX .dvi em comandos
 HP PCL (i.e. Linguagem de Controle de Impressoras HP) adequados para
-impress„o em impressoras HP LaserJet+, HP LaserJet IIP (usando
-dvilj2p), HP LaserJet 4 (usando dvilj4) e compatÌveis.
+impress√£o em impressoras HP LaserJet+, HP LaserJet IIP (usando
+dvilj2p), HP LaserJet 4 (usando dvilj4) e compat√≠veis.
 
-%description dvilj -l tr
-TeX Á˝kt˝s˝ dvi dosyalar˝n˝ HP PCL (HP'nin geli˛tirdii bir yaz˝c˝
-denetim dili) komutlar˝na Áevirir ve bˆylece bir LaserJet+, HP
+%description dvilj -l tr.UTF-8
+TeX √ßƒ±ktƒ±sƒ± dvi dosyalarƒ±nƒ± HP PCL (HP'nin geli≈ütirdiƒüi bir yazƒ±cƒ±
+denetim dili) komutlarƒ±na √ßevirir ve b√∂ylece bir LaserJet+, HP
 LaserJet IIP (dvilj2p ile), HP LaserJet4 (dvilj4 ile) ve tam
-uyumlular˝ndan yaz˝c˝ Á˝kt˝s˝ al˝nabilir.
+uyumlularƒ±ndan yazƒ±cƒ± √ßƒ±ktƒ±sƒ± alƒ±nabilir.
 
 %package makeindex
 Summary:	A general purpose hierarchical index generator
-Summary(pl):	Generator hierarchicznych indeksÛw ogÛlnego przeznaczenia
+Summary(pl.UTF-8):   Generator hierarchicznych indeks√≥w og√≥lnego przeznaczenia
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -360,18 +360,18 @@ The formats of the input and output files are specified in a style
 file; by default, input is assumed to be an idx file, as generated by
 LaTeX.
 
-%description makeindex -l pl
-Generator hierarchicznych indeksÛw ogÛlnego przeznaczenia; przyjmuje
-jeden lub wiÍcej plikÛw wej∂ciowych (zazwyczaj zrobionych przez
-narzÍdzie formatuj±ce tekst, takie jak TeX lub troff), sortuje
-elementy i tworzy plik wyj∂ciowy, ktÛry moøe byÊ sformatowany. Formaty
-plikÛw wej∂ciowych i wyj∂ciowych podaje siÍ w pliku stylu; domy∂lnie
-przyjmowany jest plik wej∂ciowy w formacie idx, wygenerowany przez
+%description makeindex -l pl.UTF-8
+Generator hierarchicznych indeks√≥w og√≥lnego przeznaczenia; przyjmuje
+jeden lub wiƒôcej plik√≥w wej≈õciowych (zazwyczaj zrobionych przez
+narzƒôdzie formatujƒÖce tekst, takie jak TeX lub troff), sortuje
+elementy i tworzy plik wyj≈õciowy, kt√≥ry mo≈ºe byƒá sformatowany. Formaty
+plik√≥w wej≈õciowych i wyj≈õciowych podaje siƒô w pliku stylu; domy≈õlnie
+przyjmowany jest plik wej≈õciowy w formacie idx, wygenerowany przez
 LaTeX.
 
 %package metafont
 Summary:	MetaFont
-Summary(pl):	Zestaw narzÍdzi MetaFont
+Summary(pl.UTF-8):   Zestaw narzƒôdzi MetaFont
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -379,12 +379,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description metafont
 MetaFont.
 
-%description metafont -l pl
-Zestaw narzÍdzi MetaFont.
+%description metafont -l pl.UTF-8
+Zestaw narzƒôdzi MetaFont.
 
 %package metapost
 Summary:	MetaPost
-Summary(pl):	Zestaw narzÍdzi MetaPost
+Summary(pl.UTF-8):   Zestaw narzƒôdzi MetaPost
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -393,12 +393,12 @@ Obsoletes:	tetex-matapost
 %description metapost
 MetaPost.
 
-%description metapost -l pl
-Zestaw narzÍdzi MetaPost.
+%description metapost -l pl.UTF-8
+Zestaw narzƒôdzi MetaPost.
 
 %package mptopdf
 Summary:	MetaPost to PDF converter
-Summary(pl):	Konwerter MetaPost do PDF
+Summary(pl.UTF-8):   Konwerter MetaPost do PDF
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-metapost = %{epoch}:%{version}-%{release}
@@ -406,12 +406,12 @@ Requires:	%{name}-metapost = %{epoch}:%{version}-%{release}
 %description mptopdf
 MetaPost to PDF converter.
 
-%description mptopdf -l pl
+%description mptopdf -l pl.UTF-8
 Konwerter MetaPost do PDF.
 
 %package texdoctk
 Summary:	Easy access to TeX documentation
-Summary(pl):	£atwy dostÍp do dokumentacji TeXa
+Summary(pl.UTF-8):   ≈Åatwy dostƒôp do dokumentacji TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -427,20 +427,20 @@ it relies on appropriate programs to be installed on the system.
 However, the choice of these programs can be configured by the
 sysadmin or user.
 
-%description texdoctk -l pl
-Oparty na Perlu i Tk graficzny interfejs daj±cy ≥atwy dostÍp do
-dokumentacji pakietÛw TeXowych na platformach uniksowych; uøywa baz
-danych opartych na poddrzewach texmf/doc z teTeXa 1.0.x, ale moøe
-uøywaÊ konfiguracji ze zmodyfikowanymi lub rozszerzonymi katalogami.
-Naleøy zauwaøyÊ, øe texdoctk sam w sobie nie jest przegl±dark±, ale
-interfejsem do wyszukiwania plikÛw dokumentacji i otwierania ich we
-w≥a∂ciwej przegl±darce; tak wiÍc wymaga on odpowiednich programÛw
-zainstalowanych w systemie. WybÛr tych programÛw moøe byÊ dokonany
-przez administratora lub uøytkownika.
+%description texdoctk -l pl.UTF-8
+Oparty na Perlu i Tk graficzny interfejs dajƒÖcy ≈Çatwy dostƒôp do
+dokumentacji pakiet√≥w TeXowych na platformach uniksowych; u≈ºywa baz
+danych opartych na poddrzewach texmf/doc z teTeXa 1.0.x, ale mo≈ºe
+u≈ºywaƒá konfiguracji ze zmodyfikowanymi lub rozszerzonymi katalogami.
+Nale≈ºy zauwa≈ºyƒá, ≈ºe texdoctk sam w sobie nie jest przeglƒÖdarkƒÖ, ale
+interfejsem do wyszukiwania plik√≥w dokumentacji i otwierania ich we
+w≈Ça≈õciwej przeglƒÖdarce; tak wiƒôc wymaga on odpowiednich program√≥w
+zainstalowanych w systemie. Wyb√≥r tych program√≥w mo≈ºe byƒá dokonany
+przez administratora lub u≈ºytkownika.
 
 %package -n texconfig
 Summary:	TeX typesetting system configurator
-Summary(pl):	Konfigurator systemu sk≥adu TeX
+Summary(pl.UTF-8):   Konfigurator systemu sk≈Çadu TeX
 Group:		Applications/Publishing/TeX
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-dvips = %{epoch}:%{version}-%{release}
@@ -451,17 +451,17 @@ Obsoletes:	tetex-texconfig
 %description -n texconfig
 TeX typesetting system configurator.
 
-%description -n texconfig -l pl
-Konfigurator systemu sk≥adu TeX.
+%description -n texconfig -l pl.UTF-8
+Konfigurator systemu sk≈Çadu TeX.
 
 %package -n xdvi
 Summary:	X11 previewer
-Summary(de):	X11-Previewer
-Summary(es):	Visualizador TeX X11
-Summary(fr):	PrÈvisualisateur X11
-Summary(pl):	Przegl±darka DVI dla X11
-Summary(pt_BR):	Visualizador TeX X11
-Summary(tr):	X11 ˆngˆr¸nt¸leyici
+Summary(de.UTF-8):   X11-Previewer
+Summary(es.UTF-8):   Visualizador TeX X11
+Summary(fr.UTF-8):   Pr√©visualisateur X11
+Summary(pl.UTF-8):   PrzeglƒÖdarka DVI dla X11
+Summary(pt_BR.UTF-8):   Visualizador TeX X11
+Summary(tr.UTF-8):   X11 √∂ng√∂r√ºnt√ºleyici
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -472,30 +472,30 @@ Obsoletes:	tetex-xdvi
 xdvi is a program which runs under the X window system. It is used to
 preview dvi files, such as are produced by tex and latex.
 
-%description -n xdvi -l de
-xdvi ist ein Programm, das unter dem X-Window-System l‰uft und gewohnt
+%description -n xdvi -l de.UTF-8
+xdvi ist ein Programm, das unter dem X-Window-System l√§uft und gewohnt
 ist, dvi-Dateien als Vorschau anzuzeigen, etwa solche, die von tex und
 latex erzeugt wurden.
 
-%description -n xdvi -l es
+%description -n xdvi -l es.UTF-8
 xdvi es un programa que se ejecuta en el sistema X Window. Se usa para
 visualizar archivos dvi, como los producidos por tex y latex.
 
-%description -n xdvi -l fr
-xdvi est un programme s'exÈcutant sous le systËme X Window. Il sert ‡
+%description -n xdvi -l fr.UTF-8
+xdvi est un programme s'ex√©cutant sous le syst√®me X Window. Il sert √†
 visualiser les fichiers dvi tels que ceux produits par tex et latex.
 
-%description -n xdvi -l pl
-Xdvi jest programem (dzia≥aj±cym w X Window System) do przegl±dania
-plikÛw DVI, produkowanych przez TeXa i LaTeXa.
+%description -n xdvi -l pl.UTF-8
+Xdvi jest programem (dzia≈ÇajƒÖcym w X Window System) do przeglƒÖdania
+plik√≥w DVI, produkowanych przez TeXa i LaTeXa.
 
-%description -n xdvi -l pt_BR
-xdvi È um programa que roda no sistema X Window. … usado para
+%description -n xdvi -l pt_BR.UTF-8
+xdvi √© um programa que roda no sistema X Window. √â usado para
 visualizar arquivos dvi, como os produzidos por tex e latex.
 
 %package pdftex
 Summary:	TeX generating PDF files instead DVI
-Summary(pl):	TeX generuj±cy pliki PDF zamiast DVI
+Summary(pl.UTF-8):   TeX generujƒÖcy pliki PDF zamiast DVI
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -504,12 +504,12 @@ Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
 %description pdftex
 TeX generating PDF files instead DVI.
 
-%description pdftex -l pl
-TeX generuj±cy pliki PDF zamiast DVI.
+%description pdftex -l pl.UTF-8
+TeX generujƒÖcy pliki PDF zamiast DVI.
 
 %package omega
 Summary:	Extended unicode TeX
-Summary(pl):	Omega - TeX ze wsparciem dla unikodu
+Summary(pl.UTF-8):   Omega - TeX ze wsparciem dla unikodu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -521,9 +521,9 @@ Omega is a version of the TeX program modified for multilingual
 typesetting. It uses unicode, and has additional primitives for (among
 other things) bidirectional typesetting.
 
-%description omega -l pl
-Omega to wersja TeXa zmodyfikowana dla potrzeb sk≥adu wielojÍzycznego.
-Uøywa unikodu i ma dodatkowe prymitywy do (miÍdzy innymi) sk≥adania
+%description omega -l pl.UTF-8
+Omega to wersja TeXa zmodyfikowana dla potrzeb sk≈Çadu wielojƒôzycznego.
+U≈ºywa unikodu i ma dodatkowe prymitywy do (miƒôdzy innymi) sk≈Çadania
 tekstu pisanego w obu kierunkach.
 
 #
@@ -534,7 +534,7 @@ tekstu pisanego w obu kierunkach.
 
 %package plain
 Summary:	Plain TeX format basic files
-Summary(pl):	Podstawowe pliki dla formatu Plain TeX
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -542,12 +542,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description plain
 Plain TeX format basic files.
 
-%description plain -l pl
+%description plain -l pl.UTF-8
 Podstawowe pliki dla formatu Plain TeX.
 
 %package format-plain
 Summary:	TeX Plain format
-Summary(pl):	Format TeX Plain
+Summary(pl.UTF-8):   Format TeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
@@ -555,12 +555,12 @@ Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 %description format-plain
 TeX Plain format.
 
-%description format-plain -l pl
+%description format-plain -l pl.UTF-8
 Format TeX Plain.
 
 %package format-pdftex
 Summary:	PDFTeX Plain format
-Summary(pl):	Format PDFTeX Plain
+Summary(pl.UTF-8):   Format PDFTeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
@@ -572,12 +572,12 @@ Requires:	ghostscript-fonts-std
 %description format-pdftex
 PDFTeX Plain format.
 
-%description format-pdftex -l pl
+%description format-pdftex -l pl.UTF-8
 Format PDFTeX Plain.
 
 %package format-pdfetex
 Summary:	PDFTeX EPlain format
-Summary(pl):	Format PDFTeX EPlain
+Summary(pl.UTF-8):   Format PDFTeX EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
@@ -586,14 +586,14 @@ Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 %description format-pdfetex
 PDFTeX EPlain format.
 
-%description format-pdfetex -l pl
+%description format-pdfetex -l pl.UTF-8
 Format PDFTeX EPlain.
 
 # MeX Plain format
 
 %package mex
 Summary:	MeX Plain Format basic files
-Summary(pl):	Podstawowe pliki dla format MeX Plain
+Summary(pl.UTF-8):   Podstawowe pliki dla format MeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -603,12 +603,12 @@ Requires:	tetex-plain = %{epoch}:%{version}-%{release}
 %description mex
 MeX Plain Format basic files.
 
-%description mex -l pl
+%description mex -l pl.UTF-8
 Podstawowe pliki dla formatu MeX Plain.
 
 %package format-mex
 Summary:	MeX Plain Format
-Summary(pl):	Format MeX Plain
+Summary(pl.UTF-8):   Format MeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	tetex-mex = %{epoch}:%{version}-%{release}
@@ -616,12 +616,12 @@ Requires:	tetex-mex = %{epoch}:%{version}-%{release}
 %description format-mex
 MeX Plain Format.
 
-%description format-mex -l pl
+%description format-mex -l pl.UTF-8
 Format MeX Plain.
 
 %package format-pdfmex
 Summary:	PDFMeX Plain Format
-Summary(pl):	Format PDFMeX Plain
+Summary(pl.UTF-8):   Format PDFMeX Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
@@ -630,12 +630,12 @@ Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 %description format-pdfmex
 PDFMeX Plain Format.
 
-%description format-pdfmex -l pl
+%description format-pdfmex -l pl.UTF-8
 Format PDFMeX Plain.
 
 %package format-utf8mex
 Summary:	MeX Plain Format with UTF-8 encoded source files
-Summary(pl):	Format MeX Plain z plikami ºrÛd≥owymi kodowanymi UTF-8
+Summary(pl.UTF-8):   Format MeX Plain z plikami ≈∫r√≥d≈Çowymi kodowanymi UTF-8
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
@@ -643,14 +643,14 @@ Requires:	%{name}-mex = %{epoch}:%{version}-%{release}
 %description format-utf8mex
 MeX Plain Format with UTF-8 encoded source files.
 
-%description format-utf8mex -l pl
-Format MeX Plain z plikami ºrÛd≥owymi kodowanymi UTF-8.
+%description format-utf8mex -l pl.UTF-8
+Format MeX Plain z plikami ≈∫r√≥d≈Çowymi kodowanymi UTF-8.
 
 # AMS TeX format
 
 %package amstex
 Summary:	AMS macros for Plain TeX basic files
-Summary(pl):	Podstawowe pliki makr AMS dla formatu Plain TeX
+Summary(pl.UTF-8):   Podstawowe pliki makr AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
@@ -661,13 +661,13 @@ Obsoletes:	tetex-plain-amsfonts
 %description amstex
 American Mathematical Society macros for Plain TeX basic files.
 
-%description amstex -l pl
+%description amstex -l pl.UTF-8
 Podstawowe pliki makr AMS (American Mathematical Society) dla formatu
 Plain TeX.
 
 %package format-amstex
 Summary:	AMS macros for Plain TeX
-Summary(pl):	Makra AMS dla formatu Plain TeX
+Summary(pl.UTF-8):   Makra AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-amstex = %{epoch}:%{version}-%{release}
@@ -676,12 +676,12 @@ Obsoletes:	tetex-ams
 %description format-amstex
 American Mathematical Society macros for Plain TeX.
 
-%description format-amstex -l pl
+%description format-amstex -l pl.UTF-8
 Makra AMS (American Mathematical Society) dla formatu Plain TeX.
 
 %package format-pdfamstex
 Summary:	AMS macros for PDFTeX
-Summary(pl):	Makra AMS dla formatu PDFTeX
+Summary(pl.UTF-8):   Makra AMS dla formatu PDFTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-amstex = %{epoch}:%{version}-%{release}
@@ -690,14 +690,14 @@ Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 %description format-pdfamstex
 American Mathematical Society macros for PDFTeX.
 
-%description format-pdfamstex -l pl
+%description format-pdfamstex -l pl.UTF-8
 Makra AMS (American Mathematical Society) dla formatu PDFTeX.
 
 # CSPlain format
 
 %package csplain
 Summary:	TeX CSPlain format basic files
-Summary(pl):	Podstawowe pliki dla formatu TeX CSPlain
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu TeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-cs = %{epoch}:%{version}-%{release}
@@ -706,12 +706,12 @@ Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 %description csplain
 TeX CSPlain format basic files.
 
-%description csplain -l pl
+%description csplain -l pl.UTF-8
 Podstawowe pliki dla formatu TeX CSPlain.
 
 %package format-csplain
 Summary:	TeX CSPlain format
-Summary(pl):	Format TeX CSPlain
+Summary(pl.UTF-8):   Format TeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
@@ -719,12 +719,12 @@ Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
 %description format-csplain
 TeX CSPlain format.
 
-%description format-csplain -l pl
+%description format-csplain -l pl.UTF-8
 Format TeX CSPlain.
 
 %package format-pdfcsplain
 Summary:	PDFTeX CSPlain format
-Summary(pl):	Format PDFTeX CSPlain
+Summary(pl.UTF-8):   Format PDFTeX CSPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
@@ -732,14 +732,14 @@ Requires:	%{name}-csplain = %{epoch}:%{version}-%{release}
 %description format-pdfcsplain
 PDFTeX CSPlain format.
 
-%description format-pdfcsplain -l pl
+%description format-pdfcsplain -l pl.UTF-8
 Format PDFTeX CSPlain.
 
 # CSLaTeX format
 
 %package cslatex
 Summary:	CSLaTeX format basic files
-Summary(pl):	Podstawowe pliki dla formatu CSLaTeX
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-cs = %{epoch}:%{version}-%{release}
@@ -748,12 +748,12 @@ Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 %description cslatex
 CSLaTeX format basic files.
 
-%description cslatex -l pl
+%description cslatex -l pl.UTF-8
 Podstawowe pliki dla formatu CSLaTeX.
 
 %package format-cslatex
 Summary:	CSLaTeX format
-Summary(pl):	Format CSLaTeX
+Summary(pl.UTF-8):   Format CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
@@ -761,12 +761,12 @@ Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
 %description format-cslatex
 CSLaTeX format.
 
-%description format-cslatex -l pl
+%description format-cslatex -l pl.UTF-8
 Format CSLaTeX.
 
 %package format-pdfcslatex
 Summary:	PDF CSLaTeX format
-Summary(pl):	Format PDF CSLaTeX
+Summary(pl.UTF-8):   Format PDF CSLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
@@ -774,14 +774,14 @@ Requires:	%{name}-cslatex = %{epoch}:%{version}-%{release}
 %description format-pdfcslatex
 PDF CSLaTeX format.
 
-%description format-pdfcslatex -l pl
+%description format-pdfcslatex -l pl.UTF-8
 Format PDF CSLaTeX.
 
 # Cyrillic Plain format
 
 %package cyrplain
 Summary:	Cyrillic Plain format basic files
-Summary(pl):	Podstawowe pliki dla formatu Cyrillic Plain
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu Cyrillic Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
@@ -789,12 +789,12 @@ Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 %description cyrplain
 Cyrillic Plain format basic files.
 
-%description cyrplain -l pl
+%description cyrplain -l pl.UTF-8
 Podstawowe pliki dla formatu Cyrillic Plain.
 
 %package format-cyrplain
 Summary:	Cyrillic Plain format
-Summary(pl):	Format Cyrillic Plain
+Summary(pl.UTF-8):   Format Cyrillic Plain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-cyrplain = %{epoch}:%{version}-%{release}
@@ -802,12 +802,12 @@ Requires:	%{name}-cyrplain = %{epoch}:%{version}-%{release}
 %description format-cyrplain
 Cyrillic Plain format.
 
-%description format-cyrplain -l pl
+%description format-cyrplain -l pl.UTF-8
 Format Cyrillic Plain.
 
 %package format-cyramstex
 Summary:	Cyrillic AMSTeX format
-Summary(pl):	Format Cyrillic AMSTeX
+Summary(pl.UTF-8):   Format Cyrillic AMSTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
@@ -816,12 +816,12 @@ Obsoletes:	tetex-cyramstex
 %description format-cyramstex
 Cyrillic AMSTeX format.
 
-%description format-cyramstex -l pl
+%description format-cyramstex -l pl.UTF-8
 Format Cyrillic AMSTeX.
 
 %package format-cyrtexinfo
 Summary:	Cyrillic TeXInfo format
-Summary(pl):	Format Cyrillic TeXInfo
+Summary(pl.UTF-8):   Format Cyrillic TeXInfo
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
@@ -830,14 +830,14 @@ Obsoletes:	tetex-cyrtexinfo
 %description format-cyrtexinfo
 Cyrillic TeXInfo format.
 
-%description format-cyrtexinfo -l pl
+%description format-cyrtexinfo -l pl.UTF-8
 Format Cyrillic TeXInfo.
 
 # EPlain format
 
 %package eplain
 Summary:	EPlain format basic files
-Summary(pl):	Podstawowe pliki dla formatu EPlain
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
@@ -846,12 +846,12 @@ Obsoletes:	tetex-etex
 %description eplain
 EPlain format basic files.
 
-%description eplain -l pl
+%description eplain -l pl.UTF-8
 Podstawowe pliki dla formatu EPlain.
 
 %package format-eplain
 Summary:	EPlain format
-Summary(pl):	Format EPlain
+Summary(pl.UTF-8):   Format EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-eplain = %{epoch}:%{version}-%{release}
@@ -859,14 +859,14 @@ Requires:	%{name}-eplain = %{epoch}:%{version}-%{release}
 %description format-eplain
 EPlain format.
 
-%description format-eplain -l pl
+%description format-eplain -l pl.UTF-8
 Format EPlain.
 
 # ConTeXt format.
 
 %package context
 Summary:	ConTeXt macro package basic files
-Summary(pl):	Podstawowe pliki pakietu makr ConTeXt
+Summary(pl.UTF-8):   Podstawowe pliki pakietu makr ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -880,15 +880,15 @@ advanced interactive documents.
 
 This package contains basic files.
 
-%description context -l pl
-Pakiet makr sterowanych przez parametry o pe≥nych moøliwo∂ciach,
-ca≥kowicie obs≥uguj±cy zaawansowane dokumenty interaktywne.
+%description context -l pl.UTF-8
+Pakiet makr sterowanych przez parametry o pe≈Çnych mo≈ºliwo≈õciach,
+ca≈Çkowicie obs≈ÇugujƒÖcy zaawansowane dokumenty interaktywne.
 
 Ten pakiet zawiera podstawowe pliki.
 
 %package format-context-de
 Summary:	German ConTeXt format
-Summary(pl):	Niemiecka wersja formatu ConTeXt
+Summary(pl.UTF-8):   Niemiecka wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-context = %{epoch}:%{version}-%{release}
@@ -896,12 +896,12 @@ Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 %description format-context-de
 German ConTeXt format.
 
-%description format-context-de -l pl
+%description format-context-de -l pl.UTF-8
 Niemiecka wersja formatu ConTeXt.
 
 %package format-context-en
 Summary:	English ConTeXt format
-Summary(pl):	Angielska wersja formatu ConTeXt
+Summary(pl.UTF-8):   Angielska wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-context = %{epoch}:%{version}-%{release}
@@ -909,12 +909,12 @@ Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 %description format-context-en
 English ConTeXt format.
 
-%description format-context-en -l pl
+%description format-context-en -l pl.UTF-8
 Angielska wersja formatu ConTeXt.
 
 %package format-context-nl
 Summary:	Dutch ConTeXt format
-Summary(pl):	Holenderska wersja formatu ConTeXt
+Summary(pl.UTF-8):   Holenderska wersja formatu ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-context = %{epoch}:%{version}-%{release}
@@ -922,14 +922,14 @@ Requires:	%{name}-context = %{epoch}:%{version}-%{release}
 %description format-context-nl
 Dutch ConTeXt format.
 
-%description format-context-nl -l pl
+%description format-context-nl -l pl.UTF-8
 Holenderska wersja formatu ConTeXt.
 
 # LaTeX format.
 
 %package latex
 Summary:	LaTeX macro package basic files
-Summary(pl):	Podstawowe pliki pakietu makr LaTeX
+Summary(pl.UTF-8):   Podstawowe pliki pakietu makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -980,16 +980,16 @@ convenient, predefined document formats for users.
 
 This package contains basic files.
 
-%description latex -l pl
-LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
-≥atwiejszy w uøyciu niø TeX. Jest w≥a∂ciwie zestawem makr TeXowych,
-daj±cych uøytkownikom wygodne, predefiniowane formaty dokumentÛw.
+%description latex -l pl.UTF-8
+LaTeX jest frontendem do systemu formatujƒÖcego tekst TeX. Jest
+≈Çatwiejszy w u≈ºyciu ni≈º TeX. Jest w≈Ça≈õciwie zestawem makr TeXowych,
+dajƒÖcych u≈ºytkownikom wygodne, predefiniowane formaty dokument√≥w.
 
 Ten pakiet zawiera podstawowe pliki.
 
 %package latex-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
-Summary(pl):	Wirtualne fonty dla plikÛw PDF z fontami CMR o kodowaniu T1
+Summary(pl.UTF-8):   Wirtualne fonty dla plik√≥w PDF z fontami CMR o kodowaniu T1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-ae = %{epoch}:%{version}-%{release}
@@ -1001,16 +1001,16 @@ standard CM fonts. The package is called AE fonts (for Almost
 European). The main use of the package is to produce PDF files using
 versions of the CM fonts instead of the bitmapped EC fonts.
 
-%description latex-ae -l pl
-Zestaw wirtualnych fontÛw emuluj±cych fonty o kodowaniu T1 przy uøyciu
-standardowych fontÛw CM. Ten pakiet zosta≥ nazwany AE (Almost European
-- prawie europejskie). G≥Ûwnym przeznaczeniem tego pakietu jest
-produkowanie plikÛw PDF przy uøyciu wersji fontÛw CM zamiast
-bitmapowych fontÛw EC.
+%description latex-ae -l pl.UTF-8
+Zestaw wirtualnych font√≥w emulujƒÖcych fonty o kodowaniu T1 przy u≈ºyciu
+standardowych font√≥w CM. Ten pakiet zosta≈Ç nazwany AE (Almost European
+- prawie europejskie). G≈Ç√≥wnym przeznaczeniem tego pakietu jest
+produkowanie plik√≥w PDF przy u≈ºyciu wersji font√≥w CM zamiast
+bitmapowych font√≥w EC.
 
 %package latex-algorithms
 Summary:	Floating algorithm environment
-Summary(pl):	P≥ywaj±ce ∂rodowisko dla algorytmÛw
+Summary(pl.UTF-8):   P≈ÇywajƒÖce ≈õrodowisko dla algorytm√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1019,13 +1019,13 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Defines a floating algorithm environment designed to work with the
 algorithmic package.
 
-%description latex-algorithms -l pl
-Pakiet definiuj±cy p≥ywaj±ce ∂rodowisko dla algorytmÛw zaprojektowane
+%description latex-algorithms -l pl.UTF-8
+Pakiet definiujƒÖcy p≈ÇywajƒÖce ≈õrodowisko dla algorytm√≥w zaprojektowane
 do pracy z pakietem algorithmic.
 
 %package latex-ams
 Summary:	AMS math facilities for LaTeX
-Summary(pl):	Udogodnienia matematyczne AMS dla LaTeXa
+Summary(pl.UTF-8):   Udogodnienia matematyczne AMS dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
@@ -1039,13 +1039,13 @@ This package is the principal package in the AMS-LaTeX distribution.
 It adapts for use in LaTeX most of the mathematical features found in
 AMS-TeX.
 
-%description latex-ams -l pl
-To jest g≥Ûwny pakiet dystrybucji AMS-LaTeX. Jest adaptacj± wiÍkszo∂ci
-moøliwo∂ci matematycznych AMS-TeXa do uøywania w LaTeXu.
+%description latex-ams -l pl.UTF-8
+To jest g≈Ç√≥wny pakiet dystrybucji AMS-LaTeX. Jest adaptacjƒÖ wiƒôkszo≈õci
+mo≈ºliwo≈õci matematycznych AMS-TeXa do u≈ºywania w LaTeXu.
 
 %package latex-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
-Summary(pl):	Antykwa PÛ≥tawskiego - rodzina tradycyjnych czcionek polskich jako Type 1
+Summary(pl.UTF-8):   Antykwa P√≥≈Çtawskiego - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-antp = %{epoch}:%{version}-%{release}
@@ -1060,18 +1060,18 @@ houses as long as metal types were in use (until ca the 'sixties).
 Perhaps the first complete font family programmed and parametrized in
 METAPOST.
 
-%description latex-antp -l pl
-WstÍpna wersja repliki kroju Antykwa PÛ≥tawskiego w formacie
-PostScript Type 1. Ten krÛj zosta≥ opracowany w latach 30-tych i
+%description latex-antp -l pl.UTF-8
+Wstƒôpna wersja repliki kroju Antykwa P√≥≈Çtawskiego w formacie
+PostScript Type 1. Ten kr√≥j zosta≈Ç opracowany w latach 30-tych i
 40-tych XX wieku przez polskiego grafika i typografa Adama
-PÛ≥tawskiego. By≥a szeroko uøywana przez polskie drukarnie dopÛki
-uøywano metalowych czcionek (do lat 60-tych). Prawdopodobnie pierwsza
-kompletna rodzina fontÛw zaprogramowana i zparametryzowana w
+P√≥≈Çtawskiego. By≈Ça szeroko u≈ºywana przez polskie drukarnie dop√≥ki
+u≈ºywano metalowych czcionek (do lat 60-tych). Prawdopodobnie pierwsza
+kompletna rodzina font√≥w zaprogramowana i zparametryzowana w
 METAPOSCIE.
 
 %package latex-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
-Summary(pl):	Antykwa TuruÒska - rodzina tradycyjnych czcionek polskich jako Type 1
+Summary(pl.UTF-8):   Antykwa Turu≈Ñska - rodzina tradycyjnych czcionek polskich jako Type 1
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-antt = %{epoch}:%{version}-%{release}
@@ -1082,14 +1082,14 @@ Antykwa Torunska is a serif font designed by the late Polish
 typographer Zygfryd Gardzielewski, reconstructed and digitized as
 Type 1.
 
-%description latex-antt -l pl
-Antykwa ToruÒska to krÛj szeryfowy opracowany niedawno przez polskiego
+%description latex-antt -l pl.UTF-8
+Antykwa Toru≈Ñska to kr√≥j szeryfowy opracowany niedawno przez polskiego
 typografa Zygfryda Gardzielewskiego, zrekonstruowany i przerobiony na
-postaÊ cyfrow± jako Type 1.
+postaƒá cyfrowƒÖ jako Type 1.
 
 %package latex-bbm
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
-Summary(pl):	Tablicowy wariant fontÛw Computer Modern z obs≥ug± LaTeXa
+Summary(pl.UTF-8):   Tablicowy wariant font√≥w Computer Modern z obs≈ÇugƒÖ LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-bbm = %{epoch}:%{version}-%{release}
@@ -1098,12 +1098,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
 
-%description latex-bbm -l pl
-Tablicowy wariant fontÛw Computer Modern z obs≥ug± LaTeXa.
+%description latex-bbm -l pl.UTF-8
+Tablicowy wariant font√≥w Computer Modern z obs≈ÇugƒÖ LaTeXa.
 
 %package latex-bbold
 Summary:	Sans serif blackboard bold for LaTeX
-Summary(pl):	Tablicowy t≥usty font sans serif dla LaTeXa
+Summary(pl.UTF-8):   Tablicowy t≈Çusty font sans serif dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-bbold = %{epoch}:%{version}-%{release}
@@ -1112,13 +1112,13 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-bbold
 A geometric sans serif blackboard bold font, for use in mathematics.
 
-%description latex-bbold -l pl
-Geometryczny tablicowy t≥usty font sans serif, do uøywania w
+%description latex-bbold -l pl.UTF-8
+Geometryczny tablicowy t≈Çusty font sans serif, do u≈ºywania w
 matematyce.
 
 %package latex-bibtex
 Summary:	Bibliography management for LaTeX
-Summary(pl):	Zarz±dzenie bibliografi± dla LaTeXa
+Summary(pl.UTF-8):   ZarzƒÖdzenie bibliografiƒÖ dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1129,12 +1129,12 @@ Obsoletes:	tetex-rubibtex
 %description latex-bibtex
 Bibliography management for LaTeX.
 
-%description latex-bibtex -l pl
-Zarz±dzanie bibliografi± dla LaTeXa.
+%description latex-bibtex -l pl.UTF-8
+ZarzƒÖdzanie bibliografiƒÖ dla LaTeXa.
 
 %package latex-bibtex-ams
 Summary:	BibTeX style files for American Mathematical Society publications
-Summary(pl):	Pliki stylÛw BibTeXa do publikacji American Mathematical Society
+Summary(pl.UTF-8):   Pliki styl√≥w BibTeXa do publikacji American Mathematical Society
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
@@ -1144,12 +1144,12 @@ Obsoletes:	tetex-bibtex-ams
 %description latex-bibtex-ams
 BibTeX style files for American Mathematical Society publications.
 
-%description latex-bibtex-ams -l pl
-Pliki stylÛw BibTeXa do publikacji American Mathematical Society.
+%description latex-bibtex-ams -l pl.UTF-8
+Pliki styl√≥w BibTeXa do publikacji American Mathematical Society.
 
 %package latex-bibtex-dk
 Summary:	Danish variants of the standard BibTeX styles
-Summary(pl):	DuÒskie warianty standardowych stylÛw BibTeXa
+Summary(pl.UTF-8):   Du≈Ñskie warianty standardowych styl√≥w BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
@@ -1160,15 +1160,15 @@ Dk-bib is a translation of the four standard BibTeX style files
 extended with ISBN, ISSN and URL fields which can be enabled through a
 LaTeX style file.
 
-%description latex-bibtex-dk -l pl
-Dk-bib to t≥umaczenie czterech standardowych plikÛw stylÛw BibTeXa
-(abbrv, alpha, plain i unsrt) na jÍzyk duÒski. Pliki zosta≥y
-rozszerzone o pola ISBN, ISSN i URL, ktÛre moøna w≥±czyÊ poprzez plik
+%description latex-bibtex-dk -l pl.UTF-8
+Dk-bib to t≈Çumaczenie czterech standardowych plik√≥w styl√≥w BibTeXa
+(abbrv, alpha, plain i unsrt) na jƒôzyk du≈Ñski. Pliki zosta≈Çy
+rozszerzone o pola ISBN, ISSN i URL, kt√≥re mo≈ºna w≈ÇƒÖczyƒá poprzez plik
 stylu LaTeXa.
 
 %package latex-bibtex-nor
 Summary:	Norwegian variants of the standard BibTeX styles
-Summary(pl):	Norweskie warianty standardowych stylÛw BibTeXa
+Summary(pl.UTF-8):   Norweskie warianty standardowych styl√≥w BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
@@ -1176,12 +1176,12 @@ Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 %description latex-bibtex-nor
 Norwegian variants of the standard BibTeX styles.
 
-%description latex-bibtex-nor -l pl
-Norweskie warianty standardowych stylÛw BibTeXa.
+%description latex-bibtex-nor -l pl.UTF-8
+Norweskie warianty standardowych styl√≥w BibTeXa.
 
 %package latex-bibtex-pl
 Summary:	Polish bibliography management for LaTeX
-Summary(pl):	Polska wersja zarz±dzania bibliografi± dla LaTeXa
+Summary(pl.UTF-8):   Polska wersja zarzƒÖdzania bibliografiƒÖ dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
@@ -1190,12 +1190,12 @@ Obsoletes:	tetex-bibtex-plbib
 %description latex-bibtex-pl
 Polish bibliography management for LaTeX.
 
-%description latex-bibtex-pl -l pl
-Polska wersja zarz±dzania bibliografi± dla LaTeXa.
+%description latex-bibtex-pl -l pl.UTF-8
+Polska wersja zarzƒÖdzania bibliografiƒÖ dla LaTeXa.
 
 %package latex-bibtex-german
 Summary:	German variants of standard BibTeX styles
-Summary(pl):	Niemieckie wersje standardowych stylÛw BibTeXa
+Summary(pl.UTF-8):   Niemieckie wersje standardowych styl√≥w BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
@@ -1204,12 +1204,12 @@ Obsoletes:	tetex-bibtex-germbib
 %description latex-bibtex-german
 German variants of standard BibTeX styles.
 
-%description latex-bibtex-german -l pl
-Niemieckie wersje standardowych stylÛw BibTeXa.
+%description latex-bibtex-german -l pl.UTF-8
+Niemieckie wersje standardowych styl√≥w BibTeXa.
 
 %package latex-bibtex-revtex4
 Summary:	BibTeX styles for REVTeX4
-Summary(pl):	Style BibTeXa dla REVTeX4
+Summary(pl.UTF-8):   Style BibTeXa dla REVTeX4
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1218,12 +1218,12 @@ Obsoletes:	tetex-bibtex-revtex4
 %description latex-bibtex-revtex4
 BibTeX styles for REVTeX4.
 
-%description latex-bibtex-revtex4 -l pl
+%description latex-bibtex-revtex4 -l pl.UTF-8
 Style BibTeXa dla REVTeX4.
 
 %package latex-bibtex-jurabib
 Summary:	Extended BibTeX citation support for the humanities and legal texts
-Summary(pl):	Rozszerzona obs≥uga cytowania BibTeXa do tekstÛw humanistycznych i prawniczych
+Summary(pl.UTF-8):   Rozszerzona obs≈Çuga cytowania BibTeXa do tekst√≥w humanistycznych i prawniczych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1232,13 +1232,13 @@ Obsoletes:	tetex-bibtex-jurabib
 %description latex-bibtex-jurabib
 Extended BibTeX citation support for the humanities and legal texts.
 
-%description latex-bibtex-jurabib -l pl
-Rozszerzona obs≥uga cytowania BibTeXa do tekstÛw humanistycznych i
+%description latex-bibtex-jurabib -l pl.UTF-8
+Rozszerzona obs≈Çuga cytowania BibTeXa do tekst√≥w humanistycznych i
 prawniczych.
 
 %package latex-carlisle
 Summary:	Miscellaneous small packages by David Carlisle
-Summary(pl):	RÛøne ma≥e pakiety autorstwa Davida Carlisle
+Summary(pl.UTF-8):   R√≥≈ºne ma≈Çe pakiety autorstwa Davida Carlisle
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1246,12 +1246,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-carlisle
 Miscellaneous small packages by David Carlisle.
 
-%description latex-carlisle -l pl
-RÛøne ma≥e pakiety autorstwa Davida Carlisle.
+%description latex-carlisle -l pl.UTF-8
+R√≥≈ºne ma≈Çe pakiety autorstwa Davida Carlisle.
 
 %package latex-ccfonts
 Summary:	Support for Concrete text and math fonts in LaTeX
-Summary(pl):	Obs≥uga fontÛw tekstowych i matematycznych Concrete w LaTeXu
+Summary(pl.UTF-8):   Obs≈Çuga font√≥w tekstowych i matematycznych Concrete w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1262,15 +1262,15 @@ for typesetting documents using Concrete as the default font family.
 The files support OT1, T1, TS1, and Concrete math including AMS fonts
 (Ulrik Vieth's concmath).
 
-%description latex-ccfonts -l pl
-Pliki definicji fontÛw LaTeXowych dla fontÛw Concrete oraz pakiet
-LaTeXa do sk≥adania dokumentÛw przy uøyciu Concrete jako domy∂lnej
-rodziny fontÛw. Pliki obs≥uguj± fonty OT1, T1, TS1 oraz matematyczny
+%description latex-ccfonts -l pl.UTF-8
+Pliki definicji font√≥w LaTeXowych dla font√≥w Concrete oraz pakiet
+LaTeXa do sk≈Çadania dokument√≥w przy u≈ºyciu Concrete jako domy≈õlnej
+rodziny font√≥w. Pliki obs≈ÇugujƒÖ fonty OT1, T1, TS1 oraz matematyczny
 Concrete wraz z AMS (concmath Ulrika Vietha).
 
 %package latex-cite
 Summary:	Supports compressed, sorted lists of numerical citations
-Summary(pl):	Obs≥uga kompresowanych, sortowanych list numerowanych cytatÛw
+Summary(pl.UTF-8):   Obs≈Çuga kompresowanych, sortowanych list numerowanych cytat√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1278,12 +1278,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-cite
 Supports compressed, sorted lists of numerical citations.
 
-%description latex-cite -l pl
-Obs≥uga kompresowanych, sortowanych list numerowanych cytatÛw.
+%description latex-cite -l pl.UTF-8
+Obs≈Çuga kompresowanych, sortowanych list numerowanych cytat√≥w.
 
 %package latex-cmbright
 Summary:	Support for CM Bright fonts in LaTeX
-Summary(pl):	Obs≥uga fontÛw CM Bright w LaTeXu
+Summary(pl.UTF-8):   Obs≈Çuga font√≥w CM Bright w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-cmbright = %{epoch}:%{version}-%{release}
@@ -1296,16 +1296,16 @@ various shapes as well as all the fonts necessary for mathematical
 typesetting, incl. AMS symbols. This collection provides all the
 necessary files for using the fonts with LaTeX.
 
-%description latex-cmbright -l pl
-Rodzina fontÛw sans serif dla TeXa i LaTeXa, oparta na fontach CM
-Donalda Knutha. Obejmuje fonty dla kodowaÒ OT1, T1 i TS1 rÛønych
-kszta≥tÛw oraz fonty niezbÍdne do sk≥adu matematycznego, w≥±cznie z
-symbolami AMS. Ten zestaw dostarcza wszystkie niezbÍdne pliki do
-uøywania fontÛw w LaTeXu.
+%description latex-cmbright -l pl.UTF-8
+Rodzina font√≥w sans serif dla TeXa i LaTeXa, oparta na fontach CM
+Donalda Knutha. Obejmuje fonty dla kodowa≈Ñ OT1, T1 i TS1 r√≥≈ºnych
+kszta≈Çt√≥w oraz fonty niezbƒôdne do sk≈Çadu matematycznego, w≈ÇƒÖcznie z
+symbolami AMS. Ten zestaw dostarcza wszystkie niezbƒôdne pliki do
+u≈ºywania font√≥w w LaTeXu.
 
 %package latex-concmath
 Summary:	LaTeX package and font definition files to access the Concrete math fonts
-Summary(pl):	Pakiet LaTeXa i pliki definicji fontÛw udostÍpniaj±ce fonty matematyczne Concrete
+Summary(pl.UTF-8):   Pakiet LaTeXa i pliki definicji font√≥w udostƒôpniajƒÖce fonty matematyczne Concrete
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-concmath = %{epoch}:%{version}-%{release}
@@ -1316,15 +1316,15 @@ LaTeX package and font definition files to access the Concrete math
 fonts, which were derived from Computer Modern math fonts using
 parameters from Concrete Roman text fonts.
 
-%description latex-concmath -l pl
-Pakiet LaTeXa i pliki definicji fontÛw udostÍpniaj±ce fonty
-matematyczne Concrete wywodz±ce siÍ z fontÛw matematycznych Computer
-Modern poprzez zastosowanie parametrÛw fontÛw tekstowych Concrete
+%description latex-concmath -l pl.UTF-8
+Pakiet LaTeXa i pliki definicji font√≥w udostƒôpniajƒÖce fonty
+matematyczne Concrete wywodzƒÖce siƒô z font√≥w matematycznych Computer
+Modern poprzez zastosowanie parametr√≥w font√≥w tekstowych Concrete
 Roman.
 
 %package latex-custom-bib
 Summary:	Customized BibTeX styles for LaTeX
-Summary(pl):	Dostosowywanie stylÛw BibTeXa dla LaTeXa
+Summary(pl.UTF-8):   Dostosowywanie styl√≥w BibTeXa dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1333,13 +1333,13 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Package generating customized BibTeX bibliography styles from a
 generic file using docstrip. Includes support for the Harvard style.
 
-%description latex-custom-bib -l pl
-Pakiet generuj±cy dostosowane style bibliografii BibTeXa z ogÛlnego
-pliki przy uøyciu docstrip. Zawiera obs≥ugÍ stylu Harvard.
+%description latex-custom-bib -l pl.UTF-8
+Pakiet generujƒÖcy dostosowane style bibliografii BibTeXa z og√≥lnego
+pliki przy u≈ºyciu docstrip. Zawiera obs≈Çugƒô stylu Harvard.
 
 %package latex-cyrillic
 Summary:	LaTeX Cyrillic support
-Summary(pl):	Obs≥uga cyrylicy dla LaTeXa
+Summary(pl.UTF-8):   Obs≈Çuga cyrylicy dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1347,12 +1347,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-cyrillic
 LaTeX Cyrillic support.
 
-%description latex-cyrillic -l pl
-Obs≥uga cyrylicy dla LaTeXa.
+%description latex-cyrillic -l pl.UTF-8
+Obs≈Çuga cyrylicy dla LaTeXa.
 
 %package latex-dstroke
 Summary:	LaTeX doublestroke font
-Summary(pl):	PodwÛjnie kre∂lony font dla LaTeXa
+Summary(pl.UTF-8):   Podw√≥jnie kre≈õlony font dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-dstroke = %{epoch}:%{version}-%{release}
@@ -1363,13 +1363,13 @@ Doublestroke font for typesetting the mathematical symbols for the
 natural numbers, whole numbers, rational numbers, real numbers and
 complex numbers.
 
-%description latex-dstroke -l pl
-PodwÛjnie kre∂lony font do sk≥adania symboli matematycznych liczb
-naturalnych, ca≥kowitych, wymiernych, rzeczywistych i zespolonych.
+%description latex-dstroke -l pl.UTF-8
+Podw√≥jnie kre≈õlony font do sk≈Çadania symboli matematycznych liczb
+naturalnych, ca≈Çkowitych, wymiernych, rzeczywistych i zespolonych.
 
 %package latex-jknappen
 Summary:	Miscellaneous packages by Joerg Knappen
-Summary(pl):	RÛøne pakiety autorstwa Joerga Knappena
+Summary(pl.UTF-8):   R√≥≈ºne pakiety autorstwa Joerga Knappena
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-jknappen = %{epoch}:%{version}-%{release}
@@ -1379,13 +1379,13 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
 Knappen, including sgmlcmpt.
 
-%description latex-jknappen -l pl
-RÛøne makra, g≥Ûwnie do uøywania dodatkowych fontÛw autorstwa Joerga
+%description latex-jknappen -l pl.UTF-8
+R√≥≈ºne makra, g≈Ç√≥wnie do u≈ºywania dodatkowych font√≥w autorstwa Joerga
 Knappena. Zawiera sgmlcmpt.
 
 %package latex-lm
 Summary:	LaTeX styles for Latin Modern family fonts
-Summary(pl):	Style LaTeXa dla fontÛw z rodziny Latin Modern
+Summary(pl.UTF-8):   Style LaTeXa dla font√≥w z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1402,20 +1402,20 @@ Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
 potential user knows what to do with all these files. The author is
 Boguslaw Jackowski.
 
-%description latex-lm -l pl
-Rodzina fontÛw Latin Modern, oparta na fontach Computer Modern
+%description latex-lm -l pl.UTF-8
+Rodzina font√≥w Latin Modern, oparta na fontach Computer Modern
 przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
-Zawiera wiele dodatkowych znakÛw, g≥Ûwnie z akcentami, ale nie tylko.
-Jest jeden zbiÛr fontÛw postscriptowych oraz cztery zbiory plikÛw TeX
-Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
-QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu takøe LY1
-(texnansi-*.tfm); oraz Text Companion dla fontÛw EC zwanemu takøe TS1
-(ts1-*.tfm). Zak≥ada siÍ, øe potencjalny uøytkownik wie, co zrobiÊ z
-tymi wszystkimi plikami. Autorem jest Bogus≥aw Jackowski.
+Zawiera wiele dodatkowych znak√≥w, g≈Ç√≥wnie z akcentami, ale nie tylko.
+Jest jeden zbi√≥r font√≥w postscriptowych oraz cztery zbiory plik√≥w TeX
+Font Metric, odpowiadajƒÖcych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak≈ºe LY1
+(texnansi-*.tfm); oraz Text Companion dla font√≥w EC zwanemu tak≈ºe TS1
+(ts1-*.tfm). Zak≈Çada siƒô, ≈ºe potencjalny u≈ºytkownik wie, co zrobiƒá z
+tymi wszystkimi plikami. Autorem jest Bogus≈Çaw Jackowski.
 
 %package latex-lineno
 Summary:	Line numbers on paragraphs
-Summary(pl):	Numery linii dla paragrafÛw
+Summary(pl.UTF-8):   Numery linii dla paragraf√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1426,15 +1426,15 @@ After TeX has broken a paragraph into lines there will be line numbers
 attached to them, with the possibility to make references through the
 LaTeX \ref, \pageref cross reference mechanism.
 
-%description latex-lineno -l pl
-Pakiet LaTeXa lineno.sty daje numery linii dla paragrafÛw. Po podziale
-paragrafu na linie przez TeXa do linii do≥±czane s± ich numery z
-moøliwo∂ci± tworzenia odno∂nikÛw poprzez mechanizm odno∂nikÛw LaTeXa
+%description latex-lineno -l pl.UTF-8
+Pakiet LaTeXa lineno.sty daje numery linii dla paragraf√≥w. Po podziale
+paragrafu na linie przez TeXa do linii do≈ÇƒÖczane sƒÖ ich numery z
+mo≈ºliwo≈õciƒÖ tworzenia odno≈õnik√≥w poprzez mechanizm odno≈õnik√≥w LaTeXa
 \ref i \pageref.
 
 %package latex-microtype
 Summary:	An interface to the micro-typographic extensions of pdfTeX
-Summary(pl):	Interfejs do rozszerzeÒ mikrotypograficznych pdfTeXa
+Summary(pl.UTF-8):   Interfejs do rozszerze≈Ñ mikrotypograficznych pdfTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1447,17 +1447,17 @@ definable set of fonts, and to configure micro-typographic aspects of
 the fonts in a straight-forward and flexible way. Settings for various
 fonts are provided.
 
-%description latex-microtype -l pl
-Pakiet microtype dodaje do LaTeXa mechanizm do rozszerzeÒ
-mikrotypograficznych pdfTeXa: wysuwania znakÛw i rozszerzania fontÛw.
-Pozwala ograniczyÊ wysuwanie znaku i/lub rozszerzanie fontu do
-okre∂lonego zbioru fontÛw oraz skonfigurowaÊ mikrotypograficzne
-aspekty fontÛw w prosty i elastyczny sposÛb. Dostarczone s± ustawienia
-dla rÛønych fontÛw.
+%description latex-microtype -l pl.UTF-8
+Pakiet microtype dodaje do LaTeXa mechanizm do rozszerze≈Ñ
+mikrotypograficznych pdfTeXa: wysuwania znak√≥w i rozszerzania font√≥w.
+Pozwala ograniczyƒá wysuwanie znaku i/lub rozszerzanie fontu do
+okre≈õlonego zbioru font√≥w oraz skonfigurowaƒá mikrotypograficzne
+aspekty font√≥w w prosty i elastyczny spos√≥b. Dostarczone sƒÖ ustawienia
+dla r√≥≈ºnych font√≥w.
 
 %package latex-lucidabr
 Summary:	Package to make Lucida Bright fonts usable with LaTeX
-Summary(pl):	Pakiet umoøliwiaj±cy uøywanie fontÛw Lucida Bright w LaTeXu
+Summary(pl.UTF-8):   Pakiet umo≈ºliwiajƒÖcy u≈ºywanie font√≥w Lucida Bright w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1465,12 +1465,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-lucidabr
 Package to make Lucida Bright fonts usable with LaTeX.
 
-%description latex-lucidabr -l pl
-Pakiet umoøliwiaj±cy uøywanie fontÛw Lucida Bright w LaTeXu.
+%description latex-lucidabr -l pl.UTF-8
+Pakiet umo≈ºliwiajƒÖcy u≈ºywanie font√≥w Lucida Bright w LaTeXu.
 
 %package latex-marvosym
 Summary:	Styles for Martin Vogel's Symbol (marvosym) font
-Summary(pl):	Style dla fontu Symbol Martina Vogela (marvosym)
+Summary(pl.UTF-8):   Style dla fontu Symbol Martina Vogela (marvosym)
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-marvosym = %{epoch}:%{version}-%{release}
@@ -1484,17 +1484,17 @@ structural engineering; Symbols for steel cross-sections; Astronomy
 signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
 symbols; CE sign and others.
 
-%description latex-marvosym -l pl
-Font Martin Vogel's Symbol (marvosym) to font zawieraj±cy: symbol
-waluty Euro zdefiniowany przez KomisjÍ Europejsk±; symbole Euro w
-krojach Times, Helvetica i Courier; symbole do inøynierii
-strukturalnej; symbole do przekrojÛw stalowych; znaki astronomiczne
-(S≥oÒce, KsiÍøyc, planety); 12 znakÛw Zodiaku; symbole noøyczek; znak
+%description latex-marvosym -l pl.UTF-8
+Font Martin Vogel's Symbol (marvosym) to font zawierajƒÖcy: symbol
+waluty Euro zdefiniowany przez Komisjƒô EuropejskƒÖ; symbole Euro w
+krojach Times, Helvetica i Courier; symbole do in≈ºynierii
+strukturalnej; symbole do przekroj√≥w stalowych; znaki astronomiczne
+(S≈Ço≈Ñce, Ksiƒô≈ºyc, planety); 12 znak√≥w Zodiaku; symbole no≈ºyczek; znak
 CE i inne.
 
 %package latex-mathpple
 Summary:	Use PostScript Palatino for typesetting maths
-Summary(pl):	Uøywanie postscriptowych fontÛw Palatino do sk≥adania wzorÛw matematycznych
+Summary(pl.UTF-8):   U≈ºywanie postscriptowych font√≥w Palatino do sk≈Çadania wzor√≥w matematycznych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-adobe = %{epoch}:%{version}-%{release}
@@ -1507,17 +1507,17 @@ math. These virtual fonts have been created for typesetting math in a
 style that suits the Palatino text fonts. The AMS fonts, when used
 additionally, will be scaled to fit Palatino.
 
-%description latex-mathpple -l pl
-Pakiet definiuje rodzinÍ fontÛw postscriptowych Palatino (ppl) jako
-domy∂lny font roman i uøywa fontÛw mathpple do sk≥adania wzorÛw
-matematycznych. Te wirtualne fonty zosta≥y stworzone do sk≥adania
-wzorÛw matematycznych w stylu pasuj±cym do fontÛw tekstowych Palatino.
-Fonty AMS, je∂li s± dodatkowo uøywane, zostan± przeskalowane tak, by
-pasowaÊ do Palatino.
+%description latex-mathpple -l pl.UTF-8
+Pakiet definiuje rodzinƒô font√≥w postscriptowych Palatino (ppl) jako
+domy≈õlny font roman i u≈ºywa font√≥w mathpple do sk≈Çadania wzor√≥w
+matematycznych. Te wirtualne fonty zosta≈Çy stworzone do sk≈Çadania
+wzor√≥w matematycznych w stylu pasujƒÖcym do font√≥w tekstowych Palatino.
+Fonty AMS, je≈õli sƒÖ dodatkowo u≈ºywane, zostanƒÖ przeskalowane tak, by
+pasowaƒá do Palatino.
 
 %package latex-mathtime
 Summary:	Mathtime fonts for LaTeX
-Summary(pl):	Fonty Mathtime dla LaTeXa
+Summary(pl.UTF-8):   Fonty Mathtime dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1529,16 +1529,16 @@ CM-fonts. For the symbol font ``operators'' the corresponding mathtime
 style files use the Times Roman font (often called something like:
 ptmr or ptmr7t or ptmrq).
 
-%description latex-mathtime -l pl
-Fonty Mathtime zawieraj± wiele znakÛw przemapowanych na pozycje
-rÛøni±ce siÍ od tych normalnie uøywanych w odpowiadaj±cych im TeXowych
-fontach CM. Dla fontu symboli "operators" odpowiadaj±cy styl mathtime
-uøywa fontu Times Roman (zazwyczaj nazywanego w stylu ptmr, ptmr7t lub
+%description latex-mathtime -l pl.UTF-8
+Fonty Mathtime zawierajƒÖ wiele znak√≥w przemapowanych na pozycje
+r√≥≈ºniƒÖce siƒô od tych normalnie u≈ºywanych w odpowiadajƒÖcych im TeXowych
+fontach CM. Dla fontu symboli "operators" odpowiadajƒÖcy styl mathtime
+u≈ºywa fontu Times Roman (zazwyczaj nazywanego w stylu ptmr, ptmr7t lub
 ptmrq).
 
 %package latex-mflogo
 Summary:	LaTeX support for MetaFont and logo fonts
-Summary(pl):	Obs≥uga LaTeXa dla MetaFonta i fontÛw logo
+Summary(pl.UTF-8):   Obs≈Çuga LaTeXa dla MetaFonta i font√≥w logo
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-mflogo = %{epoch}:%{version}-%{release}
@@ -1549,14 +1549,14 @@ LaTeX package and font definition file to access the Knuthian `logo'
 fonts described in `The MetaFontbook' and the MetaFont and logos in
 LaTeX documents.
 
-%description latex-mflogo -l pl
-Pakiet LaTeXa i plik definicji fontÛw udostÍpniaj±cy fonty logo Knutha
+%description latex-mflogo -l pl.UTF-8
+Pakiet LaTeXa i plik definicji font√≥w udostƒôpniajƒÖcy fonty logo Knutha
 opisane w "The MetaFontbook" oraz MetaFont i loga w dokumentach
 LaTeXa.
 
 %package latex-mfnfss
 Summary:	Font description files to use extra fonts like yinit and ygoth
-Summary(pl):	Pliki opisÛw fontÛw udostÍpniaj±ce dodatkowe fonty, jak yinit i ygoth
+Summary(pl.UTF-8):   Pliki opis√≥w font√≥w udostƒôpniajƒÖce dodatkowe fonty, jak yinit i ygoth
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1564,12 +1564,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-mfnfss
 Font description files to use extra fonts like yinit and ygoth.
 
-%description latex-mfnfss -l pl
-Pliki opisÛw fontÛw udostÍpniaj±ce dodatkowe fonty, jak yinit i ygoth.
+%description latex-mfnfss -l pl.UTF-8
+Pliki opis√≥w font√≥w udostƒôpniajƒÖce dodatkowe fonty, jak yinit i ygoth.
 
 %package latex-minitoc
 Summary:	Produce a table of contents for each chapter
-Summary(pl):	Tworzenie spisÛw tre∂ci dla kaødego rozdzia≥u
+Summary(pl.UTF-8):   Tworzenie spis√≥w tre≈õci dla ka≈ºdego rozdzia≈Çu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1577,12 +1577,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-minitoc
 Produce a table of contents for each chapter.
 
-%description latex-minitoc -l pl
-Tworzenie spisÛw tre∂ci dla kaødego rozdzia≥u.
+%description latex-minitoc -l pl.UTF-8
+Tworzenie spis√≥w tre≈õci dla ka≈ºdego rozdzia≈Çu.
 
 %package latex-mltex
 Summary:	Support for MLTeX
-Summary(pl):	Wsparcie dla MLTeXa
+Summary(pl.UTF-8):   Wsparcie dla MLTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1591,13 +1591,13 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 Support for MLTeX, the multilingual TeX extension from Michael J.
 Ferguson.
 
-%description latex-mltex -l pl
-Wsparcie dla MLTeXa - rozszerzenia TeXa z obs≥ug± wielu jÍzykÛw,
+%description latex-mltex -l pl.UTF-8
+Wsparcie dla MLTeXa - rozszerzenia TeXa z obs≈ÇugƒÖ wielu jƒôzyk√≥w,
 autorstwa Michaela J. Fergusona.
 
 %package latex-palatcm
 Summary:	Palatino + Computer Modern math fonts for LaTeX
-Summary(pl):	Fonty matematyczne Palatino i Computer Modern dla LaTeXa
+Summary(pl.UTF-8):   Fonty matematyczne Palatino i Computer Modern dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1605,12 +1605,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-palatcm
 Palatino + Computer Modern math fonts for LaTeX.
 
-%description latex-palatcm -l pl
+%description latex-palatcm -l pl.UTF-8
 Fonty matematyczne Palatino i Computer Modern dla LaTeXa.
 
 %package latex-psnfss
 Summary:	LaTeX font support for common PostScript fonts
-Summary(pl):	Obs≥uga popularnych fontÛw postscriptowych w LaTeXu
+Summary(pl.UTF-8):   Obs≈Çuga popularnych font√≥w postscriptowych w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-adobe = %{epoch}:%{version}-%{release}
@@ -1622,13 +1622,13 @@ Obsoletes:	tetex-latex-mathptmx
 LaTeX font definition files, macros and font metrics for common
 PostScript fonts.
 
-%description latex-psnfss -l pl
-LaTeXowe pliki definicji fontÛw, makra i metryki fontÛw dla
-popularnych fontÛw postscriptowych.
+%description latex-psnfss -l pl.UTF-8
+LaTeXowe pliki definicji font√≥w, makra i metryki font√≥w dla
+popularnych font√≥w postscriptowych.
 
 %package latex-pxfonts
 Summary:	PX fonts LaTeX support
-Summary(pl):	Obs≥uga fontÛw PX w LaTeXu
+Summary(pl.UTF-8):   Obs≈Çuga font√≥w PX w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-px = %{epoch}:%{version}-%{release}
@@ -1637,12 +1637,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-pxfonts
 PX fonts LaTeX support.
 
-%description latex-pxfonts -l pl
-Obs≥uga fontÛw PX w LaTeXu.
+%description latex-pxfonts -l pl.UTF-8
+Obs≈Çuga font√≥w PX w LaTeXu.
 
 %package latex-qfonts
 Summary:	A collection of PostScript (Adobe Type 1) fonts in QX layout
-Summary(pl):	Zestaw fontÛw postscriptowych (Adobe Type 1) w uk≥adzie QX
+Summary(pl.UTF-8):   Zestaw font√≥w postscriptowych (Adobe Type 1) w uk≈Çadzie QX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
@@ -1656,17 +1656,17 @@ fonts distributed with Ghostscript. The fonts are encoded according to
 QX layout which facilitates multilingual and technical typesetting
 using TeX, preserving usability in Windows applications.
 
-%description latex-qfonts -l pl
-Zestaw fontÛw Type 1; zawiera QuasiBookman, QuasiChancery,
+%description latex-qfonts -l pl.UTF-8
+Zestaw font√≥w Type 1; zawiera QuasiBookman, QuasiChancery,
 QuasiCourier, QuasiPalatino, QuasiSwiss, QuasiSwissCondensed oraz
-QuasiTimes (zwyk≥e, pochy≥e, t≥uste i t≥uste pochy≥e), oparte na
-fontach URW++ rozpowszechnianych z Ghostscriptem. Fonty s± kodowane
-zgodnie z uk≥adem QX, ktÛry u≥atwia sk≥ad wielojÍzyczny i techniczny w
-TeXu, zachowuj±c przydatno∂Ê dla aplikacji windowsowych.
+QuasiTimes (zwyk≈Çe, pochy≈Çe, t≈Çuste i t≈Çuste pochy≈Çe), oparte na
+fontach URW++ rozpowszechnianych z Ghostscriptem. Fonty sƒÖ kodowane
+zgodnie z uk≈Çadem QX, kt√≥ry u≈Çatwia sk≈Çad wielojƒôzyczny i techniczny w
+TeXu, zachowujƒÖc przydatno≈õƒá dla aplikacji windowsowych.
 
 %package latex-urwvn
 Summary:	URWVN fonts
-Summary(pl):	Fonty URWVN
+Summary(pl.UTF-8):   Fonty URWVN
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name}-fonts-urwvn = %{epoch}:%{version}-%{release}
@@ -1675,12 +1675,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-urwvn
 URWVN fonts.
 
-%description latex-urwvn -l pl
+%description latex-urwvn -l pl.UTF-8
 Fonty URWVN.
 
 %package latex-txfonts
 Summary:	TX fonts LaTeX support
-Summary(pl):	Obs≥uga fontÛw TX w LaTeXu
+Summary(pl.UTF-8):   Obs≈Çuga font√≥w TX w LaTeXu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-tx = %{epoch}:%{version}-%{release}
@@ -1689,12 +1689,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-txfonts
 TX fonts LaTeX support.
 
-%description latex-txfonts -l pl
-Obs≥uga fontÛw TX w LaTeXu.
+%description latex-txfonts -l pl.UTF-8
+Obs≈Çuga font√≥w TX w LaTeXu.
 
 %package latex-umlaute
 Summary:	An interface to inputenc for using alternate input encodings
-Summary(pl):	Interfejs inputenc do uøywania alternatywnych kodowaÒ wej∂ciowych
+Summary(pl.UTF-8):   Interfejs inputenc do u≈ºywania alternatywnych kodowa≈Ñ wej≈õciowych
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1702,12 +1702,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description latex-umlaute
 An interface to inputenc for using alternate input encodings.
 
-%description latex-umlaute -l pl
-Interfejs inputenc do uøywania alternatywnych kodowaÒ wej∂ciowych.
+%description latex-umlaute -l pl.UTF-8
+Interfejs inputenc do u≈ºywania alternatywnych kodowa≈Ñ wej≈õciowych.
 
 %package latex-wasysym
 Summary:	Extra characters from the Waldis symbol fonts
-Summary(pl):	Dodatkowe znaki z fontÛw Waldis symbol
+Summary(pl.UTF-8):   Dodatkowe znaki z font√≥w Waldis symbol
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-wasy = %{epoch}:%{version}-%{release}
@@ -1723,19 +1723,19 @@ apple, ocircle invneg, logof, varint, male, female, phone, clock,
 lightning, pointer, sun, bell, permil, smiley, various electrical
 symbols, shapes, music notes, circles, signs, astronomy, etc.
 
-%description latex-wasysym -l pl
-Pakiet udostÍpniaj±cy dodatkowe symbole pochodz±ce z fontÛw wasy
-(Waldis symbol). Te fonty nie s± automatycznie do≥±czane w
-NFSS2/LaTeX2e, poniewaø zajmuj± miejsce i zazwyczaj nie s± potrzebne
-je∂li uøywa siÍ pakietÛw amsfonts lub amssymb. Zestaw symboli zawiera
+%description latex-wasysym -l pl.UTF-8
+Pakiet udostƒôpniajƒÖcy dodatkowe symbole pochodzƒÖce z font√≥w wasy
+(Waldis symbol). Te fonty nie sƒÖ automatycznie do≈ÇƒÖczane w
+NFSS2/LaTeX2e, poniewa≈º zajmujƒÖ miejsce i zazwyczaj nie sƒÖ potrzebne
+je≈õli u≈ºywa siƒô pakiet√≥w amsfonts lub amssymb. Zestaw symboli zawiera
 m.in.: symbole join box, diamond, leadsto, sqsubset, lhd, rhd, apple,
 ocircle invneg, logof, varint, male, female, phone, clock, lightning,
-pointer, sun, bell, permil, smiley oraz rÛøne symbole elektryczne,
-kszta≥ty, nuty, okrÍgi, znaki, symbole astronomiczne itp.
+pointer, sun, bell, permil, smiley oraz r√≥≈ºne symbole elektryczne,
+kszta≈Çty, nuty, okrƒôgi, znaki, symbole astronomiczne itp.
 
 %package format-latex
 Summary:	LaTeX macro package
-Summary(pl):	Pakiet makr LaTeX
+Summary(pl.UTF-8):   Pakiet makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
@@ -1748,16 +1748,16 @@ convenient, predefined document formats for users.
 
 This package contains LaTeX format.
 
-%description format-latex -l pl
-LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
-≥atwiejszy w uøyciu niø TeX. Jest w≥a∂ciwie zestawem makr TeXowych,
-daj±cych uøytkownikom wygodne, predefiniowane formaty dokumentÛw.
+%description format-latex -l pl.UTF-8
+LaTeX jest frontendem do systemu formatujƒÖcego tekst TeX. Jest
+≈Çatwiejszy w u≈ºyciu ni≈º TeX. Jest w≈Ça≈õciwie zestawem makr TeXowych,
+dajƒÖcych u≈ºytkownikom wygodne, predefiniowane formaty dokument√≥w.
 
 Ten pakiet zawiera format LaTeX.
 
 %package format-pdflatex
 Summary:	PDF LaTeX macro package
-Summary(pl):	Pakiet makr PDF LaTeX
+Summary(pl.UTF-8):   Pakiet makr PDF LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-jknappen = %{epoch}:%{version}-%{release}
@@ -1773,10 +1773,10 @@ convenient, predefined document formats for users.
 
 This package contains PDF LaTeX format.
 
-%description format-pdflatex -l pl
-LaTeX jest frontendem do systemu formatuj±cego tekst TeX. Jest
-≥atwiejszy w uøyciu niø TeX. Jest w≥a∂ciwie zestawem makr TeXowych,
-daj±cych uøytkownikom wygodne, predefiniowane formaty dokumentÛw.
+%description format-pdflatex -l pl.UTF-8
+LaTeX jest frontendem do systemu formatujƒÖcego tekst TeX. Jest
+≈Çatwiejszy w u≈ºyciu ni≈º TeX. Jest w≈Ça≈õciwie zestawem makr TeXowych,
+dajƒÖcych u≈ºytkownikom wygodne, predefiniowane formaty dokument√≥w.
 
 Ten pakiet zawiera format PDF LaTeX.
 
@@ -1784,7 +1784,7 @@ Ten pakiet zawiera format PDF LaTeX.
 
 %package platex
 Summary:	PLaTeX format basic files
-Summary(pl):	Podstawowe pliki dla formatu PLaTeX
+Summary(pl.UTF-8):   Podstawowe pliki dla formatu PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-pl = %{epoch}:%{version}-%{release}
@@ -1793,12 +1793,12 @@ Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
 %description platex
 PLaTeX format basic files.
 
-%description platex -l pl
+%description platex -l pl.UTF-8
 Podstawowe pliki dla formatu PLaTeX.
 
 %package format-platex
 Summary:	PLaTeX format
-Summary(pl):	Format PLaTeX
+Summary(pl.UTF-8):   Format PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-platex = %{epoch}:%{version}-%{release}
@@ -1806,12 +1806,12 @@ Requires:	%{name}-platex = %{epoch}:%{version}-%{release}
 %description format-platex
 PLaTeX format.
 
-%description format-platex -l pl
+%description format-platex -l pl.UTF-8
 Format PLaTeX.
 
 %package format-pdfplatex
 Summary:	PDF PLaTeX format
-Summary(pl):	Format PDF PLaTeX
+Summary(pl.UTF-8):   Format PDF PLaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-type1-pl = %{epoch}:%{version}-%{release}
@@ -1821,7 +1821,7 @@ Requires:	%{name}-platex = %{epoch}:%{version}-%{release}
 %description format-pdfplatex
 PDF PLaTeX format.
 
-%description format-pdfplatex -l pl
+%description format-pdfplatex -l pl.UTF-8
 Format PDF PLaTeX.
 
 #
@@ -1830,7 +1830,7 @@ Format PDF PLaTeX.
 
 %package tex-babel
 Summary:	Multilingual support for TeX
-Summary(pl):	Obs≥uga wielu jÍzykÛw dla TeXa
+Summary(pl.UTF-8):   Obs≈Çuga wielu jƒôzyk√≥w dla TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1838,12 +1838,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-babel
 Multilingual support for TeX.
 
-%description tex-babel -l pl
-Obs≥uga wielu jÍzykÛw dla TeXa.
+%description tex-babel -l pl.UTF-8
+Obs≈Çuga wielu jƒôzyk√≥w dla TeXa.
 
 %package tex-german
 Summary:	Supports the new German orthography (neue deutsche Rechtschreibung)
-Summary(pl):	Obs≥uga nowej ortografii niemieckiej (neue deutsche Rechtschreibung)
+Summary(pl.UTF-8):   Obs≈Çuga nowej ortografii niemieckiej (neue deutsche Rechtschreibung)
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1851,12 +1851,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-german
 Supports the new German orthography (neue deutsche Rechtschreibung).
 
-%description tex-german -l pl
-Obs≥uga nowej ortografii niemieckiej (neue deutsche Rechtschreibung).
+%description tex-german -l pl.UTF-8
+Obs≈Çuga nowej ortografii niemieckiej (neue deutsche Rechtschreibung).
 
 %package tex-mfpic
 Summary:	Macros which generate Metafont or Metapost for drawing pictures
-Summary(pl):	Makra generuj±ce Metafont lub Metapost do rysowania obrazkÛw
+Summary(pl.UTF-8):   Makra generujƒÖce Metafont lub Metapost do rysowania obrazk√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1864,12 +1864,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-mfpic
 Macros which generate Metafont or Metapost for drawing pictures.
 
-%description tex-mfpic -l pl
-Makra generuj±ce Metafont lub Metapost do rysowania obrazkÛw.
+%description tex-mfpic -l pl.UTF-8
+Makra generujƒÖce Metafont lub Metapost do rysowania obrazk√≥w.
 
 %package tex-misc
 Summary:	Miscellaneous TeX macros
-Summary(pl):	RÛøne makra TeXowe
+Summary(pl.UTF-8):   R√≥≈ºne makra TeXowe
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1878,12 +1878,12 @@ Obsoletes:	tetex-tex-eijkhout
 %description tex-misc
 Miscellaneous TeX macros.
 
-%description tex-misc -l pl
-RÛøne makra TeXowe.
+%description tex-misc -l pl.UTF-8
+R√≥≈ºne makra TeXowe.
 
 %package tex-pictex
 Summary:	Picture drawing macros for TeX and LaTeX
-Summary(pl):	Makra do rysowania obrazkÛw dla TeXa i LaTeXa
+Summary(pl.UTF-8):   Makra do rysowania obrazk√≥w dla TeXa i LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1891,12 +1891,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-pictex
 Picture drawing macros for TeX and LaTeX.
 
-%description tex-pictex -l pl
-Makra do rysowania obrazkÛw dla TeXa i LaTeXa.
+%description tex-pictex -l pl.UTF-8
+Makra do rysowania obrazk√≥w dla TeXa i LaTeXa.
 
 %package tex-pstricks
 Summary:	PostScript macros for TeX
-Summary(pl):	Makra postscriptowe dla TeXa
+Summary(pl.UTF-8):   Makra postscriptowe dla TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1910,17 +1910,17 @@ a wide variety of graphics (picture drawing) macros, with a flexible
 interface and with color support. There are macros for coloring or
 shading the cells of tables.
 
-%description tex-pstricks -l pl
-Duøy zestaw makr postscriptowych kompatybilny z wiÍkszo∂ci± pakietÛw
-makr TeXowych, w tym: Plain TeX, LaTeX, AMS-TeX i AMS-LaTeX. Za≥±czono
-makra obs≥uguj±ce kolory, grafikÍ, wykresy ko≥owe, obroty, drzewa i
-nak≥adanie. Maj± wiele moøliwo∂ci, w tym duøo makr graficznych (do
-rysowania obrazkÛw) z elastycznym interfejsem i obs≥ug± koloru. S± teø
-makra do kolorowania lub cieniowania komÛrek tabel.
+%description tex-pstricks -l pl.UTF-8
+Du≈ºy zestaw makr postscriptowych kompatybilny z wiƒôkszo≈õciƒÖ pakiet√≥w
+makr TeXowych, w tym: Plain TeX, LaTeX, AMS-TeX i AMS-LaTeX. Za≈ÇƒÖczono
+makra obs≈ÇugujƒÖce kolory, grafikƒô, wykresy ko≈Çowe, obroty, drzewa i
+nak≈Çadanie. MajƒÖ wiele mo≈ºliwo≈õci, w tym du≈ºo makr graficznych (do
+rysowania obrazk√≥w) z elastycznym interfejsem i obs≈ÇugƒÖ koloru. SƒÖ te≈º
+makra do kolorowania lub cieniowania kom√≥rek tabel.
 
 %package tex-qpx
 Summary:	QuasiPalatino and PX fonts typesetting support
-Summary(pl):	Wsparcie dla sk≥adu fontami QuasiPalatino i PX
+Summary(pl.UTF-8):   Wsparcie dla sk≈Çadu fontami QuasiPalatino i PX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1929,12 +1929,12 @@ Requires:	%{name}-fonts-qpx = %{epoch}:%{version}-%{release}
 %description tex-qpx
 QuasiPalatino and PX fonts typesetting support.
 
-%description tex-qpx -l pl
-Wsparcie dla sk≥adu fontami QuasiPalatino i PX.
+%description tex-qpx -l pl.UTF-8
+Wsparcie dla sk≈Çadu fontami QuasiPalatino i PX.
 
 %package tex-qtx
 Summary:	QuasiTimes and TX fonts typesetting support
-Summary(pl):	Wsparcie dla sk≥adu fontami QuasiTimes i TX
+Summary(pl.UTF-8):   Wsparcie dla sk≈Çadu fontami QuasiTimes i TX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1943,12 +1943,12 @@ Requires:	%{name}-fonts-qtx = %{epoch}:%{version}-%{release}
 %description tex-qtx
 QuasiTimes and TX fonts typesetting support.
 
-%description tex-qtx -l pl
-Wsparcie dla sk≥adu fontami QuasiTimes i TX.
+%description tex-qtx -l pl.UTF-8
+Wsparcie dla sk≈Çadu fontami QuasiTimes i TX.
 
 %package tex-ruhyphen
 Summary:	Russian hyphenation
-Summary(pl):	Rosyjskie regu≥y przenoszenia wyrazÛw
+Summary(pl.UTF-8):   Rosyjskie regu≈Çy przenoszenia wyraz√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1958,14 +1958,14 @@ A collection of Russian hyphenation patterns supporting a number of
 Cyrillic font encodings, including T2, UCY (Omega Unicode Cyrillic),
 LCY, LWN (OT2), and koi8-r.
 
-%description tex-ruhyphen -l pl
-Zestaw rosyjskich wzorcÛw przenoszenia wyrazÛw obs≥uguj±cy wiele
-kodowaÒ fontÛw w cyrylicy, w≥±cznie z T2, UCY (Omega Unicode
+%description tex-ruhyphen -l pl.UTF-8
+Zestaw rosyjskich wzorc√≥w przenoszenia wyraz√≥w obs≈ÇugujƒÖcy wiele
+kodowa≈Ñ font√≥w w cyrylicy, w≈ÇƒÖcznie z T2, UCY (Omega Unicode
 Cyrillic), LCY, LWN (OT2) i koi8-r.
 
 %package tex-spanish
 Summary:	Various TeX related files for typesetting documents written in Spanish
-Summary(pl):	RÛøne pliki TeXowe s≥uø±ce do sk≥adu dokumentÛw w jÍzyku hiszpaÒskim
+Summary(pl.UTF-8):   R√≥≈ºne pliki TeXowe s≈Çu≈ºƒÖce do sk≈Çadu dokument√≥w w jƒôzyku hiszpa≈Ñskim
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1975,13 +1975,13 @@ Obsoletes:	tetex-tex-spanishb
 Various TeX related files for typesetting documents written in
 Spanish, including hyphenation and dictionaries.
 
-%description tex-spanish -l pl
-RÛøne pliki TeXowe s≥uø±ce do sk≥adu dokumentÛw napisanych w jÍzyku
-hiszpaÒskim - w tym regu≥y przenoszenia wyrazÛw i s≥owniki.
+%description tex-spanish -l pl.UTF-8
+R√≥≈ºne pliki TeXowe s≈Çu≈ºƒÖce do sk≈Çadu dokument√≥w napisanych w jƒôzyku
+hiszpa≈Ñskim - w tym regu≈Çy przenoszenia wyraz√≥w i s≈Çowniki.
 
 %package tex-texdraw
 Summary:	Graphical macros, using embedded PostScript
-Summary(pl):	Makra graficzne uøywaj±ce osadzanego PostScriptu
+Summary(pl.UTF-8):   Makra graficzne u≈ºywajƒÖce osadzanego PostScriptu
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -1989,12 +1989,12 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-texdraw
 Graphical macros, using embedded PostScript.
 
-%description tex-texdraw -l pl
-Makra graficzne uøywaj±ce osadzanego PostScriptu.
+%description tex-texdraw -l pl.UTF-8
+Makra graficzne u≈ºywajƒÖce osadzanego PostScriptu.
 
 %package tex-thumbpdf
 Summary:	Thumbnails for PDFTeX and dvips/ps2pdf
-Summary(pl):	Ikonki dla PDFTeXa i dvips/ps2pdf
+Summary(pl.UTF-8):   Ikonki dla PDFTeXa i dvips/ps2pdf
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -2006,15 +2006,15 @@ get represented in a TeX readable file that is read by the package
 thumbpdf.sty to automatically include the thumbnails. Works with both
 plain TeX and LaTeX.
 
-%description tex-thumbpdf -l pl
+%description tex-thumbpdf -l pl.UTF-8
 Pakiet przy pomocy Perla dodaje ikonki w pdfTeXu i dvips/ps2pdf przy
-uøyciu ghostscripta. Ikonki s± reprezentowane w pliku czytanym przez
-TeXa, ktÛry jest wywo≥ywany z thumbpdf.sty, aby automatycznie do≥±czyÊ
-ikonki. Dzia≥a z formatami plain TeX i LaTeX.
+u≈ºyciu ghostscripta. Ikonki sƒÖ reprezentowane w pliku czytanym przez
+TeXa, kt√≥ry jest wywo≈Çywany z thumbpdf.sty, aby automatycznie do≈ÇƒÖczyƒá
+ikonki. Dzia≈Ça z formatami plain TeX i LaTeX.
 
 %package tex-ukrhyph
 Summary:	Ukranian hyphenation
-Summary(pl):	UkraiÒskie zasady przenoszenia wyrazÛw
+Summary(pl.UTF-8):   Ukrai≈Ñskie zasady przenoszenia wyraz√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -2025,15 +2025,15 @@ Ukrainian language for various Cyrillic font encodings. Contains
 packages implementing traditional rules, modern rules, and combined
 English-Ukrainian hyphenation.
 
-%description tex-ukrhyph -l pl
-Ten pakiet pozwala na uøywanie rÛønych wzorcÛw przenoszenia wyrazÛw
-dla jÍzyka ukraiÒskiego z rÛønymi kodowaniami fontÛw z cyrylic±.
-Zawiera pakiety z implementacj± regu≥ tradycyjnych, wspÛ≥czesnych i
-≥±czonych angielsko-ukraiÒskich.
+%description tex-ukrhyph -l pl.UTF-8
+Ten pakiet pozwala na u≈ºywanie r√≥≈ºnych wzorc√≥w przenoszenia wyraz√≥w
+dla jƒôzyka ukrai≈Ñskiego z r√≥≈ºnymi kodowaniami font√≥w z cyrylicƒÖ.
+Zawiera pakiety z implementacjƒÖ regu≈Ç tradycyjnych, wsp√≥≈Çczesnych i
+≈ÇƒÖczonych angielsko-ukrai≈Ñskich.
 
 %package latex-vietnam
 Summary:	Vietnamese language support
-Summary(pl):	Wsparcie dla jÍzyka wietnamskiego
+Summary(pl.UTF-8):   Wsparcie dla jƒôzyka wietnamskiego
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -2042,12 +2042,12 @@ Obsoletes:	tetex-tex-vietnam
 %description latex-vietnam
 Vietnamese language support.
 
-%description latex-vietnam -l pl
-Wsparcie dla jÍzyka wietnamskiego.
+%description latex-vietnam -l pl.UTF-8
+Wsparcie dla jƒôzyka wietnamskiego.
 
 %package tex-xypic
 Summary:	Package for typesetting a variety of graphs and diagrams with TeX
-Summary(pl):	Pakiet do sk≥adania w TeXu rÛønych wykresÛw i diagramÛw
+Summary(pl.UTF-8):   Pakiet do sk≈Çadania w TeXu r√≥≈ºnych wykres√≥w i diagram√≥w
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -2059,14 +2059,14 @@ Xy-pic works with most formats (including LaTeX, AMS-LaTeX, AMS-TeX,
 and plain TeX), in particular Xy-pic is provided as a LaTeX2e
 `supported package'.
 
-%description tex-xypic -l pl
-Pakiet do sk≥adania w TeXu rÛønych wykresÛw i diagramÛw. Xy-pic dzia≥a
-z wiÍkszo∂ci± formatÛw (w tym LaTeX, AMS-LaTeX, AMS-TeX i plain TeX),
-w szczegÛlno∂ci jest do≥±czany jako "wspierany pakiet" LaTeX2e.
+%description tex-xypic -l pl.UTF-8
+Pakiet do sk≈Çadania w TeXu r√≥≈ºnych wykres√≥w i diagram√≥w. Xy-pic dzia≈Ça
+z wiƒôkszo≈õciƒÖ format√≥w (w tym LaTeX, AMS-LaTeX, AMS-TeX i plain TeX),
+w szczeg√≥lno≈õci jest do≈ÇƒÖczany jako "wspierany pakiet" LaTeX2e.
 
 %package tex-xkeyval
 Summary:	Extension to keyval package
-Summary(pl):	Rozszerzenie do pakietu keyval
+Summary(pl.UTF-8):   Rozszerzenie do pakietu keyval
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	/usr/bin/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -2074,19 +2074,19 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description tex-xkeyval
 Extension to keyval package.
 
-%description tex-xkeyval -l pl
+%description tex-xkeyval -l pl.UTF-8
 Rozszerzenie do pakietu keyval.
 
 %package dirs-fonts
 Summary:	TeX font directories
-Summary(pl):	Katalogi fontÛw TeXa
+Summary(pl.UTF-8):   Katalogi font√≥w TeXa
 Group:		Fonts
 
 %description dirs-fonts
 TeX font directories.
 
-%description dirs-fonts -l pl
-Katalogi fontÛw TeXa.
+%description dirs-fonts -l pl.UTF-8
+Katalogi font√≥w TeXa.
 
 #
 # Fonts packages
@@ -2094,213 +2094,213 @@ Katalogi fontÛw TeXa.
 
 %package fonts-adobe
 Summary:	Adobe fonts
-Summary(pl):	Fonty Adobe
+Summary(pl.UTF-8):   Fonty Adobe
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-adobe
 Adobe fonts.
 
-%description fonts-adobe -l pl
+%description fonts-adobe -l pl.UTF-8
 Fonty Adobe.
 
 %package fonts-ae
 Summary:	Virtual fonts for PDF-files with T1 encoded CMR-fonts
-Summary(pl):	Wirtualne fonty do plikÛw PDF z fontami CMR o kodowaniu T1
+Summary(pl.UTF-8):   Wirtualne fonty do plik√≥w PDF z fontami CMR o kodowaniu T1
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-ae
 Virtual fonts for PDF-files with T1 encoded CMR-fonts.
 
-%description fonts-ae -l pl
-Wirtualne fonty do plikÛw PDF z fontami CMR o kodowaniu T1.
+%description fonts-ae -l pl.UTF-8
+Wirtualne fonty do plik√≥w PDF z fontami CMR o kodowaniu T1.
 
 %package fonts-ams
 Summary:	AMS fonts
-Summary(pl):	Fonty AMS
+Summary(pl.UTF-8):   Fonty AMS
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-ams
 AMS fonts.
 
-%description fonts-ams -l pl
+%description fonts-ams -l pl.UTF-8
 Fonty AMS.
 
 %package fonts-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
-Summary(pl):	Antykwa PÛ≥tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
+Summary(pl.UTF-8):   Antykwa P√≥≈Çtawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
-%description fonts-antp -l pl
-Antykwa PÛ≥tawskiego - rodzina tradycyjnych polskich czcionek jako
+%description fonts-antp -l pl.UTF-8
+Antykwa P√≥≈Çtawskiego - rodzina tradycyjnych polskich czcionek jako
 Type 1.
 
 %package fonts-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
-Summary(pl):	Antykwa ToruÒska - rodzina tradycyjnych polskich czcionek jako Type 1
+Summary(pl.UTF-8):   Antykwa Toru≈Ñska - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
-%description fonts-antt -l pl
-Antykwa ToruÒska - rodzina tradycyjnych polskich czcionek jako Type 1.
+%description fonts-antt -l pl.UTF-8
+Antykwa Toru≈Ñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 
 %package fonts-bbm
 Summary:	Blackboard variant fonts for Computer Modern, with LaTeX support
-Summary(pl):	Tablicowy wariant fontÛw Computer Modern ze wsparciem dla LaTeXa
+Summary(pl.UTF-8):   Tablicowy wariant font√≥w Computer Modern ze wsparciem dla LaTeXa
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-bbm
 Blackboard variant fonts for Computer Modern, with LaTeX support.
 
-%description fonts-bbm -l pl
-Tablicowy wariant fontÛw Computer Modern ze wsparciem dla LaTeXa.
+%description fonts-bbm -l pl.UTF-8
+Tablicowy wariant font√≥w Computer Modern ze wsparciem dla LaTeXa.
 
 %package fonts-bbold
 Summary:	Sans serif blackboard bold for LaTeX
-Summary(pl):	Tablicowy t≥usty font sans serif dla LaTeXa
+Summary(pl.UTF-8):   Tablicowy t≈Çusty font sans serif dla LaTeXa
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-bbold
 Sans serif blackboard bold for LaTeX.
 
-%description fonts-bbold -l pl
-Tablicowy t≥usty font sans serif dla LaTeXa.
+%description fonts-bbold -l pl.UTF-8
+Tablicowy t≈Çusty font sans serif dla LaTeXa.
 
 %package fonts-bh
 Summary:	Bold & Heavy Fonts
 Requires:	%{name}-dirs-fonts
-Summary(pl):	Fonty Bold i Heavy
+Summary(pl.UTF-8):   Fonty Bold i Heavy
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-bh
 Bold & Heavy Fonts.
 
-%description fonts-bh -l pl
+%description fonts-bh -l pl.UTF-8
 Fonty Bold i Heavy.
 
 %package fonts-bitstrea
 Summary:	Bitstream fonts
-Summary(pl):	Fonty Bitstream
+Summary(pl.UTF-8):   Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-bitstrea
 Bitstream fonts.
 
-%description fonts-bitstrea -l pl
+%description fonts-bitstrea -l pl.UTF-8
 Fonty Bitstream.
 
 %package fonts-cbgreek
 Summary:	Complete set of Greek fonts
-Summary(pl):	Pe≥ny zestaw fontÛw greckich
+Summary(pl.UTF-8):   Pe≈Çny zestaw font√≥w greckich
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cbgreek
 Complete set of Greek fonts.
 
-%description fonts-cbgreek -l pl
-Pe≥ny zestaw fontÛw greckich.
+%description fonts-cbgreek -l pl.UTF-8
+Pe≈Çny zestaw font√≥w greckich.
 
 %package fonts-cc-pl
 Summary:	Polish version of Computer Concrete fonts
-Summary(pl):	Polska wersja fontÛw Computer Concrete
+Summary(pl.UTF-8):   Polska wersja font√≥w Computer Concrete
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cc-pl
 Polish version of Computer Concrete fonts.
 
-%description fonts-cc-pl -l pl
-Polska wersja fontÛw Computer Concrete.
+%description fonts-cc-pl -l pl.UTF-8
+Polska wersja font√≥w Computer Concrete.
 
 %package fonts-cg
 Summary:	Compugraphic fonts
-Summary(pl):	Fonty Compugraphic
+Summary(pl.UTF-8):   Fonty Compugraphic
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cg
 Compugraphic fonts.
 
-%description fonts-cg -l pl
+%description fonts-cg -l pl.UTF-8
 Fonty Compugraphic.
 
 %package fonts-cm
 Summary:	Computer Modern fonts
-Summary(pl):	Fonty Computer Modern
+Summary(pl.UTF-8):   Fonty Computer Modern
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cm
 Computer Modern fonts.
 
-%description fonts-cm -l pl
+%description fonts-cm -l pl.UTF-8
 Fonty Computer Modern.
 
 %package fonts-cmbright
 Summary:	CM Bright fonts
-Summary(pl):	Fonty CM Bright
+Summary(pl.UTF-8):   Fonty CM Bright
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cmbright
 CM Bright fonts.
 
-%description fonts-cmbright -l pl
+%description fonts-cmbright -l pl.UTF-8
 Fonty CM Bright.
 
 %package fonts-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
-Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
+Summary(pl.UTF-8):   Fonty Computer Modern rozszerzone o litery rosyjskie
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cmcyr
 Computer Modern fonts extended with Russian letters.
 
-%description fonts-cmcyr -l pl
+%description fonts-cmcyr -l pl.UTF-8
 Fonty Computer Modern rozszerzone o litery rosyjskie.
 
 %package fonts-cmextra
 Summary:	Extra Computer Modern fonts, from the American Mathematical Society
-Summary(pl):	Dodatkowe fonty Computer Modern z AMS
+Summary(pl.UTF-8):   Dodatkowe fonty Computer Modern z AMS
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cmextra
 Extra Computer Modern fonts, from the American Mathematical Society.
 
-%description fonts-cmextra -l pl
+%description fonts-cmextra -l pl.UTF-8
 Dodatkowe fonty Computer Modern z AMS (American Mathematical Society).
 
 %package fonts-concmath
 Summary:	Concrete Math fonts
-Summary(pl):	Fonty matematyczne Concrete Math
+Summary(pl.UTF-8):   Fonty matematyczne Concrete Math
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-concmath
 Concrete Math fonts.
 
-%description fonts-concmath -l pl
+%description fonts-concmath -l pl.UTF-8
 Fonty matematyczne Concrete Math.
 
 %package fonts-concrete
 Summary:	Concrete Roman fonts
-Summary(pl):	Fonty Concrete Roman
+Summary(pl.UTF-8):   Fonty Concrete Roman
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2308,38 +2308,38 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Concrete Roman fonts, designed by Donald E. Knuth, originally for use
 with Euler math fonts.
 
-%description fonts-concrete -l pl
+%description fonts-concrete -l pl.UTF-8
 Fonty Concrete Roman, opracowane przez Donalda E. Knutha, oryginalnie
-przeznaczone do uøywania z fontami matematycznymi Euler.
+przeznaczone do u≈ºywania z fontami matematycznymi Euler.
 
 %package fonts-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
-Summary(pl):	Fonty MetaFont Computer Modern dla jÍzykÛw czeskiego i s≥owackiego
+Summary(pl.UTF-8):   Fonty MetaFont Computer Modern dla jƒôzyk√≥w czeskiego i s≈Çowackiego
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
-%description fonts-cs -l pl
-Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jÍzykÛw
-czeskiego i s≥owackiego.
+%description fonts-cs -l pl.UTF-8
+Fonty MetaFont Computer Modern zmodyfikowane pod kƒÖtem jƒôzyk√≥w
+czeskiego i s≈Çowackiego.
 
 %package fonts-dstroke
 Summary:	Doublestroke font for typesetting the mathematical symbols
-Summary(pl):	PodwÛjnie kre∂lony font do sk≥adania symboli matematycznych
+Summary(pl.UTF-8):   Podw√≥jnie kre≈õlony font do sk≈Çadania symboli matematycznych
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-dstroke
 Doublestroke font for typesetting the mathematical symbols.
 
-%description fonts-dstroke -l pl
-PodwÛjnie kre∂lony font do sk≥adania symboli matematycznych.
+%description fonts-dstroke -l pl.UTF-8
+Podw√≥jnie kre≈õlony font do sk≈Çadania symboli matematycznych.
 
 %package fonts-ecc
 Summary:	Sources for the European Concrete fonts
-Summary(pl):	¨rÛd≥a dla fontÛw European Concrete
+Summary(pl.UTF-8):   ≈πr√≥d≈Ça dla font√≥w European Concrete
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2348,14 +2348,14 @@ The MetaFont sources and tfm files of the European Concrete Fonts.
 This is the EC implementation of Knuth's Concrete fonts, including
 also the corresponding text companion fonts.
 
-%description fonts-ecc -l pl
-¨rÛd≥a MetaFonta i pliki tfm dla fontÛw European Concrete. Jest to
-implementacja EC fontÛw Concrete Knutha, w≥±cznie z odpowiadaj±cymi
-tekstowymi fontami towarzysz±cymi.
+%description fonts-ecc -l pl.UTF-8
+≈πr√≥d≈Ça MetaFonta i pliki tfm dla font√≥w European Concrete. Jest to
+implementacja EC font√≥w Concrete Knutha, w≈ÇƒÖcznie z odpowiadajƒÖcymi
+tekstowymi fontami towarzyszƒÖcymi.
 
 %package fonts-eurosym
 Summary:	The new European currency symbol for the Euro
-Summary(pl):	Symbol nowej europejskiej waluty Euro
+Summary(pl.UTF-8):   Symbol nowej europejskiej waluty Euro
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2364,14 +2364,14 @@ The new European currency symbol for the Euro implemented in Metafont,
 using the official European Commission dimensions, and providing
 several shapes (normal, slanted, bold, outline).
 
-%description fonts-eurosym -l pl
+%description fonts-eurosym -l pl.UTF-8
 Symbol nowej europejskiej waluty Euro, zaimplementowany w Metafoncie,
-z uøyciem oficjalnych wymiarÛw wg Komisji Europejskiej, dostarczaj±cy
-rÛønych kszta≥tÛw (normalnego, pochylonego, t≥ustego, szkicowanego).
+z u≈ºyciem oficjalnych wymiar√≥w wg Komisji Europejskiej, dostarczajƒÖcy
+r√≥≈ºnych kszta≈Çt√≥w (normalnego, pochylonego, t≈Çustego, szkicowanego).
 
 %package fonts-eulervm
 Summary:	The Virtual Euler Math fonts
-Summary(pl):	Fonty Virtual Euler Math
+Summary(pl.UTF-8):   Fonty Virtual Euler Math
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2382,16 +2382,16 @@ Euler fonts: Most noticeably, less TeX resources are consumed, the
 quality of various math symbols is improved, and a usable \hslash
 symbol can be provided.
 
-%description fonts-eulervm -l pl
-Euler-VM to zbiÛr _wirtualnych_ fontÛw matematycznych opartych na
-fontach Euler i CM. Podej∂cie to ma rÛøne zalety nad bezpo∂rednim
-uøywaniem _prawdziwych_ fontÛw Euler: najbardziej zauwaøalnie,
-uøywane jest mniej zasobÛw TeXa, poprawiona jest jako∂Ê rÛønych
-symboli matematycznych i moøe byÊ dostÍpny uøywalny symbol \hslash.
+%description fonts-eulervm -l pl.UTF-8
+Euler-VM to zbi√≥r _wirtualnych_ font√≥w matematycznych opartych na
+fontach Euler i CM. Podej≈õcie to ma r√≥≈ºne zalety nad bezpo≈õrednim
+u≈ºywaniem _prawdziwych_ font√≥w Euler: najbardziej zauwa≈ºalnie,
+u≈ºywane jest mniej zasob√≥w TeXa, poprawiona jest jako≈õƒá r√≥≈ºnych
+symboli matematycznych i mo≈ºe byƒá dostƒôpny u≈ºywalny symbol \hslash.
 
 %package fonts-euxm
 Summary:	Fonts similar to EUSM but with two more characters
-Summary(pl):	Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
+Summary(pl.UTF-8):   Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2399,25 +2399,25 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Fonts like EUSM but with two more characters needed for Concrete Math
 included in TeXLive distribution in fonts3.
 
-%description fonts-euxm -l pl
+%description fonts-euxm -l pl.UTF-8
 Fonty podobne do EUSM, ale z dwoma dodatkowymi znakami, potrzebnymi
-dla Concrete Math do≥±czonego w fonts3 dystrybucji TeXLive.
+dla Concrete Math do≈ÇƒÖczonego w fonts3 dystrybucji TeXLive.
 
 %package fonts-gothic
 Summary:	Gothic and ornamental initial fonts by Yannis Haralambous
-Summary(pl):	Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa
+Summary(pl.UTF-8):   PoczƒÖtkowe fonty gotyckie i ornamentowe Yannisa Haralambousa
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-gothic
 Gothic and ornamental initial fonts by Yannis Haralambous.
 
-%description fonts-gothic -l pl
-Pocz±tkowe fonty gotyckie i ornamentowe Yannisa Haralambousa.
+%description fonts-gothic -l pl.UTF-8
+PoczƒÖtkowe fonty gotyckie i ornamentowe Yannisa Haralambousa.
 
 %package fonts-hoekwater
 Summary:	Converted mflogo font
-Summary(pl):	Przekonwertowany font mflogo
+Summary(pl.UTF-8):   Przekonwertowany font mflogo
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2426,14 +2426,14 @@ Fonts originally created in MetaFont, transformed to PostScript by
 Taco Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2,
 xipa.
 
-%description fonts-hoekwater -l pl
-Fonty oryginalnie stworzone w MetaFoncie, przekszta≥cone do
-PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
+%description fonts-hoekwater -l pl.UTF-8
+Fonty oryginalnie stworzone w MetaFoncie, przekszta≈Çcone do
+PostScriptu przez Taco Hoekwatera; zawierajƒÖ: logo, manfnt, rsfs,
 stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-jknappen
 Summary:	Miscellaneous packages by Joerg Knappen
-Summary(pl):	RÛøne pakiety autorstwa Joerga Knappena
+Summary(pl.UTF-8):   R√≥≈ºne pakiety autorstwa Joerga Knappena
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2441,37 +2441,37 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Miscellaneous macros, mostly for making use of extra fonts, by Joerg
 Knappen, including sgmlcmpt.
 
-%description fonts-jknappen -l pl
-RÛøne makra, g≥Ûwnie do uøywania dodatkowych fontÛw autorstwa Joerga
+%description fonts-jknappen -l pl.UTF-8
+R√≥≈ºne makra, g≈Ç√≥wnie do u≈ºywania dodatkowych font√≥w autorstwa Joerga
 Knappena. Zawiera sgmlcmpt.
 
 %package fonts-latex
 Summary:	Basic LaTeX fonts
-Summary(pl):	Podstawowe fonty dla LaTeXa
+Summary(pl.UTF-8):   Podstawowe fonty dla LaTeXa
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-latex
 Basic LaTeX fonts.
 
-%description fonts-latex -l pl
+%description fonts-latex -l pl.UTF-8
 Podstawowe fonty dla LaTeXa.
 
 %package fonts-lh
 Summary:	Olga Lapko's LH fonts
-Summary(pl):	Fonty LH Olgi Lapko
+Summary(pl.UTF-8):   Fonty LH Olgi Lapko
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-lh
 The lh fonts for the `T2'/X2 encodings (for cyrillic languages).
 
-%description fonts-lh -l pl
-Fonty lh dla kodowaÒ `T2'/X2 (dla jÍzykÛw zapisywanych cyrylic±).
+%description fonts-lh -l pl.UTF-8
+Fonty lh dla kodowa≈Ñ `T2'/X2 (dla jƒôzyk√≥w zapisywanych cyrylicƒÖ).
 
 %package fonts-lm
 Summary:	Latin Modern family fonts
-Summary(pl):	Fonty z rodziny Latin Modern
+Summary(pl.UTF-8):   Fonty z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2486,20 +2486,20 @@ Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
 potential user knows what to do with all these files. The author is
 Boguslaw Jackowski.
 
-%description fonts-lm -l pl
-Rodzina fontÛw Latin Modern, oparta na fontach Computer Modern
+%description fonts-lm -l pl.UTF-8
+Rodzina font√≥w Latin Modern, oparta na fontach Computer Modern
 przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
-Zawiera wiele dodatkowych znakÛw, g≥Ûwnie z akcentami, ale nie tylko.
-Jest jeden zbiÛr fontÛw postscriptowych oraz cztery zbiory plikÛw TeX
-Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
-QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu takøe LY1
-(texnansi-*.tfm); oraz Text Companion dla fontÛw EC zwanemu takøe TS1
-(ts1-*.tfm). Zak≥ada siÍ, øe potencjalny uøytkownik wie, co zrobiÊ z
-tymi wszystkimi plikami. Autorem jest Bogus≥aw Jackowski.
+Zawiera wiele dodatkowych znak√≥w, g≈Ç√≥wnie z akcentami, ale nie tylko.
+Jest jeden zbi√≥r font√≥w postscriptowych oraz cztery zbiory plik√≥w TeX
+Font Metric, odpowiadajƒÖcych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak≈ºe LY1
+(texnansi-*.tfm); oraz Text Companion dla font√≥w EC zwanemu tak≈ºe TS1
+(ts1-*.tfm). Zak≈Çada siƒô, ≈ºe potencjalny u≈ºytkownik wie, co zrobiƒá z
+tymi wszystkimi plikami. Autorem jest Bogus≈Çaw Jackowski.
 
 %package fonts-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
-Summary(pl):	Font Symbol Martina Vogela (marvosym)
+Summary(pl.UTF-8):   Font Symbol Martina Vogela (marvosym)
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2511,113 +2511,113 @@ structural engineering; Symbols for steel cross-sections; Astronomy
 signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
 symbols; CE sign and others.
 
-%description fonts-marvosym -l pl
-Font Symbol Martina Vogela (marvosym) to font zawieraj±cy: symbol
-waluty Euro zdefiniowany przez KomisjÍ Europejsk±; symbole waluty
-Euro dla krojÛw Times, Helvetica i Courier; symbole dla inøynierii
+%description fonts-marvosym -l pl.UTF-8
+Font Symbol Martina Vogela (marvosym) to font zawierajƒÖcy: symbol
+waluty Euro zdefiniowany przez Komisjƒô EuropejskƒÖ; symbole waluty
+Euro dla kroj√≥w Times, Helvetica i Courier; symbole dla in≈ºynierii
 strukturalnej; symbole dla przekroi poprzecznych; symbole
-astronomiczne (S≥oÒce, KsiÍøyc, planety); 12 znakÛw Zodiaku; symbole
+astronomiczne (S≈Ço≈Ñce, Ksiƒô≈ºyc, planety); 12 znak√≥w Zodiaku; symbole
 krawieckie; znak CE i inne.
 
 %package fonts-mflogo
 Summary:	Logo fonts
-Summary(pl):	Fonty logo
+Summary(pl.UTF-8):   Fonty logo
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-mflogo
 Logo fonts.
 
-%description fonts-mflogo -l pl
+%description fonts-mflogo -l pl.UTF-8
 Fonty logo.
 
 %package fonts-misc
 Summary:	Miscellaneous fonts
-Summary(pl):	RÛøne fonty
+Summary(pl.UTF-8):   R√≥≈ºne fonty
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-misc
 Miscellaneous fonts.
 
-%description fonts-misc -l pl
-Fonty rÛøne.
+%description fonts-misc -l pl.UTF-8
+Fonty r√≥≈ºne.
 
 %package fonts-monotype
 Summary:	Monotype fonts
-Summary(pl):	Fonty Monotype
+Summary(pl.UTF-8):   Fonty Monotype
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-monotype
 Monotype fonts.
 
-%description fonts-monotype -l pl
+%description fonts-monotype -l pl.UTF-8
 Fonty Monotype.
 
 %package fonts-omega
 Summary:	Fonts for Omega - extended unicode TeX
-Summary(pl):	Fonty dla Omegi - TeXa ze wsparciem dla unikodu
+Summary(pl.UTF-8):   Fonty dla Omegi - TeXa ze wsparciem dla unikodu
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-omega
 Fonts for Omega - extended unicode TeX.
 
-%description fonts-omega -l pl
+%description fonts-omega -l pl.UTF-8
 Fonty dla Omegi - TeXa ze wsparciem dla unikodu.
 
 %package fonts-pazo
 Summary:	Pazo fonts
-Summary(pl):	Fonty Pazo
+Summary(pl.UTF-8):   Fonty Pazo
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-pazo
 Pazo fonts.
 
-%description fonts-pazo -l pl
+%description fonts-pazo -l pl.UTF-8
 Fonty Pazo.
 
 %package fonts-pl
 Summary:	Polish fonts
-Summary(pl):	Polskie fonty
+Summary(pl.UTF-8):   Polskie fonty
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-pl
 Polish fonts.
 
-%description fonts-pl -l pl
+%description fonts-pl -l pl.UTF-8
 Polskie fonty.
 
 %package fonts-px
 Summary:	PX fonts
-Summary(pl):	Fonty PX
+Summary(pl.UTF-8):   Fonty PX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-px
 PX fonts.
 
-%description fonts-px -l pl
+%description fonts-px -l pl.UTF-8
 Fonty PX.
 
 %package fonts-qfonts
 Summary:	Quasi fonts
-Summary(pl):	Fonty Quasi
+Summary(pl.UTF-8):   Fonty Quasi
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-qfonts
 Quasi fonts.
 
-%description fonts-qfonts -l pl
+%description fonts-qfonts -l pl.UTF-8
 Fonty Quasi.
 
 %package fonts-qpx
 Summary:	Additional fonts for QPX package
-Summary(pl):	Dodatkowe fonty dla pakietu QPX
+Summary(pl.UTF-8):   Dodatkowe fonty dla pakietu QPX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
@@ -2626,12 +2626,12 @@ Requires:	%{name}-fonts-px = %{epoch}:%{version}-%{release}
 %description fonts-qpx
 Additional fonts for QPX package.
 
-%description fonts-qpx -l pl
+%description fonts-qpx -l pl.UTF-8
 Dodatkowe fonty dla pakietu QPX.
 
 %package fonts-qtx
 Summary:	Additional fonts for QTX package
-Summary(pl):	Dodatkowe fonty dla pakietu QTX
+Summary(pl.UTF-8):   Dodatkowe fonty dla pakietu QTX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-qfonts = %{epoch}:%{version}-%{release}
@@ -2640,12 +2640,12 @@ Requires:	%{name}-fonts-tx = %{epoch}:%{version}-%{release}
 %description fonts-qtx
 Additional fonts for QTX package.
 
-%description fonts-qtx -l pl
+%description fonts-qtx -l pl.UTF-8
 Dodatkowe fonty dla pakietu QTX.
 
 %package fonts-rsfs
 Summary:	Fonts of uppercase script letters for scientific and mathematical typesetting
-Summary(pl):	Fonty wielkich liter pisanych do sk≥adania dokumentÛw naukowych i matematycznych
+Summary(pl.UTF-8):   Fonty wielkich liter pisanych do sk≈Çadania dokument√≥w naukowych i matematycznych
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2655,221 +2655,221 @@ mathematical typesetting, in contrast to the informal script fonts
 such as that used for the `calligraphic' symbols in the TeX math
 symbol font.
 
-%description fonts-rsfs -l pl
-Fonty wielkich liter pisanych do uøywania jako symbole przy sk≥adaniu
-dokumentÛw naukowych i matematycznych, w odrÛønieniu od nieformalnych
-fontÛw pisanych takich jak uøywane do symboli "kaligraficznych" w
+%description fonts-rsfs -l pl.UTF-8
+Fonty wielkich liter pisanych do u≈ºywania jako symbole przy sk≈Çadaniu
+dokument√≥w naukowych i matematycznych, w odr√≥≈ºnieniu od nieformalnych
+font√≥w pisanych takich jak u≈ºywane do symboli "kaligraficznych" w
 matematycznym foncie TeXowym symbol.
 
 %package fonts-stmaryrd
 Summary:	St Mary Road symbols for functional programming
-Summary(pl):	Symbole St Mary Road do programowania funkcyjnego
+Summary(pl.UTF-8):   Symbole St Mary Road do programowania funkcyjnego
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-stmaryrd
 St Mary Road symbols for functional programming.
 
-%description fonts-stmaryrd -l pl
+%description fonts-stmaryrd -l pl.UTF-8
 Symbole St Mary Road do programowania funkcyjnego.
 
 %package fonts-tx
 Summary:	TX fonts
-Summary(pl):	Fonty TX
+Summary(pl.UTF-8):   Fonty TX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-tx
 TX fonts.
 
-%description fonts-tx -l pl
+%description fonts-tx -l pl.UTF-8
 Fonty TX.
 
 %package fonts-urw
 Summary:	URW fonts
-Summary(pl):	Fonty URW
+Summary(pl.UTF-8):   Fonty URW
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-urw
 URW fonts.
 
-%description fonts-urw -l pl
+%description fonts-urw -l pl.UTF-8
 Fonty URW.
 
 %package fonts-urwvn
 Summary:	URWVN fonts
-Summary(pl):	Fonty URWVN
+Summary(pl.UTF-8):   Fonty URWVN
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-urwvn
 URWVN fonts.
 
-%description fonts-urwvn -l pl
+%description fonts-urwvn -l pl.UTF-8
 Fonty URWVN.
 
 %package fonts-vnr
 Summary:	VNR fonts
-Summary(pl):	Fonty VNR
+Summary(pl.UTF-8):   Fonty VNR
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-vnr
 VNR fonts.
 
-%description fonts-vnr -l pl
+%description fonts-vnr -l pl.UTF-8
 Fonty VNR.
 
 %package fonts-wasy
 Summary:	Waldis symbol fonts
-Summary(pl):	Fonty Waldis symbol
+Summary(pl.UTF-8):   Fonty Waldis symbol
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-wasy
 Waldis symbol fonts.
 
-%description fonts-wasy -l pl
+%description fonts-wasy -l pl.UTF-8
 Fonty Waldis symbol.
 
 %package fonts-xypic
 Summary:	Xy-pic fonts
-Summary(pl):	Fonty Xy-pic
+Summary(pl.UTF-8):   Fonty Xy-pic
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-xypic
 Xy-pic fonts.
 
-%description fonts-xypic -l pl
+%description fonts-xypic -l pl.UTF-8
 Fonty Xy-pic.
 
 %package fonts-yandy
 Summary:	European Modern fonts from Y&Y
-Summary(pl):	Fonty European Modern od Y&Y
+Summary(pl.UTF-8):   Fonty European Modern od Y&Y
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-yandy
 European Modern fonts from Y&Y.
 
-%description fonts-yandy -l pl
+%description fonts-yandy -l pl.UTF-8
 Fonty European Modern od Y&Y.
 
 %package fonts-type1-antp
 Summary:	Antykwa Poltawskiego, a Type 1 family of Polish traditional type
-Summary(pl):	Antykwa PÛ≥tawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
+Summary(pl.UTF-8):   Antykwa P√≥≈Çtawskiego - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-antp
 Antykwa Poltawskiego, a Type 1 family of Polish traditional type.
 
-%description fonts-type1-antp -l pl
-Antykwa PÛ≥tawskiego - rodzina tradycyjnych polskich czcionek jako
+%description fonts-type1-antp -l pl.UTF-8
+Antykwa P√≥≈Çtawskiego - rodzina tradycyjnych polskich czcionek jako
 Type 1.
 
 %package fonts-type1-antt
 Summary:	Antykwa Torunska, a Type 1 family of a Polish traditional type
-Summary(pl):	Antykwa ToruÒska - rodzina tradycyjnych polskich czcionek jako Type 1
+Summary(pl.UTF-8):   Antykwa Toru≈Ñska - rodzina tradycyjnych polskich czcionek jako Type 1
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-antt
 Antykwa Torunska, a Type 1 family of a Polish traditional type.
 
-%description fonts-type1-antt -l pl
-Antykwa ToruÒska - rodzina tradycyjnych polskich czcionek jako Type 1.
+%description fonts-type1-antt -l pl.UTF-8
+Antykwa Toru≈Ñska - rodzina tradycyjnych polskich czcionek jako Type 1.
 
 %package fonts-type1-belleek
 Summary:	Free replacement for basic MathTime fonts
-Summary(pl):	WolnodostÍpny zamiennik podstawowych fontÛw MathTime
+Summary(pl.UTF-8):   Wolnodostƒôpny zamiennik podstawowych font√≥w MathTime
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-belleek
 Free replacement for basic MathTime fonts.
 
-%description fonts-type1-belleek -l pl
-WolnodostÍpny zamiennik podstawowych fontÛw MathTime.
+%description fonts-type1-belleek -l pl.UTF-8
+Wolnodostƒôpny zamiennik podstawowych font√≥w MathTime.
 
 %package fonts-type1-bitstrea
 Summary:	Bitstream fonts
-Summary(pl):	Fonty Bitstream
+Summary(pl.UTF-8):   Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-bitstrea
 Bitstream fonts.
 
-%description fonts-type1-bitstrea -l pl
+%description fonts-type1-bitstrea -l pl.UTF-8
 Fonty Bitstream.
 
 %package fonts-type1-bluesky
 Summary:	Computer Modern family fonts
-Summary(pl):	Fonty z rodziny Computer Modern
+Summary(pl.UTF-8):   Fonty z rodziny Computer Modern
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-bluesky
 Computer Modern family fonts.
 
-%description fonts-type1-bluesky -l pl
+%description fonts-type1-bluesky -l pl.UTF-8
 Fonty z rodzony Computer Modern.
 
 %package fonts-type1-cc-pl
 Summary:	Polish version of Computer Concrete fonts
-Summary(pl):	Polska wersja fontÛw Computer Concrete
+Summary(pl.UTF-8):   Polska wersja font√≥w Computer Concrete
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-cc-pl
 Polish version of Computer Concrete fonts.
 
-%description fonts-type1-cc-pl -l pl
-Polska wersja fontÛw Computer Concrete.
+%description fonts-type1-cc-pl -l pl.UTF-8
+Polska wersja font√≥w Computer Concrete.
 
 %package fonts-type1-cmcyr
 Summary:	Computer Modern fonts extended with Russian letters
-Summary(pl):	Fonty Computer Modern rozszerzone o litery rosyjskie
+Summary(pl.UTF-8):   Fonty Computer Modern rozszerzone o litery rosyjskie
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-cmcyr
 Computer Modern fonts extended with Russian letters.
 
-%description fonts-type1-cmcyr -l pl
+%description fonts-type1-cmcyr -l pl.UTF-8
 Fonty Computer Modern rozszerzone o litery rosyjskie.
 
 %package fonts-type1-cs
 Summary:	Czech/Slovak-tuned MetaFont Computer Modern fonts
-Summary(pl):	Fonty MetaFont Computer Modern dla jÍzykÛw czeskiego i s≥owackiego
+Summary(pl.UTF-8):   Fonty MetaFont Computer Modern dla jƒôzyk√≥w czeskiego i s≈Çowackiego
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-cs
 Czech/Slovak-tuned MetaFont Computer Modern fonts.
 
-%description fonts-type1-cs -l pl
-Fonty MetaFont Computer Modern zmodyfikowane pod k±tem jÍzykÛw
-czeskiego i s≥owackiego.
+%description fonts-type1-cs -l pl.UTF-8
+Fonty MetaFont Computer Modern zmodyfikowane pod kƒÖtem jƒôzyk√≥w
+czeskiego i s≈Çowackiego.
 
 %package fonts-type1-dstroke
 Summary:	Doublestroke Type1 font for typesetting the mathematical symbols
-Summary(pl):	PodwÛjnie kre∂lony font Type1 do sk≥adania symboli matematycznych
+Summary(pl.UTF-8):   Podw√≥jnie kre≈õlony font Type1 do sk≈Çadania symboli matematycznych
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-dstroke
 Doublestroke Type1 font for typesetting the mathematical symbols.
 
-%description fonts-type1-dstroke -l pl
-PodwÛjnie kre∂lony font Type1 do sk≥adania symboli matematycznych.
+%description fonts-type1-dstroke -l pl.UTF-8
+Podw√≥jnie kre≈õlony font Type1 do sk≈Çadania symboli matematycznych.
 
 %package fonts-type1-eurosym
 Summary:	The new European currency symbol for the Euro
-Summary(pl):	Symbol nowej europejskiej waluty Euro
+Summary(pl.UTF-8):   Symbol nowej europejskiej waluty Euro
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2878,14 +2878,14 @@ The new European currency symbol for the Euro implemented in Metafont,
 using the official European Commission dimensions, and providing
 several shapes (normal, slanted, bold, outline).
 
-%description fonts-type1-eurosym -l pl
+%description fonts-type1-eurosym -l pl.UTF-8
 Symbol nowej europejskiej waluty Euro, zaimplementowany w Metafoncie,
-z uøyciem oficjalnych wymiarÛw wg Komisji Europejskiej, dostarczaj±cy
-rÛønych kszta≥tÛw (normalnego, pochylonego, t≥ustego, szkicowanego).
+z u≈ºyciem oficjalnych wymiar√≥w wg Komisji Europejskiej, dostarczajƒÖcy
+r√≥≈ºnych kszta≈Çt√≥w (normalnego, pochylonego, t≈Çustego, szkicowanego).
 
 %package fonts-type1-hoekwater
 Summary:	Converted mflogo font
-Summary(pl):	Przekonwertowany font mflogo
+Summary(pl.UTF-8):   Przekonwertowany font mflogo
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2893,14 +2893,14 @@ Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Fonts originally created in MetaFont, transformed to PostScript by Taco
 Hoekwater; includes logo, manfnt, rsfs, stmaryrd, wasy, wasy2, xipa.
 
-%description fonts-type1-hoekwater -l pl
-Fonty oryginalnie stworzone w MetaFoncie, przekszta≥cone do
-PostScriptu przez Taco Hoekwatera; zawieraj±: logo, manfnt, rsfs,
+%description fonts-type1-hoekwater -l pl.UTF-8
+Fonty oryginalnie stworzone w MetaFoncie, przekszta≈Çcone do
+PostScriptu przez Taco Hoekwatera; zawierajƒÖ: logo, manfnt, rsfs,
 stmaryrd, wasy, wasy2, xipa.
 
 %package fonts-type1-fpl
 Summary:	SC/OsF fonts for URW Palladio L
-Summary(pl):	Fonty SC/OsF dla URW Palladio L
+Summary(pl.UTF-8):   Fonty SC/OsF dla URW Palladio L
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2917,34 +2917,34 @@ the free font editor FontForge <http://fontforge.sf.net/>. The kerning
 data in these fonts comes from Walter Schmidt's improved Palatino
 metrics.
 
-%description fonts-type1-fpl -l pl
-Fonty FPL dostarczaj± zbiÛr fontÛw SC/OsF dla URW Palladio L, ktÛre s±
+%description fonts-type1-fpl -l pl.UTF-8
+Fonty FPL dostarczajƒÖ zbi√≥r font√≥w SC/OsF dla URW Palladio L, kt√≥re sƒÖ
 kompatybilne co do metryk z fontami Palatino SC/OsF firmy Adobe.
-Naleøy jednak zaznaczyÊ, øe celem autora nie jest dok≥adne odtworzenie
-kszta≥tÛw oryginalnych fontÛw Adobe. SC i OsF w fontach FPL by≥y
-projektowane w oparciu o glify z URW Palladio L. Dla niektÛrych glifÛw
-(np. 'o') autor uzyska≥ najlepszy wynik poprzez skalowanie i
-pogrubianie. Dla innych (np. 'h') przesuwanie wybranych czÍ∂ci znaku
-da≥o lepsze wyniki. Wszystko to zosta≥o zrobione przy uøyciu
-wolnodostÍpnego edytora fontÛw FontForge <http://fontforge.sf.net/>.
-Dane dla kerningu w tych fontach pochodz± z ulepszonych metryk
+Nale≈ºy jednak zaznaczyƒá, ≈ºe celem autora nie jest dok≈Çadne odtworzenie
+kszta≈Çt√≥w oryginalnych font√≥w Adobe. SC i OsF w fontach FPL by≈Çy
+projektowane w oparciu o glify z URW Palladio L. Dla niekt√≥rych glif√≥w
+(np. 'o') autor uzyska≈Ç najlepszy wynik poprzez skalowanie i
+pogrubianie. Dla innych (np. 'h') przesuwanie wybranych czƒô≈õci znaku
+da≈Ço lepsze wyniki. Wszystko to zosta≈Ço zrobione przy u≈ºyciu
+wolnodostƒôpnego edytora font√≥w FontForge <http://fontforge.sf.net/>.
+Dane dla kerningu w tych fontach pochodzƒÖ z ulepszonych metryk
 Palatino Waltera Schmidta.
 
 %package fonts-type1-tt2001
 Summary:	Type1 tt2001 family fonts
-Summary(pl):	Fonty Type1 z rodziny tt2001
+Summary(pl.UTF-8):   Fonty Type1 z rodziny tt2001
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-tt2001
 Type1 tt2001 famliy fonts.
 
-%description fonts-type1-tt2001 -l pl
+%description fonts-type1-tt2001 -l pl.UTF-8
 Fonty Type1 z rodziny tt2001.
 
 %package fonts-type1-lm
 Summary:	Type1 Latin Modern family fonts
-Summary(pl):	Fonty Type1 z rodziny Latin Modern
+Summary(pl.UTF-8):   Fonty Type1 z rodziny Latin Modern
 Group:		Applications/Publishing/TeX
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2959,20 +2959,20 @@ Text Companion for EC fonts aka TS1 (ts1-*.tfm). It is presumed that a
 potential user knows what to do with all these files. The author is
 Boguslaw Jackowski.
 
-%description fonts-type1-lm -l pl
-Rodzina fontÛw Latin Modern, oparta na fontach Computer Modern
+%description fonts-type1-lm -l pl.UTF-8
+Rodzina font√≥w Latin Modern, oparta na fontach Computer Modern
 przekazanych do domeny publicznej przez AMS (copyright (C) 1997 AMS).
-Zawiera wiele dodatkowych znakÛw, g≥Ûwnie z akcentami, ale nie tylko.
-Jest jeden zbiÛr fontÛw postscriptowych oraz cztery zbiory plikÛw TeX
-Font Metric, odpowiadaj±cych: kodowaniu Cork (cork-*.tfm); kodowaniu
-QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu takøe LY1
-(texnansi-*.tfm); oraz Text Companion dla fontÛw EC zwanemu takøe TS1
-(ts1-*.tfm). Zak≥ada siÍ, øe potencjalny uøytkownik wie, co zrobiÊ z
-tymi wszystkimi plikami. Autorem jest Bogus≥aw Jackowski.
+Zawiera wiele dodatkowych znak√≥w, g≈Ç√≥wnie z akcentami, ale nie tylko.
+Jest jeden zbi√≥r font√≥w postscriptowych oraz cztery zbiory plik√≥w TeX
+Font Metric, odpowiadajƒÖcych: kodowaniu Cork (cork-*.tfm); kodowaniu
+QX (qx-*.tfm); kodowaniu TeX'n'ANSI zwanemu tak≈ºe LY1
+(texnansi-*.tfm); oraz Text Companion dla font√≥w EC zwanemu tak≈ºe TS1
+(ts1-*.tfm). Zak≈Çada siƒô, ≈ºe potencjalny u≈ºytkownik wie, co zrobiƒá z
+tymi wszystkimi plikami. Autorem jest Bogus≈Çaw Jackowski.
 
 %package fonts-type1-marvosym
 Summary:	Martin Vogel's Symbol (marvosym) font
-Summary(pl):	Font Symbol Martina Vogela (marvosym)
+Summary(pl.UTF-8):   Font Symbol Martina Vogela (marvosym)
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
@@ -2984,42 +2984,42 @@ structural engineering; Symbols for steel cross-sections; Astronomy
 signs (Sun, Moon, planets); The 12 signs of the zodiac; Scissor
 symbols; CE sign and others.
 
-%description fonts-type1-marvosym -l pl
-Font Symbol Martina Vogela (marvosym) to font zawieraj±cy: symbol
-waluty Euro zdefiniowany przez KomisjÍ Europejsk±; symbole waluty
-Euro dla krojÛw Times, Helvetica i Courier; symbole dla inøynierii
+%description fonts-type1-marvosym -l pl.UTF-8
+Font Symbol Martina Vogela (marvosym) to font zawierajƒÖcy: symbol
+waluty Euro zdefiniowany przez Komisjƒô EuropejskƒÖ; symbole waluty
+Euro dla kroj√≥w Times, Helvetica i Courier; symbole dla in≈ºynierii
 strukturalnej; symbole dla przekroi poprzecznych; symbole
-astronomiczne (S≥oÒce, KsiÍøyc, planety); 12 znakÛw Zodiaku; symbole
+astronomiczne (S≈Ço≈Ñce, Ksiƒô≈ºyc, planety); 12 znak√≥w Zodiaku; symbole
 krawieckie; znak CE i inne.
 
 %package fonts-type1-mathpazo
 Summary:	Pazo Math fonts
-Summary(pl):	Fonty matematyczne Pazo Math
+Summary(pl.UTF-8):   Fonty matematyczne Pazo Math
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-mathpazo
 Pazo Math fonts.
 
-%description fonts-type1-mathpazo -l pl
+%description fonts-type1-mathpazo -l pl.UTF-8
 Fonty matematyczne Pazo Math.
 
 %package fonts-type1-omega
 Summary:	Type1 fonts for Omega - extended unicode TeX
-Summary(pl):	Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu
+Summary(pl.UTF-8):   Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-omega
 Type1 fonts for Omega - extended unicode TeX.
 
-%description fonts-type1-omega -l pl
+%description fonts-type1-omega -l pl.UTF-8
 Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu.
 
 
 %package fonts-type1-pl
 Summary:	Polish fonts
-Summary(pl):	Polskie fonty
+Summary(pl.UTF-8):   Polskie fonty
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
@@ -3027,79 +3027,79 @@ Requires:	%{name}-fonts-type1-bluesky = %{epoch}:%{version}-%{release}
 %description fonts-type1-pl
 Polish fonts.
 
-%description fonts-type1-pl -l pl
+%description fonts-type1-pl -l pl.UTF-8
 Polskie fonty.
 
 %package fonts-type1-px
 Summary:	PX fonts
-Summary(pl):	Fonty PX
+Summary(pl.UTF-8):   Fonty PX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-px
 PX fonts.
 
-%description fonts-type1-px -l pl
+%description fonts-type1-px -l pl.UTF-8
 Fonty PX.
 
 %package fonts-type1-qfonts
 Summary:	Quasi fonts
-Summary(pl):	Fonty Quasi
+Summary(pl.UTF-8):   Fonty Quasi
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-qfonts
 Quasi fonts.
 
-%description fonts-type1-qfonts -l pl
+%description fonts-type1-qfonts -l pl.UTF-8
 Fonty Quasi.
 
 %package fonts-type1-tx
 Summary:	TX fonts
-Summary(pl):	Fonty TX
+Summary(pl.UTF-8):   Fonty TX
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-tx
 TX fonts.
 
-%description fonts-type1-tx -l pl
+%description fonts-type1-tx -l pl.UTF-8
 Fonty TX.
 
 %package fonts-type1-urw
 Summary:	URW fonts
-Summary(pl):	Fonty URW
+Summary(pl.UTF-8):   Fonty URW
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-urw
 URW fonts.
 
-%description fonts-type1-urw -l pl
+%description fonts-type1-urw -l pl.UTF-8
 Fonty URW.
 
 %package fonts-type1-vnr
 Summary:	Type1 VNR fonts
-Summary(pl):	Fonty Type1 VNR
+Summary(pl.UTF-8):   Fonty Type1 VNR
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-vnr
 Type1 VNR fonts.
 
-%description fonts-type1-vnr -l pl
+%description fonts-type1-vnr -l pl.UTF-8
 Fonty Type1 VNR.
 
 %package fonts-type1-xypic
 Summary:	Xy-pic fonts
-Summary(pl):	Fonty Xy-pic
+Summary(pl.UTF-8):   Fonty Xy-pic
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 
 %description fonts-type1-xypic
 Xy-pic fonts.
 
-%description fonts-type1-xypic -l pl
+%description fonts-type1-xypic -l pl.UTF-8
 Fonty Xy-pic.
 
 %prep
