@@ -30,7 +30,7 @@ Group:		Applications/Publishing/TeX
 Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-src-%{version}.tar.gz
 # Source0-md5:	944a4641e79e61043fdaf8f38ecbb4b3
 Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-texmf-%{version}.tar.gz
-# Source1-md5:	11aa15c8d3e28ee7815e0d5fcdf43fd4
+# Source1-md5:	ed9d30d9162d16ac8d5065cde6e0f6fa
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
 Source4:	%{name}.cron
