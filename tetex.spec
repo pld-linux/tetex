@@ -41,6 +41,8 @@ Source6:	xdvi.png
 #Source7:	%{name}-updmap
 Source8:	ftp://ftp.dante.de/tex-archive/macros/latex/contrib/xkeyval.zip
 # Source8-md5:	4b07f91a35fe1fa7419764c3890d991d
+Source9:	ftp://ftp.dante.de/tex-archive/macros/latex/unpacked/fixltx2e.sty
+# Source9-md5:	d4f63c8d3638ea897d097f8e8948e81b
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -3109,7 +3111,7 @@ Fonty Xy-pic.
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
-# XeTeX needs xkeyval >= 2005/05/07
+# fontspec in XeTeX needs xkeyval >= 2005/05/07
 unzip %{SOURCE8}
 rm texmf/doc/generic/xkeyval/*
 ln xkeyval/doc/xkeyval.pdf texmf/doc/generic/xkeyval
@@ -3117,6 +3119,9 @@ rm texmf/tex/generic/xkeyval/*
 ln xkeyval/run/*.tex texmf/tex/generic/xkeyval
 rm texmf/tex/latex/xkeyval/*
 ln xkeyval/run/*.sty texmf/tex/latex/xkeyval
+
+# xltxtra in XeTeX needs fixltx2e >= 2006/03/24
+cp -a %{SOURCE9} texmf/tex/latex/base
 
 %patch0  -p1
 #%patch1  -p1
