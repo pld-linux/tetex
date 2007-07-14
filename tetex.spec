@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	4
+Release:	5
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -39,6 +39,8 @@ Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
 #Source7:	%{name}-updmap
+Source8:	ftp://ftp.dante.de/tex-archive/macros/latex/contrib/xkeyval.zip
+# Source8-md5:	4b07f91a35fe1fa7419764c3890d991d
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -63,6 +65,7 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	rpm-pythonprov
 BuildRequires:	t1lib-devel >= 5.0.2
 BuildRequires:	texinfo
+BuildRequires:	unzip
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	zlib-devel >= 1.2.1
 PreReq:		/sbin/ldconfig
@@ -3016,7 +3019,6 @@ Type1 fonts for Omega - extended unicode TeX.
 %description fonts-type1-omega -l pl.UTF-8
 Fonty Type1 dla Omegi - TeXa ze wsparciem dla unikodu.
 
-
 %package fonts-type1-pl
 Summary:	Polish fonts
 Summary(pl.UTF-8):	Polskie fonty
@@ -3107,6 +3109,15 @@ Fonty Xy-pic.
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
+# XeTeX needs xkeyval >= 2005/05/07
+unzip %{SOURCE8}
+rm texmf/doc/generic/xkeyval/*
+ln xkeyval/doc/xkeyval.pdf texmf/doc/generic/xkeyval
+rm texmf/tex/generic/xkeyval/*
+ln xkeyval/run/*.tex texmf/tex/generic/xkeyval
+rm texmf/tex/latex/xkeyval/*
+ln xkeyval/run/*.sty texmf/tex/latex/xkeyval
+
 %patch0  -p1
 #%patch1  -p1
 %patch2  -p1
@@ -3178,6 +3189,9 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 #	texmf/web2c/texmf.cnf
 
 cp -a texmf $RPM_BUILD_ROOT%{texmf}
+
+install -d $RPM_BUILD_ROOT%{texmf}/fonts/opentype/public
+ln -s ..%{texmf} $RPM_BUILD_ROOT/etc/texmf
 
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
@@ -4317,6 +4331,7 @@ fi
 %doc %{texmf}/doc/help/ctan
 %doc %{texmf}/doc/help/tds.dvi
 %doc %{texmf}/doc/help/unixtex.ftp
+%dir %{texmf}/doc/help/faq
 %doc %{texmf}/doc/images
 %dir %{texmf}/doc/latex
 %dir %{texmf}/doc/polish
@@ -4489,6 +4504,8 @@ fi
 %dir %{texmf}/fonts/map/dvips/urwvn
 %{texmf}/fonts/map/dvips/urwvn/urwvn.map
 
+/etc/texmf
+
 %lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
 %lang(fi) %{_mandir}/fi/man1/allcm.1*
 %lang(fi) %{_mandir}/fi/man1/allneeded.1*
@@ -4565,6 +4582,8 @@ fi
 %dir %{texmf}/fonts
 %dir %{texmf}/fonts/afm
 %dir %{texmf}/fonts/afm/public
+%dir %{texmf}/fonts/opentype
+%dir %{texmf}/fonts/opentype/public
 %dir %{texmf}/fonts/pk
 %dir %{texmf}/fonts/source
 %dir %{texmf}/fonts/source/public
