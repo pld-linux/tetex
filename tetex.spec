@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	6
+Release:	7
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -39,10 +39,8 @@ Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
 #Source7:	%{name}-updmap
-Source8:	ftp://ftp.dante.de/tex-archive/macros/latex/contrib/xkeyval.zip
-# Source8-md5:	4b07f91a35fe1fa7419764c3890d991d
-Source9:	ftp://ftp.dante.de/tex-archive/macros/latex/unpacked/fixltx2e.sty
-# Source9-md5:	d4f63c8d3638ea897d097f8e8948e81b
+Source8:	ftp://ftp.dante.de/tex-archive/macros/latex/unpacked/fixltx2e.sty
+# Source8-md5:	d4f63c8d3638ea897d097f8e8948e81b
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
 Patch2:		teTeX-manpages.patch
@@ -54,6 +52,7 @@ Patch7:		teTeX-trie_size_max.patch
 Patch8:		teTeX-kpathsea.patch
 Patch9:		teTeX-locale.patch
 Patch10:	teTeX-texmfvar.patch
+Patch11:	teTeX-xetex-paths.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
@@ -3111,17 +3110,8 @@ Fonty Xy-pic.
 install -d texmf
 tar xzf %{SOURCE1} -C texmf
 
-# fontspec in XeTeX needs xkeyval >= 2005/05/07
-unzip %{SOURCE8}
-rm texmf/doc/generic/xkeyval/*
-ln xkeyval/doc/xkeyval.pdf texmf/doc/generic/xkeyval
-rm texmf/tex/generic/xkeyval/*
-ln xkeyval/run/*.tex texmf/tex/generic/xkeyval
-rm texmf/tex/latex/xkeyval/*
-ln xkeyval/run/*.sty texmf/tex/latex/xkeyval
-
 # xltxtra in XeTeX needs fixltx2e >= 2006/03/24
-cp -a %{SOURCE9} texmf/tex/latex/base
+cp -a %{SOURCE8} texmf/tex/latex/base
 
 %patch0  -p1
 #%patch1  -p1
@@ -3134,6 +3124,7 @@ cp -a %{SOURCE9} texmf/tex/latex/base
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
