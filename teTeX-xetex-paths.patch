@@ -1,0 +1,13 @@
+--- tetex-src-3.0/texk/kpathsea/texmf.in~	2007-07-21 13:06:43.000000000 +0200
++++ tetex-src-3.0/texk/kpathsea/texmf.in	2007-07-21 13:10:30.000000000 +0200
+@@ -217,8 +217,8 @@
+ TEXINPUTS.pdfxtex   = .;$TEXMF/tex/{plain,generic,}//
+ 
+ % XeTeX
+-TEXINPUTS.xelatex = .;$TEXMF/tex/{latex,generic,}//
+-TEXINPUTS.xetex   = .;$TEXMF/tex/{plain,generic,}//
++TEXINPUTS.xelatex = .;$TEXMF/tex/{xelatex,latex,generic,}//
++TEXINPUTS.xetex   = .;$TEXMF/tex/{xetex,plain,generic,}//
+ 
+ % Omega / Aleph
+ TEXINPUTS.lamed = .;$TEXMF/tex/{lamed,lambda,latex,generic,}//
