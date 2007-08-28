@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	7
+Release:	8
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -109,7 +109,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		texmf	%{_datadir}/texmf
 %define		fmtdir	/var/lib/texmf/web2c
 %define		texhash	[ ! -x %{_bindir}/texhash ] || %{_bindir}/texhash 1>&2;
-%define		_sysconfdir	/etc/texmf
 %define		_localstatedir	/var/lib/texmf
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ;
 %define		fmtutil(f:) [ ! \\\( -f %{_localstatedir}/web2c/%{-f*}.fmt.rpmnew -o -f %{_localstatedir}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil-sys --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{_localstatedir}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ;
@@ -3187,7 +3186,6 @@ install -d $RPM_BUILD_ROOT%{_datadir} \
 cp -a texmf $RPM_BUILD_ROOT%{texmf}
 
 install -d $RPM_BUILD_ROOT%{texmf}/fonts/opentype/public
-ln -s ..%{texmf} $RPM_BUILD_ROOT/etc/texmf
 
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 
@@ -3202,7 +3200,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_ROOT%{_libdir}; export LD_LIBRARY_PATH
 	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
 	texmf=$RPM_BUILD_ROOT%{texmf} \
 	texmfsysvar=$RPM_BUILD_ROOT%{_localstatedir} \
-	texmfsysconfig=$RPM_BUILD_ROOT%{_sysconfdir}
+	texmfsysconfig=$RPM_BUILD_ROOT%{texmf}
 
 #install %{SOURCE7} $RPM_BUILD_ROOT%{_bindir}
 #touch $RPM_BUILD_ROOT/etc/sysconfig/tetex-updmap/maps.lst
@@ -4499,8 +4497,6 @@ fi
 %{texmf}/fonts/map/dvips/tetex/lumath-o.map
 %dir %{texmf}/fonts/map/dvips/urwvn
 %{texmf}/fonts/map/dvips/urwvn/urwvn.map
-
-/etc/texmf
 
 %lang(fi) %{_mandir}/fi/man1/afm2tfm.1*
 %lang(fi) %{_mandir}/fi/man1/allcm.1*

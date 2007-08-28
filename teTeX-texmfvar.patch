@@ -43,7 +43,7 @@
  % For using a separate tree:
  %   TEXMFSYSCONFIG = @texmf@-config
 -TEXMFSYSCONFIG = @texmf@-config
-+TEXMFSYSCONFIG = @texmfsysconfig@
++TEXMFSYSCONFIG = $TEXMFMAIN
  
  % User texmf trees can be catered for like this...
  % This used to be HOMETEXMF.
@@ -64,7 +64,7 @@
  # The root of the main tree.
  texmf = @texmfmain@
 +texmfsysvar = @localstatedir@
-+texmfsysconfig = @sysconfdir@
++texmfsysconfig = $(texmf)
  
  # The directory used by varfonts.
  vartexfonts = /var/cache/fonts
