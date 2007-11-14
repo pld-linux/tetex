@@ -570,7 +570,7 @@ Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 # for epstopdf to work
 Requires:	ghostscript
-Requires:	ghostscript-fonts-std
+Requires:	fonts-Type1-urw
 
 %description format-pdftex
 PDFTeX Plain format.
