@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	8
+Release:	9
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -3248,8 +3248,6 @@ rm -f $RPM_BUILD_ROOT%{texmf}/doc/index.php
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir.gz
 rm -f $RPM_BUILD_ROOT%{_mandir}/{README.*,hu/man1/readlink.1*}
 rm -f $RPM_BUILD_ROOT%{_datadir}/texinfo/html/texi2html.html
-# installed in bindir
-rm -f $RPM_BUILD_ROOT%{texmf}/scripts/pdfcrop/pdfcrop.pl
 
 # move format logs to BUILD, so $RPM_BUILD_ROOT is not polluted
 # and we can still analyze them
@@ -4928,6 +4926,7 @@ fi
 %{texmf}/web2c/pdfetex-pl.pool
 %{texmf}/web2c/pdfetex.pool
 %{texmf}/web2c/pdfxtex.pool
+%{texmf}/scripts/pdfcrop
 %{_mandir}/man1/epstopdf.1*
 %{_mandir}/man1/pdftex.1*
 %{_mandir}/man1/pdfxtex.1*
