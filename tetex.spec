@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	9
+Release:	10
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -78,6 +78,7 @@ Requires:	dialog
 Requires:	%{name}-fonts-cm = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-misc = %{epoch}:%{version}-%{release}
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
+Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
 Requires:	tmpwatch
 Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
