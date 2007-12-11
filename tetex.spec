@@ -2194,16 +2194,17 @@ Bold & Heavy Fonts.
 %description fonts-bh -l pl.UTF-8
 Fonty Bold i Heavy.
 
-%package fonts-bitstrea
+%package fonts-bitstream
 Summary:	Bitstream fonts
 Summary(pl.UTF-8):	Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
+Obsoletes:	tetex-ornts-bitstrea
 
-%description fonts-bitstrea
+%description fonts-bitstream
 Bitstream fonts.
 
-%description fonts-bitstrea -l pl.UTF-8
+%description fonts-bitstream -l pl.UTF-8
 Fonty Bitstream.
 
 %package fonts-cbgreek
@@ -2798,16 +2799,17 @@ Free replacement for basic MathTime fonts.
 %description fonts-type1-belleek -l pl.UTF-8
 Wolnodostępny zamiennik podstawowych fontów MathTime.
 
-%package fonts-type1-bitstrea
+%package fonts-type1-bitstream
 Summary:	Bitstream fonts
 Summary(pl.UTF-8):	Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
+Obsoletes:	tetex-fonts-type1-bitstrea
 
-%description fonts-type1-bitstrea
+%description fonts-type1-bitstream
 Bitstream fonts.
 
-%description fonts-type1-bitstrea -l pl.UTF-8
+%description fonts-type1-bitstream -l pl.UTF-8
 Fonty Bitstream.
 
 %package fonts-type1-bluesky
