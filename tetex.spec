@@ -570,8 +570,8 @@ Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-pdftex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
 # for epstopdf to work
-Requires:	ghostscript
 Requires:	fonts-Type1-urw
+Requires:	ghostscript
 
 %description format-pdftex
 PDFTeX Plain format.
