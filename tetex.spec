@@ -2199,7 +2199,7 @@ Summary:	Bitstream fonts
 Summary(pl.UTF-8):	Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-ornts-bitstrea
+Obsoletes:	tetex-fonts-bitstrea
 
 %description fonts-bitstream
 Bitstream fonts.
@@ -3921,10 +3921,10 @@ fi
 %postun fonts-bh
 %texhash
 
-%post fonts-bitstrea
+%post fonts-bitstream
 %texhash
 
-%postun fonts-bitstrea
+%postun fonts-bitstream
 %texhash
 
 %post fonts-cbgreek
@@ -4179,10 +4179,10 @@ fi
 %postun fonts-type1-belleek
 %texhash
 
-%post fonts-type1-bitstrea
+%post fonts-type1-bitstream
 %texhash
 
-%postun fonts-type1-bitstrea
+%postun fonts-type1-bitstream
 %texhash
 
 %post fonts-type1-bluesky
@@ -5797,7 +5797,7 @@ fi
 %{texmf}/fonts/tfm/bh
 %{texmf}/fonts/vf/bh
 
-%files fonts-bitstrea
+%files fonts-bitstream
 %defattr(644,root,root,755)
 %doc %{texmf}/doc/fonts/charter
 %{texmf}/fonts/afm/bitstrea
@@ -6069,9 +6069,9 @@ fi
 %doc %{texmf}/doc/fonts/belleek
 %{texmf}/fonts/type1/public/belleek
 
-%files fonts-type1-bitstrea
+%files fonts-type1-bitstream
 %defattr(644,root,root,755)
-%{texmf}/fonts/type1/bitstrea
+%{texmf}/fonts/type1/bitstream
 
 %files fonts-type1-bluesky
 %defattr(644,root,root,755)
