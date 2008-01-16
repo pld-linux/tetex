@@ -6071,7 +6071,7 @@ fi
 
 %files fonts-type1-bitstream
 %defattr(644,root,root,755)
-%{texmf}/fonts/type1/bitstream
+%{texmf}/fonts/type1/bitstrea
 
 %files fonts-type1-bluesky
 %defattr(644,root,root,755)
