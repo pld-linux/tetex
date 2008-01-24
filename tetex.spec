@@ -79,7 +79,6 @@ Requires:	%{name}-fonts-cm = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-misc = %{epoch}:%{version}-%{release}
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
-Requires:	tmpwatch
 Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
 Obsoletes:	tetex-doc-latex2e-html
