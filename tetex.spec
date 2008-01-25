@@ -69,16 +69,16 @@ BuildRequires:	texinfo
 BuildRequires:	unzip
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	zlib-devel >= 1.2.1
-PreReq:		/sbin/ldconfig
-PreReq:		awk
-PreReq:		sed
-PreReq:		sh-utils
-PreReq:		textutils
-Requires:	dialog
 Requires:	%{name}-fonts-cm = %{epoch}:%{version}-%{release}
 Requires:	%{name}-fonts-misc = %{epoch}:%{version}-%{release}
 Requires:	%{name}-dirs-fonts = %{epoch}:%{version}-%{release}
 Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
+Requires:	awk
+Requires:	dialog
+Requires:	sed
+Requires:	sh-utils
+Requires:	textutils
+Suggests:	tmpwatch
 Obsoletes:	tetex-afm
 Obsoletes:	tetex-doc
 Obsoletes:	tetex-doc-latex2e-html
