@@ -113,7 +113,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		fixinfodir [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 ;
 %define		fmtutil(f:) [ ! \\\( -f %{_localstatedir}/web2c/%{-f*}.fmt.rpmnew -o -f %{_localstatedir}/web2c/%{-f*}.efmt.rpmnew \\\) ] || %{_bindir}/fmtutil-sys --byfmt %{-f*} >/dev/null 2>/dev/null || echo "Regenerating %{-f*} failed. See %{_localstatedir}/web2c/%{-f*}.log for details" 1>&2 && exit 0 ;
 
-%define 	_noautoreq 'perl(path_tre)'
+%define		_noautoreq 'perl(path_tre)'
 
 %description
 teTeX is an implementation of TeX for Linux or UNIX systems. TeX takes
@@ -469,6 +469,7 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
+Suggests:	%{name}-dvips
 Obsoletes:	tetex-xdvi
 
 %description -n xdvi
@@ -3114,11 +3115,11 @@ tar xzf %{SOURCE1} -C texmf
 # xltxtra in XeTeX needs fixltx2e >= 2006/03/24
 cp -a %{SOURCE8} texmf/tex/latex/base
 
-%patch0  -p1
+%patch0 -p1
 #%patch1  -p1
-%patch2  -p1
-%patch3  -p1
-%patch4  -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
