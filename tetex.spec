@@ -104,6 +104,7 @@ Obsoletes:	tetex-plain-plnfss
 Obsoletes:	tetex-plain-plnfss
 Obsoletes:	tetex-tex-hyphen
 Obsoletes:	tetex-tex-vietnam
+Provides:	texi2html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		texmf	%{_datadir}/texmf
