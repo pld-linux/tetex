@@ -1,0 +1,11 @@
+diff -ur tetex-src-3.0.orig/texmf/tex/cslatex/cslatex.ini tetex-src-3.0/texmf/tex/cslatex/cslatex.ini
+--- tetex-src-3.0.orig/texmf/tex/cslatex/cslatex.ini	1998-12-04 18:47:38.000000000 +0100
++++ tetex-src-3.0/texmf/tex/cslatex/cslatex.ini	2010-02-26 17:42:45.404031138 +0100
+@@ -27,5 +27,6 @@
+    \let\xordcode=\undefined \let\xchrcode=\undefined \let\xprncode=\undefined
+ \fi
+ 
++\scrollmode
+ \input latex.ltx
+-
++\endinput
