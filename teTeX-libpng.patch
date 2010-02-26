@@ -1,0 +1,71 @@
+diff -ur tetex-src-3.0.orig/libs/gd/gd_png.c tetex-src-3.0.fix/libs/gd/gd_png.c
+--- tetex-src-3.0.orig/libs/gd/gd_png.c	2004-10-28 20:09:52.000000000 +0200
++++ tetex-src-3.0.fix/libs/gd/gd_png.c	2010-02-26 17:24:37.357880506 +0100
+@@ -143,7 +143,7 @@
+   /* first do a quick check that the file really is a PNG image; could
+    * have used slightly more general png_sig_cmp() function instead */
+   gdGetBuf (sig, 8, infile);
+-  if (!png_check_sig (sig, 8))
++  if (!png_sig_cmp (sig, 0, 8))
+     return NULL;		/* bad signature */
+ 
+ #ifndef PNG_SETJMP_NOT_SUPPORTED
+diff -ur tetex-src-3.0.orig/libs/libpng/png.c tetex-src-3.0.fix/libs/libpng/png.c
+--- tetex-src-3.0.orig/libs/libpng/png.c	2004-12-03 01:14:25.000000000 +0100
++++ tetex-src-3.0.fix/libs/libpng/png.c	2010-02-26 17:25:24.591209119 +0100
+@@ -124,16 +124,6 @@
+    return ((int)(png_memcmp(&sig[start], &png_signature[start], num_to_check)));
+ }
+ 
+-/* (Obsolete) function to check signature bytes.  It does not allow one
+- * to check a partial signature.  This function might be removed in the
+- * future - use png_sig_cmp().  Returns true (nonzero) if the file is a PNG.
+- */
+-int PNGAPI
+-png_check_sig(png_bytep sig, int num)
+-{
+-  return ((int)!png_sig_cmp(sig, (png_size_t)0, (png_size_t)num));
+-}
+-
+ /* Function to allocate memory for zlib and clear it to 0. */
+ #ifdef PNG_1_0_X
+ voidpf PNGAPI
+diff -ur tetex-src-3.0.orig/libs/libpng/png.h tetex-src-3.0.fix/libs/libpng/png.h
+--- tetex-src-3.0.orig/libs/libpng/png.h	2004-12-03 01:14:24.000000000 +0100
++++ tetex-src-3.0.fix/libs/libpng/png.h	2010-02-26 17:25:32.274541731 +0100
+@@ -1383,11 +1383,6 @@
+ extern PNG_EXPORT(int,png_sig_cmp) PNGARG((png_bytep sig, png_size_t start,
+    png_size_t num_to_check));
+ 
+-/* Simple signature checking function.  This is the same as calling
+- * png_check_sig(sig, n) := !png_sig_cmp(sig, 0, n).
+- */
+-extern PNG_EXPORT(int,png_check_sig) PNGARG((png_bytep sig, int num));
+-
+ /* Allocate and initialize png_ptr struct for reading, and any other memory. */
+ extern PNG_EXPORT(png_structp,png_create_read_struct)
+    PNGARG((png_const_charp user_png_ver, png_voidp error_ptr,
+diff -ur tetex-src-3.0.orig/texk/dvipdfm/pngimage.c tetex-src-3.0.fix/texk/dvipdfm/pngimage.c
+--- tetex-src-3.0.orig/texk/dvipdfm/pngimage.c	2002-12-25 18:51:16.000000000 +0100
++++ tetex-src-3.0.fix/texk/dvipdfm/pngimage.c	2010-02-26 17:24:24.191215173 +0100
+@@ -42,7 +42,7 @@
+   rewind (png_file);
+   if (fread (sigbytes, 1, sizeof(sigbytes), png_file) !=
+       sizeof(sigbytes) ||
+-      (!png_check_sig (sigbytes, sizeof(sigbytes))))
++      (!png_sig_cmp (sigbytes, 0, sizeof(sigbytes))))
+     return 0;
+   else
+     return 1;
+diff -ur tetex-src-3.0.orig/texk/dvipdfm/thumbnail.c tetex-src-3.0.fix/texk/dvipdfm/thumbnail.c
+--- tetex-src-3.0.orig/texk/dvipdfm/thumbnail.c	2002-12-25 18:51:16.000000000 +0100
++++ tetex-src-3.0.fix/texk/dvipdfm/thumbnail.c	2010-02-26 17:24:31.327880960 +0100
+@@ -79,7 +79,7 @@
+   }
+   if (fread (sigbytes, 1, sizeof(sigbytes), thumb_file) !=
+       sizeof(sigbytes) ||
+-      (!png_check_sig (sigbytes, sizeof(sigbytes)))) {
++      (!png_sig_cmp (sigbytes, 0, sizeof(sigbytes)))) {
+     fprintf (stderr, "\nThumbnail not a png file! Skipping\n");
+     return NULL;
+   }
