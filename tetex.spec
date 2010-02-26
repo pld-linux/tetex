@@ -25,7 +25,7 @@ Summary(pt_BR.UTF-8):	Sistema de typesetting TeX e formatador de fontes MetaFont
 Summary(tr.UTF-8):	TeX dizgi sistemi ve MetaFont yazıtipi biçimlendiricisi
 Name:		tetex
 Version:	3.0
-Release:	15
+Release:	16
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
@@ -54,13 +54,15 @@ Patch9:		teTeX-locale.patch
 Patch10:	teTeX-texmfvar.patch
 Patch11:	teTeX-xetex-paths.patch
 Patch12:	teTeX-getline.patch
+Patch13:	teTeX-libpng.patch
+Patch14:	teTeX-cslatex.patch
 URL:		http://www.tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
 BuildRequires:	flex
 BuildRequires:	gd-devel >= 2.0.33
-BuildRequires:	libpng-devel >= 1.2.8
+BuildRequires:	libpng-devel >= 1.4.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	rpm-perlprov
@@ -3130,6 +3132,8 @@ cp -a %{SOURCE8} texmf/tex/latex/base
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
+%patch14 -p1
 
 %build
 find . -name "config.sub" -exec cp /usr/share/automake/config.sub '{}' ';'
