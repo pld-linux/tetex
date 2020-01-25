@@ -15,7 +15,6 @@
 # - move config files to /etc
 # - merge all above with configure switch "--enable-fhs" and send it to TE
 #
-%include	/usr/lib/rpm/macros.perl
 Summary:	TeX typesetting system and MetaFont font formatter
 Summary(de.UTF-8):	TeX-Satzherstellungssystem und MetaFont-Formatierung
 Summary(es.UTF-8):	Sistema de typesetting TeX y formateador de fuentes MetaFont
