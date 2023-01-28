@@ -28,9 +28,9 @@ Release:	16
 Epoch:		1
 License:	distributable
 Group:		Applications/Publishing/TeX
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-src-%{version}.tar.gz
+Source0:	ftp://tug.org/historic/systems/teTeX/teTeX-3.0/distrib/%{name}-src-%{version}.tar.gz
 # Source0-md5:	944a4641e79e61043fdaf8f38ecbb4b3
-Source1:	ftp://ftp.dante.de/tex-archive/systems/unix/teTeX/3.0/distrib/%{name}-texmf-%{version}.tar.gz
+Source1:	ftp://tug.org/historic/systems/teTeX/teTeX-3.0/distrib/%{name}-texmf-%{version}.tar.gz
 # Source1-md5:	ed9d30d9162d16ac8d5065cde6e0f6fa
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	dff410729717c6a4a885d19b3331ded4
@@ -38,7 +38,8 @@ Source4:	%{name}.cron
 Source5:	xdvi.desktop
 Source6:	xdvi.png
 #Source7:	%{name}-updmap
-Source8:	ftp://ftp.dante.de/tex-archive/macros/latex/unpacked/fixltx2e.sty
+# formerly ftp://ftp.dante.de/tex-archive/macros/latex/unpacked/fixltx2e.sty
+Source8:	fixltx2e.sty
 # Source8-md5:	d4f63c8d3638ea897d097f8e8948e81b
 Patch0:		teTeX-rhconfig.patch
 Patch1:		teTeX-buildr.patch
@@ -55,7 +56,7 @@ Patch11:	teTeX-xetex-paths.patch
 Patch12:	teTeX-getline.patch
 Patch13:	teTeX-libpng.patch
 Patch14:	teTeX-cslatex.patch
-URL:		http://www.tug.org/teTeX/
+URL:		https://tug.org/teTeX/
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	ed
