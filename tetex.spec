@@ -82,31 +82,26 @@ Requires:	sed
 Requires:	sh-utils
 Requires:	textutils
 Suggests:	tmpwatch
-Obsoletes:	tetex-afm
-Obsoletes:	tetex-doc
-Obsoletes:	tetex-doc-latex2e-html
-Obsoletes:	tetex-fontinst
-Obsoletes:	tetex-fontname
-Obsoletes:	tetex-fonts
-Obsoletes:	tetex-fonts-pandora
-Obsoletes:	tetex-fonts-vcm
-Obsoletes:	tetex-format-elatex
-Obsoletes:	tetex-format-pdfelatex
-Obsoletes:	tetex-format-pdfemex
-Obsoletes:	tetex-latex-vnps
-Obsoletes:	tetex-latex-vnr
-Obsoletes:	tetex-oxdvi
-Obsoletes:	tetex-oxdvi
-Obsoletes:	tetex-plain-dvips
-Obsoletes:	tetex-plain-dvips
-Obsoletes:	tetex-plain-mathtime
-Obsoletes:	tetex-plain-mathtime
-Obsoletes:	tetex-plain-misc
-Obsoletes:	tetex-plain-misc
-Obsoletes:	tetex-plain-plnfss
-Obsoletes:	tetex-plain-plnfss
-Obsoletes:	tetex-tex-hyphen
-Obsoletes:	tetex-tex-vietnam
+Obsoletes:	tetex-afm < 1:2.0
+Obsoletes:	tetex-doc < 1:3.1
+Obsoletes:	tetex-doc-latex2e-html < 1:3.0-1
+Obsoletes:	tetex-fontinst < 1:3.1
+Obsoletes:	tetex-fontname < 1:3.1
+Obsoletes:	tetex-fonts < 1:2.0
+Obsoletes:	tetex-fonts-pandora < 1:3.0
+Obsoletes:	tetex-fonts-vcm < 1:3.0
+Obsoletes:	tetex-format-elatex < 1:3.0
+Obsoletes:	tetex-format-pdfelatex < 1:3.0
+Obsoletes:	tetex-format-pdfemex < 1:3.0
+Obsoletes:	tetex-latex-vnps < 1:3.0
+Obsoletes:	tetex-latex-vnr < 1:3.0
+Obsoletes:	tetex-oxdvi < 1:3.0
+Obsoletes:	tetex-plain-dvips < 1:3.0
+Obsoletes:	tetex-plain-mathtime < 1:3.0
+Obsoletes:	tetex-plain-misc < 1:3.0
+Obsoletes:	tetex-plain-plnfss < 1:3.0
+Obsoletes:	tetex-tex-hyphen < 1:3.1
+Obsoletes:	tetex-tex-vietnam < 1:3.0
 Provides:	texi2html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -180,9 +175,9 @@ Summary(pl.UTF-8):	FAQ Grupy Użytkowników TeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-doc-de-tex-faq
-Obsoletes:	tetex-doc-LaTeX-FAQ-francaise
-Obsoletes:	tetex-doc-uktug-faq
+Obsoletes:	tetex-doc-de-tex-faq < 1:3.1
+Obsoletes:	tetex-doc-LaTeX-FAQ-francaise < 1:3.1
+Obsoletes:	tetex-doc-uktug-faq < 1:3.1
 
 %description doc-tug-faq
 TeX User Group FAQ.
@@ -357,7 +352,7 @@ Summary(pl.UTF-8):	Generator hierarchicznych indeksów ogólnego przeznaczenia
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-rumakeindex
+Obsoletes:	tetex-rumakeindex < 1:3.1
 
 %description makeindex
 A general purpose hierarchical index generator; it accepts one or more
@@ -395,7 +390,7 @@ Summary(pl.UTF-8):	Zestaw narzędzi MetaPost
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-matapost
+Obsoletes:	tetex-matapost < 1:3.1
 
 %description metapost
 MetaPost.
@@ -453,7 +448,7 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-dvips = %{epoch}:%{version}-%{release}
 Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
 Requires:	xdvi = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-texconfig
+Obsoletes:	tetex-texconfig < 1:3.1
 
 %description -n texconfig
 TeX typesetting system configurator.
@@ -474,7 +469,7 @@ Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-metafont = %{epoch}:%{version}-%{release}
 Suggests:	%{name}-dvips
-Obsoletes:	tetex-xdvi
+Obsoletes:	tetex-xdvi < 1.0-2
 
 %description -n xdvi
 xdvi is a program which runs under the X window system. It is used to
@@ -663,8 +658,8 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-ams
-Obsoletes:	tetex-plain-amsfonts
+Obsoletes:	tetex-ams < 1:2.0
+Obsoletes:	tetex-plain-amsfonts < 1:3.1
 
 %description amstex
 American Mathematical Society macros for Plain TeX basic files.
@@ -679,7 +674,7 @@ Summary(pl.UTF-8):	Makra AMS dla formatu Plain TeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-amstex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-ams
+Obsoletes:	tetex-ams < 1:2.0
 
 %description format-amstex
 American Mathematical Society macros for Plain TeX.
@@ -819,7 +814,7 @@ Summary(pl.UTF-8):	Format Cyrillic AMSTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-cyramstex
+Obsoletes:	tetex-cyramstex < 1:3.1
 
 %description format-cyramstex
 Cyrillic AMSTeX format.
@@ -833,7 +828,7 @@ Summary(pl.UTF-8):	Format Cyrillic TeXInfo
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-cyrtexinfo
+Obsoletes:	tetex-cyrtexinfo < 1:3.1
 
 %description format-cyrtexinfo
 Cyrillic TeXInfo format.
@@ -849,7 +844,7 @@ Summary(pl.UTF-8):	Podstawowe pliki dla formatu EPlain
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-plain = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-etex
+Obsoletes:	tetex-etex < 1:2.0
 
 %description eplain
 EPlain format basic files.
@@ -878,7 +873,7 @@ Summary(pl.UTF-8):	Podstawowe pliki pakietu makr ConTeXt
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-latex-context
+Obsoletes:	tetex-latex-context < 1:3.1
 
 %define		_noautoreq	'perl(path_tre)'
 
@@ -945,42 +940,42 @@ Requires:	%{name}-fonts-latex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-tex-pstricks = %{epoch}:%{version}-%{release}
 # for misc/eurosym:
 Requires:	%{name}-fonts-eurosym = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-koma-script
-Obsoletes:	tetex-latex-SIunits
-Obsoletes:	tetex-latex-caption
-Obsoletes:	tetex-latex-curves
-Obsoletes:	tetex-latex-dinbrief
-Obsoletes:	tetex-latex-dvilj
-Obsoletes:	tetex-latex-eepic
-Obsoletes:	tetex-latex-endfloat
-Obsoletes:	tetex-latex-fancyhdr
-Obsoletes:	tetex-latex-fancyheadings
-Obsoletes:	tetex-latex-fancyvrb
-Obsoletes:	tetex-latex-fp
-Obsoletes:	tetex-latex-graphics
-Obsoletes:	tetex-latex-hyperref
-Obsoletes:	tetex-latex-koma-script
-Obsoletes:	tetex-latex-labels
-Obsoletes:	tetex-latex-listings
-Obsoletes:	tetex-latex-misc
-Obsoletes:	tetex-latex-ms
-Obsoletes:	tetex-latex-multirow
-Obsoletes:	tetex-latex-mwcls
-Obsoletes:	tetex-latex-mwdtools
-Obsoletes:	tetex-latex-natbib
-Obsoletes:	tetex-latex-ntgclass
-Obsoletes:	tetex-latex-oberdiek
-Obsoletes:	tetex-latex-pb-diagram
-Obsoletes:	tetex-latex-pstricks
-Obsoletes:	tetex-latex-revtex4
-Obsoletes:	tetex-latex-seminar
-Obsoletes:	tetex-latex-t2
-Obsoletes:	tetex-latex-titlesec
-Obsoletes:	tetex-latex-tools
-Obsoletes:	tetex-latex-units
-Obsoletes:	tetex-mwcls
-Obsoletes:	tetex-revtex4
-Obsoletes:	tetex-latex-draftcopy
+Obsoletes:	tetex-bibtex-koma-script < 1:3.1
+Obsoletes:	tetex-latex-SIunits < 1:3.1
+Obsoletes:	tetex-latex-caption < 1:3.1
+Obsoletes:	tetex-latex-curves < 1:3.1
+Obsoletes:	tetex-latex-dinbrief < 1:3.1
+Obsoletes:	tetex-latex-draftcopy < 1:3.1
+Obsoletes:	tetex-latex-dvilj < 1:3.1
+Obsoletes:	tetex-latex-eepic < 1:3.1
+Obsoletes:	tetex-latex-endfloat < 1:3.1
+Obsoletes:	tetex-latex-fancyhdr < 1:3.1
+Obsoletes:	tetex-latex-fancyheadings < 1:3.1
+Obsoletes:	tetex-latex-fancyvrb < 1:3.1
+Obsoletes:	tetex-latex-fp < 1:3.1
+Obsoletes:	tetex-latex-graphics < 1:3.1
+Obsoletes:	tetex-latex-hyperref < 1:3.1
+Obsoletes:	tetex-latex-koma-script < 1:3.1
+Obsoletes:	tetex-latex-labels < 1:3.1
+Obsoletes:	tetex-latex-listings < 1:3.1
+Obsoletes:	tetex-latex-misc < 1:3.1
+Obsoletes:	tetex-latex-ms < 1:3.1
+Obsoletes:	tetex-latex-multirow < 1:3.1
+Obsoletes:	tetex-latex-mwcls < 1:3.1
+Obsoletes:	tetex-latex-mwdtools < 1:3.1
+Obsoletes:	tetex-latex-natbib < 1:3.1
+Obsoletes:	tetex-latex-ntgclass < 1:3.1
+Obsoletes:	tetex-latex-oberdiek < 1:3.1
+Obsoletes:	tetex-latex-pb-diagram < 1:3.1
+Obsoletes:	tetex-latex-pstricks < 1:3.1
+Obsoletes:	tetex-latex-revtex4 < 1:3.1
+Obsoletes:	tetex-latex-seminar < 1:3.1
+Obsoletes:	tetex-latex-t2 < 1:3.1
+Obsoletes:	tetex-latex-titlesec < 1:3.1
+Obsoletes:	tetex-latex-tools < 1:3.1
+Obsoletes:	tetex-latex-units < 1:3.1
+Obsoletes:	tetex-mwcls < 20030510
+Obsoletes:	tetex-revtex4 < rc4-3
 
 %description latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -1039,9 +1034,9 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-ams = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-latex-amscls
-Obsoletes:	tetex-latex-amsfonts
-Obsoletes:	tetex-latex-amsmath
+Obsoletes:	tetex-latex-amscls < 1:3.1
+Obsoletes:	tetex-latex-amsfonts < 1:3.1
+Obsoletes:	tetex-latex-amsmath < 1:3.1
 
 %description latex-ams
 This package is the principal package in the AMS-LaTeX distribution.
@@ -1131,9 +1126,9 @@ Summary(pl.UTF-8):	Zarządzenie bibliografią dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex
-Obsoletes:	tetex-natbib
-Obsoletes:	tetex-rubibtex
+Obsoletes:	tetex-bibtex < 1:3.1
+Obsoletes:	tetex-natbib < 1:3.1
+Obsoletes:	tetex-rubibtex < 1:3.1
 
 %description latex-bibtex
 Bibliography management for LaTeX.
@@ -1148,7 +1143,7 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex-ams = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-ams
+Obsoletes:	tetex-bibtex-ams < 1:3.1
 
 %description latex-bibtex-ams
 BibTeX style files for American Mathematical Society publications.
@@ -1194,7 +1189,7 @@ Summary(pl.UTF-8):	Polska wersja zarządzania bibliografią dla LaTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-plbib
+Obsoletes:	tetex-bibtex-plbib < 1:3.1
 
 %description latex-bibtex-pl
 Polish bibliography management for LaTeX.
@@ -1208,7 +1203,7 @@ Summary(pl.UTF-8):	Niemieckie wersje standardowych stylów BibTeXa
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex-bibtex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-germbib
+Obsoletes:	tetex-bibtex-germbib < 1:3.1
 
 %description latex-bibtex-german
 German variants of standard BibTeX styles.
@@ -1222,7 +1217,7 @@ Summary(pl.UTF-8):	Style BibTeXa dla REVTeX4
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-revtex4
+Obsoletes:	tetex-bibtex-revtex4 < 1:3.1
 
 %description latex-bibtex-revtex4
 BibTeX styles for REVTeX4.
@@ -1236,7 +1231,7 @@ Summary(pl.UTF-8):	Rozszerzona obsługa cytowania BibTeXa do tekstów humanistyc
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-bibtex-jurabib
+Obsoletes:	tetex-bibtex-jurabib < 1:3.1
 
 %description latex-bibtex-jurabib
 Extended BibTeX citation support for the humanities and legal texts.
@@ -1624,8 +1619,8 @@ Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-fonts-adobe = %{epoch}:%{version}-%{release}
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-latex-mathptm
-Obsoletes:	tetex-latex-mathptmx
+Obsoletes:	tetex-latex-mathptm < 1:3.1
+Obsoletes:	tetex-latex-mathptmx < 1:3.1
 
 %description latex-psnfss
 LaTeX font definition files, macros and font metrics for common
@@ -1748,7 +1743,7 @@ Summary(pl.UTF-8):	Pakiet makr LaTeX
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name}-latex = %{epoch}:%{version}-%{release}
-Obsoletes:	hugelatex
+Obsoletes:	hugelatex < 1
 
 %description format-latex
 LaTeX is a front end for the TeX text formatting system. Easier to use
@@ -1882,7 +1877,7 @@ Summary(pl.UTF-8):	Różne makra TeXowe
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-tex-eijkhout
+Obsoletes:	tetex-tex-eijkhout < 1:3.1
 
 %description tex-misc
 Miscellaneous TeX macros.
@@ -1978,7 +1973,7 @@ Summary(pl.UTF-8):	Różne pliki TeXowe służące do składu dokumentów w jęz
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-tex-spanishb
+Obsoletes:	tetex-tex-spanishb < 1:3.1
 
 %description tex-spanish
 Various TeX related files for typesetting documents written in
@@ -2046,7 +2041,7 @@ Summary(pl.UTF-8):	Wsparcie dla języka wietnamskiego
 Group:		Applications/Publishing/TeX
 Requires(post,postun):	%{_bindir}/texhash
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	tetex-tex-vietnam
+Obsoletes:	tetex-tex-vietnam < 1:3.0
 
 %description latex-vietnam
 Vietnamese language support.
@@ -2203,7 +2198,7 @@ Summary:	Bitstream fonts
 Summary(pl.UTF-8):	Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts
-Obsoletes:	tetex-fonts-bitstrea
+Obsoletes:	tetex-fonts-bitstrea < 1:3.0-11
 
 %description fonts-bitstream
 Bitstream fonts.
@@ -2808,7 +2803,7 @@ Summary:	Bitstream fonts
 Summary(pl.UTF-8):	Fonty Bitstream
 Group:		Fonts
 Requires:	%{name}-dirs-fonts
-Obsoletes:	tetex-fonts-type1-bitstrea
+Obsoletes:	tetex-fonts-type1-bitstrea < 1:3.0-11
 
 %description fonts-type1-bitstream
 Bitstream fonts.
